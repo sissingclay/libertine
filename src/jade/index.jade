@@ -1,0 +1,14 @@
+doctype html
+html(lang='en')
+    head
+        title= pageTitle
+
+        // build:js js/home.min.js
+        script(src='js/home/home.js')
+        // endbuild
+
+        // build:css css/home.min.css
+        link(rel='stylesheet' href='css/home/home.css')
+        // endbuild
+    body
+        h1 Jade - Is this node template engine
