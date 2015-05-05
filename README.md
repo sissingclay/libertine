@@ -13,5 +13,11 @@ npm install
 Then to run dev build run
 
 ```
-gulp build-dev
+gulp default --env dev
+```
+
+Then to run prod build run
+
+```
+gulp default --env prod
 ```
