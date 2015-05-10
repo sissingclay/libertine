@@ -1,0 +1,25 @@
+- var nav       = {};
+- nav.about     = {href: '/about.html', name: 'About'};
+- nav.about.sub = [{href: '/about-subs.html', name: 'About Subs yo'}, {href: '/about-subss.html', name: 'About Subss'}, {href: '/about-sub.html', name: 'About Sub'}];
+- nav.debt      = {href: '/debt-services.html', name: 'Debt Services'};
+- nav.legal     = {href: '/legal-services.html', name: 'Legal Services'};
+- nav.more      = {href: '/more.html', name: 'More'};
+- nav.apply     = {href: '/apply-debt-relief.html', name: 'Apply For Debt Relief'};
+
+mixin menu-item (obj)
+    if obj.href.toLowerCase() == x
+        li.active
+            a(href=obj.href, title=obj.name)= obj.name
+            if obj.sub
+                ul(aria-hidden='true', aria-label='submenu')
+                    each subVal in obj.sub
+                        li
+                            a(href=subVal.href, title=subVal.name)=subVal.name
+    else
+        li
+            a(href=obj.href, title=obj.name, aria-haspopup=obj.sub)= obj.name
+            if obj.sub
+                ul(aria-hidden='true', aria-label='submenu')
+                    each subVal in obj.sub
+                        li
+                            a(href=subVal.href, title=subVal.name)=subVal.name

@@ -1,49 +1,35 @@
-doctype html
-html(lang='en')
-    head
-        title= pageTitle
 
-        // build:css css/home.min.css
-        link(rel='stylesheet' href='css/components/normalise/normalise.css')
-        link(rel='stylesheet' href='css/components/grid/grid-mobile.css')
-        // endbuild
+extends ./extends/default.jade
 
-        <!--[if lte IE 8]>
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
-        <![endif]-->
-    body
-        header(class='lb-grid')
-            section(class='lb-grid_u lb-grid_u-3')
-                h1 Jade - Is this node template engine
-            section(class='lb-grid_u lb-grid_u-2')
-                h1 Column 2
+block title
+    title Libertine Consultants
 
-        main(class='lb-grid')
-            section(class='lb-grid_u lb-grid_u-3')
-                h2 Hello 1
-            section(class='lb-grid_u lb-grid_u-3')
-                h2 Hello 2
-            section(class='lb-grid_u lb-grid_u-3')
-                h2 Hello 3
+block prepend activeMenu
+    - var x = '/about.html'
 
-        main(class='lb-grid')
-            section(class='lb-grid_u lb-grid_u-4')
-                h2 Hello 1
-            section(class='lb-grid_u lb-grid_u-4')
-                h2 Hello 2
-            section(class='lb-grid_u lb-grid_u-4')
-                h2 Hello 3
-            section(class='lb-grid_u lb-grid_u-4')
-                h2 Hello 4
+block main
 
-        footer(class='lb-grid')
-            section(class='lb-grid_u lb-grid_u-5')
-                h2 Hello 1
-            section(class='lb-grid_u lb-grid_u-5')
-                h2 Hello 2
-            section(class='lb-grid_u lb-grid_u-5')
-                h2 Hello 3
-            section(class='lb-grid_u lb-grid_u-5')
-                h2 Hello 4
-            section(class='lb-grid_u lb-grid_u-5')
-                h2 Hello 5
+    main(class='lb-grid', role='main')
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 1
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 2
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 3
+
+    main(class='lb-grid')
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 1
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 2
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 3
+
+        section(class='lb-grid_u lb-grid_u-1')
+            h2 Hello 4

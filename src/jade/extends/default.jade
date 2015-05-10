@@ -1,0 +1,72 @@
+doctype html
+
+html(lang='en')
+
+    head
+
+        block meta
+
+            title Libertine Consultants
+            meta(name='description', content='this is a test')
+            meta(name='author', content='Libertine Consultants')
+            meta(name='msvalidate.01', content='AB0F4FC0C298F546B6E11AB099848CAB')
+            meta(name='google-site-verification', content='ww11v4k5h5PRcIK0rSM42lewh1eDcDMgAn57KstPzNY')
+            meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        block css
+            // build:css css/home.min.css
+            link(rel='stylesheet' href='css/components/normalise/normalise.css')
+            link(rel='stylesheet' href='css/components/grid/grid-mobile.css')
+            // endbuild
+
+        <!--[if lte IE 8]>
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
+        <![endif]-->
+
+    body
+
+        header(role='banner')
+
+            div(class='lb-container')
+
+                section(class='lb-grid')
+
+                    section(class='lb-grid_u lb-grid_u-2')
+
+                        picture
+                            source(media="(min-width: 40em)" srcset="http://placehold.it/350x150 1x, http://placehold.it/350x150 2x")
+                            source(srcset="http://placehold.it/350x150 1x, http://placehold.it/350x150 2x")
+                            img(src="http://placehold.it/350x150" alt="")
+
+                    nav(class='lb-grid_u lb-grid_u-2', role='navigation', aria-label='Main navigation')
+
+                        block activeMenu
+                            include ../partials/var-menu.jade
+
+                        ul
+                            each val in nav
+                                +menu-item(val)
+
+        block main
+
+        block footer
+
+            footer(class='lb-grid', role='contentinfo')
+
+                section(class='lb-grid_u lb-grid_u-1')
+                    h2 Hello 1
+
+                section(class='lb-grid_u lb-grid_u-1')
+                    h2 Hello 2
+
+                section(class='lb-grid_u lb-grid_u-1')
+                    h2 Hello 3
+
+                section(class='lb-grid_u lb-grid_u-1')
+                    h2 Hello 4
+
+                section(class='lb-grid_u lb-grid_u-1')
+                    h2 Hello 5
+
+        block js
+            script(src='https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js' async='async')
