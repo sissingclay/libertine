@@ -61,6 +61,10 @@
         gulp.watch(paths.scss, ['sass']);
     });
 
+    gulp.task('watchSass', function () {
+        gulp.watch(paths.scss, ['sass']);
+    });
+
     //Compiles jade template into html
     gulp.task('jade', function () {
         return gulp.src(paths.jadeTemplates)

@@ -3,12 +3,47 @@ html(lang='en')
     head
         title= pageTitle
 
-        // build:js js/home.min.js
-        script(src='js/home/home.js')
+        // build:css css/home.min.css
+        link(rel='stylesheet' href='css/components/normalise/normalise.css')
+        link(rel='stylesheet' href='css/components/grid/grid-mobile.css')
         // endbuild
 
-        // build:css css/home.min.css
-        link(rel='stylesheet' href='css/home/home.css')
-        // endbuild
+        <!--[if lte IE 8]>
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
+        <![endif]-->
     body
-        h1 Jade - Is this node template engine
+        header(class='lb-grid')
+            div(class='lb-grid-u lb-grid-u_2')
+                h1 Jade - Is this node template engine
+            div(class='lb-grid-u lb-grid-u_2')
+                h1 Column 2
+
+        main(class='lb-grid')
+            section(class='lb-grid-u lb-grid-u_3')
+                h2 Hello 1
+            section(class='lb-grid-u lb-grid-u_3')
+                h2 Hello 2
+            section(class='lb-grid-u lb-grid-u_3')
+                h2 Hello 3
+
+        main(class='lb-grid')
+            section(class='lb-grid-u lb-grid-u_4')
+                h2 Hello 1
+            section(class='lb-grid-u lb-grid-u_4')
+                h2 Hello 2
+            section(class='lb-grid-u lb-grid-u_4')
+                h2 Hello 3
+            section(class='lb-grid-u lb-grid-u_4')
+                h2 Hello 4
+
+        footer(class='lb-grid')
+            section(class='lb-grid-u lb-grid-u_5')
+                h2 Hello 1
+            section(class='lb-grid-u lb-grid-u_5')
+                h2 Hello 2
+            section(class='lb-grid-u lb-grid-u_5')
+                h2 Hello 3
+            section(class='lb-grid-u lb-grid-u_5')
+                h2 Hello 4
+            section(class='lb-grid-u lb-grid-u_5')
+                h2 Hello 5
