@@ -1,34 +1,52 @@
-import('../general-mixin');
+@import '../base/base-mixin';
+@import 'grid-mixin';
 
 .container {
     position: relative;
     width: 100%;
-    max-width: 960px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box;
+    @include box-sizing(border-box);
 }
 
 .lb-grid {
+    @include box-sizing(border-box);
 
-    .lb-grid-u {
-        width: 100%;
+    &:after {
+        content: '';
+        display: block;
+        visibility: hidden;
+        clear: both;
+        height: 0;
+    }
+
+    .lb-grid_u {
+        @include grid-sizes (1);
         float: left;
+        padding: 15px;
+        @include box-sizing(border-box);
     }
 
-    .lb-grid-u_2 {
-        width: 50%;
-    }
+    @for $i from 2 through 12 {
 
-    .lb-grid-u_3 {
-        width: 33%;
-    }
+        // Breakpoint columns
+        #{'.lb-grid_u-'+$i} {
+            @include grid-sizes($i);
+        }
 
-    .lb-grid-u_4 {
-        width: 25%;
-    }
+        // Offset
+        #{'.lb-grid_u-offset-'+$i} {
+            @include offset($i);
+        }
 
-    .lb-grid-u_5 {
-        width: 20%;
+        // Push
+        #{'.lb-grid_u-push-'+$i} {
+            @include push($i);
+        }
+
+        // Pull
+        #{'.lb-grid_u-pull-'+$i} {
+            @include pull($i);
+        }
     }
 }
