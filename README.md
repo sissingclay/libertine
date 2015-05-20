@@ -1,6 +1,6 @@
 # libertine
 
-[![Deployment status from dploy.io](https://libertine-consultants.dploy.io/badge/66802253967357/31354.svg)](http://dploy.io)
+https://codeship.com/projects/ad70b420-e138-0132-4204-1a964490c67f/status?branch=master
 
 These are the following libraries used.
 * Gulp - Task runner
