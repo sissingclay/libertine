@@ -1,6 +1,6 @@
 # libertine
 
-[![Deployment status from dploy.io](https://libertine-consultants.dploy.io/badge/66802253967357/31354.svg)](http://dploy.io)
+[ ![Codeship Status for sissingclay/libertine](https://codeship.com/projects/ad70b420-e138-0132-4204-1a964490c67f/status?branch=master)](https://codeship.com/projects/81123)
 
 These are the following libraries used.
 * Gulp - Task runner
