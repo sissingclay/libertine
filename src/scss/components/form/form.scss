@@ -1,0 +1,59 @@
+.lb-form {
+    background-color: $grey-color;
+    @include rem(padding, 1rem);
+    position: relative;
+    
+    .lb-form-close {
+        background-color: $red-color;
+        color: $white-color;
+        @include rem(padding, 1rem);
+        text-transform: uppercase;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    
+    .lb-form-section {
+        @include rem(margin-bottom, 1rem);
+    }
+    
+    .lb-form-input {
+        width: 100%;
+        @include borderRadius(5px);
+        @include rem(padding, 0.5rem);
+        @include box-sizing(border-box);
+        
+        @include placeholder {
+            color: $grey-color;
+        }
+        
+        &:focus {
+            @include placeholder {
+                color: $white-color;
+            }
+        }
+        
+    }
+    
+    .lb-form-title {
+        color: $white-color;
+        @include rem(font-size, 1.375rem);
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    
+    .lb-form-label {
+        color: $white-color;
+        display: block;
+        text-transform: uppercase;
+        @include rem(font-size, 1rem);
+    }
+    
+    &:after {
+        content: '';
+        visibility: hidden;
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}

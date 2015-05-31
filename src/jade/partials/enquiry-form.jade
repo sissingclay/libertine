@@ -1,20 +1,22 @@
 form(class='lb-form')
     
+    a(href='' class='lb-form-close') X Close
+
     section
-        p Get In Touch
+        p(class='lb-form-title') Get In Touch
 
     section(class='lb-form-section')
-        label(for='name' class='lb-form-label_block') Full Name
+        label(for='name' class='lb-form-label') Full Name
         input(type='text' name='name' placeholder='Clay Sissing' class='lb-form-input' id='name')
         span(class='lb-form-error')
 
     section(class='lb-form-section')
-        label(for='email' class='lb-form-label_block') Email Address
+        label(for='email' class='lb-form-label') Email Address
         input(type='email' name='email' placeholder='claysissing@libertineconsultants.co.za' class='lb-form-input' id='email')
         span(class='lb-form-error')
 
     section(class='lb-form-section')
-        label(for='number' class='lb-form-label_block') Contact Number
+        label(for='number' class='lb-form-label') Contact Number
         input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number')
         span(class='lb-form-error')
 

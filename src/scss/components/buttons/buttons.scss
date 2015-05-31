@@ -8,9 +8,12 @@
     @include rem(padding, 1.25rem 1.875rem);
     @include rem(margin-bottom, 1.25rem);
     @include rem(margin-right, 1rem);
-    display: block;
-    float: left;
     @include transition(all);
+    
+    &.lb-btn_block {
+        display: block;
+        float: left;
+    }
     
     &:hover {
         color: $grey-dark-color;
@@ -27,16 +30,28 @@
             background-color: $purple-color;
             border: 1px solid $purple-color;
         }
+        
+        &.lb-btn_action-pull-right {
+            float: right;
+        }
     }
 }
 
-.lb-action-text {
-    clear: both;
-    @include rem(font-size, 1rem);
-    @include rem(margin-bottom, 0);
-    @include rem(line-height, 1.2rem);
+.lb-cta {
     
-    a {
-        text-decoration: underline;
+    &.lb-cta_center {
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .lb-cta-text {
+        clear: both;
+        @include rem(font-size, 1rem);
+        @include rem(margin-bottom, 0);
+        @include rem(line-height, 1.2rem);
+
+        a {
+            text-decoration: underline;
+        }
     }
 }
