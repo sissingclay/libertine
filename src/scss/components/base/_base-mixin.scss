@@ -1,0 +1,61 @@
+@import './src/scss/components/functions/rems';
+
+$grey-color: #4c4851;
+$white-color: #ffffff;
+$light-grey-color: #ccc6c0;
+$purple-color: #5f5cb8;
+$grey-darkest-color: #333333;
+$grey-dark-color: #424242;
+$brown-color: #a09a97;
+$brown-darker-color: #736258;
+$red-color: #ff4056;
+
+$padding: 15px;
+
+$speed: 500ms;
+$effect: ease-in-out;
+
+$opacity: 0.4;
+
+$prefixes: -webkit-, -moz-, -o-, "";
+
+@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model;
+     -moz-box-sizing: $box-model;
+          box-sizing: $box-model;
+}
+
+@mixin transition($property, $speed: $speed, $effect: $effect) {
+    @each $prefix in $prefixes {
+        #{$prefix}transition: $property $speed $effect;
+    }
+}
+
+
+//@include borderRadius(16px);
+@mixin borderRadius($size) {
+    @if length($size) == 1 {
+        @each $prefix in $prefixes {
+            #{$prefix}border-radius: $size;
+        }
+    } @else {
+        @include customBorderRadius($size);
+    }
+}
+
+//@include borderRadius(4px, 8px, 16px, 32px);
+@mixin customBorderRadius($topLeft: 0, $topRight: 0, $bottomRight: 0, $bottomLeft: 0) {
+    @each $prefix in $prefixes {
+        @if $prefix == "-moz-" {
+            @if $topLeft != 0 { -moz-border-radius-topleft: $topLeft; }
+            @if $topRight != 0 { -moz-border-radius-topright: $topRight; }
+            @if $bottomRight != 0 { -moz-border-radius-bottomright: $bottomRight; }
+            @if $bottomLeft != 0 { -moz-border-radius-bottomleft: $bottomLeft; }
+        } @else {
+            @if $topLeft != 0 { #{$prefix}border-top-left-radius: $topLeft; }
+            @if $topRight != 0 { #{$prefix}border-top-right-radius: $topRight; }
+            @if $bottomRight != 0 { #{$prefix}border-bottom-right-radius: $bottomRight; }
+            @if $bottomLeft != 0 { #{$prefix}border-bottom-left-radius: $bottomLeft; }
+        }
+    }
+}

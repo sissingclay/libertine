@@ -1,0 +1,60 @@
+.lb-mobile-menu {
+    color: $white-color;
+    text-decoration: none;
+    @include rem(font-size, 1.2rem);
+    @include rem(line-height, 1.8rem);
+    position: relative;
+    @include rem(padding-left, 1.6rem);
+    text-transform: uppercase;
+    
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.25em;
+        width: 1em;
+        height: 0.10em;
+        background: $white-color;
+        box-shadow: 
+          0 0.25em 0 0 $white-color,
+          0 0.5em 0 0 $white-color;
+    }
+}
+
+.lb-menu {
+    color: $white-color;
+    display: none;
+    
+    ul {
+        list-style-type: none;
+    }
+    
+    .lb-menu-link {
+        color: $white-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include rem(font-size, 1.2rem);
+        @include rem(line-height, 1.8rem);
+        
+        a, a:visited {
+            color: $white-color;
+            text-decoration: none;
+            display: block;
+        }
+        
+        ul {
+            
+            a, a:visited {
+                @include rem(padding-left, .75rem);
+            }
+        }
+        
+        &:last-child {
+            @include borderRadius(5px);
+            border: 1px solid $white-color;
+            @include rem(padding, 1rem 1.25rem);
+            text-align: center;
+            @include rem(margin-top, 1rem);
+        }
+    }
+}

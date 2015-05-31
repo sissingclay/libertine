@@ -7,8 +7,8 @@
 - nav.apply     = {href: '/apply-debt-relief.html', name: 'Apply For Debt Relief'};
 
 mixin menu-item (obj)
-    if obj.href.toLowerCase() == x
-        li.active
+    if obj.href.toLowerCase() == activePage
+        li(class='lb-menu-link active')
             a(href=obj.href, title=obj.name, aria-haspopup=typeof obj.sub !== 'undefined' ? 'true' : 'false')= obj.name
             if obj.sub
                 ul(aria-hidden='true', aria-label='submenu')
@@ -16,7 +16,7 @@ mixin menu-item (obj)
                         li
                             a(href=subVal.href, title=subVal.name)=subVal.name
     else
-        li
+        li(class='lb-menu-link')
             a(href=obj.href, title=obj.name, aria-haspopup=typeof obj.sub !== 'undefined' ? 'true' : 'false')= obj.name
             if obj.sub
                 ul(aria-hidden='true', aria-label='submenu')

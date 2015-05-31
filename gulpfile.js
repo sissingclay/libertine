@@ -34,19 +34,16 @@
         options     = minimist(process.argv.slice(2), knownOptions),
 
         paths       = {
-            'jadeTemplates': './src/jade/**/*.jade',
+            'jadeViews': './src/jade/views/**/*.jade',
+            'jade': './src/jade/**/*.jade',
             'ts': './src/ts/**/*.ts',
+            'sassViews': './src/scss/views/**/*.scss',
             'sass': './src/scss/**/*.scss',
             'build': './build/',
             'html': './build/**/*.html',
             'img': './src/img/*',
             'dist': './build/'
         };
-
-    if (options.env === 'prod') {
-        paths.dist  = './build/';
-        paths.img   = paths.build + 'img/*';
-    }
 
     // watch files for changes and reload
     gulp.task('serve', function () {
@@ -56,18 +53,18 @@
             }
         });
 
-        gulp.watch(paths.jadeTemplates, ['jade']);
+        gulp.watch(paths.jade, ['jade']);
         gulp.watch(paths.ts, ['typescript']);
-        gulp.watch(paths.scss, ['sass']);
+        gulp.watch(paths.sass, ['sass']);
     });
 
     gulp.task('watchSass', function () {
-        gulp.watch(paths.scss, ['sass']);
+        gulp.watch(paths.sass, ['sass']);
     });
 
     //Compiles jade template into html
     gulp.task('jade', function () {
-        return gulp.src(paths.jadeTemplates)
+        return gulp.src(paths.jadeViews)
             .pipe(jade({
                 pretty: true
             }))
@@ -84,7 +81,7 @@
     });
 
     gulp.task('sass', function () {
-        gulp.src(paths.sass)
+        gulp.src(paths.sassViews)
             .pipe(sass())
             .pipe(gulp.dest(paths.build + 'css/'))
             .pipe(reload({ stream: true }));
@@ -104,14 +101,7 @@
         return gulp.src(paths.img)
             .pipe(gulp.dest(paths.dist + 'img/'));
     });
-
-    gulp.task('removeBuild', function () {
-        del([paths.build], function (err, deletedFiles) {
-            console.log('Files deleted:', deletedFiles.join(', '));
-        });
-    });
-
-
+    
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
         return gulp.src([paths.html, paths.build + 'img/*'])
@@ -123,15 +113,9 @@
             .pipe(gulp.dest(paths.dist));
     });
 
-    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img']);
+    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve']);
 
     gulp.task('build', function () {
-
-        if (options.env === 'prod') {
-            return runSequence(
-                ['jade', 'typescript', 'sass', 'img']
-            );
-        }
 
         runSequence(
             'build-dev'

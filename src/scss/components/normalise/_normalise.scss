@@ -10,6 +10,20 @@ html {
     font-family: sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
+    @include box-sizing(border-box);
+    font-size: 100%;
+    
+    text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
+    font-smooth: always;
+
+    font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    font-family: 'helvetica neue', Arial, Helvetica, sans-serif;
 }
 
 /**
@@ -18,6 +32,17 @@ html {
 
 body {
     margin: 0;
+    @include box-sizing(border-box);
+    
+    text-rendering: optimizeLegibility;
+    text-rendering: geometricPrecision;
+    font-smooth: always;
+
+    font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* HTML5 display definitions
@@ -44,6 +69,11 @@ nav,
 section,
 summary {
     display: block;
+    @include box-sizing(border-box);
+}
+
+div {
+    @include box-sizing(border-box);
 }
 
 /**
@@ -88,6 +118,9 @@ template {
 
 a {
     background-color: transparent;
+    text-decoration: none;
+    @include transition(color);
+    color: $purple-color;
 }
 
 /**
@@ -133,8 +166,10 @@ dfn {
  */
 
 h1 {
-    font-size: 2em;
-    margin: 0 0 0.67em;
+    @include rem(font-size, 2.5rem);
+    @include rem(margin, 0 0 2.5rem);
+    @include rem(line-height, 3.125rem);
+    color: $grey-darkest-color;
 }
 
 /**
@@ -424,4 +459,15 @@ table {
 td,
 th {
     padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    @include rem(margin, 0 0 2.5rem);
+    @include rem(line-height, 2.5rem);
+    color: $grey-dark-color;
 }

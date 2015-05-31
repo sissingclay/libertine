@@ -1,16 +1,12 @@
-@import '../base/base-mixin';
 @import 'grid-mixin';
 
 .lb-container {
     position: relative;
-    width: 100%;
-    max-width: 1280px;
+    @include rem(max-width, 1280px);
     margin: 0 auto;
-    @include box-sizing(border-box);
 }
 
 .lb-grid {
-    @include box-sizing(border-box);
 
     &:after {
         content: '';
@@ -23,11 +19,10 @@
     .lb-grid_u {
         @include grid-sizes (1);
         float: left;
-        padding: 15px;
-        @include box-sizing(border-box);
+        padding: $padding;
     }
 
-    @for $i from 2 through 12 {
+    @for $i from 1 through 2 {
 
         // Breakpoint columns
         #{'.lb-grid_u-'+$i} {

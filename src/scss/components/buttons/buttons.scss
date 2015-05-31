@@ -1,0 +1,42 @@
+.lb-btn {
+    text-transform: uppercase;
+    @include rem(font-size, 1rem);
+    border: 1px solid $brown-color;
+    @include borderRadius(5px);
+    color: $brown-darker-color;
+    font-weight: bold;
+    @include rem(padding, 1.25rem 1.875rem);
+    @include rem(margin-bottom, 1.25rem);
+    @include rem(margin-right, 1rem);
+    display: block;
+    float: left;
+    @include transition(all);
+    
+    &:hover {
+        color: $grey-dark-color;
+    }
+    
+    &.lb-btn_action {
+        background-color: $red-color;
+        border: 1px solid $red-color;
+        color: $white-color;
+        @include rem(margin-right, 0);
+        
+        &:hover {
+            color: $white-color;
+            background-color: $purple-color;
+            border: 1px solid $purple-color;
+        }
+    }
+}
+
+.lb-action-text {
+    clear: both;
+    @include rem(font-size, 1rem);
+    @include rem(margin-bottom, 0);
+    @include rem(line-height, 1.2rem);
+    
+    a {
+        text-decoration: underline;
+    }
+}
