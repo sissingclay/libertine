@@ -44,7 +44,7 @@
         };
 
     if (options.env === 'prod') {
-        paths.dist  = './dist/';
+        paths.dist  = './build/';
         paths.img   = paths.build + 'img/*';
     }
 
@@ -123,16 +123,13 @@
             .pipe(gulp.dest(paths.dist));
     });
 
-    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve']);
+    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img']);
 
     gulp.task('build', function () {
 
         if (options.env === 'prod') {
             return runSequence(
-                'build-dev',
-                'usemin',
-                'moveImg',
-                'removeBuild'
+                ['jade', 'typescript', 'sass', 'img']
             );
         }
 
