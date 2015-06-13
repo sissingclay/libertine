@@ -136,6 +136,7 @@
     });
 
     gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont']);
+    gulp.task('build-prod', ['jade', 'typescript', 'sass', 'img', 'iconFont']);
 
     gulp.task('build', function () {
 
