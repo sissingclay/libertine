@@ -1,0 +1,15 @@
+.lb-hero {
+    background: url('/img/home-hero-mobile.jpg') no-repeat center center;
+    background-size: cover;
+    
+    .lb-hero_container {
+        //@include rem(max-width, 30rem);
+        @include rem(margin-top, 1.5rem);
+    }
+    
+    .lb-hero-text {
+        @include rem(font-size, 1.875rem);
+        font-family: 'Lato';
+        font-weight: 300;
+    }
+}

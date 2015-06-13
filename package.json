@@ -20,6 +20,8 @@
     "browser-sync": "^2.6.4",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
+    "gulp-iconfont": "^2.0.0",
+    "gulp-iconfont-css": "0.0.9",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-jade": "^1.0.0",

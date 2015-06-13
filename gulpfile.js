@@ -23,6 +23,8 @@
         minimist    = require('minimist'),
         gulpif      = require('gulp-if'),
         del         = require('del'),
+        iconfontCss = require('gulp-iconfont-css'),
+        iconfont    = require('gulp-iconfont'),
 
         knownOptions = {
             string: 'env',
@@ -101,7 +103,7 @@
         return gulp.src(paths.img)
             .pipe(gulp.dest(paths.dist + 'img/'));
     });
-    
+
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
         return gulp.src([paths.html, paths.build + 'img/*'])
@@ -113,7 +115,27 @@
             .pipe(gulp.dest(paths.dist));
     });
 
-    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve']);
+    gulp.task('iconFont', function () {
+
+        var fontName    = 'lb-icons';
+
+        gulp.src(['src/svgs/*.svg'])
+            .pipe(iconfontCss({
+                fontName: fontName,
+                path: 'src/icons/_icons.css',
+                targetPath: '../css/_icons.css',
+                fontPath: '../fonts/',
+                className: 'lb-icon',
+                normalize: true
+            }))
+            .pipe(iconfont({
+                fontName: fontName,
+                appendCodepoints: true // recommended option
+            }))
+            .pipe(gulp.dest('build/fonts/'));
+    });
+
+    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont']);
 
     gulp.task('build', function () {
 

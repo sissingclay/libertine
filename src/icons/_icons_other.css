@@ -1,0 +1,59 @@
+@font-face {
+    font-family: "<%= fontName %>";
+    src: url('<%= fontPath %><%= fontName %>.eot');
+    src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+    url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+    url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+    url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+.cc-fa {
+    font-family: "<%= fontName %>";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+}
+
+.cc-fa-1 {
+    font-size: 1em;
+}
+
+.cc-fa-2 {
+    font-size: 2em;
+}
+
+.cc-fa-3 {
+    font-size: 3em;
+}
+
+.cc-fa-4 {
+    font-size: 4em;
+}
+
+.cc-fa-5 {
+    font-size: 5em;
+}
+
+.cc-fa-6 {
+    font-size: 6em;
+}
+
+.cc-fa-9 {
+    font-size: 9em;
+}
+
+.cc-fa-12 {
+    font-size: 12em;
+}
+
+<% _.each(glyphs, function(glyph) { %>
+.cc-fa-<%= glyph.fileName %>:before {
+    content: "\<%= glyph.codePoint %>";
+}
+<% }); %>

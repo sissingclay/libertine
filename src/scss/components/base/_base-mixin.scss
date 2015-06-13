@@ -1,14 +1,19 @@
 @import './src/scss/components/functions/rems';
 
+$font: Arial, Helvetica, 'helvetica neue', sans-serif;
+
 $grey-color: #4c4851;
 $white-color: #ffffff;
 $light-grey-color: #ccc6c0;
 $purple-color: #5f5cb8;
+$purple-lighter-color: #9999ff;
 $grey-darkest-color: #333333;
 $grey-dark-color: #424242;
 $brown-color: #a09a97;
 $brown-darker-color: #736258;
 $red-color: #ff4056;
+$footer-color: #5c5963;
+$grey-background: #f5f4f3;
 
 $padding: 15px;
 
@@ -17,7 +22,7 @@ $effect: ease-in-out;
 
 $opacity: 0.4;
 
-$prefixes: -webkit-, -moz-, -o-, "";
+$prefixes: -webkit-, -moz-, -o-, -ms-, "";
 
 @mixin box-sizing($box-model) {
   -webkit-box-sizing: $box-model;
@@ -36,27 +41,24 @@ $prefixes: -webkit-, -moz-, -o-, "";
 @mixin borderRadius($size) {
     @if length($size) == 1 {
         @each $prefix in $prefixes {
-            #{$prefix}border-radius: $size;
+            @if $prefix != "-webkit-" {
+                #{$prefix}border-radius: $size;
+            }
         }
     } @else {
-        @include customBorderRadius($size);
+        @if $prefix != "-webkit-" {
+            @include customBorderRadius($size);
+        }
     }
 }
 
 //@include borderRadius(4px, 8px, 16px, 32px);
 @mixin customBorderRadius($topLeft: 0, $topRight: 0, $bottomRight: 0, $bottomLeft: 0) {
     @each $prefix in $prefixes {
-        @if $prefix == "-moz-" {
-            @if $topLeft != 0 { -moz-border-radius-topleft: $topLeft; }
-            @if $topRight != 0 { -moz-border-radius-topright: $topRight; }
-            @if $bottomRight != 0 { -moz-border-radius-bottomright: $bottomRight; }
-            @if $bottomLeft != 0 { -moz-border-radius-bottomleft: $bottomLeft; }
-        } @else {
-            @if $topLeft != 0 { #{$prefix}border-top-left-radius: $topLeft; }
-            @if $topRight != 0 { #{$prefix}border-top-right-radius: $topRight; }
-            @if $bottomRight != 0 { #{$prefix}border-bottom-right-radius: $bottomRight; }
-            @if $bottomLeft != 0 { #{$prefix}border-bottom-left-radius: $bottomLeft; }
-        }
+        @if $topLeft != 0 { #{$prefix}border-top-left-radius: $topLeft; }
+        @if $topRight != 0 { #{$prefix}border-top-right-radius: $topRight; }
+        @if $bottomRight != 0 { #{$prefix}border-bottom-right-radius: $bottomRight; }
+        @if $bottomLeft != 0 { #{$prefix}border-bottom-left-radius: $bottomLeft; }
     }
 }
 
@@ -69,4 +71,9 @@ $prefixes: -webkit-, -moz-, -o-, "";
     &:-moz-placeholder           {@content}
     &::-moz-placeholder          {@content}
     &:-ms-input-placeholder      {@content}  
+}
+
+@mixin lato-family {
+    font-family: 'Lato';
+    font-weight: 300;
 }

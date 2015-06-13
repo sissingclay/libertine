@@ -1,6 +1,6 @@
 block footer
 
-    footer(class='lb-grid', role='contentinfo')
+    footer(class='lb-grid lb-footer', role='contentinfo')
         
         div(class='lb-container')
 
@@ -19,14 +19,17 @@ block footer
                     li
                         a(href='') Disclaimer
 
-                p &copy; 2015 LIBERTINE CONSULTANTS IN CAPE TOWN, ALL RIGHTS RESERVED 
+                p &copy; 2015 Libertine Consultants in <a href="https://www.capetown.gov.za/en/Pages/default.aspx" target="blank">Cape Town</a>, all rights reserved
 
             section(class='lb-grid_u lb-grid_u-1')
-                p
-                    GET SOCIAL WITH US ON
 
-                a(href='') Google
-                a(href='') Twitter
-                a(href='') Facebook
+                p GET SOCIAL WITH US ON
+
+                a(href="https://plus.google.com/+LibertineconsultantsCoZa" target="_blank" class="lb-footer-social")
+                    i(class='lb-icon lb-07-google-plus lb-icon-2')
+                a(href="https://www.facebook.com/pages/Libertine-Consultants/323993848116" target="_blank" class="lb-footer-social")
+                    i(class='lb-icon lb-06-facebook lb-icon-2')
+                a(href="https://twitter.com/libertinec" target="_blank" class="lb-footer-social")
+                    i(class='lb-icon lb-14-twitter lb-icon-2')
 
 include scripts/footer-scripts.jade

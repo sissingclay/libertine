@@ -1,0 +1,21 @@
+.lb-container {
+    position: relative;
+    @include rem(max-width, 1280px);
+    margin: 0 auto;
+}
+
+.lb-container-push-top {
+    @include rem(margin-top, 1rem);
+}
+
+.lb-container_purple {
+    background-color: $purple-color;
+
+    h2, p {
+        color: $white-color;
+    }
+}
+
+.lb-container_grey {
+    background-color: $grey-background;
+}

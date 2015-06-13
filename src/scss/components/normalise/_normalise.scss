@@ -23,7 +23,7 @@ html {
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
     
-    font-family: 'helvetica neue', Arial, Helvetica, sans-serif;
+    font-family: $font;
 }
 
 /**
@@ -76,39 +76,6 @@ div {
     @include box-sizing(border-box);
 }
 
-/**
- * 1. Correct `inline-block` display not defined in IE 8/9.
- * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
- */
-
-audio,
-canvas,
-progress,
-video {
-    display: inline-block; /* 1 */
-    vertical-align: baseline; /* 2 */
-}
-
-/**
- * Prevent modern browsers from displaying `audio` without controls.
- * Remove excess height in iOS 5 devices.
- */
-
-audio:not([controls]) {
-    display: none;
-    height: 0;
-}
-
-/**
- * Address `[hidden]` styling not present in IE 8/9/10.
- * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
- */
-
-[hidden],
-template {
-    display: none;
-}
-
 /* Links
    ========================================================================== */
 
@@ -121,6 +88,10 @@ a {
     text-decoration: none;
     @include transition(color);
     color: $purple-color;
+
+    &:visited {
+        color: $purple-lighter-color;
+    }
 }
 
 /**
@@ -132,32 +103,9 @@ a:hover {
     outline: 0;
 }
 
-/* Text-level semantics
-   ========================================================================== */
-
-/**
- * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
- */
-
-abbr[title] {
-    border-bottom: 1px dotted;
-}
-
-/**
- * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
- */
-
 b,
 strong {
     font-weight: bold;
-}
-
-/**
- * Address styling not present in Safari and Chrome.
- */
-
-dfn {
-    font-style: italic;
 }
 
 /**
@@ -176,15 +124,11 @@ h2 {
     @include rem(font-size, 1.875rem);
     @include rem(margin, 0 0 2.5rem);
     @include rem(line-height, 2.5rem);
+    color: $purple-color;
 }
 
-/**
- * Address styling not present in IE 8/9.
- */
-
-mark {
-    background: #ff0;
-    color: #000;
+h1, h2, h3, h4, h5, h6, p {
+    @include lato-family;
 }
 
 /**
@@ -243,36 +187,6 @@ svg:not(:root) {
 
 figure {
     margin: 1em 40px;
-}
-
-/**
- * Address differences between Firefox and other browsers.
- */
-
-hr {
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
-    height: 0;
-}
-
-/**
- * Contain overflow in all browsers.
- */
-
-pre {
-    overflow: auto;
-}
-
-/**
- * Address odd `em`-unit font size rendering in all browsers.
- */
-
-code,
-kbd,
-pre,
-samp {
-    font-family: monospace, monospace;
-    font-size: 1em;
 }
 
 /* Forms
@@ -473,7 +387,7 @@ ul {
 }
 
 p {
-    @include rem(margin, 2.5rem 0 2.5rem);
+    @include rem(margin, 0 0 2.5rem);
     @include rem(line-height, 2.5rem);
     color: $grey-dark-color;
     @include rem(font-size, 1.375rem);

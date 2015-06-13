@@ -1,6 +1,16 @@
 .lb-language {
     background-color: $purple-color;
     padding: $padding;
+
+    &:after {
+        position:absolute;
+        font-family: lb-icons;
+        top: 25%;
+        right: $padding;
+        color: $white-color;
+        content: "\E008";
+        font-size: 1.5em;
+    }
     
     .lb-language-list {
         display: inline-block;

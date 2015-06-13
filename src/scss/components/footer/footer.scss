@@ -1,0 +1,43 @@
+.lb-footer {
+    background-color: $footer-color;
+    color: $white-color;
+    @include rem(font-size, 1rem);
+    @include lato-family;
+
+    ul {
+        @include rem(margin, 0 0 1.25rem 0);
+        list-style-type: none;
+
+        li {
+            @include rem(font-size, 1rem);
+            @include lato-family;
+            @include rem(line-height, 2.4rem);
+
+            a {
+                color: $white-color;
+                @include rem(padding, 0.5rem 0);
+            }
+        }
+    }
+
+    p {
+        color: $white-color;
+        text-transform: none;
+        @include rem(font-size, 1rem);
+        @include rem(line-height, 1.25rem);
+        margin-bottom: 0;
+
+        a {
+            color: $purple-lighter-color;
+        }
+    }
+
+    .lb-footer-social {
+        color: $white-color;
+        @include rem(margin-right, 0.5rem);
+
+        .lb-icon {
+            color: $white-color;
+        }
+    }
+}

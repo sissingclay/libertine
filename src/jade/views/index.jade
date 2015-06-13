@@ -23,17 +23,17 @@ block main
 
             div(class='lb-container')
 
-                div(class='lb-hero_container')
+                div(class='lb-hero_container text-center')
 
                     h1 Debt counselling done properly
 
                     p(class='lb-hero-text') Support before, during and after debt counselling ensures that individuals have the best opportunity for success.
                     
-                    div(class='lb-cta')
+                    div(class='lb-cta lb-cta_center')
 
-                        a(href='' class='lb-btn lb-btn_block') Find Out More
+                        a(href='' class='lb-btn lb-btn_push-right') Find Out More
 
-                        a(href='' class='lb-btn lb-btn_block lb-btn_action') Get Help you Need
+                        a(href='' class='lb-btn lb-btn_action') Get Help you Need
 
                         p(class='lb-cta-text')
                             small Need to talk to us? Call <a href='tel:+27219492211'>+27 (021) 949 2211</a> for advice
@@ -42,9 +42,11 @@ block main
 
         include ../partials/enquiry-form.jade
 
-        section(class='lb-container lb-grid')
+        section(class='lb-container lb-container-push-top lb-grid')
 
-            div(class='lb-grid_u lb-grid_u-1')
+            div(class='lb-grid_u lb-grid_u-1 text-center')
+
+                i(class='lb-icon lb-09-law lb-icon-6')
 
                 h2 Lorem ipsum dolor sit amet, consectetur adipiscing hello legal stuff elit.
 
@@ -61,19 +63,19 @@ block main
 
                     a(href='' class='lb-btn') CALL TO ACTION
 
-        section(class='lb-grid')
+        section(class='lb-grid lb-container_purple')
 
             div(class='lb-container')
             
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-1 lb-container-push-top')
 
-                    figure
+                    figure(class='lb-testimonials')
 
                         blockquote
-                            p.
-                                We are happy to say that through their dedication and our commitment we are now debt free!
+                            p(class='lb-testimonials-text').
+                                “We are happy to say that through their dedication and our commitment we are now debt free!”
 
-                        figcaption. 
+                        figcaption(class='lb-testimonials-figcaption').
                             Mr & Mrs Wessels, Cape Town 
 
                 div(class='lb-grid_u lb-grid_u-1')
@@ -83,14 +85,17 @@ block main
                         p
                             small Take control of finances and simplify your life
 
-                        a(href='' class='lb-btn') CALL TO ACTION
+                        a(href='' class='lb-btn lb-btn_white') Get Started
                     
 
-        section(class='lb-grid')
+        section(class='lb-grid lb-container_grey')
         
             div(class='lb-container')
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-1 lb-container-push-top text-center')
+
+                    i(class='lb-icon lb-04-debt_mng lb-icon-6')
+                    i(class='lb-icon lb-05-debt_mng lb-icon-6')
 
                     h2 Lorem ipsum dolor sit amet, consectetur adipiscing hello legal stuff elit.
 
@@ -102,27 +107,35 @@ block main
 
                     div(class='lb-cta lb-cta_center')
 
-                        a(href='' class='lb-btn lb-btn_action') CALL TO ACTION
+                        a(href='' class='lb-btn lb-btn_action') Get The Help You Need
 
-                        p
-                            small Coresponding text lorem ipsum dolor
+                        p(class='lb-cta-push-down')
+                            small Need to talk to us? Call <a href='tel:+27219492211'>+27 (021) 949 2211</a> for advice
 
         section(class='lb-grid')
 
-            div(class='lb-container')
+            div(class='lb-container lb-container-push-top text-center')
 
-                div(class='lb-grid_u lb-grid_u-2')
+                div(class='lb-grid_u lb-grid_u-1')
 
-                    p Recovering money for our clients since 2007 - Company no 2008/148827/23
+                    i(class='lb-icon lb-11-trust lb-icon-6')
 
-                div(class='lb-grid_u lb-grid_u-2')
+                    p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
 
-                    p Over R235,000,000 recovered for our clients last year
+                div(class='lb-grid_u lb-grid_u-1')
 
-                div(class='lb-grid_u lb-grid_u-2')
+                    i(class='lb-icon lb-12-trust lb-icon-6')
 
-                    p Our accomplished and dedicated team provides the debt advice you need
+                    p Over <strong>R235,000,000</strong> recovered for our clients last year
 
-                div(class='lb-grid_u lb-grid_u-2')
+                div(class='lb-grid_u lb-grid_u-1')
 
-                    p Registered with the National Credit Regulator - number NCRDC592
+                    i(class='lb-icon lb-13-trust lb-icon-6')
+
+                    p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+
+                div(class='lb-grid_u lb-grid_u-1')
+
+                    i(class='lb-icon lb-04-debt_mng lb-icon-6')
+
+                    p Registered with the <a href="http://www.ncr.org.za/" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592

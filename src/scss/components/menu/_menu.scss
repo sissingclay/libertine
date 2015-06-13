@@ -6,6 +6,10 @@
     position: relative;
     @include rem(padding-left, 1.6rem);
     text-transform: uppercase;
+
+    &:visited {
+        color: $white-color;
+    }
     
     &:before {
         content: "";

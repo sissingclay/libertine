@@ -1,0 +1,52 @@
+@font-face {
+    font-family: "<%= fontName %>";
+    src: url('<%= fontPath %><%= fontName %>.eot');
+    src: url('<%= fontPath %><%= fontName %>.eot?#iefix') format('eot'),
+    url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+    url('<%= fontPath %><%= fontName %>.ttf') format('truetype'),
+    url('<%= fontPath %><%= fontName %>.svg#<%= fontName %>') format('svg');
+}
+
+.lb-icon {
+    font-family: "<%= fontName %>";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+    text-decoration: none;
+    text-transform: none;
+    font-size: 14px;
+    color: #ff4056;
+}
+
+.lb-icon-1 {
+    font-size: 1em;
+}
+
+.lb-icon-2 {
+    font-size: 2em;
+}
+
+.lb-icon-3 {
+    font-size: 3em;
+}
+
+.lb-icon-4 {
+    font-size: 4em;
+}
+
+.lb-icon-5 {
+    font-size: 5em;
+}
+
+.lb-icon-6 {
+    font-size: 6em;
+}
+
+<% _.each(glyphs, function(glyph) { %>
+.lb-<%= glyph.fileName %>:before {
+    content: "\<%= glyph.codePoint %>";
+}
+<% }); %>

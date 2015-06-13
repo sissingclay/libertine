@@ -1,11 +1,5 @@
 @import 'grid-mixin';
 
-.lb-container {
-    position: relative;
-    @include rem(max-width, 1280px);
-    margin: 0 auto;
-}
-
 .lb-grid {
 
     &:after {
@@ -27,21 +21,6 @@
         // Breakpoint columns
         #{'.lb-grid_u-'+$i} {
             @include grid-sizes($i);
-        }
-
-        // Offset
-        #{'.lb-grid_u-offset-'+$i} {
-            @include offset($i);
-        }
-
-        // Push
-        #{'.lb-grid_u-push-'+$i} {
-            @include push($i);
-        }
-
-        // Pull
-        #{'.lb-grid_u-pull-'+$i} {
-            @include pull($i);
         }
     }
 }

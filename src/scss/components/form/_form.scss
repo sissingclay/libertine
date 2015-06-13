@@ -2,6 +2,7 @@
     background-color: $grey-color;
     @include rem(padding, 1rem);
     position: relative;
+    display: none;
     
     .lb-form-close {
         background-color: $red-color;

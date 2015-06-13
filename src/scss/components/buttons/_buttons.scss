@@ -7,12 +7,16 @@
     font-weight: bold;
     @include rem(padding, 1.25rem 1.875rem);
     @include rem(margin-bottom, 1.25rem);
-    @include rem(margin-right, 1rem);
     @include transition(all);
-    
-    &.lb-btn_block {
-        display: block;
-        float: left;
+    display: inline-block;
+
+    &.lb-btn_push-right {
+        @include rem(margin-right, 1rem);
+        @include rem(margin-left, 1rem);
+    }
+
+    &:visited {
+        color: $brown-darker-color;
     }
     
     &:hover {
@@ -35,6 +39,16 @@
             float: right;
         }
     }
+
+    &.lb-btn_white {
+        color: $white-color;
+        border-color: $white-color;
+
+        &:hover {
+            color: $light-grey-color;
+            border-color: $light-grey-color;
+        }
+    }
 }
 
 .lb-cta {
@@ -52,6 +66,18 @@
 
         a {
             text-decoration: underline;
+        }
+    }
+
+    p {
+        font-family: $font;
+        font-weight: bold;
+        @include rem(margin-bottom, 0.5rem);
+        @include rem(line-height, 1.2rem);
+        @include rem(font-size, 1rem);
+
+        &.lb-cta-push-down {
+            @include rem(margin-bottom, 1.2rem);
         }
     }
 }

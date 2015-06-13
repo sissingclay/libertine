@@ -1,0 +1,18 @@
+.lb-testimonials {
+    margin: 0;
+    text-align: center;
+
+    blockquote {
+        margin: 0;
+
+        .lb-testimonials-text {
+            @include rem(font-size, 1.875rem);
+            @include rem(margin-bottom, 1rem);
+        }
+    }
+
+    .lb-testimonials-figcaption {
+        color: $white-color;
+        font-weight: bold;
+    }
+}
