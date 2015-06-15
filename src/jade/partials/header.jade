@@ -6,14 +6,20 @@ header(role='banner')
 
             section(class='lb-grid_u lb-grid_u-2')
 
-                picture(role='logo')
-                    source(media="(max-width: 40em)" srcset="/img/libertine-logo-fallback.png 1x, http://placehold.it/100x100 2x")
-                    source(srcset="http://placehold.it/350x150 1x, http://placehold.it/350x150 2x")
-                    img(src="/img/libertine-logo-fallback.png" alt="Libertine Consultants")
+                img(src="/img/libertine-logo-fallback.png", srcset="/img/logo-libertine-consultants.svg", alt="Libertine Consultants", role='logo')
 
             section(class='lb-grid_u lb-grid_u-2 text-right')
 
                 a(href='', class='lb-mobile-menu') Menu
+
+            nav(class='lb-grid_u lb-grid_u-1 lb-menu', role='navigation', aria-label='Main navigation')
+
+                block activeMenu
+                    include var-menu.jade
+
+                ul
+                    each val in nav
+                        +menu-item(val)
 
             nav(class='lb-grid_u lb-grid_u-1 lb-menu', role='navigation', aria-label='Main navigation')
 

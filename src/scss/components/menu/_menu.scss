@@ -28,6 +28,10 @@
 .lb-menu {
     color: $white-color;
     display: none;
+
+    &.active {
+        display: block;
+    }
     
     ul {
         list-style-type: none;
