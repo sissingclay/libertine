@@ -15,6 +15,16 @@ These are the following libraries used.
 ```
 npm install
 ```
+This is for the time been. This is for dev env
+```
+gulp build-dev
+```
+
+This is for the time been. This is for prod env
+```
+gulp build-prod
+```
+
 Then to run dev build run
 
 ```
