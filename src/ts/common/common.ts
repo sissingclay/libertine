@@ -4,27 +4,73 @@
 
 module Libertine {
 
-    export class SelectElement {
+    "use strict";
 
-        constructor (public element?: any) {
-            this.selector(element);
+    export class $ {
+
+        $: any;
+        elements: any;
+
+        constructor () {
+            this.$ = function (selector) {
+                if ('querySelectorAll' in document ) {
+                    this.elements = document.querySelectorAll(selector);
+                    return this;
+                } else {
+                    return;
+                }
+            }
         }
 
-        selector (selector) {
-            this.element    = document.querySelectorAll(selector);
-            return this.element;
+        on (name: string, callback: any) {
+            new OnEvents(name, callback, this.elements);
+            return this;
+        }
+
+        toggleClass (className: string) {
+            new OnEvents(className, null, this.elements, 'toggleClass');
+            return this;
         }
     }
 
-    export class Actions {
+    export class OnEvents {
 
-        constructor (public element?: any, public class_name?: string, private getSelector?: any) {
-            this.getSelector    = new SelectElement();
+        name:string;
+
+        constructor(name:string, callback:any, elements:any, action?: string) {
+            this.loopNodes(name, callback, elements, action);
         }
 
-        selector (element:any) {
-            this.element = this.getSelector.selector(element);
-            return this;
+        loopNodes(name:string, callback:any, elements:any, action?: string) {
+
+            var myNodeList = elements;
+
+            for (var i = 0; i < myNodeList.length; i++) {
+
+                switch (action) {
+
+                    case 'toggleClass' :
+                        new ClassActions(name,myNodeList[i]).toggleClass();
+                    break;
+
+                    default :
+                        if ('addEventListener' in window ) {
+                            myNodeList[i].addEventListener(name, callback);
+                        } else {
+                            //fallback to be added here
+                            myNodeList[i].attachEvent('onclick', callback);
+                        }
+                    break;
+                }
+            }
+        }
+    }
+
+    export class ClassActions {
+
+        constructor (public class_name: string, public element: any) {
+            this.class_name = class_name;
+            this.element    = element;
         }
 
         hasClass () {
@@ -34,13 +80,7 @@ module Libertine {
             return false;
         }
 
-        setClass (class_name) {
-            this.class_name = class_name;
-        }
-
-        addClass (class_name) {
-
-            this.setClass(class_name);
+        addClass () {
 
             if (!this.hasClass()) {
                 this.element.className += " " + this.class_name;
@@ -48,9 +88,7 @@ module Libertine {
             return this;
         }
 
-        removeClass (class_name) {
-
-            this.setClass(class_name);
+        removeClass () {
 
             if (this.hasClass()) {
                 var reg = new RegExp('(\\s|^)' + this.class_name + '(\\s|$)');
@@ -59,45 +97,20 @@ module Libertine {
             return this;
         }
 
-        toggleClass (class_name) {
+        toggleClass () {
 
-            this.setClass(class_name);
-            this.loopNodes('toggleClass');
-
-            if(this.hasClass()) {
-                this.removeClass(this.class_name);
+            if (this.hasClass()) {
+                this.removeClass();
             } else {
-                this.addClass(this.class_name);
+                this.addClass();
             }
-
-            return this;
-        }
-
-        loopNodes (action) {
-            var myNodeList = this.element;
-            for (var i = 0; i < myNodeList.length; i++) {
-                console.log('myNodeList[i]', myNodeList[i]);
-            }
-        }
-    }
-
-    export class Event {
-
-        constructor (public event?: any, private getSelector?: any) {
-            this.getSelector    = new SelectElement();
-        }
-
-        click (action, callback) {
-
         }
     }
 }
 
-var lb          = {
-    select: new Libertine.Actions()
-};
+var lb = new Libertine.$();
 
-document.querySelector('.lb-mobile-menu').addEventListener('click', function (ele) {
+lb.$('.lb-mobile-menu').on('click', function(ele) {
     ele.preventDefault();
-    lb.select.selector('.lb-menu').toggleClass('active');
+    lb.$('.lb-menu').toggleClass('active');
 });

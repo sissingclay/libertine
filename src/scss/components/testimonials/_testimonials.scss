@@ -1,6 +1,27 @@
 .lb-testimonials {
     margin: 0;
     text-align: center;
+    position: relative;
+    @include rem(padding, 0 3rem);
+
+    &:before,
+    &:after {
+        @include rem(font-size, 6rem);
+        color: $white-color;
+        position: absolute;
+    }
+
+    &:before {
+        content: '“';
+        left: 0;
+        top: 0;
+    }
+
+    &:after {
+        content: '”';
+        right: 0;
+        top: 0;
+    }
 
     blockquote {
         margin: 0;
