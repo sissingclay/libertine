@@ -10,6 +10,7 @@ append css
     // build:css css/home/home.min.css
     link(rel='stylesheet' href='css/home/home.css')
     // endbuild
+    link(rel='stylesheet' href='css/home/home-medium.css' media="(min-width: 48.000em)")
 
 block prepend activeMenu
     - var activePage = '/about.html'
@@ -17,9 +18,18 @@ block prepend activeMenu
 
 block main
 
+    section(class='lb-container')
+        ul(class='lb-language')
+            li(class='lb-language-list')
+                a(href='') English
+            li(class='lb-language-list')
+                a(href='') Afrikaans
+            li(class='lb-language-list')
+                a(href='') Xhosa
+
     section(class='lb-grid')
 
-        section(class='lb-grid_u lb-grid_u-1 lb-hero')
+        section(class='lb-grid_u lb-grid_u-6 lb-hero')
 
             div(class='lb-container')
 
@@ -44,7 +54,7 @@ block main
 
         section(class='lb-container lb-container-push-top lb-grid')
 
-            div(class='lb-grid_u lb-grid_u-1 text-center')
+            div(class='lb-grid_u lb-grid_u-6 text-center')
 
                 i(class='lb-icon lb-09-law lb-icon-6')
 
@@ -67,7 +77,7 @@ block main
 
             div(class='lb-container')
             
-                div(class='lb-grid_u lb-grid_u-1 lb-container-push-top')
+                div(class='lb-grid_u lb-grid_u-6 lb-container-push-top')
 
                     figure(class='lb-testimonials')
 
@@ -78,7 +88,7 @@ block main
                         figcaption(class='lb-testimonials-figcaption').
                             Mr & Mrs Wessels, Cape Town 
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-6')
 
                     div(class='lb-cta lb-cta_center')
 
@@ -92,7 +102,7 @@ block main
         
             div(class='lb-container')
 
-                div(class='lb-grid_u lb-grid_u-1 lb-container-push-top text-center')
+                div(class='lb-grid_u lb-grid_u-6 lb-container-push-top text-center')
 
                     i(class='lb-icon lb-04-debt_mng lb-icon-6')
                     i(class='lb-icon lb-05-debt_mng lb-icon-6')
@@ -116,25 +126,25 @@ block main
 
             div(class='lb-container lb-container-push-top text-center')
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-6')
 
                     i(class='lb-icon lb-11-trust lb-icon-6')
 
                     p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-6')
 
                     i(class='lb-icon lb-12-trust lb-icon-6')
 
                     p Over <strong>R235,000,000</strong> recovered for our clients last year
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-6')
 
                     i(class='lb-icon lb-13-trust lb-icon-6')
 
                     p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
 
-                div(class='lb-grid_u lb-grid_u-1')
+                div(class='lb-grid_u lb-grid_u-6')
 
                     i(class='lb-icon lb-04-debt_mng lb-icon-6')
 

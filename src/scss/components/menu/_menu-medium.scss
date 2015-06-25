@@ -1,0 +1,46 @@
+.lb-mobile-menu {
+    display: none;
+}
+
+.lb-menu {
+    display: block;
+
+    &.active {
+        display: block;
+    }
+
+    ul {
+        list-style-type: none;
+    }
+
+    .lb-menu-link {
+        color: $white-color;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include rem(font-size, 1.2rem);
+        @include rem(line-height, 1.8rem);
+        display: inline-block;
+
+        a, a:visited {
+            color: $white-color;
+            text-decoration: none;
+            display: block;
+        }
+
+        ul {
+            display: none;
+
+            a, a:visited {
+                @include rem(padding-left, .75rem);
+            }
+        }
+
+        &:last-child {
+            @include borderRadius(5px);
+            border: 1px solid $white-color;
+            @include rem(padding, 1rem 1.25rem);
+            text-align: center;
+            @include rem(margin-top, 1rem);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+@import 'grid-mixin';
+
+.lb-grid {
+
+    @for $i from 1 through 6 {
+
+        // Breakpoint columns
+        #{'.lb-grid_medium-u-'+$i} {
+            @include grid-sizes($i);
+        }
+    }
+}

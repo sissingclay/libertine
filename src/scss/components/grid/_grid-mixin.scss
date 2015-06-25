@@ -1,19 +1,16 @@
 @mixin grid-sizes ($value) {
-    width: #{(100 / $value) + '%'};
+    width: #{((100 / 6) * $value)+ '%'};
 }
 
-// Offset
 @mixin offset ($columns) {
     margin-left: #{(100 / $columns) + '%'};
 }
 
-// Push
 @mixin push ($columns) {
     position: relative;
     left: #{(100 / $columns) + '%'};
 }
 
-// Pull
 @mixin pull ($columns) {
     position: relative;
     left: #{'-' + (100 / $columns) + '%'};

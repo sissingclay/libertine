@@ -11,16 +11,20 @@
     }
 
     .lb-grid_u {
-        @include grid-sizes (1);
+        @include grid-sizes (6);
         float: left;
         padding: $padding;
+
+        &.lb-grid_u-no-padding {
+            padding: 0;
+        }
     }
 
-    @for $i from 1 through 2 {
+    .lb-grid_u-1 {
+        width: 100%;
+    }
 
-        // Breakpoint columns
-        #{'.lb-grid_u-'+$i} {
-            @include grid-sizes($i);
-        }
+    .lb-grid_u-2 {
+        width: 50%;
     }
 }

@@ -1,7 +1,5 @@
 .lb-language {
-    background-color: $purple-color;
-    padding: $padding;
-    position: relative;
+    @include rem(max-width, 300px);
 
     &:after {
         position:absolute;
@@ -13,25 +11,24 @@
         font-size: 1.5em;
     }
 
-    
     .lb-language-list {
         display: inline-block;
         text-transform: uppercase;
         @include rem(font-size, .8rem);
         @include rem(padding-right, .5rem);
-        
+
         a {
             color: $light-grey-color;
-            
+
             &:visited {
                 color: $light-grey-color;
             }
-            
+
             &:hover {
                 color: $white-color;
             }
         }
-        
-        
+
+
     }
 }
