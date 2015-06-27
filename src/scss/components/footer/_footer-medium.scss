@@ -1,0 +1,24 @@
+.lb-footer {
+
+    ul {
+        @include rem(margin, 0 0 0.5rem 0);
+
+        li {
+            @include rem(line-height, 0.8rem);
+            display: inline-block;
+            @include rem(padding-right, 0.4rem);
+            @include rem(margin-right, 0.4rem);
+            border-right: 1px solid $white-color;
+
+            &:last-child {
+                border-right: none;
+                @include rem(padding-right, 0);
+                @include rem(margin-right, 0);
+            }
+        }
+    }
+
+    .lb-footer-social {
+        text-align: right;
+    }
+}

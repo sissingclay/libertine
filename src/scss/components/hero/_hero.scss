@@ -9,7 +9,6 @@
     
     .lb-hero-text {
         @include rem(font-size, 1.875rem);
-        font-family: $font-lato;
-        font-weight: 300;
+        @include lato-family;
     }
 }

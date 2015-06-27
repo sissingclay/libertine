@@ -39,11 +39,11 @@
     .lb-menu-link {
         color: $white-color;
         text-decoration: none;
-        font-family: $font-lato;
+        @include lato-family;
         text-transform: uppercase;
         @include rem(font-size, 1.2rem);
-        @include rem(line-height, 1.8rem);
-        
+        @include rem(line-height, 2.8rem);
+
         a, a:visited {
             color: $white-color;
             text-decoration: none;
@@ -51,9 +51,14 @@
         }
         
         ul {
-            
+            display: none;
+
             a, a:visited {
                 @include rem(padding-left, .75rem);
+            }
+
+            &.active {
+                display: block;
             }
         }
     }

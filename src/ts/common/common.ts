@@ -1,5 +1,5 @@
 /**
- * Created by Gosia on 13/06/2015.
+ * Created by Clay on 13/06/2015.
  */
 
 module Libertine {
@@ -14,7 +14,12 @@ module Libertine {
         constructor () {
             this.$ = function (selector) {
                 if ('querySelectorAll' in document ) {
-                    this.elements = document.querySelectorAll(selector);
+                    if (typeof selector === 'string') {
+                        this.elements = document.querySelectorAll(selector);
+                    } else {
+                        this.elements = selector;
+                    }
+
                     return this;
                 } else {
                     return;
@@ -22,13 +27,23 @@ module Libertine {
             }
         }
 
-        on (name: string, callback: any) {
+        public on (name: string, callback: any) {
             new OnEvents(name, callback, this.elements);
             return this;
         }
 
-        toggleClass (className: string) {
+        public toggleClass (className: string) {
             new OnEvents(className, null, this.elements, 'toggleClass');
+            return this;
+        }
+
+        public hasClass (className: string) {
+            new OnEvents(className, null, this.elements, 'hasClass');
+            return this;
+        }
+
+        public child (name) {
+            this.elements = this.elements.querySelectorAll(name);
             return this;
         }
     }
@@ -52,6 +67,10 @@ module Libertine {
                     case 'toggleClass' :
                         new ClassActions(name,myNodeList[i]).toggleClass();
                     break;
+
+                    case 'toggleClass' :
+                        new ClassActions(name,myNodeList[i]).hasClass();
+                        break;
 
                     default :
                         if ('addEventListener' in window ) {
@@ -113,4 +132,14 @@ var lb = new Libertine.$();
 lb.$('.lb-mobile-menu').on('click', function(ele) {
     ele.preventDefault();
     lb.$('.lb-menu').toggleClass('active');
+});
+
+lb.$('.lb-menu-link').on('click', function(ele) {
+
+    var sub_menu = lb.$(this).child('.submenu');
+
+    if (sub_menu) {
+        ele.preventDefault();
+        sub_menu.toggleClass('active');
+    }
 });

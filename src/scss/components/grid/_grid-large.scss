@@ -1,0 +1,12 @@
+@import 'grid-mixin';
+
+.lb-grid {
+
+    .lb-grid_large-u-2 {
+        width: 25%;
+    }
+}
+
+.lb-grid_clear-both {
+    clear: none;
+}

@@ -1,7 +1,6 @@
 @import './src/scss/components/functions/rems';
 
 $font: Arial, Helvetica, 'helvetica neue', sans-serif;
-$font-lato: 'Lato', $font;
 
 $grey-color: #4c4851;
 $white-color: #ffffff;
@@ -75,6 +74,6 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 }
 
 @mixin lato-family {
-    font-family: 'Lato';
+    font-family: 'Lato', $font;
     font-weight: 300;
 }

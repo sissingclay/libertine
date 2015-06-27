@@ -3,13 +3,14 @@
     color: $white-color;
     @include rem(font-size, 1rem);
     @include lato-family;
+    text-transform: uppercase;
 
     ul {
         @include rem(margin, 0 0 1.25rem 0);
         list-style-type: none;
 
         li {
-            @include rem(font-size, 1rem);
+            @include rem(font-size, 0.75rem);
             @include lato-family;
             @include rem(line-height, 2.4rem);
 
@@ -23,9 +24,10 @@
     p {
         color: $white-color;
         text-transform: none;
-        @include rem(font-size, 1rem);
+        @include rem(font-size, 0.75rem);
         @include rem(line-height, 1.25rem);
         margin-bottom: 0;
+        text-transform: uppercase;
 
         a {
             color: $purple-lighter-color;

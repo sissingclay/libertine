@@ -11,6 +11,7 @@ append css
     link(rel='stylesheet' href='css/home/home.css')
     // endbuild
     link(rel='stylesheet' href='css/home/home-medium.css' media="(min-width: 48.000em)")
+    link(rel='stylesheet' href='css/home/home-large.css' media="(min-width: 64.000em)")
 
 block prepend activeMenu
     - var activePage = '/about.html'
@@ -53,7 +54,7 @@ block main
 
         include ../partials/enquiry-form.jade
 
-        section(class='lb-container lb-container-push-top lb-grid')
+        section(class='lb-container lb-container_large-constrain lb-container-push-top lb-grid')
 
             div(class='lb-grid_u lb-grid_u-6 text-center')
 
@@ -87,7 +88,7 @@ block main
                                 We are happy to say that through their dedication and our commitment we are now debt free!
 
                         figcaption(class='lb-testimonials-figcaption').
-                            Mr & Mrs Wessels, Cape Town 
+                            Mr & Mrs Wessels, Cape Town
 
                 div(class='lb-grid_u lb-grid_u-6')
 
@@ -100,8 +101,8 @@ block main
                     
 
         section(class='lb-grid lb-container_grey lb-container-push-top')
-        
-            div(class='lb-container')
+
+            div(class='lb-container lb-container_large-constrain')
 
                 div(class='lb-grid_u lb-grid_u-6 text-center')
 
@@ -110,10 +111,10 @@ block main
 
                     h2 Lorem ipsum dolor sit amet, consectetur adipiscing hello legal stuff elit.
 
-                    p. 
-                        Text about legal services... Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                        Vestibulum vitae mi tristique, fringilla purus sed, sagittis risus. Donec vel velit libero. 
-                        Phasellus est lorem, blandit, elementum justo. Cras varius sapien eget eros malesuada semper. 
+                    p.
+                        Text about legal services... Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Vestibulum vitae mi tristique, fringilla purus sed, sagittis risus. Donec vel velit libero.
+                        Phasellus est lorem, blandit, elementum justo. Cras varius sapien eget eros malesuada semper.
                         Aenean pharetra hendrerit nisl.
 
                     div(class='lb-cta lb-cta_center')
@@ -127,25 +128,25 @@ block main
 
             div(class='lb-container lb-container-push-top text-center')
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3')
+                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3 lb-grid_large-u-2')
 
                     i(class='lb-icon lb-11-trust lb-icon-6')
 
                     p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3')
+                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3 lb-grid_large-u-2')
 
                     i(class='lb-icon lb-12-trust lb-icon-6')
 
                     p Over <strong>R235,000,000</strong> recovered for our clients last year
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3 lb-grid_clear-both')
+                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3 lb-grid_large-u-2 lb-grid_clear-both')
 
                     i(class='lb-icon lb-13-trust lb-icon-6')
 
                     p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3')
+                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-3 lb-grid_large-u-2')
 
                     i(class='lb-icon lb-04-debt_mng lb-icon-6')
 

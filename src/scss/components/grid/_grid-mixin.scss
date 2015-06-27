@@ -1,5 +1,6 @@
 @mixin grid-sizes ($value) {
-    width: #{((100 / 6) * $value)+ '%'};
+    $cols: 6 !default;
+    width: #{((100 / $cols) * $value)+ '%'};
 }
 
 @mixin offset ($columns) {

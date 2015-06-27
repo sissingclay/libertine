@@ -1,0 +1,8 @@
+.lb-hero {
+    background: url('/img/header_home_1.jpg') no-repeat center center;
+    background-size: cover;
+
+    .lb-hero_container {
+        @include rem(margin, 4rem auto 1.5rem);
+    }
+}

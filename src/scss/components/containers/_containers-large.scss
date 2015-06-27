@@ -1,0 +1,8 @@
+.lb-container_large-constrain {
+    @include rem(max-width, 1024px);
+}
+
+.lb-container-push-top {
+    @include rem(padding-top, 3rem);
+    @include rem(padding-bottom, 3rem);
+}
