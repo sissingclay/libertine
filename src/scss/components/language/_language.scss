@@ -1,4 +1,4 @@
-.lb-language {
+.lb-language_container {
     background-color: $purple-color;
     padding: $padding;
     position: relative;
@@ -16,7 +16,6 @@
     
     .lb-language-list {
         display: inline-block;
-        text-transform: uppercase;
         @include rem(font-size, .8rem);
         @include rem(padding-right, .5rem);
         

@@ -4,43 +4,33 @@
 
 .lb-menu {
     display: block;
-
-    &.active {
-        display: block;
-    }
-
-    ul {
-        list-style-type: none;
-    }
+    text-align: right;
+    @include rem(margin-top, 1.7rem);
 
     .lb-menu-link {
-        color: $white-color;
-        text-decoration: none;
-        text-transform: uppercase;
-        @include rem(font-size, 1.2rem);
-        @include rem(line-height, 1.8rem);
         display: inline-block;
-
-        a, a:visited {
-            color: $white-color;
-            text-decoration: none;
-            display: block;
-        }
+        @include rem(padding-right, 1.2rem);
+        @include rem(font-size, 1rem);
+        position: relative;
 
         ul {
             display: none;
+            @include rem(padding, 7px 15px);
+            position: absolute;
+            @include rem(right, 5px);
+            @include rem(top, 2.6rem);
+            @include rem(width, 130px);
+            z-index: 9;
+            background-color: $grey-darkest-color;
+            @include customBorderRadius(0, 0, 5px, 5px);
 
             a, a:visited {
-                @include rem(padding-left, .75rem);
+                padding-left: 0;
             }
         }
 
         &:last-child {
-            @include borderRadius(5px);
-            border: 1px solid $white-color;
-            @include rem(padding, 1rem 1.25rem);
-            text-align: center;
-            @include rem(margin-top, 1rem);
+            @include rem(padding-right, 0);
         }
     }
 }

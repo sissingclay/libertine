@@ -3,13 +3,13 @@
     background-size: cover;
     
     .lb-hero_container {
-        //@include rem(max-width, 30rem);
-        @include rem(margin-top, 1.5rem);
+        @include rem(max-width, 600px);
+        @include rem(margin, 1.5rem auto);
     }
     
     .lb-hero-text {
         @include rem(font-size, 1.875rem);
-        font-family: 'Lato';
+        font-family: $font-lato;
         font-weight: 300;
     }
 }

@@ -1,11 +1,11 @@
 .lb-container {
     position: relative;
-    @include rem(max-width, 1920px);
+    @include rem(max-width, 1680px);
     margin: 0 auto;
 }
 
 .lb-container-push-top {
-    @include rem(margin-top, 1rem);
+    @include rem(padding-top, 1rem);
 }
 
 .lb-container_purple {

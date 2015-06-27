@@ -1,34 +1,8 @@
 .lb-language {
-    @include rem(max-width, 300px);
+    position: absolute;
+    @include rem(width, 300px);
+}
 
-    &:after {
-        position:absolute;
-        font-family: lb-icons;
-        top: 25%;
-        right: $padding;
-        color: $white-color;
-        content: "\E008";
-        font-size: 1.5em;
-    }
-
-    .lb-language-list {
-        display: inline-block;
-        text-transform: uppercase;
-        @include rem(font-size, .8rem);
-        @include rem(padding-right, .5rem);
-
-        a {
-            color: $light-grey-color;
-
-            &:visited {
-                color: $light-grey-color;
-            }
-
-            &:hover {
-                color: $white-color;
-            }
-        }
-
-
-    }
+.lb-language_container {
+    @include customBorderRadius(0, 0, 5px, 5px);
 }

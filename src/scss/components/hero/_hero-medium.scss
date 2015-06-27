@@ -1,0 +1,6 @@
+.lb-hero {
+
+    .lb-hero_container {
+        @include rem(margin, 4rem auto 1.5rem);
+    }
+}
