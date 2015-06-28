@@ -16,6 +16,7 @@ html {
     -moz-osx-font-smoothing: grayscale;
     
     font-family: $font;
+    height: 100%;
 }
 
 body {
@@ -31,7 +32,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: grayscale;
+    height: 100%;
 }
+
+#map-canvas { height: 100%; margin: 0; padding: 0;}
 
 article,
 aside,
@@ -64,6 +68,11 @@ a {
 
     &:visited {
         color: $purple-lighter-color;
+        @include transition(none);
+    }
+
+    &:hover {
+        color: $purple-lighter-color;
     }
 }
 
@@ -85,6 +94,13 @@ h1 {
     @include rem(margin, 0 0 2.5rem);
     @include rem(line-height, 3.125rem);
     color: $grey-darkest-color;
+}
+
+.lb-internal {
+
+    h1 {
+        color: $purple-color;
+    }
 }
 
 h2 {

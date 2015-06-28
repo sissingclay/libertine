@@ -1,0 +1,109 @@
+extends ../extends/default.jade
+
+block title
+    title testsesdasdf asdf
+
+block description
+    meta(name='description', content='Yo')
+
+append css
+    // build:css css/home/home.min.css
+    link(rel='stylesheet' href='css/contact/contact.css')
+    // endbuild
+    script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1zFtcxfOO8AKitdraeyUVHcz3txhHYk")
+    script(type="text/javascript").
+        function initialize() {
+            var mapOptions = {
+                center: { lat: -34.397, lng: 150.644},
+                zoom: 8
+            };
+            var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+block prepend activeMenu
+    - var activePage = '/contact-us.html'
+
+block main
+
+    include ../partials/language.jade
+
+    section(class='lb-grid')
+
+        section(class='lb-hero_internal')
+
+            picture
+                source(srcset="/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
+                source(srcset="/img/header_inner_2.jpg", media="(min-width: 1024px)")
+                img(src="/img/header-inner-2-mobile.jpg", alt="MDN")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-container lb-container_large-constrain lb-container-push lb-grid')
+
+            div(class='lb-grid_u lb-grid_u-6 text-center')
+
+                i(class='lb-icon lb-02-contact lb-icon-6')
+                i(class='lb-icon lb-03-contact lb-icon-6')
+                h1 Based in beautiful & iconic Cape Town
+                p(class='lb-margin-bottom-none') You are most welcome to visit our office in person to discuss your case over a tea or coffee.
+
+
+        section(class='lb-grid', itemscope, itemtype="http://schema.org/LocalBusiness")
+
+            div(class='lb-container')
+
+                div(class='lb-grid_u lb-grid_u-6')
+
+                    p(class='text-center lb-margin-bottom-none', itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
+                        span(itemprop="streetAddress") 4 Kruger Street <br>
+                        span(itemprop="streetAddress") Lower Oakdale <br>
+                        span(itemprop="addressLocality") Bellville <br>
+                        span(temprop="addressRegion") Western Cape, South Africa <br>
+                        span(itemprop="postalCode") 7530
+
+                div(class='lb-grid_u lb-grid_u-6')
+
+                    p(class='text-center lb-margin-bottom-none') <strong>Opening hours</strong><br>
+                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday till Friday <br>
+                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
+                        span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
+                        span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
+
+                div(class='lb-grid_u lb-grid_u-6')
+
+                    p(class='text-center lb-margin-bottom-none') <strong>General enquries</strong><br>
+                        span Telephone: <br>
+                        span(itemprop="telephone") <a href='#{data.tel.href}'>#{data.tel.name}</a><br>
+                        span Cell: <br>
+                        span(itemprop="telephone") <a href='#{data.cell.href}'>#{data.cell.name}</a><br>
+                        span Email:<br>
+                        span <a href="#{data.email.href}">#{data.email.name}</a>
+
+        section(class='lb-grid')
+
+            div(class='lb-container')
+
+                div(class='lb-grid_u lb-grid_u-6 text-center')
+
+                    p(class='lb-margin-bottom-none lb-social') <strong>Get social with us</strong><br>
+
+                        a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
+                            i(class='lb-icon lb-07-google-plus lb-icon-2')
+                        a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
+                            i(class='lb-icon lb-06-facebook lb-icon-2')
+                        a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
+                            i(class='lb-icon lb-14-twitter lb-icon-2')
+
+                div(class='lb-grid_u lb-grid_u-6 text-center')
+
+                    p(class='lb-margin-bottom-none') <strong>Enquiry form</strong><br>
+
+                    div(class='lb-cta lb-cta_center')
+                        a(href='', class='lb-btn') Get in Touch
+
+        section(class='lb-grid')
+
+            div(class='lb-grid_u lb-grid_u-6 text-center')
+
+                div(id="map-canvas")

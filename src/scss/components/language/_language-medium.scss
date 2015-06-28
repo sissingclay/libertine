@@ -1,6 +1,7 @@
 .lb-language {
     position: absolute;
     @include rem(width, 300px);
+    z-index: 3;
 }
 
 .lb-language_container {

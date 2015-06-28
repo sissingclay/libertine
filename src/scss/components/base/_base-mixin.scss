@@ -14,6 +14,7 @@ $brown-darker-color: #736258;
 $red-color: #ff4056;
 $footer-color: #5c5963;
 $grey-background: #f5f4f3;
+$header: #4a5062;
 
 $padding: 15px;
 
@@ -62,10 +63,7 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
     }
 }
 
-//@include placeholder {
-//    font-family: $base-font-family;
-//    color: red;
-//}
+
 @mixin placeholder {
     &::-webkit-input-placeholder {@content}
     &:-moz-placeholder           {@content}
@@ -76,4 +74,14 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 @mixin lato-family {
     font-family: 'Lato', $font;
     font-weight: 300;
+}
+
+@mixin bp($point) {
+
+    @if $point == large {
+        @media (min-width: 48.000em) { @content; }
+    }
+    @else if $point == medium {
+        @media (min-width: 64.000em) { @content; }
+    }
 }

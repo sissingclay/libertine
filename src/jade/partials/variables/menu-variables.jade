@@ -1,5 +1,5 @@
 - var nav       = {};
-- nav.about     = {href: '/about.html', name: 'About'};
+- nav.about     = {href: '/contact-us.html', name: 'Contact us'};
 - nav.about.sub = [{href: '/about-subs.html', name: 'About subs yo'}, {href: '/about-subss.html', name: 'About subss'}, {href: '/about-sub.html', name: 'About sub'}];
 - nav.debt      = {href: '/debt-services.html', name: 'Debt services'};
 - nav.debt.sub  = [{href: '/about-subs.html', name: 'About subs yo'}, {href: '/about-subss.html', name: 'About subss'}, {href: '/about-sub.html', name: 'About sub'}];
@@ -7,6 +7,7 @@
 - nav.more      = {href: '/more.html', name: 'More'};
 
 mixin menu-item (obj)
+
     if obj.href.toLowerCase() == activePage
         li(class='lb-menu-link active')
             a(href=obj.href, title=obj.name)= obj.name

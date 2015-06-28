@@ -1,0 +1,13 @@
+.lb-btn {
+
+    &.lb-btn_push-right {
+        @include rem(margin-left, 0);
+    }
+}
+
+.lb-cta {
+    
+    &.lb-cta_large-left {
+        text-align: left;
+    }
+}

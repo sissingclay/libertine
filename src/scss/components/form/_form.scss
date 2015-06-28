@@ -2,8 +2,22 @@
     background-color: $grey-color;
     @include rem(padding, 1rem);
     position: relative;
-    display: none;
-    
+
+    &.lb-form_inline {
+        @include rem(margin-bottom, 2rem);
+        text-align: left;
+
+        .lb-form-label {
+            @include rem(font-size, 0.8rem);
+            @include rem(margin-bottom, 0.4rem);
+        }
+
+        .lb-form-input {
+            width: 70%;
+            @include customBorderRadius(5px, 0, 0, 0);
+        }
+    }
+
     .lb-form-close {
         background-color: $red-color;
         color: $white-color;
@@ -23,15 +37,14 @@
         @include borderRadius(5px);
         @include rem(padding, 0.5rem);
         @include box-sizing(border-box);
+        color: $grey-color;
         
         @include placeholder {
-            color: $grey-color;
+            color: $light-grey-color;
         }
         
         &:focus {
-            @include placeholder {
-                color: $white-color;
-            }
+
         }
         
     }

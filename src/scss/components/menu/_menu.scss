@@ -44,16 +44,33 @@
         @include rem(font-size, 1.2rem);
         @include rem(line-height, 2.8rem);
 
-        a, a:visited {
+        &.active {
+
+            a {
+                color: $purple-lighter-color;
+            }
+
+            ul {
+                 a {
+                     color: $white-color;
+                 }
+            }
+        }
+
+        a {
             color: $white-color;
             text-decoration: none;
             display: block;
+
+            &:hover {
+                color: $purple-lighter-color;
+            }
         }
-        
+
         ul {
             display: none;
 
-            a, a:visited {
+            a {
                 @include rem(padding-left, .75rem);
             }
 

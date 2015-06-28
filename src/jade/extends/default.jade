@@ -1,8 +1,13 @@
+include ../partials/variables/variables
+include ../partials/variables/menu-variables
+
 doctype html
 
 html(lang='en')
 
     head
+
+        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
 
         block meta
             
@@ -21,6 +26,8 @@ html(lang='en')
         block css
             // build:css css/common/common.min.css
             link(rel='stylesheet' href='css/common/common.css')
+            link(rel='stylesheet' href='css/common/common-medium.css' media="(min-width: 48.000em)")
+            link(rel='stylesheet' href='css/common/common-large.css' media="(min-width: 64.000em)")
             // endbuild
             link(rel='stylesheet' href='css/_icons.css')
 
@@ -30,8 +37,8 @@ html(lang='en')
 
     body
 
-        include ../partials/header.jade
+        include ../partials/header
 
         block main
 
-        include ../partials/footer.jade
+        include ../partials/footer

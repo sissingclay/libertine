@@ -18,13 +18,16 @@
         display: inline-block;
         @include rem(font-size, .8rem);
         @include rem(padding-right, .5rem);
+
+        &.active {
+
+            a {
+                color: $white-color;
+            }
+        }
         
         a {
             color: $light-grey-color;
-            
-            &:visited {
-                color: $light-grey-color;
-            }
             
             &:hover {
                 color: $white-color;

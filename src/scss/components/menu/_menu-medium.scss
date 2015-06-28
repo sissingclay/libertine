@@ -5,7 +5,7 @@
 .lb-menu {
     display: block;
     text-align: right;
-    @include rem(margin-top, 1.7rem);
+    @include rem(margin-top, 1.1rem);
 
     .lb-menu-link {
         display: inline-block;
@@ -18,9 +18,9 @@
             @include rem(padding, 7px 15px);
             position: absolute;
             @include rem(right, 5px);
-            @include rem(top, 2.6rem);
+            @include rem(top, 3.2rem);
             @include rem(width, 130px);
-            z-index: 9;
+            z-index: 6;
             background-color: $grey-darkest-color;
             @include customBorderRadius(0, 0, 5px, 5px);
 

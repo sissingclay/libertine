@@ -4,10 +4,10 @@ block footer
         
         div(class='lb-container')
 
-            section(class='lb-grid_u lb-grid_u-1 lb-grid_medium-u-4')
+            section(class='lb-grid_u lb-grid_u-1 lb-grid_medium-u-3')
                 ul
                     li
-                        a(href='') Home
+                        a(href='#{data.home.href}') Home
                     li
                         a(href='') Contact
                     li
@@ -21,15 +21,15 @@ block footer
 
                 p &copy; 2015 Libertine Consultants in <a href="https://www.capetown.gov.za/en/Pages/default.aspx" target="blank">Cape Town</a>, all rights reserved
 
-            section(class='lb-grid_u lb-grid_u-1 lb-grid_medium-u-2')
+            section(class='lb-grid_u lb-grid_u-1 lb-grid_medium-u-3 text-right lb-social')
 
-                p GET SOCIAL WITH US ON
+                p Get social with us
 
-                a(href="https://plus.google.com/+LibertineconsultantsCoZa" target="_blank" class="lb-footer-social")
+                a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon lb-social-icons_white')
                     i(class='lb-icon lb-07-google-plus lb-icon-2')
-                a(href="https://www.facebook.com/pages/Libertine-Consultants/323993848116" target="_blank" class="lb-footer-social")
+                a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon lb-social-icons_white')
                     i(class='lb-icon lb-06-facebook lb-icon-2')
-                a(href="https://twitter.com/libertinec" target="_blank" class="lb-footer-social")
+                a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon lb-social-icons_white')
                     i(class='lb-icon lb-14-twitter lb-icon-2')
 
 include scripts/footer-scripts.jade

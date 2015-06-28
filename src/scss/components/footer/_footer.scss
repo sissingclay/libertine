@@ -17,6 +17,10 @@
             a {
                 color: $white-color;
                 @include rem(padding, 0.5rem 0);
+
+                &:hover {
+                    color: $purple-lighter-color;
+                }
             }
         }
     }
@@ -31,15 +35,10 @@
 
         a {
             color: $purple-lighter-color;
-        }
-    }
 
-    .lb-footer-social {
-        color: $white-color;
-        @include rem(margin-right, 0.5rem);
-
-        .lb-icon {
-            color: $white-color;
+            &:hover {
+                color: $white-color;
+            }
         }
     }
 }

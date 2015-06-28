@@ -1,0 +1,9 @@
+.lb-menu {
+
+    .lb-menu-link {
+
+        ul {
+            @include rem(top, 3.4rem);
+        }
+    }
+}

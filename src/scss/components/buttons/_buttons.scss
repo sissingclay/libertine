@@ -10,6 +10,11 @@
     @include transition(all);
     display: inline-block;
 
+    &.lb-btn_small {
+        @include rem(padding, 0.5125rem);
+        @include rem(margin-bottom, 0);
+    }
+
     &.lb-btn_push-right {
         @include rem(margin-right, 1rem);
         @include rem(margin-left, 1rem);
@@ -63,10 +68,6 @@
         @include rem(font-size, 1rem);
         @include rem(margin-bottom, 0);
         @include rem(line-height, 1.2rem);
-
-        a {
-            text-decoration: underline;
-        }
     }
 
     p {

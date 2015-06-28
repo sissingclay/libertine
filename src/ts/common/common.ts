@@ -134,12 +134,12 @@ lb.$('.lb-mobile-menu').on('click', function(ele) {
     lb.$('.lb-menu').toggleClass('active');
 });
 
-lb.$('.lb-menu-link').on('click', function(ele) {
-
-    var sub_menu = lb.$(this).child('.submenu');
-
-    if (sub_menu) {
-        ele.preventDefault();
-        sub_menu.toggleClass('active');
-    }
-});
+//lb.$('.lb-menu-link').on('click', function(ele) {
+//
+//    var sub_menu = lb.$(this).child('.submenu');
+//
+//    if (sub_menu) {
+//        ele.preventDefault();
+//        sub_menu.toggleClass('active');
+//    }
+//});

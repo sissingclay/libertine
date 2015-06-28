@@ -1,14 +1,27 @@
 .lb-hero {
     background: url('/img/home-hero-mobile.jpg') no-repeat center center;
     background-size: cover;
+    float: left;
+    width: 100%;
     
     .lb-hero_container {
         @include rem(max-width, 600px);
         @include rem(margin, 1.5rem auto);
+        text-align: center;
     }
     
     .lb-hero-text {
         @include rem(font-size, 1.875rem);
         @include lato-family;
+    }
+}
+
+.lb-hero_internal {
+    @include rem(max-height, 15rem);
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: auto;
     }
 }

@@ -3,6 +3,6 @@
 }
 
 .lb-container-push {
-    @include rem(padding-top, 4rem);
-    @include rem(padding-bottom, 4rem);
+    @include rem(padding-top, 2rem);
+    @include rem(padding-bottom, 2rem);
 }
