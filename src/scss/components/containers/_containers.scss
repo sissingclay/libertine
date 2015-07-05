@@ -4,6 +4,11 @@
     margin: 0 auto;
 }
 
+.lb-container_no-position {
+    @include rem(max-width, 1680px);
+    margin: 0 auto;
+}
+
 .lb-container-push {
     @include rem(padding-top, 1rem);
 }

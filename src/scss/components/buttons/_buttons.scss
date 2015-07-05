@@ -10,7 +10,7 @@
     @include transition(all);
     display: inline-block;
 
-    &.lb-btn_small {
+    &.lb-btn_small, &.lb-btn_small-mobile {
         @include rem(padding, 0.5125rem);
         @include rem(margin-bottom, 0);
     }
@@ -62,12 +62,37 @@
         margin: 0 auto;
         text-align: center;
     }
+
+    &.lb-cta_internal-hero {
+        position: absolute;
+        top: 30%;
+    }
     
     .lb-cta-text {
         clear: both;
         @include rem(font-size, 1rem);
         @include rem(margin-bottom, 0);
         @include rem(line-height, 1.2rem);
+
+        &.lb-cta-text_hide-mobile {
+            display: none;
+        }
+    }
+
+    .lb-cta_blend {
+        background-color: $light-grey-color;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        @include borderRadius(5px);
+        opacity: 0.4;
+        filter: alpha(opacity=40);
+    }
+
+    .lb-cta_bring-forward {
+        z-index: 9;
+        position: relative;
+        padding: $padding;
     }
 
     p {

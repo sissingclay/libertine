@@ -19,6 +19,7 @@
 .lb-hero_internal {
     @include rem(max-height, 15rem);
     overflow: hidden;
+    position: relative;
 
     img {
         width: 100%;

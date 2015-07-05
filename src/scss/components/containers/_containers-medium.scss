@@ -1,5 +1,5 @@
-.lb-container_large-constrain {
-    @include rem(max-width, 1024px);
+.lb-container_medium-constrain {
+    @include rem(max-width, 45rem);
 }
 
 .lb-container-push {

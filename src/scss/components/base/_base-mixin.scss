@@ -79,9 +79,9 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 @mixin bp($point) {
 
     @if $point == large {
-        @media (min-width: 48.000em) { @content; }
+        @media (min-width: 64.000em) { @content; }
     }
     @else if $point == medium {
-        @media (min-width: 64.000em) { @content; }
+        @media (min-width: 48.000em) { @content; }
     }
 }

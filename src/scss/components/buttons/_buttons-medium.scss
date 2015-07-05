@@ -1,0 +1,17 @@
+.lb-btn {
+
+    &.lb-btn_small, &.lb-btn_small-mobile {
+        @include rem(padding, 1.25rem 1.875rem);
+        @include rem(margin-bottom, 1.25rem);
+    }
+}
+
+.lb-cta {
+
+    .lb-cta-text {
+
+        &.lb-cta-text_hide-mobile {
+            display: block;
+        }
+    }
+}

@@ -285,4 +285,9 @@ p {
     @include rem(line-height, 2.5rem);
     color: $grey-dark-color;
     @include rem(font-size, 1.375rem);
+    word-wrap: break-word;
+
+    &.lb-description {
+        @include rem(font-size, 1.7rem);
+    }
 }
