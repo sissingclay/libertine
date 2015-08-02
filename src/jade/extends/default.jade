@@ -8,6 +8,7 @@ html(lang='en')
     head
 
         meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+        base(href="http://www.webartificer.co.uk/lib/")
 
         block meta
             
@@ -26,10 +27,17 @@ html(lang='en')
         block css
             // build:css css/common/common.min.css
             link(rel='stylesheet' href='css/common/common.css')
+            // endbuild
+            // build:css css/common/common-medium.min.css
             link(rel='stylesheet' href='css/common/common-medium.css' media="(min-width: 48.000em)")
+            // endbuild
+            // build:css css/common/common-large.min.css
             link(rel='stylesheet' href='css/common/common-large.css' media="(min-width: 64.000em)")
             // endbuild
+
+            // build:css css/_icons.min.css
             link(rel='stylesheet' href='css/_icons.css')
+            // endbuild
 
         <!--[if lte IE 8]>
         script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
