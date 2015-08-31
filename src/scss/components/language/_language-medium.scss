@@ -1,9 +1,10 @@
 .lb-language {
+    position: relative;
+}
+
+.lb-language-container {
+    @include customBorderRadius(0, 0, 5px, 5px);
     position: absolute;
     @include rem(width, 250px);
     z-index: 3;
-}
-
-.lb-language_container {
-    @include customBorderRadius(0, 0, 5px, 5px);
 }

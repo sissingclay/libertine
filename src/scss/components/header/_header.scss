@@ -1,3 +1,17 @@
 .lb-head {
     background-color: $header;
+    padding-top: $padding;
+    padding-bottom: $padding;
+}
+
+.lb-head:after {
+    @include after;
+}
+
+.lb-head-logo {
+    @include span(6);
+}
+
+.lb-head-mobile-menu {
+    @include span(6);
 }

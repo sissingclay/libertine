@@ -1,8 +1,8 @@
 .lb-hero {
     background: url('/img/home-hero-mobile.jpg') no-repeat center center;
     background-size: cover;
-    float: left;
     width: 100%;
+    @include rem(padding, 1.5rem $padding 0.5rem);
     
     .lb-hero_container {
         @include rem(max-width, 600px);
@@ -14,6 +14,10 @@
         @include rem(font-size, 1.875rem);
         @include lato-family;
     }
+}
+
+.lb-hero:after {
+    @include after();
 }
 
 .lb-hero_internal {

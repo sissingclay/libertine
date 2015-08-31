@@ -1,42 +1,6 @@
 .lb-form {
-    
-    .lb-form-section {
-        @include rem(margin-bottom, 1rem);
-    }
-    
-    .lb-form-input {
-        width: 100%;
-        @include borderRadius(2px);
-        @include rem(padding, 0.5rem);
-        @include box-sizing(border-box);
-        color: $grey-color;
-        border: 1px solid $light-grey-color;
-        
-        @include placeholder {
-            color: $light-grey-color;
-        }
-    }
-
-    .lb-form-textarea {
-        width: 100%;
-        @include rem(height, 10rem);
-        @include borderRadius(2px);
-        @include rem(padding, 0.5rem);
-        @include box-sizing(border-box);
-        color: $grey-color;
-        border: 1px solid $light-grey-color;
-
-        @include placeholder {
-            color: $light-grey-color;
-        }
-    }
-    
-    .lb-form-label {
-        color: $grey-color;
-        display: block;
-        @include rem(font-size, 1rem);
-        @include rem(margin-bottom, 0.4rem);
-    }
+    @include rem(max-width, 45rem);
+    margin: 0 auto;
     
     &:after {
         content: '';
@@ -45,4 +9,62 @@
         height: 0;
         clear: both;
     }
+}
+
+.lb-form-section {
+    @include rem(margin-bottom, 1rem);
+}
+
+.lb-form-input, .lb-form-textarea {
+
+    &:focus {
+        border: 1px solid $purple-lighter-color;
+        outline: none;
+    }
+
+    &.lb-error {
+        border: 1px solid $red-color;
+    }
+
+    &.lb-valid {
+        border: 1px solid $brown-color;
+    }
+}
+
+.lb-form-description {
+
+}
+
+.lb-form-input {
+    width: 100%;
+    @include borderRadius(2px);
+    @include rem(padding, 0.5rem);
+    @include box-sizing(border-box);
+    color: $grey-color;
+    border: 1px solid $white-color;
+
+    @include placeholder {
+        color: $light-grey-color;
+    }
+}
+
+.lb-form-textarea {
+    width: 100%;
+    @include rem(height, 10rem);
+    @include borderRadius(2px);
+    @include rem(padding, 0.5rem);
+    @include box-sizing(border-box);
+    color: $grey-color;
+    border: 1px solid $white-color;
+
+    @include placeholder {
+        color: $light-grey-color;
+    }
+}
+
+.lb-form-label {
+    color: $grey-color;
+    display: block;
+    @include rem(font-size, 1rem);
+    @include rem(margin-bottom, 0.4rem);
 }

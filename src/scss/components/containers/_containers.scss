@@ -1,19 +1,11 @@
-.lb-container {
+.lb-content {
     position: relative;
-    @include rem(max-width, 1680px);
+    @include rem(max-width, $max-width);
     margin: 0 auto;
+    @include rem(padding, 2rem $padding);
 }
 
-.lb-container_no-position {
-    @include rem(max-width, 1680px);
-    margin: 0 auto;
-}
-
-.lb-container-push {
-    @include rem(padding-top, 1rem);
-}
-
-.lb-container_purple {
+.lb-content_purple {
     background-color: $purple-color;
 
     h2, p {
@@ -21,6 +13,27 @@
     }
 }
 
-.lb-container_grey {
+.lb-content_grey {
     background-color: $grey-background;
+}
+
+.lb-content_light-grey {
+    background-color: $light-grey-color;
+}
+
+.lb-content:after {
+    @include after();
+}
+
+.lb-internal {
+
+    .lb-content_main {
+        text-align: center;
+        @include rem(margin, 3rem auto 1rem);
+        @include rem(max-width, $max-width-medium);
+
+        .lb-content_main-text {
+            @include rem(font-size, 1.7rem);
+        }
+    }
 }

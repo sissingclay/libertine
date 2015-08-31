@@ -1,7 +1,17 @@
-.lb-grid {
+.lb-testimonials {
 
-    .lb-bar {
-        border-right: 1px solid $white-color;
-        padding: $padding 3.5rem $padding $padding;
+    &:after {
+        content: '”';
+        right: 30px;
+        top: 0;
     }
+
+    blockquote {
+        @include rem(margin-right, 1rem);
+    }
+}
+
+.lb-bar {
+    border-right: 1px solid $white-color;
+    @include rem(padding, 0 3.5rem 0 3rem);
 }

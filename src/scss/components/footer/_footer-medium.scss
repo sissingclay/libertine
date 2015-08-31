@@ -1,5 +1,9 @@
 .lb-footer {
-    @include rem(padding, 2rem 0);
+    @include rem(padding, 2rem $padding);
+
+    .lb-footer-links {
+        @include span(8 no-gutter);
+    }
 
     ul {
         @include rem(margin, 0 0 0.5rem 0);

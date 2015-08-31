@@ -2,10 +2,12 @@
     display: none;
 }
 
-.lb-menu {
+.lb-head-menu {
     display: block;
     text-align: right;
     @include rem(margin-top, 1.1rem);
+    @include span(6);
+    clear: none;
 
     .lb-menu-link {
         display: inline-block;

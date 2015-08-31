@@ -1,10 +1,11 @@
 extends ../extends/default.jade
 
 block title
-    title testsesdasdf asdf
+    title Debt Contact Details Cape Town | Debt Contact | Debt Enquiry
 
 block description
-    meta(name='description', content='Yo')
+    meta(name='description', content='Contact us for help with debt. Debt enquiry are managed by our debt counsellors.')
+    meta(name='keyword', content='debt enquiry, debt enquiry form, debt enquiry companies')
 
 append css
     // build:css css/home/home.min.css
@@ -18,79 +19,71 @@ block main
 
     include ../partials/language.jade
 
-    section(class='lb-grid')
+    section(class='lb-hero_internal')
 
-        section(class='lb-hero_internal')
-
-            picture
-                source(srcset="/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-                source(srcset="/img/header_inner_2.jpg", media="(min-width: 1024px)")
-                img(src="/img/header-inner-2-mobile.jpg", alt="MDN")
+        picture
+            source(srcset="/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
+            source(srcset="/img/header_inner_2.jpg", media="(min-width: 1024px)")
+            img(src="/img/header-inner-2-mobile.jpg", alt="MDN")
 
     main(role='main', class='lb-internal')
 
-        section(class='lb-container lb-container_medium-constrain lb-container-push lb-grid')
+        section(class='lb-content lb-content_main')
 
-            div(class='lb-grid_u lb-grid_u-6 text-center')
-
-                i(class='lb-icon lb-02-contact lb-icon-6')
-                i(class='lb-icon lb-03-contact lb-icon-6')
-                h1 Based in beautiful & iconic Cape Town
-                p(class='lb-margin-bottom-none lb-description') You are most welcome to visit our office in person to discuss your case over a tea or coffee.
+            i(class='lb-icon lb-02-contact lb-icon-6')
+            i(class='lb-icon lb-03-contact lb-icon-6')
+            h1 Based in beautiful & iconic Cape Town
+            p(class='lb-content_main-text') You are most welcome to visit our office in person to discuss your case over a tea or coffee.
 
 
-        section(class='lb-grid', itemscope, itemtype="http://schema.org/LocalBusiness")
+        section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness")
 
-            div(class='lb-container')
+            div(class='lb-contact')
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-2 lb-contact')
+                p(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
+                    span(itemprop="streetAddress") 4 Kruger Street <br>
+                    span(itemprop="streetAddress") Lower Oakdale <br>
+                    span(itemprop="addressLocality") Bellville <br>
+                    span(temprop="addressRegion") Western Cape, South Africa <br>
+                    span(itemprop="postalCode") 7530
 
-                    p(class='text-center-mobile lb-margin-bottom-none', itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
-                        span(itemprop="streetAddress") 4 Kruger Street <br>
-                        span(itemprop="streetAddress") Lower Oakdale <br>
-                        span(itemprop="addressLocality") Bellville <br>
-                        span(temprop="addressRegion") Western Cape, South Africa <br>
-                        span(itemprop="postalCode") 7530
+            div(class='lb-contact')
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-2 lb-contact')
+                p <strong>Opening hours</strong><br>
+                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday - Friday <br>
+                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
+                    span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
+                    span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
 
-                    p(class='text-center-mobile lb-margin-bottom-none') <strong>Opening hours</strong><br>
-                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday - Friday <br>
-                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
-                        span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
-                        span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
+            div(class='lb-contact')
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-2 lb-contact')
+                p <strong>General enquries</strong><br>
+                    span Telephone:
+                    span(itemprop="telephone") <a href='#{data.tel.href}'>#{data.tel.name}</a><br>
+                    span Cell:
+                    span(itemprop="telephone") <a href='#{data.cell.href}'>#{data.cell.name}</a><br>
+                    span Email:
+                    span <a href="#{data.email.href}">#{data.email.name}</a>
 
-                    p(class='text-center-mobile lb-margin-bottom-none') <strong>General enquries</strong><br>
-                        span Telephone:
-                        span(itemprop="telephone") <a href='#{data.tel.href}'>#{data.tel.name}</a><br>
-                        span Cell:
-                        span(itemprop="telephone") <a href='#{data.cell.href}'>#{data.cell.name}</a><br>
-                        span Email:
-                        span <a href="#{data.email.href}">#{data.email.name}</a>
+        section(class='lb-content')
 
-        section(class='lb-grid')
+            div(class='lb-contact')
 
-            div(class='lb-container')
+                p(class='lb-social') <strong>Get social with us</strong><br>
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-2 lb-contact')
+                    a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
+                        i(class='lb-icon lb-07-google-plus lb-icon-2')
+                    a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
+                        i(class='lb-icon lb-06-facebook lb-icon-2')
+                    a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
+                        i(class='lb-icon lb-14-twitter lb-icon-2')
 
-                    p(class='lb-margin-bottom-none text-center-mobile lb-social') <strong>Get social with us</strong><br>
+            div(class='lb-contact')
 
-                        a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
-                            i(class='lb-icon lb-07-google-plus lb-icon-2')
-                        a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
-                            i(class='lb-icon lb-06-facebook lb-icon-2')
-                        a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
-                            i(class='lb-icon lb-14-twitter lb-icon-2')
+                p(class='lb-contact-title') <strong>Enquiry form</strong>
 
-                div(class='lb-grid_u lb-grid_u-6 lb-grid_medium-u-2 lb-contact text-center-mobile')
-
-                    p(class='lb-margin-bottom-none') <strong>Enquiry form</strong><br>
-
-                    div(class='lb-cta')
-                        a(href='', class='lb-btn') Get in Touch
+                div(class='lb-cta')
+                    a(href='', class='lb-btn') Get in Touch
 
         section(id='google-map', class='lb-map-canvas')
 

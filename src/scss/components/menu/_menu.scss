@@ -24,9 +24,11 @@
     }
 }
 
-.lb-menu {
+.lb-head-menu {
     color: $white-color;
     display: none;
+    @include span(12);
+    clear: both;
 
     &.active {
         display: block;

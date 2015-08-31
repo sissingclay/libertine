@@ -1,8 +1,0 @@
-.lb-container_medium-constrain {
-    @include rem(max-width, 45rem);
-}
-
-.lb-container-push {
-    @include rem(padding-top, 2rem);
-    @include rem(padding-bottom, 2rem);
-}

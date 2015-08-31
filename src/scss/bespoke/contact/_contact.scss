@@ -4,17 +4,27 @@
     @include rem(margin-top, 2rem);
 }
 
+.lb-contact {
+    text-align: center;
+    @include rem(margin-bottom, 20px);
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.lb-contact-title {
+    margin-bottom: 0;
+}
+
 @include bp(large) {
 
-    .lb-grid {
-
-        .lb-grid_u {
-
-            &.lb-contact {
-                @include rem(padding, $padding $padding $padding 80px);
-                border-left: 1px solid $grey-dark-color;
-            }
-        }
+    .lb-contact {
+        text-align: left;
+        @include gallery(4 of 12);
+        @include rem(padding, 0 $padding 0 40px);
+        border-left: 1px solid $light-grey-color;
+        @include rem(margin-bottom, 0);
     }
 
     .lb-map-canvas {

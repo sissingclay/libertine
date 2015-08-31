@@ -8,22 +8,22 @@ module Libertine {
 
     export class $ {
 
-        $: any;
         elements: any;
 
-        constructor () {
-            this.$ = function (selector) {
-                if ('querySelectorAll' in document ) {
-                    if (typeof selector === 'string') {
-                        this.elements = document.querySelectorAll(selector);
-                    } else {
-                        this.elements = selector;
-                    }
+        constructor (selector) {
 
-                    return this;
+            if ('querySelectorAll' in document ) {
+
+                if (typeof selector === 'string') {
+                    this.elements = document.querySelectorAll(selector);
                 } else {
-                    return;
+                    this.elements = selector;
                 }
+
+                return this;
+
+            } else {
+                return;
             }
         }
 
@@ -77,7 +77,7 @@ module Libertine {
                             myNodeList[i].addEventListener(name, callback);
                         } else {
                             //fallback to be added here
-                            myNodeList[i].attachEvent('onclick', callback);
+                            myNodeList[i].attachEvent('on' +  name, callback);
                         }
                     break;
                 }
@@ -127,19 +127,11 @@ module Libertine {
     }
 }
 
-var lb = new Libertine.$();
+var lb = function(element) {
+    return new Libertine.$(element);
+}
 
-lb.$('.lb-mobile-menu').on('click', function(ele) {
+lb('.lb-head-mobile-menu').on('click', function(ele) {
     ele.preventDefault();
-    lb.$('.lb-menu').toggleClass('active');
+    lb('.lb-head-menu').toggleClass('active');
 });
-
-//lb.$('.lb-menu-link').on('click', function(ele) {
-//
-//    var sub_menu = lb.$(this).child('.submenu');
-//
-//    if (sub_menu) {
-//        ele.preventDefault();
-//        sub_menu.toggleClass('active');
-//    }
-//});

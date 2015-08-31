@@ -3,6 +3,7 @@
 
 @include bp(medium) {
     @import "./src/scss/components/testimonials/testimonials-medium";
+    @import "./src/scss/components/stats/stats-medium";
 }
 
 @include bp(large) {

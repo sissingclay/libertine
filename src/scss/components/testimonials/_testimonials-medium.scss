@@ -1,3 +1,9 @@
 .lb-testimonials {
     text-align: left;
+    @include span(8 no-gutters);
+    @include rem(padding, 0 3rem 1rem);
+}
+
+.lb-testimonials_cta {
+    @include span(4);
 }

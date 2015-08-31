@@ -1,23 +1,19 @@
-header(role='banner')
+header(role='banner', class='lb-head')
 
-    section(class='lb-grid lb-head')
-        
-        div(class='lb-container')
+    section(class='lb-head-logo')
 
-            section(class='lb-grid_u lb-grid_u-2 lb-grid_medium-u-2')
+        a(href='#{data.home.href}')
+            img(src="img/libertine-logo-fallback.png", srcset="img/logo-libertine-consultants.svg", alt="Libertine Consultants", role='logo')
 
-                a(href='#{data.home.href}')
-                    img(src="/img/libertine-logo-fallback.png", srcset="/img/logo-libertine-consultants.svg", alt="Libertine Consultants", role='logo')
+    section(class='lb-head-mobile-menu lb-hide-medium text-right')
 
-            section(class='lb-grid_u lb-grid_u-2 lb-hide-medium text-right')
+        a(href='', class='lb-mobile-menu') Menu
 
-                a(href='', class='lb-mobile-menu') Menu
+    nav(class='lb-head-menu', role='navigation', aria-label='Main navigation')
 
-            nav(class='lb-grid_u lb-grid_u-1 lb-grid_medium-u-4 lb-menu', role='navigation', aria-label='Main navigation')
-
-                block activeMenu
+        block activeMenu
 
 
-                ul
-                    each val in nav
-                        +menu-item(val)
+        ul
+            each val in nav
+                +menu-item(val)

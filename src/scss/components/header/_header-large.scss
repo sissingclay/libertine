@@ -1,4 +1,7 @@
-[role=logo] {
-    @include rem('width', 185px);
-    height: auto;
+.lb-head-logo {
+
+    img {
+        @include rem('width', 185px);
+        height: auto;
+    }
 }

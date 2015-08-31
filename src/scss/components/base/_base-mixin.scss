@@ -1,4 +1,17 @@
 @import './src/scss/components/functions/rems';
+@import './bower_components/susy/sass/susy';
+
+$susy: (
+    container: auto,
+    container-position: center,
+    global-box-sizing: border-box,
+    output: float,
+    columns: 12,
+    column-width: 80px,
+    gutters: 15px/40px,
+    gutter-position: inside-static,
+    math: fluid
+);
 
 $font: Arial, Helvetica, 'helvetica neue', sans-serif;
 
@@ -17,6 +30,8 @@ $grey-background: #f5f4f3;
 $header: #4a5062;
 
 $padding: 15px;
+$max-width: 1680px;
+$max-width-medium: 45rem;
 
 $speed: 500ms;
 $effect: ease-in-out;
@@ -63,12 +78,19 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
     }
 }
 
+@mixin after() {
+    content: '';
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+}
 
 @mixin placeholder {
     &::-webkit-input-placeholder {@content}
     &:-moz-placeholder           {@content}
     &::-moz-placeholder          {@content}
-    &:-ms-input-placeholder      {@content}  
+    &:-ms-input-placeholder      {@content}
 }
 
 @mixin lato-family {
