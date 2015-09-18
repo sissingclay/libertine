@@ -1,8 +1,15 @@
 .lb-content {
     position: relative;
-    @include rem(max-width, $max-width);
     margin: 0 auto;
     @include rem(padding, 2rem $padding);
+}
+
+.lb-content-constraint {
+    @include max-width($max-width, $max-width-rem);
+}
+
+.lb-content-constraint__medium {
+    @include medium-width($max-width-medium, $max-width-medium-rem);
 }
 
 .lb-content_purple {

@@ -4,6 +4,10 @@
     padding-bottom: $padding;
 }
 
+.lb-head-container {
+    @include max-width($max-width, $max-width-rem);
+}
+
 .lb-head:after {
     @include after;
 }

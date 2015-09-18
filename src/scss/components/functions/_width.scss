@@ -1,0 +1,9 @@
+@mixin max-width($pixel, $rems) {
+    max-width: $pixel;
+    @include container($rems);
+}
+
+@mixin medium-width($pixel, $rems) {
+    max-width: $pixel;
+    @include container($rems);
+}

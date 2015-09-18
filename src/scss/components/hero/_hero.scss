@@ -16,6 +16,10 @@
     }
 }
 
+.lb-hero-constraint {
+    @include max-width($max-width, $max-width-rem);
+}
+
 .lb-hero:after {
     @include after();
 }

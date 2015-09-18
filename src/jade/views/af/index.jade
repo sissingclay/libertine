@@ -1,142 +1,87 @@
-extends ../extends/default.jade
-
+extends ../../extends/afrikaans.jade
 block title
     title Debt | Debt Counsellor | Debt Lawyer | Debt Attorneys | Cape Town
-
 block description
     meta(name='description', content='Debt Counsellors that can help with debt. Debt Counsellors will advise Debt Attorneys who will defended you Cape Town. Debt Lawyers can make a difference.')
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
-
 append css
     // build:css css/home/home.min.css
-    link(rel='stylesheet' href='css/home/home.css')
+    link(rel='stylesheet' href='/css/home/home.css')
     // endbuild
-
 block prepend activeMenu
-    - var activePage    = '/'
+    - var activePage    = '/af'
     - var english       = '/'
     - var afrikaans     = '/af'
-
-
 block main
 
-    include ../partials/language.jade
+    #{activePage}
 
+    include ../../partials/language.jade
     section(class='lb-hero')
-
         div(class='lb-hero-constraint')
-
             div(class='lb-hero_container')
-
                 h1(class='lb-hero-title') Debt counselling done properly
-
                 p(class='lb-hero-text') Support before, during and after debt counselling ensures that individuals have the best opportunity for success.
-
                 div(class='lb-cta lb-cta_center lb-cta_large-left')
-
                     a(href=nav.debt.href class='lb-btn lb-btn_push-right') Find Out More
-
                     a(href=links.form.href class='lb-btn lb-btn_action') Get Help you Need
-
                     p(class='lb-cta-text')
                         small Need to talk to us? Call <a href='tel:+27219492211'>+27 (021) 949 2211</a> for advice
-
     main(role='main')
-
         section(class='lb-content')
-
             div(class='text-center')
-
                 i(class='lb-icon lb-09-law lb-icon-6')
-
                 h2 Debt services
-
                 p.
                     We <strong>reduce your normal monthly payments</strong> to your creditors and extend the repayment period.<br>
                     All your accounts such as <strong>loans, credit cards, vehicles, bonds and other accounts</strong> will be consolidated into <strong>one monthly affordable payment</strong>.<br>
                     We will provide you with protection from further or any legal action against your credit profile.
-
                 div(class='lb-cta lb-cta_center')
-
                     p
                         small Find out more details on debt services offered
-
                     a(href='' class='lb-btn') more in debt services
-
         section(class='lb-content lb-content_purple')
-
             div(class='lb-content-constraint')
-
                 div(class='lb-testimonials lb-bar')
-
                     blockquote
                         p(class='lb-testimonials-text').
                             Debt review made a world of difference in my life although it was hard to accept in the
                             beginning. This is one of the best decisions I made in my life.
-
                     figcaption(class='lb-testimonials-figcaption').
                         Geraldo Strydom, Cape Town
-
                 div(class='lb-testimonials_cta')
-
                     div(class='lb-cta lb-cta_center')
-
                         p
                             small Take control of finances and simplify your life
-
                         a(href=links.form.href class='lb-btn lb-btn_white') Get Started
-                    
-
         section(class='lb-content lb-content_grey')
-
             div(class='lb-content-constraint')
-
-                    div(class='text-center')
-
-                        i(class='lb-icon lb-04-debt_mng lb-icon-6')
-                        i(class='lb-icon lb-05-debt_mng lb-icon-6')
-
-                        h2 Free assessment
-
-                        p.
-                            <b>“The man who never has money enough to pay his debts has too much of something else.”</b><br>
-                            -James Lendall Basford
-
-                        p.
-                            For all new clients we provide a free assessment on your financial position.<br>
-                            This is to give all our potential clients a realistic view on their current financial situation
-                            and whether our services will be beneficial for the client.
-
-                        p.
-                            Once all your accounts have been settled with any of our services.<br> We assist you in updating your
-                            credit profile with all the major credit bureaus in order to have an updated credit profile.
-
-                        include ../partials/cta/cta-red.jade
-
+                div(class='text-center')
+                    i(class='lb-icon lb-04-debt_mng lb-icon-6')
+                    i(class='lb-icon lb-05-debt_mng lb-icon-6')
+                    h2 Free assessment
+                    p.
+                        <b>“The man who never has money enough to pay his debts has too much of something else.”</b><br>
+                        -James Lendall Basford
+                    p.
+                        For all new clients we provide a free assessment on your financial position.<br>
+                        This is to give all our potential clients a realistic view on their current financial situation
+                        and whether our services will be beneficial for the client.
+                    p.
+                        Once all your accounts have been settled with any of our services.<br> We assist you in updating your
+                        credit profile with all the major credit bureaus in order to have an updated credit profile.
+                    include ../../partials/cta/cta-red.jade
         section(class='lb-content text-center')
-
             div(class='lb-content-constraint')
-
                 div(class='lb-stats')
-
                     i(class='lb-icon lb-11-trust lb-icon-6')
-
                     p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
-
                 div(class='lb-stats')
-
                     i(class='lb-icon lb-12-trust lb-icon-6')
-
                     p We're dealt with over <strong>R100,000,000</strong> in settlements for our clients
-
                 div(class='lb-stats')
-
                     i(class='lb-icon lb-13-trust lb-icon-6')
-
                     p Our <strong>accomplished and dedicated team</strong> has assisted over <strong>1100 clients</strong>
-
                 div(class='lb-stats')
-
                     i(class='lb-icon lb-09-law lb-icon-6')
-
                     p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592

@@ -1,28 +1,35 @@
-- var nav       = {};
-- nav.about     = {href: '/how-it-works.html', name: 'How it works'};
-- nav.debt      = {href: '/debt.html', name: 'Debt services'};
-- nav.debt.sub  = [{href: '/about-subs.html', name: 'About subs yo'}, {href: '/about-subss.html', name: 'About subss'}, {href: '/about-sub.html', name: 'About sub'}];
-- nav.more      = {href: '/more.html', name: 'More'};
-- nav.more.sub  = [{href: '/contact-us.html', name: 'Contact us'}];
+- var nav           = {};
+- nav.about         = {en: {href: '/how-it-works.html', name: 'How it works'}, af: {href: '/af/how-it-works.html', name: 'Hou dit werk'}};
+- nav.debt          = {en: {href: '/debt.html', name: 'Debt services'}, af: {href: '/debt.html', name: 'Debt services Af'}};
+- nav.debt.sub      = [{en: [{href: '/about-subs.html', name: 'About subs yo'}, {href: '/about-subss.html', name: 'About subss'}, {href: '/about-sub.html', name: 'About sub'}]}, {af: [{href: '/about-subs.html', name: 'About subs yo af'}, {href: '/about-subss.html', name: 'About subss af'}, {href: '/about-sub.html', name: 'About sub af'}]}];
+- nav.more          = {en: {href: '/more.html', name: 'More'}, af: {href: '/more.html', name: 'More af'}};
+- nav.more.sub      = [{en: [{href: '/contact-us.html', name: 'Contact us'}]}, {af: [{href: '/contact-us.html', name: 'Contact us Af'}]}];
 
-- var links     = {};
-- links.form    = {href: '/get-in-touch.html'}
+- var links         = {};
+- links.form        = {href: '/get-in-touch.html'};
+- links.get_touch   = {en: {href: '/get-in-touch.html', name: 'Get in touch'}, af: {href: '/get-in-touch.html', name: 'Kry in touch'}};
+
+//Check which lang is been used
+- var lang          = (isAfrikaans ? 'af' : 'en');
+- var langSub       = (isAfrikaans ? 1 : 0);
 
 mixin menu-item (obj)
 
-    if obj.href.toLowerCase() == activePage
+    if obj[lang].href.toLowerCase() == activePage
         li(class='lb-menu-link active')
-            a(href=obj.href, title=obj.name)= obj.name
+            a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')
-                    each subVal in obj.sub
-                        li
-                            a(href=subVal.href, title=subVal.name)=subVal.name
+                    each subVal in obj.sub[langSub]
+                        each sub in subVal
+                            li
+                                a(href=sub.href, title=sub.name)=sub.name
     else
         li(class='lb-menu-link')
-            a(href=obj.href, title=obj.name)= obj.name
+            a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')
-                    each subVal in obj.sub
-                        li
-                            a(href=subVal.href, title=subVal.name)=subVal.name
+                    each subVal in obj.sub[langSub]
+                        each sub in subVal
+                            li
+                                a(href=sub.href, title=sub.name)=sub.name

@@ -41,7 +41,6 @@
     .lb-menu-link {
         color: $white-color;
         text-decoration: none;
-        @include lato-family;
         text-transform: uppercase;
         @include rem(font-size, 1.2rem);
         @include rem(line-height, 2.8rem);

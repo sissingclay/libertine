@@ -1,5 +1,6 @@
 .lb-language {
     position: relative;
+    @include max-width($max-width, $max-width-rem);
 }
 
 .lb-language-container {

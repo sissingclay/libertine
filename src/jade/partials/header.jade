@@ -1,19 +1,20 @@
-header(role='banner', class='lb-head')
+header(class='lb-head')
 
-    section(class='lb-head-logo')
+    div(class='lb-head-container')
 
-        a(href='#{data.home.href}')
-            img(src="img/libertine-logo-fallback.png", srcset="img/logo-libertine-consultants.svg", alt="Libertine Consultants", role='logo')
+        section(class='lb-head-logo')
 
-    section(class='lb-head-mobile-menu lb-hide-medium text-right')
+            a(href='#{data.home.href}')
+                img(src="/img/libertine-logo-fallback.png", srcset="/img/logo-libertine-consultants.svg", alt="Libertine Consultants")
 
-        a(href='', class='lb-mobile-menu') Menu
+        section(class='lb-head-mobile-menu lb-hide-medium text-right')
 
-    nav(class='lb-head-menu', role='navigation', aria-label='Main navigation')
+            a(href='', class='lb-mobile-menu') Menu
 
-        block activeMenu
+        nav(class='lb-head-menu', aria-label='Main navigation')
 
+            block activeMenu
 
-        ul
-            each val in nav
-                +menu-item(val)
+                ul
+                    each val in nav
+                        +menu-item(val)

@@ -1,0 +1,61 @@
+extends ../extends/default.jade
+
+block title
+    title How it works | Debt management | Debt
+
+block description
+    meta(name='description', content='Yo')
+
+append css
+    // build:css css/home/get-in-touch.min.css
+    link(rel='stylesheet' href='css/get-in-touch/get-in-touch.css')
+    // endbuild
+
+block prepend activeMenu
+    - var activePage    = nav.about.en.href;
+    - var english       = nav.about.en.href;
+    - var afrikaans     = nav.about.af.href;
+
+block main
+
+    include ../partials/language.jade
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
+            source(srcset="/img/header_inner_2.jpg", media="(min-width: 1024px)")
+            img(src="/img/header-inner-2-mobile.jpg", alt="MDN")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            i(class='lb-icon lb-13-trust lb-icon-6')
+            h1 How it works
+            p(class='lb-content_main-text').
+                <b>Is there a more efficient way to manage your debt?</b><br>
+                We think so.
+
+        section(class='lb-content lb-content_purple')
+
+            div(class='lb-content-constraint')
+
+                div(class='lb-testimonials lb-bar')
+
+                    blockquote
+                        p(class='lb-testimonials-text').
+                            Debt review made a world of difference in my life although it was hard to accept in the
+                            beginning. This is one of the best decisions I made in my life.
+
+                    figcaption(class='lb-testimonials-figcaption').
+                        Geraldo Strydom, Cape Town
+
+                div(class='lb-testimonials_cta')
+
+                    div(class='lb-cta lb-cta_center')
+
+                        p
+                            small Take control of finances and simplify your life
+
+                        a(href=links.form.href class='lb-btn lb-btn_white') Get Started

@@ -6,7 +6,7 @@
     display: block;
     text-align: right;
     @include rem(margin-top, 1.1rem);
-    @include span(6);
+    @include span(8);
     clear: none;
 
     .lb-menu-link {

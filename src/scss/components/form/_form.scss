@@ -1,5 +1,5 @@
 .lb-form {
-    @include rem(max-width, 45rem);
+    @include medium-width($max-width-medium, $max-width-medium-rem);
     margin: 0 auto;
     
     &:after {
@@ -20,6 +20,10 @@
     &:focus {
         border: 1px solid $purple-lighter-color;
         outline: none;
+
+        @include placeholder {
+            color: $white-color;
+        }
     }
 
     &.lb-error {
@@ -32,7 +36,7 @@
 }
 
 .lb-form-description {
-
+    color: $light-grey-color;
 }
 
 .lb-form-input {

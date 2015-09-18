@@ -1,0 +1,14 @@
+.lbTouch {
+    background-color: $grey-darkest-color;
+    @include rem(padding, 8px);
+    text-align: center;
+
+    a {
+        color: $white-color;
+        @include rem(font-size, 18px);
+
+        &:hover {
+            color: $light-grey-color;
+        }
+    }
+}

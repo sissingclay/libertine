@@ -2,6 +2,18 @@
     text-align: left;
     @include span(8 no-gutters);
     @include rem(padding, 0 3rem 1rem);
+
+    &.lb-testimonials__row {
+        @include span(12 no-gutters);
+        text-align: center;
+        @include max-width($max-width, $max-width-rem);
+        float: none;
+        width: auto;
+
+        &:before {
+            content: '';
+        }
+    }
 }
 
 .lb-testimonials_cta {
