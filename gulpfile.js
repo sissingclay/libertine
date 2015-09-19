@@ -143,7 +143,7 @@
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'iconFont'], 'usemin'
+            ['jade', 'typescript', 'sass', 'img', 'iconFont']
         );
     });
 
