@@ -25,6 +25,7 @@
         del         = require('del'),
         iconfontCss = require('gulp-iconfont-css'),
         iconfont    = require('gulp-iconfont'),
+        svgmin      = require('gulp-svgmin'),
 
         knownOptions = {
             string: 'env',
@@ -42,8 +43,9 @@
             'sassViews': './src/scss/views/**/*.scss',
             'sass': './src/scss/**/*.scss',
             'build': './build/',
-            'html': './build/**/*.html',
+            'html': './build/test/**/*.html',
             'img': './src/img/*',
+            'svg': './src/svgs/*',
             'dist': './build/test/'
         };
 
@@ -123,7 +125,7 @@
 
         var fontName    = 'lb-icons';
 
-        gulp.src(['src/svgs/*.svg'])
+        gulp.src([paths.svg])
             .pipe(iconfontCss({
                 fontName: fontName,
                 path: 'src/icons/_icons.css',
@@ -139,11 +141,17 @@
             .pipe(gulp.dest(paths.dist + 'fonts/'));
     });
 
-    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont']);
+    gulp.task('svg', function () {
+        return gulp.src([paths.svg])
+            .pipe(svgmin())
+            .pipe(gulp.dest(paths.dist + 'svg/'));
+    });
+
+    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont', 'svg']);
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'iconFont']
+            ['jade', 'typescript', 'sass', 'img', 'iconFont', 'svg'], 'usemin'
         );
     });
 
