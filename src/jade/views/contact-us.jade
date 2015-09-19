@@ -9,7 +9,7 @@ block description
 
 append css
     // build:css css/home/home.min.css
-    link(rel='stylesheet' href='#{path}css/contact/contact.css')
+    link(rel='stylesheet' href='#{path}/css/contact/contact.css')
     // endbuild
 
 block prepend activeMenu
@@ -217,7 +217,7 @@ append js
 
             map     = new google.maps.Map(document.getElementById('google-map'), mapOptions),
 
-            image   = '/img/10-map_pointer.png';
+            image   = '#{path}/img/10-map_pointer.png';
 
             marker  = new google.maps.Marker({
                 position: mapOptions.center,

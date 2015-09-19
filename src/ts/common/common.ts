@@ -20,8 +20,6 @@ module Libertine {
                     this.elements = selector;
                 }
 
-                console.log('asd', this.elements);
-
                 return this;
 
             } else {
@@ -35,7 +33,6 @@ module Libertine {
         }
 
         public toggleClass (className: string) {
-            console.log('name', this.elements);
             new OnEvents(className, null, this.elements, 'toggleClass');
             return this;
         }
