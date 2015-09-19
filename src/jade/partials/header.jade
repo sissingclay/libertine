@@ -16,5 +16,5 @@ header(class='lb-head')
             block activeMenu
 
                 ul
-                    each val in nav
-                        +menu-item(val)
+                    each val, index in nav
+                        +menu-item(val, index)

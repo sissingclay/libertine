@@ -71,6 +71,10 @@
         ul {
             display: none;
 
+            &.show {
+                display: block;
+            }
+
             a {
                 @include rem(padding-left, .75rem);
             }

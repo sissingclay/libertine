@@ -1,0 +1,19 @@
+{
+  "name": "libertine",
+  "version": "0.0.0",
+  "homepage": "https://github.com/sissingclay/libertine",
+  "authors": [
+    "Clay Sissing <clay.sissing@crowdcube.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "susy": "~2.2.6"
+  }
+}

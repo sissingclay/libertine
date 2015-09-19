@@ -13,10 +13,12 @@
 - var lang          = (isAfrikaans ? 'af' : 'en');
 - var langSub       = (isAfrikaans ? 1 : 0);
 
-mixin menu-item (obj)
+mixin menu-item (obj, index)
+
+    - var subLinks = (index === 'more' ? 'linksOptions' : '');
 
     if obj[lang].href.toLowerCase() == activePage
-        li(class='lb-menu-link active')
+        li(class='lb-menu-link active #{subLinks}')
             a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')
@@ -25,7 +27,7 @@ mixin menu-item (obj)
                             li
                                 a(href=sub.href, title=sub.name)=sub.name
     else
-        li(class='lb-menu-link')
+        li(class='lb-menu-link #{subLinks}')
             a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')

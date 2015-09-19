@@ -20,6 +20,8 @@ module Libertine {
                     this.elements = selector;
                 }
 
+                console.log('asd', this.elements);
+
                 return this;
 
             } else {
@@ -33,6 +35,7 @@ module Libertine {
         }
 
         public toggleClass (className: string) {
+            console.log('name', this.elements);
             new OnEvents(className, null, this.elements, 'toggleClass');
             return this;
         }
@@ -60,27 +63,38 @@ module Libertine {
 
             var myNodeList = elements;
 
-            for (var i = 0; i < myNodeList.length; i++) {
+            switch (action) {
 
-                switch (action) {
+                case 'toggleClass' :
 
-                    case 'toggleClass' :
-                        new ClassActions(name,myNodeList[i]).toggleClass();
+                    if(myNodeList.length) {
+                        for (var i = 0; i < myNodeList.length; i++) {
+                            new ClassActions(name, myNodeList[i]).toggleClass();
+                        }
+
+                        return;
+                    }
+
+                    new ClassActions(name, myNodeList).toggleClass();
+
+                break;
+
+                case 'hasClass' :
+                    for (var i = 0; i < myNodeList.length; i++) {
+                        new ClassActions(name, myNodeList[i]).hasClass();
+                    }
                     break;
 
-                    case 'toggleClass' :
-                        new ClassActions(name,myNodeList[i]).hasClass();
-                        break;
-
-                    default :
-                        if ('addEventListener' in window ) {
+                default :
+                    for (var i = 0; i < myNodeList.length; i++) {
+                        if ('addEventListener' in window) {
                             myNodeList[i].addEventListener(name, callback);
                         } else {
                             //fallback to be added here
-                            myNodeList[i].attachEvent('on' +  name, callback);
+                            myNodeList[i].attachEvent('on' + name, callback);
                         }
-                    break;
-                }
+                    }
+                break;
             }
         }
     }
@@ -131,7 +145,16 @@ var lb = function(element) {
     return new Libertine.$(element);
 }
 
-lb('.lb-head-mobile-menu').on('click', function(ele) {
-    ele.preventDefault();
-    lb('.lb-head-menu').toggleClass('active');
+document.addEventListener('DOMContentLoaded', function () {
+
+    lb('.lb-head-mobile-menu').on('click', function(ele) {
+        ele.preventDefault();
+        lb('.lb-head-menu').toggleClass('active');
+    });
+
+    lb('.linksOptions > a').on('click', function(ele) {
+        ele.preventDefault();
+        lb(this.nextSibling.nextSibling).toggleClass('show');
+    });
+
 });
