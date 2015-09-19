@@ -151,7 +151,7 @@
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'iconFont', 'svg'], 'usemin'
+            ['jade', 'typescript', 'sass', 'img', 'iconFont', 'svg']
         );
     });
 
