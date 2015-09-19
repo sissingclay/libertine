@@ -3,24 +3,6 @@
     .lb-social-icon {
         @include rem(margin-right, 0.5rem);
 
-        &.lb-social-icons_white {
-
-            .lb-icon {
-                color: $white-color;
-            }
-        }
-
-        .lb-icon {
-            @include transition(color);
-        }
-
-        &:hover {
-
-            .lb-icon {
-                color: $purple-lighter-color;
-            }
-        }
-
         &:last-child {
             margin-right: 0;
         }

@@ -1,17 +1,7 @@
 .lb-language-container {
-    background-color: $purple-color;
+    background: $purple-color url('../../svg/08-language.svg') no-repeat right center;
     padding: $padding;
     position: relative;
-
-    &:after {
-        position:absolute;
-        font-family: lb-icons;
-        top: 25%;
-        right: $padding;
-        color: $white-color;
-        content: "\E008";
-        font-size: 1.5em;
-    }
 
     
     .lb-language-list {
