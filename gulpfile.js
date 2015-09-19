@@ -44,14 +44,14 @@
             'build': './build/',
             'html': './build/**/*.html',
             'img': './src/img/*',
-            'dist': './build/'
+            'dist': './build/test/'
         };
 
     // watch files for changes and reload
     gulp.task('serve', function () {
         browserSync({
             server: {
-                baseDir: paths.dist
+                baseDir: paths.build
             }
         });
 
@@ -74,7 +74,7 @@
             .pipe(jade({
                 pretty: true
             }))
-            .pipe(gulp.dest(paths.build))
+            .pipe(gulp.dest(paths.dist))
             .pipe(reload({ stream: true }));
     });
 
@@ -82,14 +82,14 @@
     gulp.task('typescript', function () {
         return gulp.src(paths.ts)
             .pipe(typescript())
-            .pipe(gulp.dest(paths.build + 'js/'))
+            .pipe(gulp.dest(paths.dist + 'js/'))
             .pipe(reload({ stream: true }));
     });
 
     gulp.task('sass', function () {
         gulp.src(paths.sassViews)
             .pipe(sass())
-            .pipe(gulp.dest(paths.build + 'css/'))
+            .pipe(gulp.dest(paths.dist + 'css/'))
             .pipe(reload({ stream: true }));
     });
 
@@ -100,7 +100,7 @@
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngquant()]
             }))
-            .pipe(gulp.dest(paths.build + 'img/'));
+            .pipe(gulp.dest(paths.dist + 'img/'));
     });
 
     gulp.task('moveImg', function () {
@@ -110,7 +110,7 @@
 
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
-        return gulp.src([paths.html, paths.build + 'img/*'])
+        return gulp.src([paths.html, paths.dist + 'img/*'])
             .pipe(usemin({
                 css: [minifyCss(), 'concat', rev()],
                 html: [minifyHtml({empty: true})],
@@ -136,7 +136,7 @@
                 fontName: fontName,
                 appendCodepoints: true // recommended option
             }))
-            .pipe(gulp.dest('build/fonts/'));
+            .pipe(gulp.dest(paths.dist + 'fonts/'));
     });
 
     gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont']);

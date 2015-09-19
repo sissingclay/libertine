@@ -6,12 +6,12 @@ block description
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
 append css
     // build:css css/home/home.min.css
-    link(rel='stylesheet' href='/css/home/home.css')
+    link(rel='stylesheet' href='#{path}/css/home/home.css')
     // endbuild
 block prepend activeMenu
-    - var activePage    = '/af'
-    - var english       = '/'
-    - var afrikaans     = '/af'
+    - var activePage    = path + data.home.af.href;
+    - var english       = path + data.home.en.href;
+    - var afrikaans     = path + data.home.af.href;
 block main
 
     #{activePage}

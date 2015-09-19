@@ -19,19 +19,19 @@ mixin menu-item (obj, index)
 
     if obj[lang].href.toLowerCase() == activePage
         li(class='lb-menu-link active #{subLinks}')
-            a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
+            a(href=path + obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')
                     each subVal in obj.sub[langSub]
                         each sub in subVal
                             li
-                                a(href=sub.href, title=sub.name)=sub.name
+                                a(href=path + sub.href, title=sub.name)=sub.name
     else
         li(class='lb-menu-link #{subLinks}')
-            a(href=obj[lang].href, title=obj[lang].name)=obj[lang].name
+            a(href=path + obj[lang].href, title=obj[lang].name)=obj[lang].name
             if obj.sub
                 ul(class='submenu')
                     each subVal in obj.sub[langSub]
                         each sub in subVal
                             li
-                                a(href=sub.href, title=sub.name)=sub.name
+                                a(href=path + sub.href, title=sub.name)=sub.name
