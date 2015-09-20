@@ -8,8 +8,8 @@ block description
     meta(name='keyword', content='debt enquiry, debt enquiry form, debt enquiry companies')
 
 append css
-    // build:css css/home/home.min.css
-    link(rel='stylesheet' href='#{path}/css/contact/contact.css')
+    // build:inlinecss
+    link(rel='stylesheet' href='/css/contact/contact.css')
     // endbuild
 
 block prepend activeMenu
@@ -74,11 +74,11 @@ block main
                 p(class='lb-social') <strong>Get social with us</strong><br>
 
                     a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/07-google-plus.svg', width='120')
+                        img(src='#{path}/svg/07-google-plus.svg', width='40')
                     a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/06-facebook.svg', width='120')
+                        img(src='#{path}/svg/06-facebook.svg', width='40')
                     a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/14-twitter.svg', width='120')
+                        img(src='#{path}/svg/14-twitter.svg', width='40')
 
             div(class='lb-contact')
 
@@ -90,7 +90,6 @@ block main
         section(id='google-map', class='lb-map-canvas')
 
 append js
-    parent()
     script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1zFtcxfOO8AKitdraeyUVHcz3txhHYk")
     script(type="text/javascript").
         function initialize() {

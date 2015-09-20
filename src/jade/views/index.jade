@@ -8,8 +8,8 @@ block description
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
 
 append css
-    // build:css css/home/home.min.css
-    link(rel='stylesheet' href='#{path}/css/home/home.css')
+    // build:inlinecss
+    link(rel='stylesheet' href='/css/home/home.css')
     // endbuild
 
 block prepend activeMenu
@@ -45,23 +45,25 @@ block main
 
         section(class='lb-content')
 
-            div(class='text-center')
+            div(class='lb-content-constraint')
 
-                img(src='#{path}/svg/09-law.svg', width='120')
+                div(class='text-center')
 
-                h2 Debt services
+                    img(src='#{path}/svg/09-law.svg', width='120')
 
-                p.
-                    We <strong>reduce your normal monthly payments</strong> to your creditors and extend the repayment period.<br>
-                    All your accounts such as <strong>loans, credit cards, vehicles, bonds and other accounts</strong> will be consolidated into <strong>one monthly affordable payment</strong>.<br>
-                    We will provide you with protection from further or any legal action against your credit profile.
+                    h2 Debt services
 
-                div(class='lb-cta lb-cta_center')
+                    p.
+                        We <strong>reduce your normal monthly payments</strong> to your creditors and extend the repayment period.<br>
+                        All your accounts such as <strong>loans, credit cards, vehicles, bonds and other accounts</strong> will be consolidated into <strong>one monthly affordable payment</strong>.<br>
+                        We will provide you with protection from further or any legal action against your credit profile.
 
-                    p
-                        small Find out more details on debt services offered
+                    div(class='lb-cta lb-cta_center')
 
-                    a(href='' class='lb-btn') more in debt services
+                        p
+                            small Find out more details on debt services offered
+
+                        a(href='' class='lb-btn') more in debt services
 
         section(class='lb-content lb-content_purple')
 

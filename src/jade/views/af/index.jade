@@ -5,8 +5,8 @@ block description
     meta(name='description', content='Debt Counsellors that can help with debt. Debt Counsellors will advise Debt Attorneys who will defended you Cape Town. Debt Lawyers can make a difference.')
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
 append css
-    // build:css css/home/home.min.css
-    link(rel='stylesheet' href='#{path}/css/home/home.css')
+    // build:inlinecss
+    link(rel='stylesheet' href='../css/home/home.css')
     // endbuild
 block prepend activeMenu
     - var activePage    = path + data.home.af.href;

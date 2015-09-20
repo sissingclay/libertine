@@ -1,5 +1,7 @@
 -var isAfrikaans = true;
--var path = '/test';
+-var path = '';
+-var cssLang = (isAfrikaans ? '..' : '');
+
 include ../partials/variables/variables
 include ../partials/variables/menu-variables
 
@@ -10,6 +12,7 @@ html(lang='af')
     head
 
         meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+        base(href="http://www.libertineconsultants.co.za/test")
 
         block meta
 
@@ -23,17 +26,15 @@ html(lang='af')
             meta(name='google-site-verification', content='ww11v4k5h5PRcIK0rSM42lewh1eDcDMgAn57KstPzNY')
             meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
-            link(href='http://fonts.googleapis.com/css?family=Lato:300', rel='stylesheet')
-
         block css
-            // build:css /test/css/common/common.min.css
-            link(rel='stylesheet' href='#{path}/css/common/common.css')
+            // build:css css/common/common.min.css
+            link(rel='stylesheet' href='#{cssLang}/css/common/common.css')
             // endbuild
-            // build:css /test/css/common/common-medium.min.css
-            link(rel='stylesheet' href='#{path}/css/common/common-medium.css' media="(min-width: 48.000em)")
+            // build:css css/common/common-medium.min.css
+            link(rel='stylesheet' href='#{cssLang}/css/common/common-medium.css' media="(min-width: 48.000em)")
             // endbuild
-            // build:css /test/css/common/common-large.min.css
-            link(rel='stylesheet' href='#{path}/css/common/common-large.css' media="(min-width: 64.000em)")
+            // build:css css/common/common-large.min.css
+            link(rel='stylesheet' href='#{cssLang}/css/common/common-large.css' media="(min-width: 64.000em)")
             // endbuild
 
         <!--[if lte IE 8]>

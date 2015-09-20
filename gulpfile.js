@@ -112,11 +112,13 @@
 
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
-        return gulp.src([paths.html, paths.dist + 'img/*'])
+        return gulp.src('build/test/**/*.html')
             .pipe(usemin({
-                css: [minifyCss(), 'concat', rev()],
-                html: [minifyHtml({empty: true})],
-                js: [uglify(), rev()]
+                css: [minifyCss, rev],
+                html: [ function () {return minifyHtml({ empty: true });} ],
+                js: [uglify(), rev()],
+                inlinejs: [ uglify() ],
+                inlinecss: [ minifyCss ]
             }))
             .pipe(gulp.dest(paths.dist));
     });
@@ -147,11 +149,17 @@
             .pipe(gulp.dest(paths.dist + 'svg/'));
     });
 
-    gulp.task('build-dev', ['jade', 'typescript', 'sass', 'img', 'serve', 'iconFont', 'svg']);
+    gulp.task('build-dev', function () {
+
+        runSequence(
+            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg'], 'usemin'
+        );
+    });
+
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'iconFont', 'svg']
+            ['jade', 'typescript', 'sass', 'img', 'svg'], 'usemin'
         );
     });
 
