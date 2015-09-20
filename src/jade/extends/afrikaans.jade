@@ -1,5 +1,5 @@
 -var isAfrikaans = true;
--var path = '';
+-var path = '/test';
 -var cssLang = (isAfrikaans ? '..' : '');
 
 include ../partials/variables/variables
@@ -12,7 +12,6 @@ html(lang='af')
     head
 
         meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
-        base(href="http://www.libertineconsultants.co.za/test")
 
         block meta
 
@@ -21,11 +20,12 @@ html(lang='af')
             block description
                 meta(name='description', content='this is a test')
 
-
             meta(name='author', content='Libertine Consultants')
             meta(name='msvalidate.01', content='AB0F4FC0C298F546B6E11AB099848CAB')
             meta(name='google-site-verification', content='ww11v4k5h5PRcIK0rSM42lewh1eDcDMgAn57KstPzNY')
             meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        link(rel='shortcut icon', type='image/x-icon', href='http://www.libertineconsultants.co.za/img/favicon.ico')
 
         block css
             // build:css css/common/common.min.css

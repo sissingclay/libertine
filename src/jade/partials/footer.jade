@@ -7,15 +7,15 @@ block footer
             section(class='lb-footer-links')
                 ul
                     li
-                        a(href='#{data.home.en.href}') Home
+                        a(href=path + data.home[lang].href) #{data.home[lang].name}
                     li
                         a(href='') Contact
                     li
-                        a(href='') How to Apply
+                        a(href='') How it works
                     li
                         a(href='') Sitemap
                     li
-                        a(href='') Privacy Policy
+                        a(href=path + links.privacy[lang].href) #{links.privacy[lang].name}
                     li
                         a(href='') Disclaimer
 

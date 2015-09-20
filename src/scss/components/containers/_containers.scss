@@ -12,6 +12,10 @@
     @include medium-width($max-width-medium, $max-width-medium-rem);
 }
 
+.lb-content-constraint__large {
+    @include medium-width($max-width-large, $max-width-large-rem);
+}
+
 .lb-content_purple {
     background-color: $purple-color;
 

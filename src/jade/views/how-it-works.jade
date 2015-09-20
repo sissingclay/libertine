@@ -6,6 +6,10 @@ block title
 block description
     meta(name='description', content='Yo')
 
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/how-it-works/how-it-works.css')
+    // endbuild
 
 block prepend activeMenu
     - var activePage    = nav.about.en.href;
@@ -37,21 +41,13 @@ block main
 
             div(class='lb-content-constraint')
 
-                div(class='lb-testimonials lb-bar')
+                section(class='lb-content lb-content_purple')
 
-                    blockquote
-                        p(class='lb-testimonials-text').
-                            Debt review made a world of difference in my life although it was hard to accept in the
-                            beginning. This is one of the best decisions I made in my life.
+                    div(class='lb-testimonials lb-testimonials__row')
 
-                    figcaption(class='lb-testimonials-figcaption').
-                        Geraldo Strydom, Cape Town
+                        blockquote
+                            p(class='lb-testimonials-text').
+                                We are happy to say that through their dedication and our commitment we are now debt free!
 
-                div(class='lb-testimonials_cta')
-
-                    div(class='lb-cta lb-cta_center')
-
-                        p
-                            small Take control of finances and simplify your life
-
-                        a(href=links.form.href class='lb-btn lb-btn_white') Get Started
+                        figcaption(class='lb-testimonials-figcaption').
+                            Mr & Mrs Wessels, Cape Town

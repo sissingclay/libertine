@@ -26,6 +26,7 @@
         iconfontCss = require('gulp-iconfont-css'),
         iconfont    = require('gulp-iconfont'),
         svgmin      = require('gulp-svgmin'),
+        sitemap     = require('gulp-sitemap'),
 
         knownOptions = {
             string: 'env',
@@ -116,8 +117,8 @@
             .pipe(usemin({
                 css: [minifyCss, rev],
                 html: [ function () {return minifyHtml({ empty: true });} ],
-                js: [uglify(), rev()],
-                inlinejs: [ uglify() ],
+                js: [uglify, rev],
+                inlinejs: [ uglify ],
                 inlinecss: [ minifyCss ]
             }))
             .pipe(gulp.dest(paths.dist));
@@ -149,17 +150,25 @@
             .pipe(gulp.dest(paths.dist + 'svg/'));
     });
 
+    gulp.task('sitemap', function () {
+        gulp.src(paths.dist + '**/*.html')
+            .pipe(sitemap({
+                siteUrl: 'http://www.libertineconsultants.co.za'
+            }))
+            .pipe(gulp.dest(paths.dist));
+    });
+
     gulp.task('build-dev', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg'], 'usemin'
+            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg'], 'sitemap'
         );
     });
 
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'svg'], 'usemin'
+            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap'
         );
     });
 

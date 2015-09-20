@@ -29,6 +29,7 @@
     "gulp-minify-html": "^1.0.2",
     "gulp-rev": "^3.0.1",
     "gulp-sass": "^2.0.1",
+    "gulp-sitemap": "^2.2.0",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-svgmin": "^1.2.0",
     "gulp-tsc": "^0.9.4",

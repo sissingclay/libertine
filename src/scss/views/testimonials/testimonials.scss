@@ -1,0 +1,19 @@
+@import './src/scss/components/base/base-mixin';
+@import "./src/scss/components/testimonials/testimonials";
+
+@include bp(medium) {
+    @import "./src/scss/components/testimonials/testimonials-medium";
+}
+
+@include bp(large) {
+    @import "./src/scss/components/testimonials/testimonials-large";
+}
+
+.lb-testimonials__big {
+
+    &:before {
+        content: 'hello';
+        font-size: 34px;
+        display: inline-block;
+    }
+}

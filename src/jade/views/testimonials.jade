@@ -1,0 +1,83 @@
+extends ../extends/default.jade
+
+block title
+    title Testimonials | Customers Reviews | Cape Town
+
+block description
+    meta(name='description', content='These are testimonials that are clients have left. Come to Libertine Consultants for 5 star service')
+
+block prepend activeMenu
+    - var activePage    = path + links.privacy[lang].href
+    - var english       = path + links.privacy.en.href
+    - var afrikaans     = path + links.privacy.af.href
+
+block main
+
+    include ../partials/language.jade
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
+            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
+            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            h1 Testimonials
+            p(class='lb-content_main-text').
+                We understand that privacy online is important to users of our site, especially when conducting business.
+
+        section(class='lb-content lb-content_purple')
+
+            div(class='lb-content-constraint__large lb-testimonials__big')
+
+                p.
+                    We would like to go on record as saying that Libertine Consultants have rendered us excellent and
+                    professional service during the course of our Debt Review. They were always respectful and helpful.
+                    We are happy to say that through their dedication and our commitment we are now debt free! We only
+                    need to contend with our daily living expenses and not debt as well. What a great relief! Thank you Libertine Consultants!
+
+
+                small <strong>Mr & Mrs Wessels</strong>
+
+
+        section(class='lb-content text-right')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    I would to thank you all for assisting me in my time of difficulties, I really appreciate what you
+                    have done for me, but someone in my family has decided to assist me further.
+                    I would no longer need assistance but surely would recommend people to you.
+
+
+                small <strong>Mr & Mrs Wessels</strong>
+
+        section(class='lb-content lb-content_purple')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    We would like to go on record as saying that Libertine Consultants have rendered us excellent and
+                    professional service during the course of our Debt Review. They were always respectful and helpful.
+                    We are happy to say that through their dedication and our commitment we are now debt free! We only
+                    need to contend with our daily living expenses and not debt as well. What a great relief! Thank you Libertine Consultants!
+
+
+                small <strong>Mr & Mrs Wessels</strong>
+
+
+        section(class='lb-content text-right')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    I would to thank you all for assisting me in my time of difficulties, I really appreciate what you
+                    have done for me, but someone in my family has decided to assist me further.
+                    I would no longer need assistance but surely would recommend people to you.
+
+
+                small <strong>Mr & Mrs Wessels</strong>

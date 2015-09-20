@@ -1,8 +1,10 @@
--var jsLang = (isAfrikaans ? '..' : '');
+-var jsLang = (isAfrikaans ? '../' : '');
 
 block js
     script(src='https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js' async='async')
-    script(src='#{jsLang}/js/common/common.js')
+    // build:js js/common/common.min.js
+    script(src='#{jsLang}js/common/common.js')
+    // endbuild
     script(type="text/javascript").
         WebFontConfig = {
         google: { families: [ 'Lato:300:latin' ] }

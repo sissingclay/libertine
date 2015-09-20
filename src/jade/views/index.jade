@@ -9,7 +9,7 @@ block description
 
 append css
     // build:inlinecss
-    link(rel='stylesheet' href='/css/home/home.css')
+    link(rel='stylesheet' href='css/home/home.css')
     // endbuild
 
 block prepend activeMenu
@@ -34,9 +34,9 @@ block main
 
                 div(class='lb-cta lb-cta_center lb-cta_large-left')
 
-                    a(href=nav.debt.href class='lb-btn lb-btn_push-right') Find Out More
+                    a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right') Find Out More
 
-                    a(href=links.form.href class='lb-btn lb-btn_action') Get Help you Need
+                    a(href=path + links.apply.en.href class='lb-btn lb-btn_action') Get Help you Need
 
                     p(class='lb-cta-text')
                         small Need to talk to us? Call <a href='tel:+27219492211'>+27 (021) 949 2211</a> for advice
@@ -45,7 +45,7 @@ block main
 
         section(class='lb-content')
 
-            div(class='lb-content-constraint')
+            div(class='lb-content-constraint__large')
 
                 div(class='text-center')
 
@@ -86,12 +86,12 @@ block main
                         p
                             small Take control of finances and simplify your life
 
-                        a(href=links.form.href class='lb-btn lb-btn_white') Get Started
+                        a(href=path + links.apply.en.href class='lb-btn lb-btn_white') Get Started
                     
 
         section(class='lb-content lb-content_grey')
 
-            div(class='lb-content-constraint')
+            div(class='lb-content-constraint__large')
 
                     div(class='text-center')
 
