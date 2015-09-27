@@ -1,0 +1,4 @@
+.lbService {
+    @include rem(margin-bottom, 20px);
+    @include span(6 of 12);
+}

@@ -1,14 +1,10 @@
 @import './src/scss/components/base/base-mixin';
+@import "./src/scss/components/services/services";
 
-.lb-service {
-    @include rem(max-width, $max-width-medium);
-    margin: 0 auto;
+@include bp(medium) {
+    @import "./src/scss/components/services/services-medium";
+}
 
-    .lb-service-title {
-        margin-bottom: 0;
-    }
-
-    .lb-service-descr {
-        margin-bottom: 0;
-    }
+@include bp(large) {
+    @import "./src/scss/components/services/services-large";
 }

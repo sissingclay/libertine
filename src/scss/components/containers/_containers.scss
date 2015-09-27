@@ -19,7 +19,7 @@
 .lb-content_purple {
     background-color: $purple-color;
 
-    h2, p {
+    h2, p, small, h3, h1 {
         color: $white-color;
     }
 }

@@ -1,10 +1,13 @@
 @import './src/scss/components/base/base-mixin';
 @import "./src/scss/components/testimonials/testimonials";
+@import "./src/scss/components/services/services";
 
 @include bp(medium) {
     @import "./src/scss/components/testimonials/testimonials-medium";
+    @import "./src/scss/components/services/services-medium";
 }
 
 @include bp(large) {
     @import "./src/scss/components/testimonials/testimonials-large";
+    @import "./src/scss/components/services/services-large";
 }

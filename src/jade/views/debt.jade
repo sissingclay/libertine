@@ -40,93 +40,107 @@ block main
 
             include ../partials/cta/cta-red.jade
 
-        section(class='lb-content lb-content_grey text-center')
 
-            div(class='lb-service')
+        section(class='lb-content lb-content_grey')
 
-                h2(class='lb-service-title')
-                    a(href='') Debt Consolidation
+            div(class='lb-content-constraint lbServiceJS')
 
-                p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
+                div(class='lbService')
 
-            div(class='lb-service')
+                    img(src='#{path}/svg/11-trust.svg', width='120')
 
-                h2(class='lb-service-title')
-                    a(href='') Debt Review
+                    h2(class='lbService_title')
+                        a(href='') Debt Consolidation
 
-                p Over <strong>R235,000,000</strong> recovered for our clients last year. Helped over <strong>600+ individuals</strong> take control back.
+                    p(class="lbService_description") Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
 
-            div(class='lb-service')
+                    div(class="lbService_bottom")
 
-                h2(class='lb-service-title')
-                    a(href='') Debt Counselling
+                div(class='lbService')
 
-                p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+                    div(class="lbService_image")
+                        img(src='#{path}/svg/11-trust.svg', width='120')
 
-            div(class='lb-service')
+                    h2(class='lbService_title')
+                        a(href='') Debt Review
 
-                h2(class='lb-service-title')
-                    a(href='') Business Rescue & Turnaround
+                    p(class="lbService_description") Over <strong>R235,000,000</strong> recovered for our clients last year. Helped over <strong>600+ individuals</strong> take control back.
 
-                p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+                    div(class="lbService_bottom")
+
+                div(class='lbService lbService--last')
+
+                    img(src='#{path}/svg/11-trust.svg', width='120')
+
+                    h2(class='lbService_title')
+                        a(href='') Debt Counselling
+
+                    p(class="lbService_description") Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+
+                    div(class="lbService_bottom lbService_bottom--last")
 
         section(class='lb-content text-center')
 
-            div(class='lb-service')
+            img(src='#{path}/svg/05-debt_mng.svg', width='120')
 
-                h2(class='lb-service-title')
-                    a(href='') Sequestration
+            h2(class='lb-service-title')
+                a(href='') Debt Management
 
-                p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
+            p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
 
-            div(class='lb-service')
+            div(class='lb-cta lb-cta_center')
 
-                h2(class='lb-service-title')
-                    a(href='') Voluntary Distribution
+                p
+                    small Find out more details about debt management
 
-                p Over <strong>R235,000,000</strong> recovered for our clients last year. Helped over <strong>600+ individuals</strong> take control back.
-
-            div(class='lb-service')
-
-                h2(class='lb-service-title')
-                    a(href='') Debt Management
-
-                p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
-
-            div(class='lb-service')
-
-                h2(class='lb-service-title')
-                    a(href='') Debt Solutions
-
-                p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+                a(href=path + nav.debt.en.href class='lb-btn') more in debt management
 
 
-        section(class='lb-content lb-content_grey text-center')
+        section(class='lb-content lb-content_grey')
 
-                div(class='lb-service')
+            div(class='lb-content-constraint')
 
-                    h2(class='lb-service-title')
-                        a(href='') Administration of Estates
+                div(class='lbService')
 
-                    p Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
+                    img(src='#{path}/svg/11-trust.svg', width='120')
 
-                div(class='lb-service')
+                    h2(class='lbService_title')
+                        a(href='') Debt Consolidation
 
-                    h2(class='lb-service-title')
-                        a(href='') Credit Clearance
+                    p(class="lbService_description") Recovering money for our clients <strong>since 2007</strong> - Company no 2008/148827/23
 
-                    p Over <strong>R235,000,000</strong> recovered for our clients last year. Helped over <strong>600+ individuals</strong> take control back.
+                    a(href="", class="lbService_link")
 
-                div(class='lb-service')
+                div(class='lbService')
 
-                    h2(class='lb-service-title')
-                        a(href='') Consolidation Loans
+                    div(class="lbService_image")
+                        img(src='#{path}/svg/11-trust.svg', width='120')
 
-                    p Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+                    h2(class='lbService_title')
+                        a(href='') Debt Review
 
-                div(class='lb-service')
+                    p(class="lbService_description") Over <strong>R235,000,000</strong> recovered for our clients last year. Helped over <strong>600+ individuals</strong> take control back.
 
-                    h2(class='lb-service-title')
-                        a(href='') Debt Lawyers
+                    a(href="", class="lbService_link")
 
-                    p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+                div(class='lbService')
+
+                    img(src='#{path}/svg/11-trust.svg', width='120')
+
+                    h2(class='lbService_title')
+                        a(href='') Debt Counselling
+
+                    p(class="lbService_description") Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+
+                    a(href="", class="lbService_link")
+
+                div(class='lbService')
+
+                    img(src='#{path}/svg/11-trust.svg', width='120')
+
+                    h2(class='lbService_title')
+                        a(href='') Debt Counselling
+
+                    p(class="lbService_description lbService_description--last") Our <strong>accomplished and dedicated team</strong> provides the debt advice you need
+
+                    a(href="", class="lbService_link")

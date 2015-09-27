@@ -8,13 +8,13 @@ block description
 
 append css
     // build:inlinecss
-    link(rel='stylesheet' href='css/get-in-touch/get-in-touch.css')
+    link(rel='stylesheet' href='css/apply-debt-relief/apply-debt-relief.css')
     // endbuild
 
 block prepend activeMenu
-    - var activePage    = links.get_touch.en.href;
-    - var english       = links.get_touch.en.href;
-    - var afrikaans     = links.get_touch.af.href;
+    - var activePage    = data.get_touch.en.href;
+    - var english       = data.get_touch.en.href;
+    - var afrikaans     = data.get_touch.af.href;
 
 block main
 
@@ -35,44 +35,159 @@ block main
             img(src='#{path}/svg/13-trust.svg', width='120')
             h1 Apply for debt relief
             p(class='lb-content_main-text').
-                <b>Is there a more efficient way to manage your debt?</b><br>
-                We think so.
-
-        section(class='lb-content lb-content_light-grey')
-            p(class='text-center lb-margin-bottom-none lb-content-constraint__medium').
-                Fill in the form below and start a discussion. You are under no obligations to proceed with any services by getting in touch.
-
+                Each case requires a detailed analysis and a fresh approach.
+                Fill in the form below and we’ll give you the debt advice you need.
 
         section(class='lb-content lb-content_grey')
 
             form(class='lb-form')
 
-                div(class='lb-form-section')
+                p(class="lb-form-section__text")
+                    small All fields required
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Are you currently situated in the Western Cape?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Do you feel at ease with your financial position?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Have any of your accounts been in arrears?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Do you have garnishees on your payslip?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Are you blacklisted?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Have your previously been under debt review?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') What is the total debt you owe?
+
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction")
+                            option Select an option
+                            option R100 - R250 000
+                            option R250 001 - R500 000
+                            option R500 001 - R999 999
+                            option R1 000 000+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') How many creditors do you have?
+
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction")
+                            option Select an option
+                            option 1 - 10
+                            option 11 - 20
+                            option 20+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Are you employed?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline remove-border')
+                    label(for='name', class='lb-form-label') Are you married?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='yes')
+                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='name', class='lb-form-radio', id='no')
+                        label(for='no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
                     label(for='name', class='lb-form-label') Full name
-                    input(type='text', name='name', placeholder='Joe Doe', class='lb-form-input', id='name')
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="Joe Doe")
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='name', class='lb-form-label') Contact number
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="0722262925")
+
+                div(class='lb-form-section lb-form-section--inline remove-border')
+                    label(for='name', class='lb-form-label') Email address
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="email@example.co.za")
 
                 div(class='lb-form-section')
-                    label(for='email' class='lb-form-label') Email address
-                    input(type='email', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email')
-
-                div(class='lb-form-section')
-                    label(for='number' class='lb-form-label') Contact number
-                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number')
-
-                div(class='lb-form-section')
-                    label(for='enquiry' class='lb-form-label') Getting in touch regarding
-                    textarea(name='enquiry', placeholder='I need you to help me with my current debtors.', class='lb-form-textarea', id='enquiry')
-
-                div(class='lb-form-section')
-                    button(type='submit' name='submit' class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit
+                    div(class="lb-form-section__text lb-form-section__privacy") We respect your <a href="">privacy</a>.
+                    button(type='submit' name='submit' class='lb-btn lb-btn_action lb-btn_action-pull-right') Get help you need
 
         section(class='lb-content lb-content_purple')
 
-            div(class='lb-testimonials lb-testimonials__row')
+            div(class='lb-content-constraint')
 
-                blockquote
-                    p(class='lb-testimonials-text').
-                        We are happy to say that through their dedication and our commitment we are now debt free!
+                div(class='lb-testimonials lb-testimonials__row')
 
-                figcaption(class='lb-testimonials-figcaption').
-                    Mr & Mrs Wessels, Cape Town
+                    blockquote
+                        p(class='lb-testimonials-text').
+                            A friendly route to build a more financially stable future.
+
+                    figcaption(class='lb-testimonials-figcaption').
+                        Let us help you start today!

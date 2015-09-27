@@ -9,15 +9,17 @@ block footer
                     li
                         a(href=path + data.home[lang].href) #{data.home[lang].name}
                     li
-                        a(href='') Contact
+                        a(href=path + data.contact[lang].href) #{data.contact[lang].name}
                     li
-                        a(href='') How it works
+                        a(href=path + data.how[lang].href) #{data.how[lang].name}
                     li
-                        a(href='') Sitemap
+                        a(href=path + data.testimonials[lang].href) #{data.testimonials[lang].name}
                     li
-                        a(href=path + links.privacy[lang].href) #{links.privacy[lang].name}
+                        a(href=path + data.sitemap[lang].href) #{data.sitemap[lang].name}
                     li
-                        a(href='') Disclaimer
+                        a(href=path + data.privacy[lang].href) #{data.privacy[lang].name}
+                    li
+                        a(href=path + data.disclaimer[lang].href) #{data.disclaimer[lang].name}
 
                 p &copy; 2007 - 2015 Libertine Consultants in <a href="https://www.capetown.gov.za/en/Pages/default.aspx" target="blank">Cape Town</a>, all rights reserved
 

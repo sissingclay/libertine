@@ -66,9 +66,13 @@
     }
 }
 
-.lb-form-label {
+.lb-form-label, select {
     color: $grey-color;
     display: block;
     @include rem(font-size, 1rem);
     @include rem(margin-bottom, 0.4rem);
+}
+
+.lb-form-section__text {
+    color: $brown-color;
 }
