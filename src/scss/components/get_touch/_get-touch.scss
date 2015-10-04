@@ -1,11 +1,13 @@
 .lbTouch {
     background-color: $grey-darkest-color;
-    @include rem(padding, 8px);
+    @include rem(padding, 1rem);
     text-align: center;
+    text-transform: uppercase;
+    @include lato-family-bold;
 
     a {
         color: $white-color;
-        @include rem(font-size, 18px);
+        @include rem(font-size, 14px);
 
         &:hover {
             color: $light-grey-color;

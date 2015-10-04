@@ -5,7 +5,6 @@
 .lb-head-menu {
     display: block;
     text-align: right;
-    @include rem(margin-top, 1.1rem);
     @include span(8);
     clear: none;
 
@@ -29,10 +28,6 @@
             a, a:visited {
                 padding-left: 0;
             }
-        }
-
-        &:last-child {
-            @include rem(padding-right, 0);
         }
     }
 }

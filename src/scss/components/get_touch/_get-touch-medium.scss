@@ -1,10 +1,10 @@
 .lbTouch {
-    position: absolute;
-    right: 0;
-    top: 70%;
-    transform: rotate(90deg);
+    position: fixed;
+    @include rem(right, 1.65rem);
+    top: 40%;
+    transform: rotate(-90deg);
     transform-origin: right top 0;
     z-index: 3;
     will-change: top, left, bottom, right;
-    @include customBorderRadius(0, 0, 5px, 5px);
+    @include rem(padding, .2rem .5rem .3rem);
 }

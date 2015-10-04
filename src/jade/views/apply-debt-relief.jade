@@ -11,21 +11,19 @@ append css
     link(rel='stylesheet' href='css/apply-debt-relief/apply-debt-relief.css')
     // endbuild
 
-block prepend activeMenu
+block variables
     - var activePage    = data.get_touch.en.href;
     - var english       = data.get_touch.en.href;
     - var afrikaans     = data.get_touch.af.href;
 
 block main
 
-    include ../partials/language.jade
-
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
-            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+            source(srcset="#{path}/img/hr_apply-for-debt-relief-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_apply-for-debt-relief.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_apply-for-debt-relief-mobile.jpg", alt="Apply for debt relief")
 
     main(role='main', class='lb-internal')
 

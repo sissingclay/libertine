@@ -4,10 +4,10 @@
     border: 1px solid $brown-color;
     @include borderRadius(5px);
     color: $brown-darker-color;
-    font-weight: bold;
-    @include rem(padding, 1.25rem 1.875rem);
+    @include lato-family-bold;
+    @include rem(padding, 0.8rem 1.875rem);
     @include rem(margin-bottom, 1.25rem);
-    @include transition(all);
+    @include transition(all, 0.5s);
     display: inline-block;
 
     &.lb-btn_small, &.lb-btn_small-mobile {
@@ -19,13 +19,10 @@
         @include rem(margin-right, 1rem);
         @include rem(margin-left, 1rem);
     }
-
-    &:visited {
-        color: $brown-darker-color;
-    }
     
     &:hover {
-        color: $grey-dark-color;
+        color: $white-color;
+        background: $brown-color;
     }
     
     &.lb-btn_action {
@@ -35,9 +32,9 @@
         @include rem(margin-right, 0);
         
         &:hover {
-            color: $white-color;
-            background-color: $purple-color;
-            border: 1px solid $purple-color;
+            color: $red-color;
+            background-color: $white-color;
+            border: 1px solid $white-color;
         }
         
         &.lb-btn_action-pull-right {
@@ -50,8 +47,8 @@
         border-color: $white-color;
 
         &:hover {
-            color: $light-grey-color;
-            border-color: $light-grey-color;
+            color: $purple-color;
+            background: $white-color;
         }
     }
 }
@@ -96,8 +93,7 @@
     }
 
     p {
-        font-family: $font;
-        font-weight: bold;
+        @include lato-family-bold;
         @include rem(margin-bottom, 0.5rem);
         @include rem(line-height, 1.2rem);
         @include rem(font-size, 1rem);

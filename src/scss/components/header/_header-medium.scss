@@ -1,3 +1,11 @@
+.lb-head {
+    position: absolute;
+    width: 100%;
+    background-color: $header-rgb;
+    padding-bottom: $padding;
+    z-index: 2;
+}
+
 .lb-head-logo {
     @include span(4);
 }

@@ -1,32 +1,29 @@
 extends ../extends/default.jade
 
 block title
-    title Debt Contact Details Cape Town | Debt Contact | Debt Enquiry
+    title Contact Libertine Consultants | Debt Counseling | Debt Counselling
 
 block description
-    meta(name='description', content='Contact us for help with debt. Debt enquiry are managed by our debt counsellors.')
-    meta(name='keyword', content='debt enquiry, debt enquiry form, debt enquiry companies')
+    meta(name='description', content='Take control of your finances and simplify your life. Contact Libertine Consultants for efficient, tailor-made debt solutions.')
 
 append css
     // build:inlinecss
     link(rel='stylesheet' href='css/contact/contact.css')
     // endbuild
 
-block prepend activeMenu
-//    - var activePage    = nav.more.en[0].href;
-//    - var english       = nav.more.en[0].href;
-//    - var afrikaans     = nav.more.af[0].href;
+block variables
+- var activePage    = nav.contact.en.href;
+- var english       = nav.contact.en.href;
+- var afrikaans     = nav.contact.af.href;
 
 block main
-
-    include ../partials/language.jade
 
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
-            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_contact.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="Contact Us - Libertine Consultants")
 
     main(role='main', class='lb-internal')
 
@@ -34,8 +31,17 @@ block main
 
             img(src='#{path}/svg/02-contact.svg', width='120')
             img(src='#{path}/svg/03-contact.svg', width='120')
-            h1 Based in beautiful & iconic Cape Town
-            p(class='lb-content_main-text') You are <strong>welcome to visit our office</strong> in person to discuss your case over a tea or coffee.
+            h1 Take control of your future by making the right choices today
+
+            p(class='lb-content_main-text').
+                Let’s discuss your case & get the ball rolling
+
+            p.
+                We are based in <strong>beautiful, iconic Cape Town</strong> and would love to sit down with you in person to <strong>discuss
+                the unique aspects</strong> of your case over a cup of tea or coffee.
+
+            p.
+                <a href="#{data.get_touch.href}">Get in touch</a> so we can set the wheels in motion to find the <strong>debt solution</strong> that best suits your requirements.
 
 
         section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness")

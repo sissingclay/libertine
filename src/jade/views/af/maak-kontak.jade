@@ -1,0 +1,243 @@
+extends ../../extends/afrikaans.jade
+
+block title
+    title Contact Libertine Consultants | Debt Counseling | Debt Counselling
+
+block description
+    meta(name='description', content='Take control of your finances and simplify your life. Contact Libertine Consultants for efficient, tailor-made debt solutions.')
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='#{cssLang}/css/contact/contact.css')
+    // endbuild
+
+block variables
+- var activePage    = nav.contact.en.href;
+- var english       = nav.contact.en.href;
+- var afrikaans     = nav.contact.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_contact.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="Contact Us - Libertine Consultants")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/02-contact.svg', width='120')
+            img(src='#{path}/svg/03-contact.svg', width='120')
+            h1 Take control of your future by making the right choices today
+
+            p(class='lb-content_main-text').
+                Let’s discuss your case & get the ball rolling
+
+            p.
+                We are based in <strong>beautiful, iconic Cape Town</strong> and would love to sit down with you in person to <strong>discuss
+                the unique aspects</strong> of your case over a cup of tea or coffee.
+
+            p.
+                <a href="#{data.get_touch.href}">Get in touch</a> so we can set the wheels in motion to find the <strong>debt solution</strong> that best suits your requirements.
+
+
+        section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness")
+
+            div(class='lb-contact')
+
+                p(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
+                    span(itemprop="streetAddress") 4 Kruger Street <br>
+                    span(itemprop="streetAddress") Lower Oakdale <br>
+                    span(itemprop="addressLocality") Bellville <br>
+                    span(temprop="addressRegion") Western Cape, South Africa <br>
+                    span(itemprop="postalCode") 7530
+
+            div(class='lb-contact')
+
+                p <strong>Opening hours</strong><br>
+                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday - Friday <br>
+                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
+                    span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
+                    span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
+
+            div(class='lb-contact')
+
+                p <strong>General enquries</strong><br>
+                    span Telephone:
+                    span(itemprop="telephone") <a href='#{data.tel.href}'>#{data.tel.name}</a><br>
+                    span Cell:
+                    span(itemprop="telephone") <a href='#{data.cell.href}'>#{data.cell.name}</a><br>
+                    span Email:
+                    span <a href="#{data.email.href}">#{data.email.name}</a>
+
+        section(class='lb-content')
+
+            div(class='lb-contact')
+
+                p(class='lb-social') <strong>Get social with us</strong><br>
+
+                    a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
+                        img(src='#{path}/svg/07-google-plus.svg', width='40')
+                    a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
+                        img(src='#{path}/svg/06-facebook.svg', width='40')
+                    a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
+                        img(src='#{path}/svg/14-twitter.svg', width='40')
+
+            div(class='lb-contact')
+
+                p(class='lb-contact-title') <strong>Enquiry form</strong>
+
+                div(class='lb-cta')
+                    a(href=path + data.get_touch.en.href, class='lb-btn') Get in Touch
+
+        section(id='google-map', class='lb-map-canvas')
+
+append js
+    script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1zFtcxfOO8AKitdraeyUVHcz3txhHYk")
+    script(type="text/javascript").
+        function initialize() {
+
+            var styles =
+                [
+                    {
+                        "featureType": "administrative",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 20
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 40
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            },
+                            {
+                                "saturation": -10
+                            },
+                            {
+                                "lightness": 30
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.man_made",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            },
+                            {
+                                "saturation": -60
+                            },
+                            {
+                                "lightness": 10
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            },
+                            {
+                                "saturation": -60
+                            },
+                            {
+                                "lightness": 60
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 60
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            },
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 60
+                            }
+                        ]
+                    }
+                ],
+
+            // Create a new StyledMapType object, passing it the array of styles,
+            // as well as the name to be displayed on the map type control.
+            styledMap = new google.maps.StyledMapType(styles,
+                {name: "Styled Map"}
+            ),
+
+            mapOptions = {
+                center: { lat: -33.90076, lng: 18.63510},
+                zoom: 16
+            },
+
+            map     = new google.maps.Map(document.getElementById('google-map'), mapOptions),
+
+            image   = '#{path}/img/10-map_pointer.png';
+
+            marker  = new google.maps.Marker({
+                position: mapOptions.center,
+                map: map,
+                title: 'Libertine Consultants',
+                scrollwheel: false,
+                mapTypeControlOptions: {
+                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+                },
+                icon: image
+            });
+
+            //Associate the styled map with the MapTypeId and set it to display.
+            map.mapTypes.set('map_style', styledMap);
+            map.setMapTypeId('map_style');
+
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);

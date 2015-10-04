@@ -2,7 +2,7 @@
     margin: 0;
     text-align: center;
     position: relative;
-    @include rem(padding, 0 3rem 3rem);
+    @include rem(padding, 0 0 3rem);
 
     &:before,
     &:after {
@@ -11,16 +11,14 @@
         position: absolute;
     }
 
-    &:before {
-        content: '“';
-        left: 0;
-        top: 0;
-    }
-
-    &:after {
-        content: '”';
-        right: 0;
-        top: 0;
+    &.lb-testimonials__row {
+        @include rem(padding, 0 0 0);
+        @include rem(padding, 0 0 0);
+        @include span(12 no-gutters);
+        text-align: center;
+        @include max-width($max-width, $max-width-rem);
+        float: none;
+        width: auto;
     }
 
     blockquote {
@@ -34,6 +32,6 @@
 
     .lb-testimonials-figcaption {
         color: $white-color;
-        font-weight: bold;
+        @include lato-family-bold;
     }
 }

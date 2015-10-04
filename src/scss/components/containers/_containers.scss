@@ -1,7 +1,7 @@
 .lb-content {
     position: relative;
     margin: 0 auto;
-    @include rem(padding, 2rem $padding);
+    @include rem(padding, 2rem $padding-containers);
 }
 
 .lb-content-constraint {

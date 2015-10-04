@@ -40,10 +40,17 @@
     
     .lb-menu-link {
         color: $white-color;
+        @include lato-family-bold;
         text-decoration: none;
         text-transform: uppercase;
         @include rem(font-size, 1.2rem);
         @include rem(line-height, 2.8rem);
+
+        &:last-child {
+            border: 1px solid $white-color;
+            @include rem(padding-left, 10px);
+            @include rem(padding-right, 10px);
+        }
 
         &.active {
 

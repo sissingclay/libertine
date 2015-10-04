@@ -30,10 +30,12 @@ $red-color: #ff4056;
 $footer-color: #5c5963;
 $grey-background: #f5f4f3;
 $header: #4a5062;
+$header-rgb: rgba(74, 80, 98, 0.85);
 
 $padding: 15px;
+$padding-containers: 15px;
 $max-width: 1680px;
-$max-width-rem: 105rem;
+$max-width-rem: 85rem;
 $max-width-large: 1024px;
 $max-width-large-rem: 64rem;
 $max-width-medium: 720px;
@@ -102,6 +104,10 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 @mixin lato-family {
     font-family: 'Lato', $font;
     font-weight: 300;
+}
+
+@mixin lato-family-bold {
+    font-weight: 400;
 }
 
 @mixin bp($point) {

@@ -11,21 +11,19 @@ append css
     link(rel='stylesheet' href='css/debt/debt.css')
     // endbuild
 
-block prepend activeMenu
+block variables
     - var activePage    = nav.debt.en.href;
     - var english       = nav.debt.en.href;
     - var afrikaans     = nav.debt.af.href;
 
 block main
 
-    include ../partials/language.jade
-
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
-            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+            source(srcset="#{path}/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_debt-services-mobile.jpg", alt="Debt service")
 
     main(role='main', class='lb-internal')
 

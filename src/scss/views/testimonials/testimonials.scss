@@ -1,10 +1,6 @@
 @import './src/scss/components/base/base-mixin';
 @import "./src/scss/components/testimonials/testimonials";
 
-@include bp(medium) {
-    @import "./src/scss/components/testimonials/testimonials-medium";
-}
-
 @include bp(large) {
     @import "./src/scss/components/testimonials/testimonials-large";
 }

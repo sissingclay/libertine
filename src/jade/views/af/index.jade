@@ -8,14 +8,12 @@ append css
     // build:inlinecss
     link(rel='stylesheet' href='../css/home/home.css')
     // endbuild
-block prepend activeMenu
+block variables
     - var activePage    = path + data.home.af.href;
     - var english       = path + data.home.en.href;
     - var afrikaans     = path + data.home.af.href;
 
 block main
-
-    include ../../partials/language.jade
 
     section(class='lb-hero')
 

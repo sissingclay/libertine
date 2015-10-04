@@ -1,13 +1,16 @@
 .lb-language-container {
     background: $purple-color url('../../svg/08-language.svg') no-repeat right center;
+    background-size: 30px 30px;
     padding: $padding;
     position: relative;
-
+    @include rem(margin-top, 20px);
     
     .lb-language-list {
         display: inline-block;
-        @include rem(font-size, .8rem);
+        @include rem(font-size, .7rem);
         @include rem(padding-right, .5rem);
+        text-transform: uppercase;
+        @include lato-family-bold;
 
         &.active {
 

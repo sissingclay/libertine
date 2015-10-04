@@ -11,7 +11,7 @@ append css
     link(rel='stylesheet' href='css/get-in-touch/get-in-touch.css')
     // endbuild
 
-block prepend activeMenu
+block variables
     - var activePage    = data.get_touch.en.href;
     - var english       = data.get_touch.en.href;
     - var afrikaans     = data.get_touch.af.href;
@@ -20,14 +20,12 @@ block touch
 
 block main
 
-    include ../partials/language.jade
-
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
-            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+            source(srcset="#{path}/img/hr_get-in-touch-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_get-in-touch.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_get-in-touch-mobile.jpg", alt="Get in touch with Libertine Consultants")
 
     main(role='main', class='lb-internal')
 
@@ -47,26 +45,26 @@ block main
 
         section(class='lb-content lb-content_grey')
 
-            form(class='lb-form')
+            form(class='lb-form', novalidate)
 
                 div(class='lb-form-section')
-                    label(for='name', class='lb-form-label') Full name
-                    input(type='text', name='name', placeholder='Joe Doe', class='lb-form-input', id='name')
+                    label(for='fullName', class='lb-form-label') Full name
+                    input(type='text', name='fullName', placeholder='Joe Doe', class='lb-form-input', id='fullName', data-form, required)
 
                 div(class='lb-form-section')
                     label(for='email' class='lb-form-label') Email address
-                    input(type='email', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email')
+                    input(type='email', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="[email]", required)
 
                 div(class='lb-form-section')
                     label(for='number' class='lb-form-label') Contact number
-                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number')
+                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form="[number]", required)
 
                 div(class='lb-form-section')
                     label(for='enquiry' class='lb-form-label') Getting in touch regarding
-                    textarea(name='enquiry', placeholder='I need you to help me with my current debtors.', class='lb-form-textarea', id='enquiry')
+                    textarea(name='enquiry', placeholder='I need you to help me with my current debtors.', class='lb-form-textarea', id='enquiry', data-form, required)
 
                 div(class='lb-form-section')
-                    button(type='submit' name='submit' class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit
+                    button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit
 
         section(class='lb-content lb-content_purple')
 

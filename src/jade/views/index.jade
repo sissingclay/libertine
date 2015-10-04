@@ -12,15 +12,13 @@ append css
     link(rel='stylesheet' href='css/home/home.css')
     // endbuild
 
-block prepend activeMenu
+block variables
     - var activePage    = path + data.home.en.href;
     - var english       = path + data.home.en.href;
     - var afrikaans     = path + data.home.af.href;
 
 
 block main
-
-    include ../partials/language.jade
 
     section(class='lb-hero')
 
@@ -138,6 +136,6 @@ block main
 
                 div(class='lb-stats')
 
-                    img(src='#{path}/svg/09-law.svg', width='120')
+                    img(src='#{path}/svg/NCR_logo.svg', width='180')
 
                     p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592

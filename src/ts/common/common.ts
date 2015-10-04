@@ -153,4 +153,21 @@ document.addEventListener('DOMContentLoaded', function () {
         ele.preventDefault();
         lb(this.nextSibling.nextSibling).toggleClass('show');
     });
+
+    var formElements = document.querySelectorAll('[data-form]');
+
+    [].forEach.call(formElements, function (val, index) {
+        val.addEventListener('blur', function (ele) {
+            if (!ele.target.value) {
+                var formElement = lb(formElements[index]),
+                    hasErrorClass = formElement.hasClass('formError');
+                console.log('hasErrorClass', hasErrorClass);
+                if(!hasErrorClass) {
+                    console.log('Hello');
+                } else {
+                    console.log('Hello2');
+                }
+            }
+        });
+    });
 });

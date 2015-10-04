@@ -6,21 +6,19 @@ block title
 block description
     meta(name='description', content='Libertine Consultants privacy policy. This cover how we respect privacy.')
 
-block prepend activeMenu
+block variables
     - var activePage    = path + data.privacy[lang].href
     - var english       = path + data.privacy.en.href
     - var afrikaans     = path + data.privacy.af.href
 
 block main
 
-    include ../partials/language.jade
-
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/header-inner-2-mobile.jpg", media="(max-width: 1023px)")
-            source(srcset="#{path}/img/header_inner_2.jpg", media="(min-width: 1024px)")
-            img(src="#{path}/img/header-inner-2-mobile.jpg", alt="MDN")
+            source(srcset="#{path}/img/hr_general-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_general.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_general-mobile.jpg", alt="Privacy Policy")
 
     main(role='main', class='lb-internal')
 

@@ -13,7 +13,7 @@
     .lb-grid_u {
         @include grid-sizes (6);
         float: left;
-        padding: $padding;
+        padding: $padding-containers;
 
         &.lb-grid_u-no-padding {
             padding: 0;

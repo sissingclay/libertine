@@ -2,10 +2,6 @@
 @import "./src/scss/components/form/form";
 @import "./src/scss/components/testimonials/testimonials";
 
-@include bp(medium) {
-    @import "./src/scss/components/testimonials/testimonials-medium";
-}
-
 @include bp(large) {
     @import "./src/scss/components/testimonials/testimonials-large";
     @import "./src/scss/components/stats/stats-large";
