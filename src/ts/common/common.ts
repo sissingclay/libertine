@@ -154,20 +154,82 @@ document.addEventListener('DOMContentLoaded', function () {
         lb(this.nextSibling.nextSibling).toggleClass('show');
     });
 
-    var formElements = document.querySelectorAll('[data-form]');
+    var form_elements = document.querySelectorAll('[data-form]'),
+        is_for_valid = false;
 
-    [].forEach.call(formElements, function (val, index) {
+    [].forEach.call(form_elements, function (val, index) {
+
         val.addEventListener('blur', function (ele) {
-            if (!ele.target.value) {
-                var formElement = lb(formElements[index]),
-                    hasErrorClass = formElement.hasClass('formError');
-                console.log('hasErrorClass', hasErrorClass);
-                if(!hasErrorClass) {
-                    console.log('Hello');
-                } else {
-                    console.log('Hello2');
+
+            var input_value         = ele.target.value,
+                error_class         = 'lb-error',
+                has_error_class     = hasClass(val, error_class);
+
+            if (!input_value) {
+
+                if(!has_error_class) {
+                    addClass(val, error_class);
+                }
+            }
+
+            if (input_value) {
+
+                var conditional_checks = val.getAttribute('data-form');
+
+                if (!conditional_checks) {
+
+                    if (has_error_class) {
+                        removeClass(val, error_class);
+                    }
+                }
+
+                if (conditional_checks) {
+
+                    var checks = conditional_checks.split(','),
+                        is_valid_email,
+                        is_valid_number;
+
+                    checks.forEach(function (to_checks) {
+
+                        if (to_checks === 'email') {
+                            is_valid_email = checkEmail(input_value);
+
+                            if (!is_valid_email) {
+
+                                if (!has_error_class) {
+                                    addClass(val, error_class);
+                                }
+                            }
+
+                            if (is_valid_email) {
+
+                                if (has_error_class) {
+                                    removeClass(val, error_class);
+                                }
+                            }
+                        }
+                    });
                 }
             }
         });
     });
+
+    function hasClass(el, clss) {
+        return el.className && new RegExp("(^|\\s)" +
+                clss + "(\\s|$)").test(el.className);
+    }
+
+    function addClass(el, clss) {
+        el.className += " " + clss;
+    }
+
+    function removeClass(el, clss) {
+        var reg = new RegExp('(\\s|^)' + clss + '(\\s|$)');
+        el.className = el.className.replace(reg, ' ');
+    }
+
+    function checkEmail(email_address) {
+        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+        return re.test(email_address);
+    }
 });

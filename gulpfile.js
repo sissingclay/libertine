@@ -161,7 +161,7 @@
     gulp.task('build-dev', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg'], 'sitemap'
+            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg']
         );
     });
 
