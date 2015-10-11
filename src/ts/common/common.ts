@@ -155,18 +155,31 @@ lb('.linksOptions > a').on('click', function(ele) {
 });
 
 var form_elements = document.querySelectorAll('[data-form]'),
-    form          = document.querySelector('.lb-touch');
+    form          = document.querySelector('.lb-apply');
 
 function checkoutForm (form) {
 
-    var isValid;
+    var isValid,
+        count = 0;
 
     [].forEach.call(form, function (val, index) {
 
         if(typeof val.getAttribute('data-form') === 'string') {
             isValid = checkFormElements(val, form);
+
+            if(typeof isValid === 'boolean' && !isValid) {
+                count = count +1;
+            }
         }
     });
+
+    if (count === 0) {
+        isValid = true;
+    }
+
+    if (count > 0) {
+        isValid = false;
+    }
 
     return isValid;
 }
@@ -178,57 +191,98 @@ function checkFormElements (val, form) {
         has_error_class     = hasClass(val, error_class),
         form_valid          = true;
 
-    if (!input_value) {
 
-        form_valid = false;
+    if (val.type !== 'radio') {
 
-        if(!has_error_class) {
-            addClass(val, error_class);
-        }
-    }
+        if (!input_value) {
 
-    if (input_value) {
+            form_valid = false;
 
-        var conditional_checks = val.getAttribute('data-form');
-
-        if (!conditional_checks) {
-
-            if (has_error_class) {
-                removeClass(val, error_class);
+            if(!has_error_class) {
+                addClass(val, error_class);
             }
         }
 
-        if (conditional_checks) {
+        if (input_value) {
 
-            var checks = conditional_checks.split(','),
-                is_valid_email;
+            var conditional_checks = val.getAttribute('data-form');
 
-            checks.forEach(function (to_checks) {
+            if (!conditional_checks) {
 
-                if (to_checks === 'email') {
-                    is_valid_email = checkEmail(input_value);
-
-                    if (!is_valid_email) {
-
-                        form_valid = false;
-
-                        if (!has_error_class) {
-                            addClass(val, error_class);
-                        }
-                    }
-
-                    if (is_valid_email) {
-
-                        if (has_error_class) {
-                            removeClass(val, error_class);
-                        }
-                    }
+                if (has_error_class) {
+                    removeClass(val, error_class);
                 }
-            });
+            }
+
+            if (conditional_checks) {
+
+                var checks = conditional_checks.split(','),
+                    is_valid_email;
+
+                checks.forEach(function (to_checks) {
+
+                    if (to_checks === 'email') {
+                        is_valid_email = checkEmail(input_value);
+
+                        if (!is_valid_email) {
+
+                            form_valid = false;
+
+                            if (!has_error_class) {
+                                addClass(val, error_class);
+                            }
+                        }
+
+                        if (is_valid_email) {
+
+                            if (has_error_class) {
+                                removeClass(val, error_class);
+                            }
+                        }
+                    }
+                });
+            }
         }
     }
 
+    if (val.type === 'radio') {
+        form_valid = checkedRadioBtn(val.name, error_class);
+    }
+
     return form_valid;
+}
+
+function checkedRadioBtn(sGroupName, error_class)
+{
+    var group           = document.getElementsByName(sGroupName),
+        isChecked       = 0;
+
+    [].forEach.call(group, function (val) {
+
+        if(val.checked) {
+
+            isChecked   = 1;
+
+            [].forEach.call(group, function (ele) {
+                if(hasClass(ele.parentNode, error_class)) {
+                    removeClass(ele.parentNode, error_class);
+                }
+            });
+
+            return true;
+        }
+    });
+
+    if(isChecked === 0) {
+
+        [].forEach.call(group, function (ele) {
+            if(!hasClass(ele.parentNode, error_class)) {
+                addClass(ele.parentNode, error_class);
+            }
+        });
+
+        return false;
+    }
 }
 
 function isFormValid (form) {
@@ -239,9 +293,18 @@ function isFormValid (form) {
 
         if(typeof val.getAttribute('data-form') === 'string') {
 
-            val.addEventListener('blur', function (ele) {
-                is_for_invalid = checkFormElements(val, form);
-            });
+            if(val.type !== 'radio') {
+                val.addEventListener('blur', function (ele) {
+                    is_for_invalid = checkFormElements(val, form);
+                });
+            }
+
+            if(val.type === 'radio') {
+                val.addEventListener('change', function (ele) {
+                    is_for_invalid = checkFormElements(val, form);
+                });
+            }
+
         }
     });
 
@@ -254,13 +317,10 @@ form.addEventListener('submit', function(evt) {
     var is_valid = checkoutForm(form);
 
     if(is_valid) {
-        ajax().post('/test/php/email.php', form).success(function(data) {
+        ajax().post('/test/php/email.php', serialize(form)).success(function(data) {
 
         });
     }
-
-    console.log('is_valid', is_valid);
-
 });
 
 function hasClass(el, clss) {
@@ -328,4 +388,65 @@ function ajax () {
         }
     };
 
-};
+}
+
+function serialize(form) {
+    if (!form || form.nodeName !== "FORM") {
+        return;
+    }
+    var i, j, q = [];
+    for (i = form.elements.length - 1; i >= 0; i = i - 1) {
+        if (form.elements[i].name === "") {
+            continue;
+        }
+        switch (form.elements[i].nodeName) {
+            case 'INPUT':
+                switch (form.elements[i].type) {
+                    case 'text':
+                    case 'hidden':
+                    case 'password':
+                    case 'button':
+                    case 'reset':
+                    case 'submit':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                    case 'checkbox':
+                    case 'radio':
+                        if (form.elements[i].checked) {
+                            q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        }
+                        break;
+                    case 'file':
+                        break;
+                }
+                break;
+            case 'TEXTAREA':
+                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                break;
+            case 'SELECT':
+                switch (form.elements[i].type) {
+                    case 'select-one':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                    case 'select-multiple':
+                        for (j = form.elements[i].options.length - 1; j >= 0; j = j - 1) {
+                            if (form.elements[i].options[j].selected) {
+                                q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].options[j].value));
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 'BUTTON':
+                switch (form.elements[i].type) {
+                    case 'reset':
+                    case 'submit':
+                    case 'button':
+                        q.push(form.elements[i].name + "=" + encodeURIComponent(form.elements[i].value));
+                        break;
+                }
+                break;
+        }
+    }
+    return q.join("&");
+}

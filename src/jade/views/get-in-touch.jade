@@ -45,7 +45,7 @@ block main
 
         section(class='lb-content lb-content_grey')
 
-            form(class='lb-form lb-touch', novalidate, method='post', action='/email.php')
+            form(class='lb-form lb-touch', novalidate, method='post', action='/php/email.php')
 
                 div(class='lb-form-section')
                     label(for='fullName', class='lb-form-label') Full name
@@ -53,7 +53,7 @@ block main
 
                 div(class='lb-form-section')
                     label(for='email' class='lb-form-label') Email address
-                    input(type='email', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", required)
+                    input(type='text', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", required)
 
                 div(class='lb-form-section')
                     label(for='number' class='lb-form-label') Contact number
@@ -62,6 +62,10 @@ block main
                 div(class='lb-form-section')
                     label(for='enquiry' class='lb-form-label') Getting in touch regarding
                     textarea(name='enquiry', placeholder='I need you to help me with my current debtors.', class='lb-form-textarea', id='enquiry', data-form, required)
+
+                div(class='lb-form-section lb-form-section--hidden')
+                    button(type='hidden', name='formName', value='get in touch')
+                    button(type='hidden', name='isBot', value='')
 
                 div(class='lb-form-section')
                     button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit

@@ -38,140 +38,147 @@ block main
 
         section(class='lb-content lb-content_grey')
 
-            form(class='lb-form')
+            form(class='lb-form lb-apply', novalidate, method='post', action='/php/email.php')
 
                 p(class="lb-form-section__text")
                     small All fields required
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Are you currently situated in the Western Cape?
+                    label(for='location', class='lb-form-label') Are you currently situated in the Western Cape?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='location', value='yes', class='lb-form-radio', id='location', data-form, required)
+                        label(for='location', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='location', value='no', class='lb-form-radio', id='location_no', data-form, required)
+                        label(for='location_no', class='lb-form-label lb-form-label--inline') No
 
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Do you feel at ease with your financial position?
+                    label(for='position', class='lb-form-label') Do you feel at ease with your financial position?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='position', value='yes', class='lb-form-radio', id='position', data-form, required)
+                        label(for='position', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='position', value='no', class='lb-form-radio', id='position_no', data-form, required)
+                        label(for='position_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Have any of your accounts been in arrears?
+                    label(for='arrears', class='lb-form-label') Have any of your accounts been in arrears?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='arrears', value='yes', class='lb-form-radio', id='arrears', data-form, required)
+                        label(for='arrears', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
-
-
-                div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Do you have garnishees on your payslip?
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
-
-                div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Are you blacklisted?
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='arrears', value='no', class='lb-form-radio', id='arrears_no', data-form, required)
+                        label(for='arrears_no', class='lb-form-label lb-form-label--inline') No
 
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Have your previously been under debt review?
+                    label(for='garnishees', class='lb-form-label') Do you have garnishees on your payslip?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='garnishees', value='yes', class='lb-form-radio', id='garnishees', data-form, required)
+                        label(for='garnishees', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='garnishees', value='no', class='lb-form-radio', id='garnishees_no', data-form, required)
+                        label(for='garnishees_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='blacklisted', class='lb-form-label') Are you blacklisted?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='yes', class='lb-form-radio', id='blacklisted', data-form, required)
+                        label(for='blacklisted', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='no', class='lb-form-radio', id='blacklisted_no', data-form, required)
+                        label(for='blacklisted_no', class='lb-form-label lb-form-label--inline') No
+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='review', class='lb-form-label') Have your previously been under debt review?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='yes', class='lb-form-radio', id='review', data-form, required)
+                        label(for='review', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='no', class='lb-form-radio', id='review_no', data-form, required)
+                        label(for='review_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--inline')
                     label(for='name', class='lb-form-label') What is the total debt you owe?
 
                     div(class='lb-form-section--inline__container')
-                        select(class="lb-form-interaction")
-                            option Select an option
-                            option R100 - R250 000
-                            option R250 001 - R500 000
-                            option R500 001 - R999 999
-                            option R1 000 000+
+                        select(class="lb-form-interaction", name='debt', data-form, required)
+                            option(value='') Select an option
+                            option(value='250 000') R100 - R250 000
+                            option(value='500 000') R250 001 - R500 000
+                            option(value='999 999') R500 001 - R999 999
+                            option(value='1 000 000') R1 000 000+
 
                 div(class='lb-form-section lb-form-section--inline')
                     label(for='name', class='lb-form-label') How many creditors do you have?
 
                     div(class='lb-form-section--inline__container')
-                        select(class="lb-form-interaction")
-                            option Select an option
-                            option 1 - 10
-                            option 11 - 20
-                            option 20+
+                        select(class="lb-form-interaction", name='creditors', data-form, required)
+                            option(value='') Select an option
+                            option(value='10') 1 - 10
+                            option(value='20') 11 - 20
+                            option(value='20+') 20+
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Are you employed?
+                    label(for='employed', class='lb-form-label') Are you employed?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='employed', value='yes', class='lb-form-radio', id='employed', data-form, required)
+                        label(for='employed', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='employed', value='no', class='lb-form-radio', id='employed_no', data-form, required)
+                        label(for='employed_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--inline remove-border')
-                    label(for='name', class='lb-form-label') Are you married?
+                    label(for='married', class='lb-form-label') Are you married?
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='yes')
-                        label(for='yes', class='lb-form-label lb-form-label--inline') Yes
+                        input(type='radio', name='married', value='yes', class='lb-form-radio', id='married', data-form, required)
+                        label(for='married', class='lb-form-label lb-form-label--inline') Yes
 
                     div(class='lb-form-section--inline__container')
-                        input(type='radio', name='name', class='lb-form-radio', id='no')
-                        label(for='no', class='lb-form-label lb-form-label--inline') No
+                        input(type='radio', name='married', value='no', class='lb-form-radio', id='married_no', data-form, required)
+                        label(for='married_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Full name
+                    label(for='fullName', class='lb-form-label') Full name
 
                     div(class='lb-form-section--inline__container')
-                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="Joe Doe")
+                        input(type='text', name='fullName', class='lb-form-input lb-form-interaction', id='fullName',
+                        placeholder="Joe Doe", data-form, required)
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') Contact number
+                    label(for='number', class='lb-form-label') Contact number
 
                     div(class='lb-form-section--inline__container')
-                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="0722262925")
+                        input(type='text', name='number', class='lb-form-input lb-form-interaction', id='number',
+                        placeholder="0722262925", data-form, required)
 
                 div(class='lb-form-section lb-form-section--inline remove-border')
-                    label(for='name', class='lb-form-label') Email address
+                    label(for='email', class='lb-form-label') Email address
 
                     div(class='lb-form-section--inline__container')
-                        input(type='text', name='name', class='lb-form-input lb-form-interaction', id='yes', placeholder="email@example.co.za")
+                        input(type='text', name='email', class='lb-form-input lb-form-interaction', id='email',
+                        placeholder="email@example.co.za", data-form='email', required)
+
+                div(class='lb-form-section lb-form-section--hidden')
+                    button(type='hidden', name='formName', value='apply')
+                    button(type='hidden', name='isBot', value='')
 
                 div(class='lb-form-section')
                     div(class="lb-form-section__text lb-form-section__privacy") We respect your <a href="">privacy</a>.

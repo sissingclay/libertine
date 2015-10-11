@@ -153,7 +153,6 @@
 
     gulp.task('php', function () {
         return gulp.src([paths.php])
-            .pipe(svgmin())
             .pipe(gulp.dest(paths.dist + 'php/'));
     });
 

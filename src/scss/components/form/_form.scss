@@ -13,9 +13,13 @@
 
 .lb-form-section {
     @include rem(margin-bottom, 1rem);
+
+    &.lb-form-section--hidden {
+        display: none;
+    }
 }
 
-.lb-form-input, .lb-form-textarea {
+.lb-form-input, .lb-form-textarea, .lb-form-interaction {
 
     &:focus {
         border: 1px solid $purple-lighter-color;
@@ -32,6 +36,16 @@
 
     &.lb-valid {
         border: 1px solid $brown-color;
+    }
+}
+
+.lb-form-section--inline__container {
+
+    &.lb-error {
+
+        label {
+            color: $red-color;
+        }
     }
 }
 
