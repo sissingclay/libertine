@@ -142,94 +142,190 @@ var lb = function(element) {
     return new Libertine.$(element);
 }
 
-document.addEventListener('DOMContentLoaded', function () {
 
-    lb('.lb-head-mobile-menu').on('click', function(ele) {
-        ele.preventDefault();
-        lb('.lb-head-menu').toggleClass('active');
+
+lb('.lb-head-mobile-menu').on('click', function(ele) {
+    ele.preventDefault();
+    lb('.lb-head-menu').toggleClass('active');
+});
+
+lb('.linksOptions > a').on('click', function(ele) {
+    ele.preventDefault();
+    lb(this.nextSibling.nextSibling).toggleClass('show');
+});
+
+var form_elements = document.querySelectorAll('[data-form]'),
+    form          = document.querySelector('.lb-touch');
+
+function checkoutForm (form) {
+
+    var isValid;
+
+    [].forEach.call(form, function (val, index) {
+
+        if(typeof val.getAttribute('data-form') === 'string') {
+            isValid = checkFormElements(val, form);
+        }
     });
 
-    lb('.linksOptions > a').on('click', function(ele) {
-        ele.preventDefault();
-        lb(this.nextSibling.nextSibling).toggleClass('show');
-    });
+    return isValid;
+}
 
-    var form_elements = document.querySelectorAll('[data-form]'),
-        is_for_valid = false;
+function checkFormElements (val, form) {
 
-    [].forEach.call(form_elements, function (val, index) {
+    var input_value         = val.value,
+        error_class         = 'lb-error',
+        has_error_class     = hasClass(val, error_class),
+        form_valid          = true;
 
-        val.addEventListener('blur', function (ele) {
+    if (!input_value) {
 
-            var input_value         = ele.target.value,
-                error_class         = 'lb-error',
-                has_error_class     = hasClass(val, error_class);
+        form_valid = false;
 
-            if (!input_value) {
+        if(!has_error_class) {
+            addClass(val, error_class);
+        }
+    }
 
-                if(!has_error_class) {
-                    addClass(val, error_class);
-                }
+    if (input_value) {
+
+        var conditional_checks = val.getAttribute('data-form');
+
+        if (!conditional_checks) {
+
+            if (has_error_class) {
+                removeClass(val, error_class);
             }
+        }
 
-            if (input_value) {
+        if (conditional_checks) {
 
-                var conditional_checks = val.getAttribute('data-form');
+            var checks = conditional_checks.split(','),
+                is_valid_email;
 
-                if (!conditional_checks) {
+            checks.forEach(function (to_checks) {
 
-                    if (has_error_class) {
-                        removeClass(val, error_class);
+                if (to_checks === 'email') {
+                    is_valid_email = checkEmail(input_value);
+
+                    if (!is_valid_email) {
+
+                        form_valid = false;
+
+                        if (!has_error_class) {
+                            addClass(val, error_class);
+                        }
+                    }
+
+                    if (is_valid_email) {
+
+                        if (has_error_class) {
+                            removeClass(val, error_class);
+                        }
                     }
                 }
+            });
+        }
+    }
 
-                if (conditional_checks) {
+    return form_valid;
+}
 
-                    var checks = conditional_checks.split(','),
-                        is_valid_email,
-                        is_valid_number;
+function isFormValid (form) {
 
-                    checks.forEach(function (to_checks) {
+    var is_for_invalid = true;
 
-                        if (to_checks === 'email') {
-                            is_valid_email = checkEmail(input_value);
+    [].forEach.call(form, function (val, index) {
 
-                            if (!is_valid_email) {
+        if(typeof val.getAttribute('data-form') === 'string') {
 
-                                if (!has_error_class) {
-                                    addClass(val, error_class);
-                                }
-                            }
-
-                            if (is_valid_email) {
-
-                                if (has_error_class) {
-                                    removeClass(val, error_class);
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-        });
+            val.addEventListener('blur', function (ele) {
+                is_for_invalid = checkFormElements(val, form);
+            });
+        }
     });
 
-    function hasClass(el, clss) {
-        return el.className && new RegExp("(^|\\s)" +
-                clss + "(\\s|$)").test(el.className);
+    return is_for_invalid;
+}
+
+isFormValid(form);
+form.addEventListener('submit', function(evt) {
+    evt.preventDefault();
+    var is_valid = checkoutForm(form);
+
+    if(is_valid) {
+        ajax().post('/test/php/email.php', form).success(function(data) {
+
+        });
     }
 
-    function addClass(el, clss) {
-        el.className += " " + clss;
-    }
+    console.log('is_valid', is_valid);
 
-    function removeClass(el, clss) {
-        var reg = new RegExp('(\\s|^)' + clss + '(\\s|$)');
-        el.className = el.className.replace(reg, ' ');
-    }
-
-    function checkEmail(email_address) {
-        var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-        return re.test(email_address);
-    }
 });
+
+function hasClass(el, clss) {
+    return el.className && new RegExp("(^|\\s)" +
+            clss + "(\\s|$)").test(el.className);
+}
+
+function addClass(el, clss) {
+    el.className += " " + clss;
+}
+
+function removeClass(el, clss) {
+    var reg = new RegExp('(\\s|^)' + clss + '(\\s|$)');
+    el.className = el.className.replace(reg, ' ');
+}
+
+function checkEmail(email_address) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email_address);
+}
+
+function ajax () {
+
+    var parse = function(req) {
+        var result;
+        try {
+            result = JSON.parse(req.responseText);
+        } catch (e) {
+            result = req.responseText;
+        }
+        return [result, req];
+    };
+
+    var xhr = function(type, url, data) {
+        var methods = {
+            success: function(callback) {
+                this.success = callback;
+                return this;
+            },
+            error: function(callback) {
+                this.error = callback;
+                return this;
+            }
+        };
+        var XHR = XMLHttpRequest || ActiveXObject;
+        var request = new XHR('MSXML2.XMLHTTP.3.0');
+        request.open(type, url, true);
+        request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        request.onreadystatechange = function() {
+            if (request.readyState === 4) {
+                if (request.status === 200) {
+                    methods.success.apply(methods, parse(request));
+                } else {
+                    methods.error.apply(methods, parse(request));
+                }
+            }
+        };
+        request.send(data);
+        return methods;
+    };
+
+    return {
+        post: function(url, data) {
+            return xhr('POST', url, data);
+        }
+    };
+
+};

@@ -47,6 +47,7 @@
             'html': './build/test/**/*.html',
             'img': './src/img/*',
             'svg': './src/svgs/*',
+            'php': './src/php/*',
             'dist': './build/test/'
         };
 
@@ -150,6 +151,12 @@
             .pipe(gulp.dest(paths.dist + 'svg/'));
     });
 
+    gulp.task('php', function () {
+        return gulp.src([paths.php])
+            .pipe(svgmin())
+            .pipe(gulp.dest(paths.dist + 'php/'));
+    });
+
     gulp.task('sitemap', function () {
         gulp.src(paths.dist + '**/*.html')
             .pipe(sitemap({
@@ -161,14 +168,14 @@
     gulp.task('build-dev', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg']
+            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg', 'php']
         );
     });
 
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap'
+            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap', 'php'
         );
     });
 
