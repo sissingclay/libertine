@@ -1,0 +1,15 @@
+script(type="text/javascript").
+    var images      = ['#{path}/img/hr_home1.jpg', '#{path}/img/hr_home2.jpg'],
+        container   = document.querySelector('.lb-hero'),
+        width       = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+    if(width > 1023) {
+        container.style.backgroundImage = "url('" + images[Math.floor(Math.random() * images.length)] + "')";
+    }
+
+    window.addEventListener('resize', function() {
+        width       = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        if(width < 1024) {
+            container.removeAttribute("style");
+        }
+    }, true);

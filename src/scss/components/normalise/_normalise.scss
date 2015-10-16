@@ -19,7 +19,7 @@ html {
     height: 100%;
 }
 
-html.wf-active {
+html.font-loaded {
     @include lato-family;
 }
 
@@ -79,6 +79,24 @@ a {
 a:active,
 a:hover {
     outline: 0;
+}
+
+a.lb-link {
+    @include transition(all, 0.5s);
+    padding: 2px 4px;
+    font-size: 90%;
+    border-bottom: 2px solid $purple-lighter-color;
+    border-radius: 2px;
+
+    &:hover {
+        background-color: $grey-background;
+    }
+}
+
+.lb-fine-print h2, .lb-fine-print p {
+    font-size: 90%;
+    @include rem(margin-bottom, 1rem);
+    @include rem(line-height, 1.5rem);
 }
 
 b,
@@ -262,7 +280,9 @@ optgroup {
     @include lato-family-bold;
 }
 
-
+.lb-relative {
+    position: relative;
+}
 
 table {
     border-collapse: collapse;

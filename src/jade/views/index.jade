@@ -1,10 +1,10 @@
 extends ../extends/default.jade
 
 block title
-    title Debt | Debt Counsellor | Debt Lawyer | Debt Attorneys | Cape Town
+    title Libertine Consultants | Debt Counselling | Debt Consolidation
 
 block description
-    meta(name='description', content='Debt Counsellors that can help with debt. Debt Counsellors will advise Debt Attorneys who will defended you Cape Town. Debt Lawyers can make a difference.')
+    meta(name='description', content='Libertine Consultants offers effective, compassionate debt services in Cape Town, South Africa.')
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
 
 append css
@@ -49,23 +49,24 @@ block main
 
                     img(src='#{path}/svg/13-trust.svg', width='120')
 
-                    h2 Debt services
+                    h2 Debt Management
 
                     p.
-                        We <strong>reduce your normal monthly payments</strong> to your creditors and extend the repayment period.<br>
-                        All your accounts such as <strong>loans, credit cards, vehicles, bonds and other accounts</strong> will be consolidated into <strong>one monthly affordable payment</strong>.<br>
-                        We will provide you with protection from further or any legal action against your credit profile.
+                        Accepting the fact that you need to go under <strong>debt management</strong> to take back control of your finances
+                        can be a bitter pill to swallow, but when you partner with Libertine Consultants you can rest assured
+                        that your case will be handled <strong>discreetly, efficiently and with the utmost professionalism</strong>. Our team of <strong>debt management professionals</strong> are ready to help you
+                        make sense of your finances and live unburdened by the stress and pressure of debt.
 
                     div(class='lb-cta lb-cta_center')
 
                         p
-                            small Find out more details on our debt services offered
+                            small Find out more about how we can help you today.
 
-                        a(href=path + nav.debt.en.href class='lb-btn') more in debt services
+                        a(href=path + data.management.en.href, class='lb-btn') more in debt management
 
         section(class='lb-content lb-content_purple')
 
-            div(class='lb-content-constraint')
+            div(class='lb-content-constraint lb-relative')
 
                 div(class='lb-testimonials lb-bar')
 
@@ -75,9 +76,9 @@ block main
                             beginning. This is one of the best decisions I made in my life.
 
                     figcaption(class='lb-testimonials-figcaption').
-                        Geraldo Strydom, Cape Town
+                        Geraldo Strydom
 
-                div(class='lb-testimonials_cta')
+                div(class='lb-testimonials_cta lb-testimonials_cta-absolute')
 
                     div(class='lb-cta lb-cta_center')
 
@@ -95,22 +96,12 @@ block main
 
                         img(src='#{path}/svg/04-debt_mng.svg', width='120')
 
-                        h2 Free assessment
+                        h2 Workshops
 
                         p.
-                            <b>“The man who never has money enough to pay his debts has too much of something else.”</b><br>
-                            -James Lendall Basford
-
-                        p.
-                            For all new clients we provide a free assessment on your financial position.<br>
-                            This is to give all our potential clients a realistic view on their current financial situation
-                            and whether our services will be beneficial for the client.
-
-                        p.
-                            Once all your accounts have been settled with any of our services.<br> We assist you in updating your
-                            credit profile with all the major credit bureaus in order to have an updated credit profile.
-
-                        include ../partials/cta/cta-red.jade
+                            At <strong>Libertine Consultants</strong> we believe that prevention is better than cure, which is why we <strong>offer
+                            workshops</strong> on budgeting and finance free of charge to <strong>businesses and community initiatives</strong> every
+                            Wednesday. <a href="#{path}#{nav.contact.en.href}" class="lb-link">Contact us</a> to book a slot and to find out more about our workshop content and schedules.
 
         section(class='lb-content text-center')
 
@@ -136,6 +127,13 @@ block main
 
                 div(class='lb-stats')
 
-                    img(src='#{path}/svg/NCR_logo.svg', width='180')
+                    img(src='#{path}/svg/NCR_logo.svg', width='120')
 
                     p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+
+        section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-red.jade
+
+append js
+    include ../partials/scripts/home-script.jade

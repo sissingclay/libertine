@@ -1,6 +1,15 @@
 @import './src/scss/components/base/base-mixin';
 @import "./src/scss/components/testimonials/testimonials";
 
+.lb-hero {
+    background-image: url('/test/img/home-hero-mobile.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
+    @include rem(padding, 1.5rem $padding 0.5rem);
+}
+
 @include bp(medium) {
     @import "./src/scss/components/stats/stats-medium";
 }

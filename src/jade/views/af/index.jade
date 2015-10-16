@@ -1,8 +1,8 @@
 extends ../../extends/afrikaans.jade
 block title
-    title Debt | Debt Counsellor | Debt Lawyer | Debt Attorneys | Cape Town
+    title Libertine Consultants | Skuldhersiening | Skuldberading
 block description
-    meta(name='description', content='Debt Counsellors that can help with debt. Debt Counsellors will advise Debt Attorneys who will defended you Cape Town. Debt Lawyers can make a difference.')
+    meta(name='description', content='Libertine Consultants bied effektiewe, deernisvolle skuldberadingsdienste in Kaapstad, Suid-Afrika.')
     meta(name='keyword', content='debt, debts, debt counsellors, debt counsellor, debt lawyers, debt lawyer, debt consultant, debt consultants, debt attorneys')
 append css
     // build:inlinecss
@@ -21,9 +21,9 @@ block main
 
             div(class='lb-hero_container')
 
-                h1(class='lb-hero-title') Debt counselling done properly
+                h1(class='lb-hero-title') Effektiewe skuldberading met ondersteuning voor,
 
-                p(class='lb-hero-text') Support before, during and after debt counselling ensures that individuals have the best opportunity for success.
+                p(class='lb-hero-text') na en gedurende die proses verseker dat finansieel oorlaaide individue die beste kans op sukses geniet.
 
                 div(class='lb-cta lb-cta_center lb-cta_large-left')
 
@@ -42,35 +42,36 @@ block main
 
                 img(src='#{path}/svg/09-law.svg', width='120')
 
-                h2 Debt services
+                h2 Skuldhersiening
 
                 p.
-                    We <strong>reduce your normal monthly payments</strong> to your creditors and extend the repayment period.<br>
-                    All your accounts such as <strong>loans, credit cards, vehicles, bonds and other accounts</strong> will be consolidated into <strong>one monthly affordable payment</strong>.<br>
-                    We will provide you with protection from further or any legal action against your credit profile.
+                    Sommige mense vind dit moeilik om te aanvaar dat <strong>skuldhersiening</strong> die enigste manier is om beheer te
+                    neem van hul finansies, maar wanneer jy Libertine Consultants saamspan kan jy seker wees dat jou saak
+                    met <strong>diskressie, doeltreffendheid en professionaliteit</strong> afgehandel sal word. Ons span <strong>skuldhersieningkonsultante</strong> staan gereed om jou te help om
+                    sin te maak van jou finansies sodat jy voortaan sonder die stres en emosionele druk van skuld kan leef.
 
                 div(class='lb-cta lb-cta_center')
 
                     p
-                        small Find out more details on debt services offered
+                        small Vind sommer vandag nog uit hoe ons jou van hulp kan wees.
 
-                    a(href='' class='lb-btn') more in debt services
+                    a(href=path + data.management.en.href, class='lb-btn') meer in Skuldhersiening
 
         section(class='lb-content lb-content_purple')
 
-            div(class='lb-content-constraint')
+            div(class='lb-content-constraint lb-relative')
 
                 div(class='lb-testimonials lb-bar')
 
                     blockquote
                         p(class='lb-testimonials-text').
-                            Debt review made a world of difference in my life although it was hard to accept in the
-                            beginning. This is one of the best decisions I made in my life.
+                            Skuldhersiening het ‘n wêreld se verskil aan my lewe gemaak, alhoewel dit moeilik was om dit aan die
+                            begin te aanvaar. Dis beslis een van die beste besluite wat ek al in my lewe geneem het.
 
                     figcaption(class='lb-testimonials-figcaption').
-                        Geraldo Strydom, Cape Town
+                        Geraldo Strydom
 
-                div(class='lb-testimonials_cta')
+                div(class='lb-testimonials_cta lb-testimonials_cta-absolute')
 
                     div(class='lb-cta lb-cta_center')
 
@@ -87,24 +88,14 @@ block main
                 div(class='text-center')
 
                     img(src='#{path}/svg/04-debt_mng.svg', width='120')
-                    img(src='#{path}/svg/05-debt_mng.svg', width='120')
 
-                    h2 Free assessment
-
-                    p.
-                        <b>“The man who never has money enough to pay his debts has too much of something else.”</b><br>
-                        -James Lendall Basford
+                    h2 Werkswinkels
 
                     p.
-                        For all new clients we provide a free assessment on your financial position.<br>
-                        This is to give all our potential clients a realistic view on their current financial situation
-                        and whether our services will be beneficial for the client.
-
-                    p.
-                        Once all your accounts have been settled with any of our services.<br> We assist you in updating your
-                        credit profile with all the major credit bureaus in order to have an updated credit profile.
-
-                    include ../../partials/cta/cta-red.jade
+                        By <strong>Libertine Consulting</strong> glo ons dat voorkoming beter is as genesing, en daarom bied ons elke Woensdag
+                        gratis <strong>skuldberading werkswinkels</strong> aan by <strong>besighede en gemeenskapsgeleenthede</strong>.
+                        <a href="#{path}#{nav.contact.af.href}" class="lb-link">Kontak ons</a> gerus om
+                        ‘n werkswinkel te bespreek vir jou besigheid of meer inligting te kry oor die inhoud van ons kurrikulum.
 
         section(class='lb-content text-center')
 
@@ -130,6 +121,15 @@ block main
 
                 div(class='lb-stats')
 
-                    img(src='#{path}/svg/09-law.svg', width='120')
+                    img(src='#{path}/svg/NCR_logo.svg', width='120')
 
                     p Registered with the <a href="http://www.ncr.org.za" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+
+
+        section(class='lb-content lb-content_grey')
+
+                    include ../../partials/cta/cta-red.jade
+append js
+
+    append js
+        include ../../partials/scripts/home-script.jade

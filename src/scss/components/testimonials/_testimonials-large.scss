@@ -10,6 +10,12 @@
 
 .lb-testimonials_cta {
     @include span(4);
+
+    &.lb-testimonials_cta-absolute {
+        position: absolute;
+        right: 0;
+        top: 22%;
+    }
 }
 
 .lb-bar {

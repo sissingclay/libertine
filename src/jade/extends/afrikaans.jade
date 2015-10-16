@@ -1,9 +1,10 @@
--var isAfrikaans = true;
 -var path = '/test';
--var cssLang = '..';
+-var isAfrikaans = true;
 
 include ../partials/variables/variables
 include ../partials/variables/menu-variables
+
+-var assetsPath = '../';
 
 block variables
 
@@ -31,13 +32,13 @@ html(lang='af')
 
         block css
             // build:css css/common/common.min.css
-            link(rel='stylesheet' href='#{cssLang}/css/common/common.css')
+            link(rel='stylesheet' href='#{assetsPath}/css/common/common.css')
             // endbuild
             // build:css css/common/common-medium.min.css
-            link(rel='stylesheet' href='#{cssLang}/css/common/common-medium.css' media="(min-width: 48.000em)")
+            link(rel='stylesheet' href='#{assetsPath}/css/common/common-medium.css' media="(min-width: 48.000em)")
             // endbuild
             // build:css css/common/common-large.min.css
-            link(rel='stylesheet' href='#{cssLang}/css/common/common-large.css' media="(min-width: 64.000em)")
+            link(rel='stylesheet' href='#{assetsPath}/css/common/common-large.css' media="(min-width: 64.000em)")
             // endbuild
 
         <!--[if lte IE 8]>
@@ -47,9 +48,6 @@ html(lang='af')
     body
 
         include ../partials/header
-
-        block touch
-            include ../partials/get_touch
 
         block main
 

@@ -5,15 +5,24 @@
 .lb-head-menu {
     display: block;
     text-align: right;
-    @include span(8);
+    @include span(9);
     clear: none;
 
     .lb-menu-link {
         display: inline-block;
-        @include rem(padding-right, 1.2rem);
-        @include rem(font-size, 1rem);
+        @include rem(padding-right, 1rem);
+        @include rem(font-size, 0.8rem);
         @include rem(line-height, 1.8rem);
         position: relative;
+
+        &:last-child {
+            @include rem(padding-right, 0);
+            @include rem(padding-left, 1rem);
+        }
+
+        &:nth-last-child(2) {
+            @include rem(padding-right, 0);
+        }
 
         ul {
             @include rem(padding, 7px 15px);

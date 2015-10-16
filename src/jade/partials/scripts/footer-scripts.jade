@@ -1,11 +1,11 @@
--var jsLang = (isAfrikaans ? '../' : '');
-
 block js
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js' async='async')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js', async='async')
+    script(src='#{assetsPath}js/fontfaceobserver.js')
     // build:js js/common/common.min.js
-    script(src='#{jsLang}js/common/common.js')
+    script(src='#{assetsPath}js/common/common.js')
     // endbuild
     script(type="text/javascript").
+
         WebFontConfig = {
         google: { families: [ 'Lato:300,400:latin' ] }
         };
@@ -18,3 +18,24 @@ block js
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(wf, s);
         })();
+
+        if(sessionStorage.fontsloaded) {
+            var html = document.documentElement;
+            html.classList.add('font-loaded');
+        } else {
+
+            var observer = new FontFaceObserver('Lato', {
+              weight: 400,
+              weight: 300,
+            });
+
+            observer.check().then(function () {
+
+              var html = document.documentElement;
+              addClass(html, 'font-loaded');
+              sessionStorage.fontsloaded = true;
+
+            }, function () {
+              console.log('Font is not available');
+            });
+        }

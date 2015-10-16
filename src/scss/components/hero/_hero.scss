@@ -1,8 +1,4 @@
 .lb-hero {
-    background: url('/test/img/home-hero-mobile.jpg') no-repeat center center;
-    background-size: cover;
-    width: 100%;
-    @include rem(padding, 1.5rem $padding 0.5rem);
     
     .lb-hero_container {
         @include rem(max-width, 600px);

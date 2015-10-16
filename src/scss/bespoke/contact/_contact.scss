@@ -20,6 +20,11 @@
 @include bp(large) {
 
     .lb-contact {
+
+        &:first-child {
+            border-left: none;
+        }
+
         text-align: left;
         @include gallery(4 of 12);
         @include rem(padding, 0 $padding 0 40px);

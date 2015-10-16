@@ -15,15 +15,15 @@
         &.active {
 
             a {
-                color: $white-color;
+                color: $light-grey-color;
             }
         }
         
         a {
-            color: $light-grey-color;
+            color: $white-color;
             
             &:hover {
-                color: $white-color;
+                color: $light-grey-color;
             }
         }
         

@@ -8,13 +8,13 @@ block description
 
 append css
     // build:inlinecss
-    link(rel='stylesheet' href='#{cssLang}/css/contact/contact.css')
+    link(rel='stylesheet' href='#{assetsPath}/css/contact/contact.css')
     // endbuild
 
 block variables
-- var activePage    = nav.contact.en.href;
-- var english       = nav.contact.en.href;
-- var afrikaans     = nav.contact.af.href;
+    - var activePage    = nav.contact.af.href;
+    - var english       = nav.contact.en.href;
+    - var afrikaans     = nav.contact.af.href;
 
 block main
 
@@ -96,148 +96,4 @@ block main
         section(id='google-map', class='lb-map-canvas')
 
 append js
-    script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1zFtcxfOO8AKitdraeyUVHcz3txhHYk")
-    script(type="text/javascript").
-        function initialize() {
-
-            var styles =
-                [
-                    {
-                        "featureType": "administrative",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 20
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 40
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "on"
-                            },
-                            {
-                                "saturation": -10
-                            },
-                            {
-                                "lightness": 30
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape.man_made",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "simplified"
-                            },
-                            {
-                                "saturation": -60
-                            },
-                            {
-                                "lightness": 10
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape.natural",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "simplified"
-                            },
-                            {
-                                "saturation": -60
-                            },
-                            {
-                                "lightness": 60
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "off"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 60
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "transit",
-                        "elementType": "all",
-                        "stylers": [
-                            {
-                                "visibility": "off"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 60
-                            }
-                        ]
-                    }
-                ],
-
-            // Create a new StyledMapType object, passing it the array of styles,
-            // as well as the name to be displayed on the map type control.
-            styledMap = new google.maps.StyledMapType(styles,
-                {name: "Styled Map"}
-            ),
-
-            mapOptions = {
-                center: { lat: -33.90076, lng: 18.63510},
-                zoom: 16
-            },
-
-            map     = new google.maps.Map(document.getElementById('google-map'), mapOptions),
-
-            image   = '#{path}/img/10-map_pointer.png';
-
-            marker  = new google.maps.Marker({
-                position: mapOptions.center,
-                map: map,
-                title: 'Libertine Consultants',
-                scrollwheel: false,
-                mapTypeControlOptions: {
-                    mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-                },
-                icon: image
-            });
-
-            //Associate the styled map with the MapTypeId and set it to display.
-            map.mapTypes.set('map_style', styledMap);
-            map.setMapTypeId('map_style');
-
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
+    include ../../partials/scripts/contact-script

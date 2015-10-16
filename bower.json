@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "homepage": "https://github.com/sissingclay/libertine",
   "authors": [
-    "Clay Sissing <clay.sissing@crowdcube.com>"
+    "Clay Sissing <claysissing@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [
@@ -14,6 +14,7 @@
     "tests"
   ],
   "dependencies": {
-    "susy": "~2.2.6"
+    "susy": "~2.2.6",
+    "fontfaceobserver": "git@github.com:bramstein/fontfaceobserver.git#~1.5.4"
   }
 }
