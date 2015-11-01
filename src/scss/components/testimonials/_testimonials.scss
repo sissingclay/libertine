@@ -12,8 +12,6 @@
     }
 
     &.lb-testimonials__row {
-        @include rem(padding, 0 0 0);
-        @include rem(padding, 0 0 0);
         @include span(12 no-gutters);
         text-align: center;
         @include max-width($max-width, $max-width-rem);

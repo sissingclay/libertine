@@ -44,56 +44,64 @@ block main
                 <a href="#{data.get_touch.href}" class="lb-link">Get in touch</a> so we can set the wheels in motion to find the <strong>debt solution</strong> that best suits your requirements.
 
 
-        section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness", data-height)
+        section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness")
 
-            div(class='lb-contact')
+            div(class='lb-content-constraint__large', data-height)
 
-                p(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
-                    span(itemprop="streetAddress") 4 Kruger Street <br>
-                    span(itemprop="streetAddress") Lower Oakdale <br>
-                    span(itemprop="addressLocality") Bellville <br>
-                    span(temprop="addressRegion") Western Cape, South Africa <br>
-                    span(itemprop="postalCode") 7530
+                div(class='lb-contact')
 
-            div(class='lb-contact')
+                    p(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
+                        span(itemprop="streetAddress") 4 Kruger Street <br>
+                        span(itemprop="streetAddress") Lower Oakdale <br>
+                        span(itemprop="addressLocality") Bellville <br>
+                        span(temprop="addressRegion") Western Cape, South Africa <br>
+                        span(itemprop="postalCode") 7530
 
-                p <strong>Opening hours</strong><br>
-                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday - Friday <br>
-                    span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
-                    span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
-                    span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
+                div(class='lb-contact')
 
-            div(class='lb-contact')
+                    p <strong>Opening hours</strong><br>
+                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") Monday - Friday <br>
+                        span(itemprop="openingHours" content="Mo-Fri 08:00-16:30") 8:00am - 4:30pm <br>
+                        span(itemprop="openingHours" content="Sat 08:00-12:30") Saturday <br>
+                        span(itemprop="openingHours" content="Sat 08:00-12:30") 8:00am - 12:30pm
 
-                p <strong>General enquries</strong><br>
-                    span Telephone:
-                    span(itemprop="telephone") <a href='#{data.tel.href}' class="lb-link">#{data.tel.name}</a><br>
-                    span Cell:
-                    span(itemprop="telephone") <a href='#{data.cell.href}' class="lb-link">#{data.cell.name}</a><br>
-                    span Email:
-                    span <a href="#{data.email.href}" class="lb-link">#{data.email.name}</a>
+                div(class='lb-contact')
+
+                    p <strong>General enquries</strong><br>
+                        span Telephone:
+                        span(itemprop="telephone") <a href='#{data.tel.href}' class="lb-link">#{data.tel.name}</a><br>
+                        span Cell:
+                        span(itemprop="telephone") <a href='#{data.cell.href}' class="lb-link">#{data.cell.name}</a><br>
+                        span Email:
+                        span <a href="#{data.email.href}" class="lb-link">#{data.email.name}</a>
 
         section(class='lb-content')
 
-            div(class='lb-contact')
+            div(class='lb-content-constraint__large', data-height)
 
-                p(class='lb-social') <strong>Get social with us</strong><br>
+                div(class='lb-contact')
 
-                    a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/googleplus.svg', width='40')
-                    a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/facebook.svg', width='40')
-                    a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
-                        img(src='#{path}/svg/twitter.svg', width='40')
+                    p(class='lb-social') <strong>Get social with us</strong><br>
 
-            div(class='lb-contact')
+                        a(href='#{data.googlePlus.href}', target='_blank', class='lb-social-icon')
+                            img(src='#{path}/svg/googleplus.svg', width='40')
+                        a(href='#{data.facebook.href}', target='_blank', class='lb-social-icon')
+                            img(src='#{path}/svg/facebook.svg', width='40')
+                        a(href='#{data.twitter.href}', target='_blank', class='lb-social-icon')
+                            img(src='#{path}/svg/twitter.svg', width='40')
 
-                p(class='lb-contact-title') <strong>Enquiry form</strong>
+                div(class='lb-contact')
 
-                div(class='lb-cta')
-                    a(href=path + data.get_touch.en.href, class='lb-btn') Get in Touch
+                    p(class='lb-contact-title') <strong>Enquiry form</strong>
+
+                    div(class='lb-cta')
+                        a(href=path + data.get_touch.en.href, class='lb-btn') Get in Touch
 
         section(id='google-map', class='lb-map-canvas')
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-red.jade
 
 append js
     include ../partials/scripts/contact-script

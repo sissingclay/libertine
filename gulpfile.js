@@ -48,6 +48,7 @@
             'img': './src/img/*',
             'svg': './src/svgs/*',
             'php': './src/php/*',
+            'dependenciesjs': './bower_components/fontfaceobserver/fontfaceobserver.js',
             'dist': './build/test/'
         };
 
@@ -156,6 +157,11 @@
             .pipe(gulp.dest(paths.dist + 'php/'));
     });
 
+    gulp.task('dependenciesjs', function () {
+        return gulp.src([paths.dependenciesjs])
+            .pipe(gulp.dest(paths.dist + 'js/'));
+    });
+
     gulp.task('sitemap', function () {
         gulp.src(paths.dist + '**/*.html')
             .pipe(sitemap({
@@ -167,14 +173,14 @@
     gulp.task('build-dev', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg', 'php']
+            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
         );
     });
 
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap', 'php'
+            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap', 'php', 'dependenciesjs'
         );
     });
 

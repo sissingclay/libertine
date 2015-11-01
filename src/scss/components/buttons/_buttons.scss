@@ -6,9 +6,13 @@
     color: $brown-darker-color;
     @include lato-family-bold;
     @include rem(padding, 0.8rem 1.875rem);
-    @include rem(margin-bottom, 1.25rem);
+    @include rem(margin-bottom, $section);
     @include transition(all, 0.5s);
     display: inline-block;
+
+    &.lb-btn--none-bottom {
+        @include rem(margin-bottom, 5px);
+    }
 
     &.lb-btn_small, &.lb-btn_small-mobile {
         @include rem(padding, 0.5125rem);
@@ -98,7 +102,11 @@
         @include rem(font-size, 1rem);
 
         &.lb-cta-push-down {
-            @include rem(margin-bottom, 1.2rem);
+            @include rem(margin-bottom, $section);
+
+            &.lb-cta-push-down--none {
+                @include rem(margin-bottom, 0);
+            }
         }
     }
 }

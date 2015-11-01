@@ -1,0 +1,16 @@
+.lb-contactDetails {
+    background-color: $grey-darkest-color;
+    @include rem(padding, $padding);
+    text-transform: lowercase;
+    @include rem(font-size, 14px);
+
+    .lb-contactDetails--right {
+        text-align: right;
+        display: inline-block;
+        float: right;
+    }
+
+    a {
+        color: $light-grey-color;
+    }
+}

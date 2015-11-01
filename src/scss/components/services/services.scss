@@ -1,11 +1,10 @@
 .lbService {
-    text-align: left;
-    @include rem(margin-bottom, 50px);
-    @include rem(padding-bottom, 50px);
+    text-align: center;
 
     &.lbService--last {
-        @include rem(margin-bottom, 0px);
-        @include rem(padding-bottom, 0px);
+        @include rem(margin-bottom, 0);
+        @include rem(padding-bottom, 0);
+        @include rem(padding-right, 0);
     }
 
     .lbService_title {
@@ -17,7 +16,6 @@
     }
 
     .lbService_description {
-        margin-bottom: 0;
         @include rem(line-height, 34px);
     }
 }

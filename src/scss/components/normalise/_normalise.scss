@@ -89,7 +89,8 @@ a.lb-link {
     border-radius: 2px;
 
     &:hover {
-        background-color: $grey-background;
+        background-color: $purple-lighter-color;
+        color: $white-color;
     }
 }
 
@@ -300,7 +301,7 @@ ul {
 }
 
 p {
-    @include rem(margin, 0 0 2.5rem);
+    @include rem(margin, 0 0 $section);
     @include rem(line-height, 2.2rem);
     color: $grey-dark-color;
     @include rem(font-size, 1.375rem);

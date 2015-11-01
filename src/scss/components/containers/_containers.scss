@@ -1,7 +1,11 @@
 .lb-content {
     position: relative;
     margin: 0 auto;
-    @include rem(padding, 2rem $padding-containers);
+    @include rem(padding, $section $padding-containers 0);
+
+    &.lb-content--fine {
+        @include rem(padding, $padding-containers $padding-containers 0.1px);
+    }
 }
 
 .lb-content-constraint {
@@ -18,6 +22,7 @@
 
 .lb-content_purple {
     background-color: $purple-color;
+    padding-bottom: 0.1px;
 
     h2, p, small, h3, h1 {
         color: $white-color;
@@ -26,10 +31,12 @@
 
 .lb-content_grey {
     background-color: $grey-background;
+    padding-bottom: 0.1px;
 }
 
 .lb-content_light-grey {
     background-color: $light-grey-color;
+    padding-bottom: 0.1px;
 }
 
 .lb-content:after {
@@ -40,7 +47,6 @@
 
     .lb-content_main {
         text-align: center;
-        @include rem(margin, 3rem auto 1rem);
         @include rem(max-width, $max-width-medium);
 
         .lb-content_main-text {

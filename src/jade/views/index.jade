@@ -32,9 +32,9 @@ block main
 
                 div(class='lb-cta lb-cta_center lb-cta_large-left')
 
-                    a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right') Find Out More
+                    a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') Find Out More
 
-                    a(href=path + data.apply.en.href class='lb-btn lb-btn_action') Get Help you Need
+                    a(href=path + data.apply.en.href class='lb-btn lb-btn_action lb-btn--none-bottom') Get Help you Need
 
                     p(class='lb-cta-text')
                         small Need to talk to us? Call <a href='tel:+27219492211'>+27 (021) 949 2211</a> for advice
@@ -68,9 +68,9 @@ block main
 
             div(class='lb-content-constraint lb-relative')
 
-                div(class='lb-testimonials lb-bar')
+                div(class='lb-testimonials')
 
-                    blockquote
+                    blockquote(class='lb-bar')
                         p(class='lb-testimonials-text').
                             Debt review made a world of difference in my life although it was hard to accept in the
                             beginning. This is one of the best decisions I made in my life.
@@ -102,6 +102,8 @@ block main
                             At <strong>Libertine Consultants</strong> we believe that prevention is better than cure, which is why we <strong>offer
                             workshops</strong> on budgeting and finance free of charge to <strong>businesses and community initiatives</strong> every
                             Wednesday. <a href="#{path}#{nav.contact.en.href}" class="lb-link">Contact us</a> to book a slot and to find out more about our workshop content and schedules.
+
+                        include ../partials/cta/cta-touch.jade
 
         section(class='lb-content text-center')
 

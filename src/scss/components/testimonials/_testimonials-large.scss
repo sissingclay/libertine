@@ -6,6 +6,10 @@
     blockquote {
         @include rem(margin-right, 1rem);
     }
+
+    .lb-testimonials-figcaption {
+        @include rem(margin-bottom, $section);
+    }
 }
 
 .lb-testimonials_cta {
@@ -14,7 +18,7 @@
     &.lb-testimonials_cta-absolute {
         position: absolute;
         right: 0;
-        top: 22%;
+        top: 10%;
     }
 }
 

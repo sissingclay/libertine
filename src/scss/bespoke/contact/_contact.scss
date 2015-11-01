@@ -7,10 +7,6 @@
 .lb-contact {
     text-align: center;
     @include rem(margin-bottom, 20px);
-
-    p {
-        margin-bottom: 0;
-    }
 }
 
 .lb-contact-title {
@@ -28,7 +24,6 @@
         text-align: left;
         @include gallery(4 of 12);
         @include rem(padding, 0 $padding 0 40px);
-        border-left: 1px solid $light-grey-color;
         @include rem(margin-bottom, 0);
     }
 

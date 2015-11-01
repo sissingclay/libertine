@@ -4,12 +4,3 @@
 @include bp(large) {
     @import "./src/scss/components/testimonials/testimonials-large";
 }
-
-.lb-testimonials__big {
-
-    &:before {
-        content: 'hello';
-        font-size: 34px;
-        display: inline-block;
-    }
-}

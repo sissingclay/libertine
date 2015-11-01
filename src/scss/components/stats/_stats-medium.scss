@@ -2,6 +2,6 @@
     @include gallery(6 of 12);
 
     p {
-        margin-bottom: 0;
+        margin-bottom: $section;
     }
 }

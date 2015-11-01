@@ -44,6 +44,12 @@ html(lang='en')
         <![endif]-->
 
     body
+        div(class='lb-contactDetails')
+
+            div(class='lb-content-constraint').
+
+                <a href='#{data.tel.href}'>#{data.tel.name}</a>   <a href='#{data.email.href}'>#{data.email.name}</a>
+                <a href='#{data.get_touch.en.href}' class='lb-contactDetails--right'>#{data.get_touch.en.name}</a>
 
         include ../partials/header
 
