@@ -21,10 +21,7 @@
         sourcemaps  = require('gulp-sourcemaps'),
         runSequence = require('run-sequence'),
         minimist    = require('minimist'),
-        gulpif      = require('gulp-if'),
         del         = require('del'),
-        iconfontCss = require('gulp-iconfont-css'),
-        iconfont    = require('gulp-iconfont'),
         svgmin      = require('gulp-svgmin'),
         sitemap     = require('gulp-sitemap'),
 
@@ -126,26 +123,6 @@
             .pipe(gulp.dest(paths.dist));
     });
 
-    gulp.task('iconFont', function () {
-
-        var fontName    = 'lb-icons';
-
-        gulp.src([paths.svg])
-            .pipe(iconfontCss({
-                fontName: fontName,
-                path: 'src/icons/_icons.css',
-                targetPath: '../css/_icons.css',
-                fontPath: '../fonts/',
-                className: 'lb-icon',
-                normalize: true
-            }))
-            .pipe(iconfont({
-                fontName: fontName,
-                appendCodepoints: true // recommended option
-            }))
-            .pipe(gulp.dest(paths.dist + 'fonts/'));
-    });
-
     gulp.task('svg', function () {
         return gulp.src([paths.svg])
             .pipe(svgmin())
@@ -180,7 +157,7 @@
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'svg'] ,'usemin', 'sitemap', 'php', 'dependenciesjs'
+            ['jade', 'typescript', 'sass', 'img', 'svg', 'sitemap', 'php', 'dependenciesjs', 'usemin']
         );
     });
 
