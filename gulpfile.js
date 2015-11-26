@@ -157,7 +157,15 @@
     gulp.task('build-prod', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'svg', 'sitemap', 'php', 'dependenciesjs', 'usemin']
+            'jade',
+            'typescript',
+            'sass',
+            'img',
+            'svg',
+            'sitemap',
+            'php',
+            'dependenciesjs',
+            'usemin'
         );
     });
 
