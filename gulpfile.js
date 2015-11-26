@@ -162,10 +162,10 @@
             'sass',
             'img',
             'svg',
+            'usemin',
             'sitemap',
             'php',
-            'dependenciesjs',
-            'usemin'
+            'dependenciesjs'
         );
     });
 
