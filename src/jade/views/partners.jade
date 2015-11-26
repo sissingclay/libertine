@@ -1,0 +1,64 @@
+extends ../extends/default.jade
+
+block title
+    title Libertine Consultants | Debt Counselling Team | Debt Management Team | Cape Town
+
+block description
+    meta(name='description', content='Expert debt consultants in Cape Town South Africa. Meet our team of experts.')
+
+block variables
+    - var activePage    = nav.about.en.href;
+    - var english       = nav.about.en.href;
+    - var afrikaans     = nav.about.af.href;
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    section(class='lb-content lb-content_grey')
+
+        div(class='lb-content-constraint__large text-center')
+
+            h2 Kim Armfield & Associates
+
+            p.
+                Kim Armfield & Associates provide swift, professional legal representation when our clients’ debt
+                counselling process requires it.
+
+
+    section(class='lb-content text-center')
+
+        div(class='lb-content-constraint__large')
+
+            include ../partials/cta/cta-touch
+
+
+    section(class='lb-content text-center lb-content_grey')
+
+        div(class='lb-content-constraint__large')
+
+            h2 CA Life Coaching
+
+            p.
+                CA Life Coaching* provides coaching, consultation and facilitated learning experiences tailored to
+                identify and areas of your personal life or business that lack dynamic growth and develop a strategy to
+                address unproductive habits and out-dated systems.
+
+
+    include ../partials/about-us/about-us-icon-nav
+
+
+    section(class='lb-content lb-content--fine lb-content_grey')
+
+        div(class='lb-content-constraint lb-fine-print text-center')
+
+            p.
+                *CA Life Coaching initially traded as a sole proprietor from May 2010. Due to an increase in demand for
+                its services, the business grew and was registered as a company (CA Life Coaching (Pty) Ltd) in December
+                2014.
+
+
+    section(class='lb-content')
+
+        include ../partials/cta/cta-red
+

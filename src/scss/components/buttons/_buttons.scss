@@ -14,6 +14,11 @@
         @include rem(margin-bottom, 5px);
     }
 
+    &.lb-btn__small {
+        @include rem(padding, 0.2rem 1.875rem);
+        @include rem(font-size, 0.85rem);
+    }
+
     &.lb-btn_small, &.lb-btn_small-mobile {
         @include rem(padding, 0.5125rem);
         @include rem(margin-bottom, 0);

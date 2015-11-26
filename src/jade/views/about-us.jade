@@ -4,7 +4,7 @@ block title
     title Libertine Consultants | Debt Counselling | About Us
 
 block description
-    meta(name='description', content='Find out more about the caring, compassionate debt team at Libertine Consultants. Were here to help you get your house in order.')
+    meta(name='description', content='Find out more about the skilled, pro-active debt counselling team at Libertine Consultants. We’re here to help you get your house in order.')
 
 block variables
     - var activePage    = nav.about.en.href;
@@ -13,125 +13,41 @@ block variables
 
 block main
 
-    section(class='lb-hero_internal')
+    include ../partials/about-us/about-us-header
 
-        picture
-            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
-            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+    section(class='lb-content lb-content_grey')
 
-    main(role='main', class='lb-internal')
+        div(class='lb-content-constraint__large text-center')
 
-        section(class='lb-content lb-content_main')
+            p.
+                Let’s face it – nobody ever thinks they will be the poor sap who will have to <strong>apply for debt
+                consolidation</strong>. It is not a call you ever want to have to make and the realisation that you need to call in
+                professional help to <strong>get your finances</strong> back on track can be a very difficult pill to swallow.
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
+    section(class='lb-content text-center')
 
-            h1 When you are feeling the pressure, you need the right team in your corner
+        div(class='lb-content-constraint__large')
 
-            p(class='lb-content_main-text').
-                Efficient, compassionate <strong>debt counsellors</strong> you can rely on
+            p.
+                At <strong>Libertine Consultants</strong> we believe that it takes guts to admit that you require <strong>debt counselling</strong>, which
+                is why we go out of our way to ensure that you get <strong>efficient, compassionate service</strong> at this trying time in
+                your life. Our company ethos is rooted in personal relationships.
 
-            include ../partials/cta/cta-red.jade
+            p.
+                We believe that in order to help you most effectively we need to get to know you and <strong>understand your
+                circumstances</strong>. This is why we have hand-picked our team to include passionate professionals who will
+                undertake the <strong>debt counselling journey</strong> with you and support you all the way.
 
+    section(class='lb-content lb-content_grey text-center')
 
-        section(class='lb-content lb-content_grey')
+        div(class='lb-content-constraint__large')
 
-            div(class='lb-content-constraint__large')
-
-                p.
-                    Let’s face it – nobody ever thinks they will be the poor sap who will have to <strong>apply for debt
-                    consolidation</strong>. It is not a call you ever want to have to make and the realisation that you need to call in
-                    professional help to <strong>get your finances back on track</strong> can be a very difficult pill to swallow. At Libertine
-                    Consultants we believe that it takes guts to admit that you require debt counselling, which is why we go
-                    out of our way to ensure that you <strong>get efficient, compassionate service</strong> at this trying time in your life.
-
-                include ../partials/cta/cta-touch.jade
-
-        section(class='lb-content text-right')
-
-            div(class='lb-content-constraint__large')
-
-                h2.
-                    Julie Duminy
-
-                p.
-                    Adversity breeds tenacity, and this core truth is nowhere more evident than in the twists and turns of
-                    Julie's personal history. As the owner, proprietor and Chief Inspiration Officer of Libertine Consultants,
-                    Julie takes immense pride in helping the financially overburdened and believes that her compassion
-                    stems from the challenges she herself had to overcome throughout the course of her career.
-
-                p.
-                    Long story short - Julie started out by fighting her way into training courses without the benefit of a
-                    matric qualification and bit more than just one proverbial bullet on her way to becoming the highly
-                    qualified debt counsellor she is today. She worked hard, refused to take no for the answer and today she
-                    has the certificate (and the matric results) to show for it!
-
-                p.
-                    This tenacity landed her a position as micro-finance agent with Land Bank and an inspiring side-line in
-                    hosting workshops to train and educate delegates in budgeting and saving. Her time at Land Bank was
-                    followed by an extensive foray into the world of personal finance that lead to the establishment of
-                    Libertine Consultants.
+            include ../partials/cta/cta-touch
 
 
-        section(class='lb-content lb-content_grey')
+    include ../partials/about-us/about-us-icon-nav
 
-            div(class='lb-content-constraint__large')
 
-                h2.
-                    Kim Armfield & Associates
+    section(class='lb-content lb-content_grey')
 
-                p.
-                    Kim Armfield & Associates is the firm we turn to when matters take a legal turn in the course of the debt
-                    counselling proceedings. As attorney and family law mediator, Kim's areas of expertise include
-                    commercial- and civil litigation, corporate- and employment law, arbitration and dispute resolution, as
-                    well as corporate governance. This extensive knowledge of the law allows her to assist our debt review
-                    clients in a swift, professional manner.
-
-        section(class='lb-content text-right')
-
-            div(class='lb-content-constraint__large')
-
-                h2.
-                    Debt Counselling & More
-
-                p.
-                    In the course of helping the many individuals who have successfully concluded their debt reviews with
-                    Libertine Consultants, we noticed that there is a need in both the business and private sectors for
-                    structured support in finding personal fulfilment and purpose and providing a work environment that
-                    inspires employees to reach new heights.
-
-                p.
-                    This insight lead to our association with CA Life Coaching - a service-driven company that provides
-                    coaching, consultation and facilitated learning experiences tailored to get you and/or your staff out of a
-                    personal or professional rut. The CA Life Coaching team consists of a group of committed, successful
-                    individuals who will work alongside you to identify the areas of your personal life or business that lack
-                    dynamic growth and develop a strategy to address unproductive habits and out-dated systems.
-
-                p.
-                    How do you know if you can benefit from life coaching? When you realise that you or your business
-                    suffers from 'sameness' - the same problems, same strategies and same unrewarding results. This is
-                    when the CA Life Coaching team steps in to shake things up. They assist you in driving change, fostering
-                    productive habits, managing time and other personal resources and thriving in challenging and complex
-                    situations by means of a high level of self-awareness.
-
-        section(class='lb-content lb-content--fine lb-content_grey')
-
-            div(class='lb-content-constraint__large lb-fine-print')
-
-                    h2.
-                        The Fine Print
-
-                    p.
-                        Libertine Consultants is a registered close corporation (registration number 2008/148827/23) and has
-                        been registered with the National Credit Regulator (registration number NCRDC592). Julie Duminy is the
-                        sole member of the company, which works with Kim Armfield & Associates when legal matters arise in
-                        the course of the debt counselling process.
-
-                    p.
-                        CA Life Coaching initially traded as a sole proprietor from May 2010. Due to an increase in demand for
-                        its services, the business grew and was registered as a company (CA Life Coaching (Pty) Ltd) in December
-                        2014.
-
-        section(class='lb-content')
-
-            include ../partials/cta/cta-red.jade
+        include ../partials/cta/cta-red

@@ -28,8 +28,16 @@
         }
     }
 
-    .lb-testimonials-figcaption {
+    a {
         color: $white-color;
+
+        &:hover {
+            color: $purple-lighter-color;
+        }
+    }
+
+    .lb-testimonials-figcaption {
+        color: $purple-lighter-color;
         @include lato-family-bold;
     }
 }

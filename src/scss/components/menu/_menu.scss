@@ -54,6 +54,7 @@
                 @include rem(padding-left, 10px);
                 @include rem(padding-right, 10px);
                 @include rem(margin-right, 0);
+                @include borderRadius(5px);
 
                 &:hover {
                     background-color: $white-color;
