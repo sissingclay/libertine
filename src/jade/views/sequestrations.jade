@@ -1,0 +1,63 @@
+extends ../extends/default.jade
+
+block title
+    title Libertine Consultants | Sequestrations
+
+block description
+    meta(name='description', content='Start afresh and prevent further legal action by filing for sequestration. We`ll be there with you every step of the way.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/13-trust.svg', width='120')
+
+            h1 Sequestrations
+
+            p(class='lb-content_main-text').
+                Drastic times call for drastic measures
+
+            include ../partials/cta/cta-red
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Sometimes you get to a point where it is necessary to bring everything to a halt, admit that you need
+                    help and start again from scratch.
+
+                p.
+                    Sequestration might be a very drastic debt-relief measure, but when your assets exceed your liabilities,
+                    it is often the best course of action. This formal process involves a court application where it must be
+                    shown that the consumer has sufficient assets to allow for repayment of at least 20c/R of their
+                    outstanding debts.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Contact us to discuss the advantages and disadvantages of sequestration and find out if it is the right
+                    solution for you.
+
+
+        section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-red
+

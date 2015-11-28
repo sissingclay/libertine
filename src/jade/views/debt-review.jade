@@ -1,0 +1,83 @@
+extends ../extends/default.jade
+
+block title
+    title Libertine Consultants | Debt Review
+
+block description
+    meta(name='description', content='At Libertine Consultants our debt counselling process includes support before, during and after your case. We tailor our approach to ensure your success.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/13-trust.svg', width='120')
+
+            h1 Debt review
+
+            p(class='lb-content_main-text').
+                Empower yourself through proper debt review.
+
+            include ../partials/cta/cta-red
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 What you should expect from the debt review process
+
+                p.
+                    Debt review is a dynamic process that requires absolute <strong>trust and honesty</strong> between the debt counsellor
+                    and the individual seeking debt review. It is imperative that you divulge the information the counsellor
+                    requires truthfully so they may correctly interpret your unique circumstances and <strong>provide the best
+                    solution</strong>.
+
+                p.
+                    Once the counsellor has all the information they require they can then obtain updates balances from
+                    your creditors, work out a payment proposal and start the debt review process. All you have to do
+                    during this time is keep up with your payments* to the debt management company appointed by your
+                    counsellor.<br>
+                    <small> <em>*Please note that this amount is subject to change pending the negotiations with your
+                    creditors.</em></small>
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                include ../partials/cta/cta-touch
+
+        section(class='lb-content text-center lb-content_grey')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    The ideal result of a debt review is a court order that restructures your total debt obligations, resulting
+                    in extended contractual terms and a <strong>single lowered monthly instalment</strong> paid via a registered payment
+                    distribution agency. The agency then pays your creditors on your behalf according to the specifics of the
+                    court order until such time that your <strong>debt is paid in full</strong> or you are caught up with the arrears and
+                    capable of <strong>managing your own debt</strong>.
+
+                p.
+                    By partnering with our efficient, <strong>compassionate debt counsellors</strong> you'll ensure an open line of
+                    communication that will result in a smooth debt management process and timely settlement of your
+                    accounts.
+
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-red
+

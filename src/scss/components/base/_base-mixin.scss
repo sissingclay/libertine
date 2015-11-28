@@ -30,7 +30,7 @@ $red-color: #ff4056;
 $footer-color: #5c5963;
 $grey-background: #f5f4f3;
 $header: #4a5062;
-$header-rgb: rgba(74, 80, 98, 0.85);
+$header-rgb: rgba(74, 80, 98, 0.95);
 
 $padding: 15px;
 $padding-containers: 15px;
@@ -108,6 +108,7 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 }
 
 @mixin lato-family-bold {
+    font-family: 'Lato', $font;
     font-weight: 400;
 }
 

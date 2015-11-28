@@ -1,0 +1,96 @@
+extends ../extends/default.jade
+
+block title
+    title Libertine Consultants | Debt Consolidation
+
+block description
+    meta(name='description', content='Debt consolidation allows you to make one easy monthly payment towards clearing your debt. Find out more & streamline your life today.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/13-trust.svg', width='120')
+
+            h1 We strive to help you make a difference
+
+            p(class='lb-content_main-text').
+                <strong>Debt consolidation</strong> allows you to manage all of your debts in <strong>one simple payment</strong>.
+
+            include ../partials/cta/cta-red
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Our debt counsellors
+                    work with you to <strong>tailor a debt management plan</strong> to pay off your creditors and arrange for a monthly
+                    payment via an <strong>accredited debt management company</strong> who will take care of dividing it amongst your
+                    creditors.
+
+                p.
+                    There are many ways to <strong>consolidate your debts</strong>. We evaluate each case according to its individual merits
+                    in order to arrive at a <strong>single, affordable monthly payment</strong>.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                include ../partials/cta/cta-touch
+
+        section(class='lb-content text-center lb-content_grey')
+
+            div(class='lb-content-constraint__large')
+
+                h2 The benefits of debt consolidation
+
+                p.
+                    A streamlined <strong>repayment plan</strong> <br>
+                    A <strong>structured repayment</strong> schedule <br>
+                    <strong>Reduced</strong> monthly costs <br>
+                    The <strong>excusal of certain debts</strong> (terms and conditions apply to each individual <strong>consolidation plan</strong>)
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Are you interested in debt consolidation?
+
+                p.
+                    <a href="#{path}#{data.get_touch.en.href}" class="lb-link">Get in touch</a> and we will assign a <strong>debt counsellor</strong> who will
+                    meet with you to tailor a workable <strong>debt management plan</strong> based on your unique circumstances.
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                include ../partials/cta/cta-touch
+
+
+        include ../partials/about-us/about-us-icon-nav
+
+        div(class='lb-content_grey')
+
+            include ../partials/about-us/about-us-icon-nav
+
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-red
+
