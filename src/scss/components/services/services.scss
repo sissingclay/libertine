@@ -9,9 +9,10 @@
 
     .lbService_title {
         margin-bottom: 0;
+        @include transition(color);
 
-        a, a:visited {
-            color: $grey-dark-color;
+        &:hover {
+            color: $purple-lighter-color;
         }
     }
 

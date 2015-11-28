@@ -1,0 +1,80 @@
+extends ../extends/default.jade
+
+block title
+    title Libertine Consultants | Debt Counselling FAQ's
+
+block description
+    meta(name='description', content='Do you have any questions pertaining to debt counselling? Contact Libertine Consultants for tailor-made debt solutions today.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
+            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/13-trust.svg', width='120')
+
+            h1 Debt Counselling FAQ's
+
+            p(class='lb-content_main-text').
+                Simple, effective answers to your debt worries
+
+            include ../partials/cta/cta-red
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Credit Checks
+
+                p.
+                    A credit check is essentially a report from a registered credit bureau that shows which of your accounts
+                    are in arrears, which are paid up and if any of your accounts have judgments. When we do a credit
+                    clearance (see below), the first thing we'll do is request a credit check to determine what must be done
+                    to clear your record. Often it is as simple as making sure that your payments are made on time each
+                    month, but sometimes we need to do a formal application to set aside a judgment.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Credit Clearance
+
+                p.
+                    If any of your accounts court judgments or adverse listings, it needs to be cleared to rehabilitate your
+                    credit record. A judgment is a court order granted in your absence in the event that a summons has
+                    been served on you and you did not defend the action or neglected to make suitable arrangements. A
+                    judgment is a court order and, as such, it has to be set aside by the same court that granted it in order
+                    for it to be removed from the credit bureau's records.
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Setting aside of Administrations
+
+                p.
+                    An administration order is similar to debt review, except that there is a limit to the debt that may be put
+                    under administration. It is often the best solution to remove garnishees from a person's salary and also
+                    doesn't necessarily have to be a permanent debt solution. Once the consumer is able to manage their
+                    own account (due to an increase in salary for instance) they are free to apply to the court that granted
+                    the order to have it set aside.
+
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-red
+

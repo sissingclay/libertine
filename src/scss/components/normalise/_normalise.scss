@@ -111,7 +111,7 @@ h1 {
     @include rem(font-size, 2.5rem);
     @include rem(margin, 0 0 2.5rem);
     @include rem(line-height, 3.125rem);
-    color: $grey-darkest-color;
+    color: $grey-color;
 }
 
 .lb-internal {

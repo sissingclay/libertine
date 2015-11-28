@@ -1,0 +1,10 @@
+@import './src/scss/components/base/base-mixin';
+@import "./src/scss/components/services/services";
+
+@include bp(medium) {
+  @import "./src/scss/components/services/services-medium";
+}
+
+@include bp(large) {
+  @import "./src/scss/components/services/services-large";
+}

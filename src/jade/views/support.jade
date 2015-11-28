@@ -6,6 +6,11 @@ block title
 block description
     meta(name='description', content='Find out more about the caring, compassionate debt team at Libertine Consultants. Were here to help you get your house in order.')
 
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/support/support.css')
+    // endbuild
+
 block variables
     - var activePage    = nav.support.en.href;
     - var english       = nav.support.en.href;
@@ -24,29 +29,52 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
-
-            h1 When you are feeling the pressure, you need the right team in your corner
+            h1 Support
 
             p(class='lb-content_main-text').
-                Efficient, compassionate <strong>debt counsellors</strong> you can rely on
-
-            include ../partials/cta/cta-red.jade
+                What can we help you with?
 
 
         section(class='lb-content lb-content_grey')
 
-            div(class='lb-content-constraint__large')
+            div(class='lb-content-constraint lbServiceJS')
 
-                p.
-                    Let’s face it – nobody ever thinks they will be the poor sap who will have to <strong>apply for debt
-                    consolidation</strong>. It is not a call you ever want to have to make and the realisation that you need to call in
-                    professional help to <strong>get your finances back on track</strong> can be a very difficult pill to swallow. At Libertine
-                    Consultants we believe that it takes guts to admit that you require debt counselling, which is why we go
-                    out of our way to ensure that you <strong>get efficient, compassionate service</strong> at this trying time in your life.
+                div(class='lbService')
 
-                include ../partials/cta/cta-touch.jade
+                    a(href=path + data.faqCounselling.en.href)
+
+                        img(src='#{path}/svg/13-trust.svg', width='120')
+
+                        h2(class='lbService_description') #{data.faqCounselling.en.name}
+
+                        div(class="lbService_bottom")
+
+
+                div(class='lbService lbService--last')
+
+                    a(href=path + data.faqAdmin.en.href)
+
+                        img(src='#{path}/svg/11-trust.svg', width='120')
+
+                        h2(class='lbService_description') #{data.faqAdmin.en.name}
+
+                        div(class="lbService_bottom")
+
+
+                div(class='lbService')
+
+                    a(href=path + data.faqVoluntary.en.href)
+
+                        img(src='#{path}/svg/12-trust.svg', width='120')
+
+                        h2(class='lbService_description') #{data.faqVoluntary.en.name}
+
+                        div(class="lbService_bottom lbService--last")
 
         section(class='lb-content')
 
-            include ../partials/cta/cta-red.jade
+            div(class='lb-content-constraint text-center')
+
+                p.
+                    <strong>Can’t find your answer?</strong><br>
+                    We’re here to help. <a href='#{path + data.get_touch.en.href}' class='lb-link'>Get in touch</a> and we’ll get back to you as soon as we can.
