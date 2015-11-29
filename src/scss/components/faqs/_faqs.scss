@@ -1,0 +1,36 @@
+.lb-faqs {
+    background-color: rgba($grey-background, 0.5);
+    @include borderRadius(5px);
+    @include rem(margin, 0 $padding $padding-containers);
+    border: 1px solid #E8E8E8;
+    @include medium-width($max-width-large, $lighter-grey-color);
+
+    .lb-faq {
+        display: block;
+        @include rem(padding, 20px 20px 20px);
+        border-bottom: 1px solid #E8E8E8;
+        color: #8a8a8a;
+        @include transition(background-color, 0.5s, ease);
+
+
+        &:hover {
+            background-color: rgba($grey-background, 1);
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+
+        .lb-faq__title {
+            @include rem(margin-bottom, 5px);
+            color: #4C555A;
+            @include rem(font-size, 20px);
+            line-height: 1.5;
+        }
+
+        .lb-faq__answer {
+            line-height: 1.5;
+        }
+    }
+}

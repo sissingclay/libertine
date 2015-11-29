@@ -1,0 +1,107 @@
+script(type="text/javascript").
+    (function (window, undefined) {
+
+        // normally variables & functions start with a lowercase letter but with modules, that is not the case.
+        // The general tradition is to start them with a capital letter instead.
+        function MyModule(inputClass, searchTitle) {
+
+            this.searchTerm     = document.getElementsByClassName(inputClass);
+            this.searchElement  = document.getElementsByClassName(searchTitle);
+            this.className      = 'show';
+            this.element;
+
+
+            this.findByTextContent = function (needle, haystack, precise) {
+                // needle: String, the string to be found within the elements.
+                // haystack: String, a selector to be passed to document.querySelectorAll(),
+                //           NodeList, Array - to be iterated over within the function:
+                // precise: Boolean, true - searches for that precise string, surrounded by
+                //                          word-breaks,
+                //                   false - searches for the string occurring anywhere
+                var elems;
+
+                // no haystack we quit here, to avoid having to search
+                // the entire document:
+                if (!this.searchElement) {
+                    return false;
+                }
+
+                // if haystack is a string, we pass it to document.querySelectorAll(),
+                // and turn the results into an Array:
+                else if ('string' == typeof this.searchElement) {
+                    elems = [].slice.call(document.querySelectorAll(this.searchElement), 0);
+                }
+                // if haystack has a length property, we convert it to an Array
+                // (if it's already an array, this is pointless, but not harmful):
+                else if (this.searchElement.length) {
+                    elems = [].slice.call(this.searchElement, 0);
+                }
+
+                // work out whether we're looking at innerText (IE), or textContent
+                // (in most other browsers)
+                var textProp = 'textContent' in document ? 'textContent' : 'innerText',
+                // creating a regex depending on whether we want a precise match, or not:
+                        reg = '\\b' + this.searchTerm[0].value + '\\b'
+                // iterating over the elems array:
+                        found = elems.filter(function (el) {
+                            // returning the elements in which the text is, or includes,
+                            // the needle to be found:
+                            return el[textProp].match(new RegExp(reg,'gi'));
+                        });
+                return found.length ? found : false;
+            };
+
+            function hasClass() {
+                if(this.element){
+                    return this.element.className.match(new RegExp('(\\s|^)' + this.className + '(\\s|$)'));
+                }
+            }
+
+            function addClass() {
+                if (!this.hasClass(this.element, this.className)) this.element.className += " " + this.className;
+            }
+
+            function removeClass() {
+                if (hasClass(this.element, this.className)) {
+                    var reg = new RegExp('(\\s|^)' + this.className + '(\\s|$)');
+                    this.element.className = ele.className.replace(reg, ' ');
+                }
+            }
+
+            function isInArray(value, array) {
+                return array.indexOf(value) > -1;
+            }
+
+            this.lestSee = function () {
+
+                for(var r=0; this.searchElement.length > 0; ++r) {
+                    this.element = this.searchElement[r];
+                    removeClass();
+                }
+
+                if(this.findByTextContent()) {
+                    result = this.findByTextContent();
+                    for(var i=0; result.length > i; i++) {
+                        //console.log('in Array',isInArray(result[i]));
+                    }
+                }
+
+                if (!this.findByTextContent()) {
+                    this.findByTextContent();
+                }
+            };
+
+
+            this.searchEvent = function () {
+                this.searchTerm[0].addEventListener('input', this.lestSee.bind(this), false);
+            };
+
+        }
+
+        // expose access to the constructor
+        window.lb.search = MyModule;
+
+    })(window);
+
+    var myModule = new lb.search('lb-search', 'lb-faq');
+    myModule.searchEvent();

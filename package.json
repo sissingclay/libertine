@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/sissingclay/libertine",
   "devDependencies": {
+    "bourbon": "^4.2.6",
     "browser-sync": "~2.6.4",
     "del": "~1.1.1",
     "gulp": "~3.9.0",
+    "gulp-data": "^1.2.1",
     "gulp-if": "~1.2.5",
     "gulp-imagemin": "~2.2.1",
     "gulp-jade": "~1.0.0",
@@ -36,6 +38,7 @@
     "imagemin-pngquant": "~4.0.0",
     "minimist": "~1.1.1",
     "node-sass": "~3.1.1",
+    "path": "^0.12.7",
     "run-sequence": "~1.1.0"
   }
 }

@@ -1,0 +1,11 @@
+{
+  "faqs": [
+    {
+      "title":"This is my website1",
+      "answer": "Debt counselling /debt review is a form of debt rehabilitation that allows a consumer to settle his debt obligations and get on an even keel with his creditors with the help of a debt counsellor and a payment agency. The debt counsellor steps in to re-structure the consumer’s debt by negotiating an extended contractual repayment that allows him to pay regular, affordable instalments while still taking care of himself and his family. Instead of making various payments each month, the consumer instead makes one payment to the registered payment agency that distributes the amount to his creditors on his behalf."
+    },
+    {"title":"This is my website2"},
+    {"title":"This is my website3"},
+    {"title":"This is my website4"}
+  ]
+}

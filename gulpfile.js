@@ -5,27 +5,30 @@
 
     'use strict';
 
-    var gulp        = require('gulp'),
-        browserSync = require('browser-sync'),
-        reload      = browserSync.reload,
-        jade        = require('gulp-jade'),
-        typescript  = require('gulp-tsc'),
-        usemin      = require('gulp-usemin'),
-        uglify      = require('gulp-uglify'),
-        minifyHtml  = require('gulp-minify-html'),
-        minifyCss   = require('gulp-minify-css'),
-        rev         = require('gulp-rev'),
-        sass        = require('gulp-sass'),
-        imagemin    = require('gulp-imagemin'),
-        pngquant    = require('imagemin-pngquant'),
-        sourcemaps  = require('gulp-sourcemaps'),
-        runSequence = require('run-sequence'),
-        minimist    = require('minimist'),
-        del         = require('del'),
-        svgmin      = require('gulp-svgmin'),
-        sitemap     = require('gulp-sitemap'),
+    var gulp            = require('gulp'),
+        browserSync     = require('browser-sync'),
+        reload          = browserSync.reload,
+        jade            = require('gulp-jade'),
+        typescript      = require('gulp-tsc'),
+        usemin          = require('gulp-usemin'),
+        uglify          = require('gulp-uglify'),
+        minifyHtml      = require('gulp-minify-html'),
+        minifyCss       = require('gulp-minify-css'),
+        rev             = require('gulp-rev'),
+        sass            = require('gulp-sass'),
+        imagemin        = require('gulp-imagemin'),
+        pngquant        = require('imagemin-pngquant'),
+        sourcemaps      = require('gulp-sourcemaps'),
+        runSequence     = require('run-sequence'),
+        minimist        = require('minimist'),
+        del             = require('del'),
+        svgmin          = require('gulp-svgmin'),
+        sitemap         = require('gulp-sitemap'),
+        data            = require('gulp-data'),
+        path            = require('path'),
+        gulpif          = require('gulp-if'),
 
-        knownOptions = {
+        knownOptions    = {
             string: 'env',
             default: {
                 env: process.env.NODE_ENV || 'prod'
@@ -72,7 +75,22 @@
 
     //Compiles jade template into html
     gulp.task('jade', function () {
+
+        var fileExist;
+
         return gulp.src(paths.jadeViews)
+            .pipe(data(function(file) {
+
+                try {
+                    fileExist = require('./src/json/' + path.basename(file.path) + '.json');
+                } catch (error) {
+                    fileExist = null;
+                }
+
+                if (fileExist) {
+                    return fileExist;
+                }
+            }))
             .pipe(jade({
                 pretty: true
             }))
