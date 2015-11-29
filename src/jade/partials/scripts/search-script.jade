@@ -8,7 +8,6 @@ script(type="text/javascript").
             this.searchTerm     = document.getElementsByClassName(inputClass);
             this.searchElement  = document.getElementsByClassName(searchTitle);
             this.className      = 'show';
-            this.element;
 
 
             this.findByTextContent = function (needle, haystack, precise) {
@@ -41,53 +40,69 @@ script(type="text/javascript").
                 // (in most other browsers)
                 var textProp = 'textContent' in document ? 'textContent' : 'innerText',
                 // creating a regex depending on whether we want a precise match, or not:
-                        reg = '\\b' + this.searchTerm[0].value + '\\b'
+                        reg = '\\b' + this.searchTerm[0].value + '\\b',
+                        te = this.searchTerm[0].value,
                 // iterating over the elems array:
                         found = elems.filter(function (el) {
                             // returning the elements in which the text is, or includes,
                             // the needle to be found:
-                            return el[textProp].match(new RegExp(reg,'gi'));
+
+                            return el[textProp].match(te);
                         });
                 return found.length ? found : false;
             };
 
-            function hasClass() {
-                if(this.element){
-                    return this.element.className.match(new RegExp('(\\s|^)' + this.className + '(\\s|$)'));
+            function hasClass(ele, cls) {
+                if(ele){
+                    return ele.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
                 }
             }
 
-            function addClass() {
-                if (!this.hasClass(this.element, this.className)) this.element.className += " " + this.className;
+            function addClass(ele, cls) {
+                if (!this.hasClass(ele, cls)) ele.className += " " + cls;
             }
 
-            function removeClass() {
-                if (hasClass(this.element, this.className)) {
-                    var reg = new RegExp('(\\s|^)' + this.className + '(\\s|$)');
-                    this.element.className = ele.className.replace(reg, ' ');
+            function removeClass(ele, cls) {
+                if (hasClass(ele, cls)) {
+                    var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+                    ele.className = ele.className.replace(reg, ' ');
                 }
             }
 
-            function isInArray(value, array) {
-                return array.indexOf(value) > -1;
+            function cleanUp(elem) {
+
+                for (var i = 0; elem.length > i; i++) {
+
+                    if (!hasClass(elem[i])) {
+                        removeClass(elem[i], 'lb-faq--show');
+                    }
+                }
             }
 
             this.lestSee = function () {
 
-                for(var r=0; this.searchElement.length > 0; ++r) {
-                    this.element = this.searchElement[r];
-                    removeClass();
-                }
+                var firstTime = 1;
 
-                if(this.findByTextContent()) {
-                    result = this.findByTextContent();
-                    for(var i=0; result.length > i; i++) {
-                        //console.log('in Array',isInArray(result[i]));
-                    }
+                if(firstTime) {
+                    firstTime = 0;
+                    removeClass(this.searchElement[0].parentElement, 'lb-pristine');
                 }
 
                 if (!this.findByTextContent()) {
-                    this.findByTextContent();
+                    cleanUp(this.searchElement);
+                }
+
+                if(this.findByTextContent()) {
+
+                    result = this.findByTextContent();
+                    cleanUp(this.searchElement);
+
+                    for(var i=0; result.length > i; i++) {
+
+                        if(!hasClass(result[i])){
+                            addClass(result[i], 'lb-faq--show');
+                        }
+                    }
                 }
             };
 
@@ -103,5 +118,5 @@ script(type="text/javascript").
 
     })(window);
 
-    var myModule = new lb.search('lb-search', 'lb-faq');
+    var myModule = new lb.search('lb-search__input', 'lb-faq');
     myModule.searchEvent();

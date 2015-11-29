@@ -2,16 +2,26 @@
     background-color: rgba($grey-background, 0.5);
     @include borderRadius(5px);
     @include rem(margin, 0 $padding $padding-containers);
-    border: 1px solid #E8E8E8;
+    border: 1px solid $smoke;
     @include medium-width($max-width-large, $lighter-grey-color);
 
+    &.lb-pristine {
+
+        .lb-faq {
+            display: block;
+        }
+    }
+
     .lb-faq {
-        display: block;
+        display: none;
         @include rem(padding, 20px 20px 20px);
-        border-bottom: 1px solid #E8E8E8;
+        border-bottom: 1px solid $smoke;
         color: #8a8a8a;
         @include transition(background-color, 0.5s, ease);
 
+        &.lb-faq--show {
+            display: block;
+        }
 
         &:hover {
             background-color: rgba($grey-background, 1);

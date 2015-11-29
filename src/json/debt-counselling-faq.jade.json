@@ -1,11 +1,66 @@
 {
   "faqs": [
     {
-      "title":"This is my website1",
-      "answer": "Debt counselling /debt review is a form of debt rehabilitation that allows a consumer to settle his debt obligations and get on an even keel with his creditors with the help of a debt counsellor and a payment agency. The debt counsellor steps in to re-structure the consumer’s debt by negotiating an extended contractual repayment that allows him to pay regular, affordable instalments while still taking care of himself and his family. Instead of making various payments each month, the consumer instead makes one payment to the registered payment agency that distributes the amount to his creditors on his behalf."
+      "title":"What exactly is debt counselling/debt review?",
+      "answer": "Debt counselling/debt review is a form of debt rehabilitation that allows a consumer to settle his debt obligations and get on an even keel with his creditors with the help of a debt counsellor and a payment agency. The debt counsellor steps in to re-structure the consumer’s debt by negotiating an extended contractual repayment that allows him to pay regular, affordable instalments while still taking care of himself and his family. Instead of making various payments each month, the consumer instead makes one payment to the registered payment agency that distributes the amount to his creditors on his behalf."
     },
-    {"title":"This is my website2"},
-    {"title":"This is my website3"},
-    {"title":"This is my website4"}
+    {
+      "title":"Do I qualify for debt counselling?",
+      "answer": "Anyone who is unable to make all of the monthly instalments required by his creditors would qualify for debt counselling. Juristic persons (i.e. companies) do not qualify for debt review; only private individuals can be under debt review."
+    },
+    {
+      "title":"Which of my debts can be included in my debt review?",
+      "answer": "<strong>YES:</strong> All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.<br><br> <strong>NO:</strong> Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.<br> <br> Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
+    },
+    {
+      "title":"Will I be blacklisted if I go under debt review?",
+      "answer": "You will not be blacklisted, but the credit bureau is lawfully obliged to indicate that you are under debt review."
+    },
+    {
+      "title":"Will I be able to continue using my credit cards and accounts?",
+      "answer": "No. All credit cards and accounts must be disclosed to the debt counsellor and you will be advised that you are not allowed to enter into any further credit agreements while you are participating in debt review."
+    },
+    {
+      "title":"What is the average duration of a debt review? Is there a minimum or maximum duration?",
+      "answer": "The duration of your debt review is based solely on the rate of repayment versus the size of the total debt and will be calculated by means of a program that works out how long it will take to settle your debt. The larger the amount of your monthly repayment, the shorter the duration of your review will be."
+    },
+    {
+      "title":"If I have already received a summons for an account can it still go under debt review?",
+      "answer": "Yes. Once all your accounts are paid-up as per the debt review court order a clearance certificate is given to you or via a rescission order.<br><br>You can elect to end your association with Libertine Consultants, but we will remain the debt counsellor on record."
+    },
+    {
+      "title":"Can a creditor proceed with action against me once I am under debt review?",
+      "answer": "No. Once you are placed under debt review, all legal action must stop. As long as you make regular payment to the payment agency appointed by your debt counsellor no creditors will be allowed to proceed with legal action against you."
+    },
+    {
+      "title":"What if a creditor does not accept the payment that is offered?",
+      "answer": "The creditor can make a counter offer and attempt to negotiate with the consumer via the debt counsellor. If settlement negotiations cannot be reached the debt counsellor will approach the court with his recommendations and ask the court to consider and grant these recommendations."
+    },
+    {
+      "title":"How will I know if my creditors are being paid?",
+      "answer": "You will have the right to contact your debt counsellor to require a statement that proves that your creditors are receiving payment."
+    },
+    {
+      "title":"Is debt review my only option?",
+      "answer": "No, although debt review is usually the best solution, there are other options available. Feel free to discuss your options with your debt counsellor."
+    },
+    {
+      "title":"What is the relationship between a debt counsellor & the consumer?",
+      "answer": "Once appointed, your debt counsellor becomes an impartial, objective middle-man between you and your creditors."
+    },
+    {
+      "title":"If I pay these debt counsellors costs, how will I also pay my creditors?",
+      "answer": "Once you go under debt review all payments to creditors are legally ceased for up to 60 business days. The debt counsellor’s fees and any legal costs that may be incurred are deducted from your first and second monthly instalments; your creditors receive payment from the third month onward."
+      },
+    {
+      "title":"How much will I pay to go under debt review?",
+      "answer": "All debt review fees are charged in accordance with the guidelines set by the National Credit Regulator, including:",
+      "answer1": "A R50.00 application fee A fee equal to your first monthly instalment (subject to a maximum amount of R6000 and determined after deducting your monthly expenses from your monthly income) An after-care fee of 5% of your instalment for a period of 2 years, 3% thereafter",
+      "answer2": "There are usually also legal fees involved. These have to be disclosed to you upfront and will be deducted from your second monthly instalment."
+    },
+    {
+      "title":"If I have extra funds available at a given point in time, am I allowed to pay my creditors directly?",
+      "answer": "Yes, the debt review process is not inflexible and you will be allowed to pay your creditors above and beyond the agreed upon monthly amount if you wish to settle your debt over a shorter period."
+    }
   ]
 }

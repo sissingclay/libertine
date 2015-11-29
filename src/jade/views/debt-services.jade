@@ -74,20 +74,22 @@ block main
 
         section(class='lb-content text-center')
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
+            div(class='lb-content-constraint__large')
 
-            h2(class='lb-service-title')
-                a(href=path + data.consolidation.en.href) #{data.consolidation.en.name}
+                img(src='#{path}/svg/05-debt_mng.svg', width='120')
 
-            p Our debt counsellors work with you to tailor a debt management plan to pay off your creditors and arrange for a monthly payment.
+                h2(class='lb-service-title')
+                    a(href=path + data.consolidation.en.href) #{data.consolidation.en.name}
 
-            div(class='lb-cta lb-cta_center')
+                p Our debt counsellors work with you to tailor a debt management plan to pay off your creditors and arrange for a monthly payment.
 
-                p
-                    small Find out more details about debt consolidation
+                div(class='lb-cta lb-cta_center')
 
-                a(href=path + data.consolidation.en.href class='lb-btn').
-                    more in #{data.consolidation.en.name}
+                    p
+                        small Find out more details about debt consolidation
+
+                    a(href=path + data.consolidation.en.href class='lb-btn').
+                        more in #{data.consolidation.en.name}
 
 
         section(class='lb-content lb-content_grey')

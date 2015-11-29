@@ -20,6 +20,7 @@
 }
 
 .lb-form-input, .lb-form-textarea, .lb-form-interaction {
+    @include transition(all, 0.5s, ease);
 
     &:focus {
         border: 1px solid $purple-lighter-color;

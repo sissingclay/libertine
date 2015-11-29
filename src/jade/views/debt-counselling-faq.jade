@@ -13,9 +13,9 @@ append css
 
 
 block variables
-    - var activePage    = nav.debt.en.href;
-    - var english       = nav.debt.en.href;
-    - var afrikaans     = nav.debt.af.href;
+    - var activePage    = nav.support.en.href;
+    - var english       = nav.support.en.href;
+    - var afrikaans     = nav.support.af.href;
 
 block main
 
@@ -38,13 +38,14 @@ block main
                 Simple, effective answers to your debt worries
 
 
-        section(class='lb-content text-center')
-            input(type='text', name='search', class='lb-search')
+        section(class='lb-search text-center')
+            label(for='lb-search', class='lb-search__label') What can we help you with?
+            input(type='text', name='search', class='lb-search__input', id='lb-search', placeholder='Search')
 
 
         section(class='lb-content')
 
-            div(class='lb-faqs')
+            div(class='lb-faqs lb-pristine')
 
                 include ../partials/mixins/faqs
 
