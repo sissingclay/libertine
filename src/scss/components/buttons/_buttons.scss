@@ -7,8 +7,9 @@
     @include lato-family-bold;
     @include rem(padding, 0.8rem 1.875rem);
     @include rem(margin-bottom, $section);
-    @include transition(all, 0.5s);
+    @include transition(all, 0.5s, ease);
     display: inline-block;
+    @include transform(translateZ(0));
 
     &.lb-btn--none-bottom {
         @include rem(margin-bottom, 5px);

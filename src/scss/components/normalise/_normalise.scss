@@ -48,7 +48,6 @@ figcaption,
 figure,
 footer,
 header,
-hgroup,
 main,
 menu,
 nav,
@@ -82,15 +81,16 @@ a:hover {
 }
 
 a.lb-link {
-    @include transition(all, 0.5s);
     padding: 2px 4px;
     font-size: 90%;
-    border-bottom: 2px solid $purple-lighter-color;
+    border-bottom: 2px solid $purple-color;
     border-radius: 2px;
+    box-shadow: 0 0 0 0 $purple-lighter-color inset;
+    @include transition(all, 0.5s, ease);
 
     &:hover {
-        background-color: $purple-lighter-color;
         color: $white-color;
+        box-shadow: 0px -100px 0px 0px $purple-lighter-color inset;
     }
 }
 

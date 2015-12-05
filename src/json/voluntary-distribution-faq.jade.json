@@ -1,0 +1,47 @@
+{
+  "faqs": [
+    {
+      "title":"Do I qualify for administration?",
+      "answer": "Anyone who is unable to make all of the monthly instalments required by his creditors would qualify for administration.  If most of all your accounts are with attorneys you will qualify for administration."
+    },
+    {
+      "title":"Which of my debts can be included in my debt review?",
+      "answer": "<strong>YES:</strong> All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.<br><br> <strong>NO:</strong> Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.<br> <br> Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
+    },
+    {
+      "title":"Will I be blacklisted if I go under Legal restructuring/Voluntary distribution?",
+      "answer": "You will not be blacklisted, but the credit bureau will not indicate that you under Legal restructuring/Voluntary distribution."
+    },
+    {
+      "title":"Will I be able to continue using my credit cards and accounts?",
+      "answer": "No. All credit cards and accounts must be disclosed to the debt counsellor and you will be advised that you are not allowed to enter into any further credit agreements while you are participating in legal restructuring."
+    },
+    {
+      "title":"What is the average duration of the Legal restructuring/Voluntary distribution? Is there a minimum or maximum duration?",
+      "answer": "The duration of your Legal restructuring/Voluntary distribution is based solely on the rate of repayment versus the size of the total debt and will be calculated by means of a program that works out how long it will take to settle your debt. The larger the amount of your monthly repayment, the shorter the duration of your Legal restructuring/Voluntary distribution will be."
+    },
+    {
+      "title":"If I have already received a summons for an account can it still go under Legal restructuring/Voluntary distribution?",
+      "answer": "If you have received a summons already it can be included in the administration."
+    },
+    {
+      "title":"Can a creditor proceed with action against me once I am under Legal restructuring/Voluntary distribution?",
+      "answer": "Yes, however with our legal team will defend any summons received if you have kept to the payment agreement."
+    },
+    {
+      "title":"10. How will I know if my creditors are being paid?",
+      "answer": "You will have the right to contact your administrator to require a statement that proves that your creditors are receiving payment."
+    },
+    {
+      "title":"Is Legal restructuring/Voluntary distribution my only option?",
+      "answer": "There are other options available. Feel free to discuss your options with your debt counsellor."},
+    {
+      "title":"What is the relationship between the Legal restructuring/Voluntary distribution & the consumer?",
+      "answer": "Once appointed, your administrator becomes an impartial, objective middle-man between you and your creditors."
+    },
+    {
+      "title":"If I have extra funds available at a given point in time, am I allowed to pay my creditors directly?",
+      "answer": "Yes, the administrator process is not inflexible and you will be allowed to pay your creditors above and beyond the agreed upon monthly amount if you wish to settle your debt over a shorter period."
+    }
+  ]
+}
