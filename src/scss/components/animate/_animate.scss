@@ -6,11 +6,15 @@
     @include animation(fade_in_desc 2s);
 }
 
+.animate-button-action {
+    @include animation(notice 2s infinite);
+}
+
 
 @include keyframes(fade_in) {
     from {
         opacity:0;
-        @include transform(translate(250px, 0));
+        @include transform(translate(0, 50px));
     }
     to {
         opacity:1;
@@ -21,11 +25,26 @@
 @include keyframes(fade_in_desc) {
     0% {
         opacity:0;
-        @include transform(translate(250px, 0));
+        @include transform(translate(0, 50px));
     }
     35% {
         opacity:0;
-        @include transform(translate(250px, 0));
+        @include transform(translate(0, 50px));
+    }
+    100% {
+        opacity:1;
+        @include transform(translate(0, 0));
+    }
+}
+
+@include keyframes(notice) {
+    0% {
+        opacity:0;
+        @include transform(translate(0, 50px));
+    }
+    35% {
+        opacity:0;
+        @include transform(translate(0, 50px));
     }
     100% {
         opacity:1;
