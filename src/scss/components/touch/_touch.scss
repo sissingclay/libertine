@@ -22,5 +22,9 @@
         color: $light-grey-color;
         vertical-align: sub;
         padding-left: $padding;
+
+        &:hover {
+            color: $smoke;
+        }
     }
 }

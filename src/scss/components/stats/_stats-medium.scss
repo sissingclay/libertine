@@ -1,5 +1,16 @@
 .lb-stats {
     @include gallery(6 of 12);
+    @include transition-property(transform, background-color);
+    @include transition-duration(1s);
+    @include transition-delay(0.5s);
+    padding-top: $padding;
+    margin-top: -$padding;
+
+    &:hover {
+        background-color: $smoke;
+        @include borderRadius(5px);
+        @include transform(translate(0px, -15px));
+    }
 
     p {
         margin-bottom: $section;

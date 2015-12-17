@@ -21,7 +21,7 @@ block js
 
         if(sessionStorage.fontsloaded) {
             var html = document.documentElement;
-            html.classList.add('font-loaded');
+            html.className += ' font-loaded'
         } else {
 
             var observer = new FontFaceObserver('Lato', {
@@ -31,9 +31,9 @@ block js
 
             observer.check().then(function () {
 
-              var html = document.documentElement;
-              addClass(html, 'font-loaded');
-              sessionStorage.fontsloaded = true;
+                var html = document.documentElement;
+                html.className += ' font-loaded'
+                sessionStorage.fontsloaded = true;
 
             }, function () {
               console.log('Font is not available');
