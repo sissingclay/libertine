@@ -7,7 +7,6 @@
     text-align: right;
     @include span(9);
     clear: none;
-    @include rem(padding-right, 0);
 
     .lb-menu-link {
         display: inline-block;

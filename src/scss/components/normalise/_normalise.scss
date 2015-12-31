@@ -132,6 +132,10 @@ h1, h2, h3, h4, h5, h6, p {
     @include lato-family-bold;
 }
 
+a > h2, a > h3, h2 > a, h3 > a {
+    text-decoration: underline;
+}
+
 p {
     @include lato-family;
 }

@@ -111,6 +111,18 @@ script(type="text/javascript").
                 this.searchTerm[0].addEventListener('input', this.lestSee.bind(this), false);
             };
 
+            this.hassClass = function(ele, cls) {
+                return hasClass(ele, cls);
+            };
+
+            this.adddClass = function (ele, cls) {
+                return addClass(ele, cls);
+            };
+
+            this.removeeClass = function (ele, cls) {
+                return removeClass(ele, cls);
+            };
+
         }
 
         // expose access to the constructor
@@ -120,3 +132,22 @@ script(type="text/javascript").
 
     var myModule = new lb.search('lb-search__input', 'lb-faq');
     myModule.searchEvent();
+
+    var faqs            = document.getElementsByClassName('lb-faq'),
+        faqsLength      = faqs.length;
+
+    for(var i = 0; faqsLength > i; i++) {
+
+        faqs[i].addEventListener('click', function (e) {
+
+            if (!myModule.hassClass(this, 'lb-faq--active')) {
+                myModule.adddClass(this, 'lb-faq--active');
+                return;
+            }
+
+            if (myModule.hassClass(this, 'lb-faq--active')) {
+                myModule.removeeClass(this, 'lb-faq--active');
+                return;
+            }
+        });
+    }

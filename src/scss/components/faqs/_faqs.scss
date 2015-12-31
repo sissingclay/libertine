@@ -17,10 +17,24 @@
         @include rem(padding, 20px 20px 20px);
         border-bottom: 1px solid $smoke;
         color: #8a8a8a;
-        @include transition(background-color, 0.5s, ease);
+        @include transition(all, 0.5s, ease);
 
-        &.lb-faq--show {
-            display: block;
+        &.lb-faq--active {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            background-color: rgba($grey-background, 1);
+            text-align: center;
+            @include animation(faqsss 2s);
+
+            .lb-faq__answer {
+                display: block;
+                opacity: 0;
+                @include animation(answersss 1.0s 2s ease-in);
+            }
         }
 
         &:hover {
@@ -40,7 +54,32 @@
         }
 
         .lb-faq__answer {
+            display: none;
             line-height: 1.5;
         }
+    }
+}
+
+@include keyframes(faqsss) {
+    0% {
+
+        @include transform(translate(-100%, 100%));
+    }
+    35% {
+        @include transform(translate(0, 90%));
+    }
+    100% {
+        @include transform(translate(0, 0));
+    }
+}
+
+@include keyframes(answersss) {
+    0% {
+        opacity: 0;
+        height: 0;
+    }
+    100% {
+        opacity: 1;
+        height: auto;
     }
 }
