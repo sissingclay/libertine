@@ -1,7 +1,7 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling | About Us
+    title Libertine Consultants | Debt Counselling | Support & Help
 
 block description
     meta(name='description', content='Find out more about the caring, compassionate debt team at Libertine Consultants. Were here to help you get your house in order.')
@@ -21,9 +21,10 @@ block main
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px)")
-            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="Debt service")
+            source(srcset="#{path}/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_faqs.jpg", media="(min-width: 768px and max-width: 1499)")
+            source(srcset="#{path}/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
+            img(src="#{path}/img/hr_faqs-mobile.jpg", alt="Support & Help")
 
     main(role='main', class='lb-internal')
 

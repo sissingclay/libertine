@@ -1,11 +1,7 @@
 .lb-search {
-    @include borderRadius(5px);
     @include rem(margin, 0 $padding $padding-containers);
     @include rem(padding, $padding);
     @include medium-width($max-width-large, $lighter-grey-color);
-    background-color: rgba($grey-background, 0.5);
-    @include borderRadius(5px);
-    border: 1px solid $smoke;
 
 
     .lb-search__label {
@@ -27,6 +23,10 @@
         &:focus {
             background-color: rgba($grey-background, 0.5);
             border: 1px solid $lighter-grey-color;
+
+            @include placeholder {
+                color: rgba($grey-background, 0.6);
+            }
         }
     }
 }

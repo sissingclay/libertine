@@ -1,0 +1,108 @@
+.lb-faqs {
+
+    .lb-faq {
+
+        .lb-faq__title--active {
+            @include transform(translate(-80%, -50%));
+        }
+
+        .lb-faq__answer__container {
+            display: block;
+            background-color: $purple-color;
+            position: fixed;
+            width: 50%;
+            height: 100%;
+            top: 0;
+            right: 100%;
+            z-index: 5;
+            text-align: center;
+        }
+
+        .lb-faq__back {
+            display: none;
+        }
+
+        .lb-faq__table {
+            display: table;
+            height: 100%;
+        }
+
+        &.lb-faq--active {
+
+            .lb-faq__title__container {
+                background-color: $white-color;
+                color: $purple-color;
+                text-decoration: none;
+                position: fixed;
+                width: 50%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                z-index: 5;
+                @include animation(faqs_title 2s);
+            }
+
+            .lb-faq__title--active {
+                background-color: $smoke;
+                padding: $padding;
+                display: block;
+                margin: 10px 0 10px 10px;
+                position: absolute;
+                opacity: 1;
+                top: 50%;
+                left: 50%;
+                @include transform(translate(-45%, -50%));
+                width: 80%;
+                font-size: 1.5em;
+            }
+
+            .lb-faq__answer__container {
+                @include animation(faq_answer 1.0s ease-in);
+                right: 0;
+                overflow-y: scroll;
+                height: 100%;
+            }
+
+            .lb-faq__answer {
+                color: $white-color;
+                padding: $padding;
+                display: inline-block;
+                margin: 10px;
+                text-align: center;
+                width: 80%;
+                font-size: 1.8em;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .lb-faq__back {
+                display: block;
+                cursor: pointer;
+                padding: $padding;
+                font-weight: 500;
+                text-align: right;
+            }
+        }
+    }
+}
+
+@include keyframes(faqs_title) {
+    0% {
+        @include transform(translate(-100%, 100%));
+    }
+    35% {
+        @include transform(translate(0, 90%));
+    }
+    100% {
+        @include transform(translate(0, 0));
+    }
+}
+
+@include keyframes(faq_answer) {
+    0% {
+        @include transform(translate(180%, 0));
+    }
+    100% {
+        @include transform(translate(59%, 0));
+    }
+}
