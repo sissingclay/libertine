@@ -1,7 +1,7 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling | About Us
+    title Libertine Consultants | About Us | Debt Consultants
 
 block description
     meta(name='description', content='Find out more about the skilled, pro-active debt counselling team at Libertine Consultants. We’re here to help you get your house in order.')
@@ -14,6 +14,17 @@ block variables
 block main
 
     include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src='#{path}/svg/13-trust.svg', width='120')
+
+            h1 When you are feeling the pressure, you need the right team in your corner
+
+            p(class='lb-content_main-text').
+                Efficient, compassionate <strong>debt counsellors</strong> you can rely on
 
     section(class='lb-content lb-content_grey')
 
@@ -28,6 +39,12 @@ block main
 
         div(class='lb-content-constraint__large')
 
+            include ../partials/cta/cta-touch
+
+    section(class='lb-content lb-content_grey text-center')
+
+        div(class='lb-content-constraint__large')
+
             p.
                 At <strong>Libertine Consultants</strong> we believe that it takes guts to admit that you require <strong>debt counselling</strong>, which
                 is why we go out of our way to ensure that you get <strong>efficient, compassionate service</strong> at this trying time in
@@ -38,16 +55,16 @@ block main
                 circumstances</strong>. This is why we have hand-picked our team to include passionate professionals who will
                 undertake the <strong>debt counselling journey</strong> with you and support you all the way.
 
-    section(class='lb-content lb-content_grey text-center')
+    section(class='lb-content text-center')
 
         div(class='lb-content-constraint__large')
 
             include ../partials/cta/cta-touch
 
+    section(class='lb-content_grey')
+        include ../partials/about-us/about-us-icon-nav
 
-    include ../partials/about-us/about-us-icon-nav
 
-
-    section(class='lb-content lb-content_grey')
+    section(class='lb-content')
 
         include ../partials/cta/cta-red

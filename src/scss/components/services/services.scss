@@ -8,10 +8,13 @@
     }
 
     .lbService_title {
-        margin-bottom: 0;
         @include transition(color);
+        margin-bottom: 0;
+    }
 
-        &:hover {
+    &:hover {
+
+        .lbService_title {
             color: $purple-lighter-color;
         }
     }

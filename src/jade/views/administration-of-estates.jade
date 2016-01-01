@@ -27,11 +27,10 @@ block main
 
             img(src='#{path}/svg/13-trust.svg', width='120')
 
-            h1 Dependable advice & sustainable solutions
+            h1 Administration of estates
 
             p(class='lb-content_main-text').
-                Estate administration is an alternative to debt review that still qualifies as a formal process, but offers
-                better protection against creditors' claims.
+                Dependable advice & sustainable solutions
 
             include ../partials/cta/cta-red
 
@@ -41,20 +40,37 @@ block main
             div(class='lb-content-constraint__large text-center')
 
                 p.
+                    Estate administration is an alternative to <a href="#{path + data.review.en.href}" class="lb-link">debt review</a> that still qualifies as a formal process, but offers
+                    better <strong>protection against creditors'</strong> claims.
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
                     The main difference between debt counselling and estate administration* is that the latter is limited
-                    with regard to the amount of debt that can go under administration. The total debt cannot exceed R50&nbsp;000,
+                    with regard to the amount of debt that can go under administration. The <strong>total debt cannot exceed R50&nbsp;000</strong>,
                     although certain exceptions apply when garnishees are put under administration. Estate
-                    administration is the most effective way to halt garnishees from your salary, as these are automatically
+                    administration is the most <strong>effective way to halt garnishees</strong> from your salary, as these are automatically
                     suspended while you are under administration.
 
                 p.
-                    Administration orders to not have to be a long term solution and once your financial situation improves
-                    you can suspend the administration and manage your own finances once more.<br>
-                    <small><em>*Please note that secured creditors, e.g. home and car financiers are exempt from estate administration
-                    and you would still need to make provision for payments to these creditors in your monthly budget.</em></small>
+                    Administration orders to <strong>not have to be a long term solution</strong> and once your financial situation improves
+                    you can suspend the administration and <strong>manage your own finances once more</strong>.
+
+        section(class='lb-content lb-content--fine')
+
+            div(class='lb-content-constraint lb-fine-print text-center')
+
+                p.
+                    *Please note that secured creditors, e.g. home and car financiers are exempt from estate administration and you would still need to make provision for payments to these creditors in your monthly budget.
 
 
-        section(class='lb-content')
+        section(class='lb-content lb-content_grey')
 
             include ../partials/cta/cta-red
 

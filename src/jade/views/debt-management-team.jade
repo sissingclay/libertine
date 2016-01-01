@@ -1,7 +1,7 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling Team | Debt Management Team | Cape Town
+    title Libertine Consultants | Debt Counselling Team | Debt Management Team
 
 block description
     meta(name='description', content='Expert debt consultants in Cape Town South Africa. Meet our team of experts.')
@@ -15,17 +15,21 @@ block main
 
     include ../partials/about-us/about-us-header
 
-    section(class='lb-content lb-content_grey')
+    main(role='main', class='lb-internal')
 
-        div(class='lb-content-constraint__large text-center')
+        section(class='lb-content lb-content-constraint__large text-center')
 
-            h2 Julie Duminy
+            h1 Julie Duminy
 
             p.
                 <strong>Adversity breeds tenacity</strong>, and this core truth is nowhere more evident than in the twists and turns of
                 Julie's personal history. As the owner, proprietor and <strong>Chief Inspiration Officer of Libertine Consultants</strong>*,
                 Julie takes immense pride in helping the <strong>financially overburdened</strong> and believes that her compassion
                 stems from the challenges she herself had to overcome throughout the course of her career.
+
+    section(class='lb-content lb-content_grey')
+
+        div(class='lb-content-constraint__large text-center')
 
             p.
                 Long story short - Julie started out by fighting her way into training courses without the benefit of a
@@ -45,9 +49,14 @@ block main
                 Her time at Land Bank was followed by an extensive foray into the world of personal finance that lead to the establishment of
                 Libertine Consultants.
 
-            include ../partials/cta/cta-touch
 
     section(class='lb-content lb-content_grey text-center')
+
+        div(class='lb-content-constraint__large')
+
+            include ../partials/cta/cta-touch
+
+    section(class='lb-content text-center', id="team")
 
         div(class='lb-content-constraint__large')
 
@@ -59,10 +68,12 @@ block main
                 professional relationship that will last until your <strong>debt review</strong> has been resolves completely.
 
 
-    include ../partials/about-us/about-us-icon-nav
+    section(class='lb-content_grey')
+
+        include ../partials/about-us/about-us-icon-nav
 
 
-    section(class='lb-content lb-content--fine lb-content_grey')
+    section(class='lb-content lb-content--fine')
 
         div(class='lb-content-constraint lb-fine-print text-center')
 
@@ -71,7 +82,7 @@ block main
                     been registered with the National Credit Regulator (registration number NCRDC592).
 
 
-    section(class='lb-content')
+    section(class='lb-content lb-content_grey')
 
         include ../partials/cta/cta-red
 

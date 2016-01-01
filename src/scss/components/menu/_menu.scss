@@ -54,6 +54,7 @@
                 @include rem(padding-left, 10px);
                 @include rem(padding-right, 10px);
                 @include rem(margin-right, 0);
+                @include rem(margin-bottom, 15px);
                 @include borderRadius(5px);
 
                 &:hover {

@@ -18,6 +18,10 @@
         &:last-child {
             @include rem(padding-right, 0);
             @include rem(padding-left, 1rem);
+
+            a {
+                @include rem(margin-bottom, 0);
+            }
         }
 
         &:nth-last-child(2) {

@@ -1,10 +1,10 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling Team | Debt Management Team | Cape Town
+    title Libertine Consultants | Partners
 
 block description
-    meta(name='description', content='Expert debt consultants in Cape Town South Africa. Meet our team of experts.')
+    meta(name='description', content='')
 
 block variables
     - var activePage    = nav.about.en.href;
@@ -15,25 +15,25 @@ block main
 
     include ../partials/about-us/about-us-header
 
-    section(class='lb-content lb-content_grey')
+    main(role='main', class='lb-internal')
 
-        div(class='lb-content-constraint__large text-center')
+        section(class='lb-content lb-content-constraint__large text-center')
 
-            h2 Kim Armfield & Associates
+            h1 Kim Armfield & Associates
 
             p.
                 Kim Armfield & Associates provide swift, professional legal representation when our clients’ debt
                 counselling process requires it.
 
 
-    section(class='lb-content text-center')
+    section(class='lb-content text-center lb-content_grey')
 
         div(class='lb-content-constraint__large')
 
             include ../partials/cta/cta-touch
 
 
-    section(class='lb-content text-center lb-content_grey')
+    section(class='lb-content text-center', id='coaching')
 
         div(class='lb-content-constraint__large')
 
@@ -45,10 +45,12 @@ block main
                 address unproductive habits and out-dated systems.
 
 
-    include ../partials/about-us/about-us-icon-nav
+    section(class='lb-content_grey')
+
+        include ../partials/about-us/about-us-icon-nav
 
 
-    section(class='lb-content lb-content--fine lb-content_grey')
+    section(class='lb-content lb-content--fine')
 
         div(class='lb-content-constraint lb-fine-print text-center')
 
@@ -58,7 +60,7 @@ block main
                 2014.
 
 
-    section(class='lb-content')
+    section(class='lb-content lb-content_grey')
 
         include ../partials/cta/cta-red
 

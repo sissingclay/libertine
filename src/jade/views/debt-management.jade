@@ -1,15 +1,15 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling
+    title Libertine Consultants | Debt management
 
 block description
     meta(name='description', content='At Libertine Consultants our debt counselling process includes support before, during and after your case. We tailor our approach to ensure your success.')
 
 block variables
-    - var activePage    = nav.debt.en.href;
-    - var english       = nav.debt.en.href;
-    - var afrikaans     = nav.debt.af.href;
+    - var activePage    = path + data.management.href
+    - var english       = path + data.management.en.href
+    - var afrikaans     = path + data.management.af.href
 
 block main
 
@@ -27,10 +27,10 @@ block main
 
             img(src='#{path}/svg/13-trust.svg', width='120')
 
-            h1 Debt counselling
+            h1 Debt management
 
             p(class='lb-content_main-text').
-                Empower yourself through proper <strong>debt counselling</strong>.
+                Empower yourself through proper debt counselling.
 
             include ../partials/cta/cta-red
 

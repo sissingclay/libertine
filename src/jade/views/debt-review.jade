@@ -1,7 +1,7 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Review
+    title Libertine Consultants | Debt Review | Debt Review Companies | Cape Town
 
 block description
     meta(name='description', content='At Libertine Consultants our debt counselling process includes support before, during and after your case. We tailor our approach to ensure your success.')
@@ -30,7 +30,7 @@ block main
             h1 Debt review
 
             p(class='lb-content_main-text').
-                Empower yourself through proper debt review.
+                Empower yourself through proper <strong>debt review</strong>.
 
             include ../partials/cta/cta-red
 
@@ -49,19 +49,22 @@ block main
 
                 p.
                     Once the counsellor has all the information they require they can then obtain updates balances from
-                    your creditors, work out a payment proposal and start the debt review process. All you have to do
-                    during this time is keep up with your payments* to the debt management company appointed by your
-                    counsellor.<br>
-                    <small> <em>*Please note that this amount is subject to change pending the negotiations with your
-                    creditors.</em></small>
+                    your creditors, work out a payment proposal and start the <strong>debt review process</strong>. All you have to do
+                    during this time is keep up with your payments* to the <a href="#{path + data.management.en.href}" class="lb-link">debt management company</a> appointed by your
+                    counsellor.
 
-        section(class='lb-content')
+        section(class='lb-content lb-content--fine')
 
-            div(class='lb-content-constraint__large text-center')
+            div(class='lb-content-constraint lb-fine-print text-center')
 
-                include ../partials/cta/cta-touch
+                p.
+                    *Please note that this amount is subject to change pending the negotiations with your creditors.
 
-        section(class='lb-content text-center lb-content_grey')
+        section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content text-center')
 
             div(class='lb-content-constraint__large')
 
@@ -78,7 +81,7 @@ block main
                     accounts.
 
 
-        section(class='lb-content')
+        section(class='lb-content lb-content_grey')
 
             include ../partials/cta/cta-red
 
