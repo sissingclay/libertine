@@ -96,5 +96,5 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']))
 $response = $sendgrid->send($email);
 
 if ($response) {
-    echo done;
+    header("Location: http://www.libertineconsultants.co.za/thank-you.html");
 }

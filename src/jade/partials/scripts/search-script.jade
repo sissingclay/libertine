@@ -42,13 +42,14 @@ script(type="text/javascript").
                 // creating a regex depending on whether we want a precise match, or not:
                         reg = '\\b' + this.searchTerm[0].value + '\\b',
                         te = this.searchTerm[0].value,
+
                 // iterating over the elems array:
                         found = elems.filter(function (el) {
                             // returning the elements in which the text is, or includes,
                             // the needle to be found:
-
                             return el[textProp].match(te);
                         });
+
                 return found.length ? found : false;
             };
 
@@ -81,21 +82,35 @@ script(type="text/javascript").
 
             this.lestSee = function () {
 
-                var firstTime = 1;
+                var firstTime   = 1,
+                    results     = this.findByTextContent(),
+                    node        = document.createElement("div"),
+                    textnode    = document.createTextNode("No matching search results"),
+                    id          = document.getElementById('someID');
+                    node.id     = 'someID';
+                    node.appendChild(textnode);
 
                 if(firstTime) {
                     firstTime = 0;
                     removeClass(this.searchElement[0].parentElement, 'lb-pristine');
                 }
 
-                if (!this.findByTextContent()) {
+                if (!results) {
+
                     cleanUp(this.searchElement);
+                    if(!id) {
+                        this.searchElement[0].parentElement.appendChild(node);
+                    }
                 }
 
-                if(this.findByTextContent()) {
+                if(results) {
 
                     result = this.findByTextContent();
                     cleanUp(this.searchElement);
+
+                    if (id) {
+                        id.remove();
+                    }
 
                     for(var i=0; result.length > i; i++) {
 

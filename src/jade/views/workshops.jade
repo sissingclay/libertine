@@ -1,10 +1,10 @@
 extends ../extends/default.jade
 
 block title
-    title Libertine Consultants | Debt Counselling | About Us
+    title Libertine Consultants | Debt Counselling Workshops
 
 block description
-    meta(name='description', content='Find out more about the caring, compassionate debt team at Libertine Consultants. Were here to help you get your house in order.')
+    meta(name='description', content='Educate your employees or community about proper budgeting and finance. Enquire about Libertine Consultants free workshops today.')
 
 block variables
     - var activePage    = nav.workshops.en.href;
@@ -30,6 +30,7 @@ block main
             h1 Workshops
 
             p(class='lb-content_main-text').
+                Education is the key to proper personal finance. <br>
                 Take advantage of our expertise!
 
 
@@ -39,11 +40,11 @@ block main
 
                 p.
                     At Libertine Consultants we believe that prevention is better than cure, which is why we
-                    offer workshops on budgeting and finance free of charge to businesses and community initiatives every
+                    <strong>offer workshops on budgeting and finance</strong> free of charge to <strong>businesses and community initiatives</strong> every
                     Wednesday.
 
                 p.
-                    Contact us to book a slot and to find out more about our workshop content and schedules.
+                    <a href="#{path + nav.contact.en.href}" class="lb-link">Contact us</a> to book a slot and to find out more about our workshop content and schedules.
 
         section(class='lb-content')
 
