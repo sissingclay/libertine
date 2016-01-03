@@ -1,13 +1,21 @@
 mixin faq(val)
+
     a(class='lb-faq')
+
         h2(class='lb-faq__title')= val.title
+
         div(class='lb-faq__title__container')
+
             div(class='lb-faq__back') &lt; back to FAQ's
+
             h2(class='lb-faq__title lb-faq__title--active')= val.title
 
         div(class='lb-faq__answer__container')
+
             div(class='lb-faq__table')
+
                 div(class='lb-faq__answer')
+
                     p #{val.answer}
 
                     if val.answer1

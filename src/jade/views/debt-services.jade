@@ -22,7 +22,7 @@ block main
 
         picture
             source(srcset="#{path}/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px)")
+            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
             source(srcset="#{path}/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
             img(src="#{path}/img/hr_debt-services-mobile.jpg", alt="Debt Services")
 
@@ -73,27 +73,8 @@ block main
 
                         div(class="lbService_bottom lbService_bottom--last")
 
-        section(class='lb-content text-center')
 
-            div(class='lb-content-constraint__large')
-
-                img(src='#{path}/svg/05-debt_mng.svg', width='120')
-
-                h2(class='lb-service-title')
-                    a(href=path + data.consolidation.en.href) #{data.consolidation.en.name}
-
-                p Our debt counsellors work with you to tailor a debt management plan to pay off your creditors and arrange for a monthly payment.
-
-                div(class='lb-cta lb-cta_center')
-
-                    p
-                        small Find out more details about debt consolidation
-
-                    a(href=path + data.consolidation.en.href class='lb-btn').
-                        more in #{data.consolidation.en.name}
-
-
-        section(class='lb-content lb-content_grey')
+        section(class='lb-content')
 
             div(class='lb-content-constraint')
 
@@ -113,7 +94,7 @@ block main
 
                         h2(class='lbService_title') #{data.sequestrations.en.name}
 
-                        p(class="lbService_description") Your assets exceed your liabilities, it is often the best course
+                        p(class="lbService_description") Your assets exceed your liabilities, it is often the best course.
 
 
                 div(class='lbService')
@@ -125,6 +106,18 @@ block main
                         p(class="lbService_description") We make the payments to your creditors on your behalf.
 
                         div(class="lbService_bottom lbService_bottom--last")
+
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                a(href=path + data.consolidation.en.href)
+
+                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.consolidation.en.name}
+
+                    p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
+
 
         section(class='lb-content')
 

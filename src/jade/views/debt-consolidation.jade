@@ -17,7 +17,7 @@ block main
 
         picture
             source(srcset="#{path}/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px)")
+            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
             source(srcset="#{path}/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
             img(src="#{path}/img/hr_debt-services-mobile.jpg", alt="Debt Consolidation")
 
@@ -81,12 +81,6 @@ block main
                     meet with you to tailor a workable <strong>debt management plan</strong> based on your unique circumstances.
 
         section(class='lb-content lb-content_grey')
-
-            div(class='lb-content-constraint__large text-center')
-
-                include ../partials/cta/cta-touch
-
-        section(class='lb-content')
 
             include ../partials/cta/cta-red
 
