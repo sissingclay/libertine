@@ -52,13 +52,18 @@ block main
 
                 h2 What does the process entail?
 
-                ul
+                ul(class="lb-unordered-list")
                     li You complete an application form.
                     li We compare your income and expenses, adjust your budget and determine an amount that you can comfortably pay to your creditors monthly.
                     li We draw up a payment proposal and present it to your creditors for approval.
                     li We handle the monthly payments to your creditors.
 
+
         section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content')
 
             div(class='lb-content-constraint__large text-center')
 
@@ -82,6 +87,12 @@ block main
                     Cons: Since the process is voluntary your creditors could choose to reject the offer for reduced
                     instalments. However, this is very rarely the case.
 
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-touch
+
+
         section(class='lb-content lb-content_grey')
 
             div(class='lb-content-constraint__large text-center')
@@ -93,13 +104,13 @@ block main
                     to pay R1000 towards your debts monthly, our fee will be R1000. There is also a monthly distribution
                     fee, which is calculated at 12,5% of the total distribution amount (with a cap of R500).
 
-        section(class='lb-content lb-content_grey')
+        section(class='lb-content')
 
             div(class='lb-content-constraint__large text-center')
 
                 h2 This fee includes:
 
-                ul
+                ul(class="lb-unordered-list")
                     li A detailed financial assessment
                     li A payment plan
                     li The drafting of letters to your creditors
@@ -110,22 +121,19 @@ block main
 
             div(class='lb-content-constraint__large text-center')
 
-                h2 How will I know that my creditors are receiving payment?
+                p <strong>How will I know that my creditors are receiving payment?</strong>
 
-                p.
-                    A proof of payment is saved to your file after each payment and can be provided at any time.
+                p A proof of payment is saved to your file after each payment and can be provided at any time.
 
-                h2 How can I check the balances of my debt?
+                p <strong>How can I check the balances of my debt?</strong>
 
-                p.
-                    We can request balances on your behalf if it becomes necessary.
+                p We can request balances on your behalf if it becomes necessary.
 
-                h2 Will I be listed on the ITC if I went under voluntary distribution?
+                p <strong>Will I be listed on the ITC if I went under voluntary distribution?</strong>
 
                 p.
                     No, a voluntary distribution itself is not listed on the ITC, but your creditors could elect to list you as a
                     default payer since they will be receiving a reduced instalment.
-
 
 
         section(class='lb-content')
