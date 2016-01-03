@@ -22,7 +22,7 @@ block main
 
         picture
             source(srcset="#{path}/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_faqs.jpg", media="(min-width: 768px and max-width: 1499)")
+            source(srcset="#{path}/img/hr_faqs.jpg", media="(min-width: 768px)")
             source(srcset="#{path}/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
             img(src="#{path}/img/hr_faqs-mobile.jpg", alt="Support & Help")
 
@@ -46,9 +46,7 @@ block main
 
                         img(src='#{path}/svg/13-trust.svg', width='120')
 
-                        h2(class='lbService_description') #{data.faqCounselling.en.name}
-
-                        div(class="lbService_bottom")
+                        h2(class='lbService_title') #{data.faqCounselling.en.name}
 
 
                 div(class='lbService lbService--last')
@@ -57,9 +55,7 @@ block main
 
                         img(src='#{path}/svg/11-trust.svg', width='120')
 
-                        h2(class='lbService_description') #{data.faqAdmin.en.name}
-
-                        div(class="lbService_bottom")
+                        h2(class='lbService_title') #{data.faqAdmin.en.name}
 
 
                 div(class='lbService')
@@ -68,9 +64,7 @@ block main
 
                         img(src='#{path}/svg/12-trust.svg', width='120')
 
-                        h2(class='lbService_description') #{data.faqVoluntary.en.name}
-
-                        div(class="lbService_bottom lbService--last")
+                        h2(class='lbService_title') #{data.faqVoluntary.en.name}
 
 
         include ../partials/faqs

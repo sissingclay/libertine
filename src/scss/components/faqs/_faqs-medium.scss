@@ -64,15 +64,22 @@
             }
 
             .lb-faq__answer {
-                color: $white-color;
                 padding: $padding;
                 display: inline-block;
                 margin: 10px;
                 text-align: center;
                 width: 80%;
-                font-size: 1.8em;
                 display: table-cell;
                 vertical-align: middle;
+
+                p {
+                    color: $white-color;
+                    font-size: 1.8em;
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
             }
 
             .lb-faq__back {

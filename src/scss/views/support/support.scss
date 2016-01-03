@@ -2,9 +2,16 @@
 @import "./src/scss/components/services/services";
 
 @include bp(medium) {
-  @import "./src/scss/components/services/services-medium";
+    @import "./src/scss/components/services/services-medium";
 }
 
 @include bp(large) {
-  @import "./src/scss/components/services/services-large";
+    @import "./src/scss/components/services/services-large";
+}
+
+.lbService {
+
+    .lbService_title {
+        @include rem(margin-bottom, 40px);
+    }
 }

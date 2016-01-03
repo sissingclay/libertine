@@ -22,7 +22,7 @@ block main
 
         picture
             source(srcset="#{path}/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px and max-width: 1499px)")
+            source(srcset="#{path}/img/hr_debt-services.jpg", media="(min-width: 768px)")
             source(srcset="#{path}/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
             img(src="#{path}/img/hr_debt-services-mobile.jpg", alt="Debt Services")
 
@@ -47,7 +47,7 @@ block main
 
                     a(href=path + data.review.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.review.en.name}
+                        h2(class='lbService_title') #{data.review.en.name}
 
                         p(class="lbService_description") Allows you to manage all of your debts in one simple payment.
 
@@ -58,7 +58,7 @@ block main
 
                     a(href=path + data.counselling.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.counselling.en.name}
+                        h2(class='lbService_title') #{data.counselling.en.name}
 
                         p(class="lbService_description") Take care of yourself and your family while you settle your debts.
 
@@ -67,7 +67,7 @@ block main
 
                     a(href=path + data.credit.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.credit.en.name}
+                        h2(class='lbService_title') #{data.credit.en.name}
 
                         p(class="lbService_description") We offer a range of credit clearance services.
 
@@ -102,7 +102,7 @@ block main
 
                     a(href=path + data.admin.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.admin.en.name}
+                        h2(class='lbService_title') #{data.admin.en.name}
 
                         p(class="lbService_description") Offers better protection against creditors' claims.
 
@@ -111,7 +111,7 @@ block main
 
                     a(href=path + data.sequestrations.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.sequestrations.en.name}
+                        h2(class='lbService_title') #{data.sequestrations.en.name}
 
                         p(class="lbService_description") Your assets exceed your liabilities, it is often the best course
 
@@ -120,7 +120,7 @@ block main
 
                     a(href=path + data.voluntary.en.href)
 
-                        h2(class='lbService_title lb-link') #{data.voluntary.en.name}
+                        h2(class='lbService_title') #{data.voluntary.en.name}
 
                         p(class="lbService_description") We make the payments to your creditors on your behalf.
 

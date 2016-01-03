@@ -26,6 +26,7 @@
     @include rem(min-height, 6rem);
     overflow: hidden;
     position: relative;
+    background-color: $smoke;
 
     img {
         width: 100%;

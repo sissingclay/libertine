@@ -4,3 +4,11 @@
 @include bp(large) {
     @import "./src/scss/components/testimonials/testimonials-large";
 }
+
+.lb-testimonial__background {
+    background: url('../../svg/quote.svg') no-repeat left top;
+}
+
+.lb-testimonial__background--right {
+    background: url('../../svg/quote.svg') no-repeat right top;
+}

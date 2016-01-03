@@ -1,21 +1,12 @@
 .lb-contactDetails {
     background-color: $grey-darkest-color;
     @include rem(padding, 10px 10px 15px);
-    text-transform: lowercase;
-    @include rem(font-size, 14px);
+    text-transform: uppercase;
+    @include rem(font-size, 12px);
     text-align: center;
 
-    .lb-btn {
-
-        .lb-btn--none-bottom {
-            margin-bottom: 0;
-        }
-    }
-
-    .lb-contactDetails--right {
-        text-align: right;
-        display: inline-block;
-        float: right;
+    .lb-content {
+        padding-top: 0;
     }
 
     a {

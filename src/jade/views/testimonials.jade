@@ -4,12 +4,12 @@ block title
     title Testimonials | Customers Reviews | Cape Town
 
 block description
-    meta(name='description', content='These are testimonials that are clients have left. Come to Libertine Consultants for 5 star service')
+    meta(name='description', content='These are testimonials that our clients have left. Come to Libertine Consultants for 5 star service.')
 
 block variables
-    - var activePage    = path + data.privacy[lang].href
-    - var english       = path + data.privacy.en.href
-    - var afrikaans     = path + data.privacy.af.href
+    - var activePage    = path + data.testimonials.en.href
+    - var english       = path + data.testimonials.en.href
+    - var afrikaans     = path + data.testimonials.af.href
 
 block main
 
@@ -21,26 +21,24 @@ block main
             source(srcset="#{path}/img/hr_general3_big.jpg", media="(min-width: 1500px)")
             img(src="#{path}/img/hr_general3_mobile.jpg", alt="Testimonials")
 
-    main(role='main', class='lb-internal')
+    main(role='main', class='lb-internal lb-testimonial__background')
 
         section(class='lb-content lb-content_main')
 
             h1 Testimonials
 
             p(class='lb-content_main-text').
-                We understand that privacy online is important to users of our site, especially when conducting business.
+                See what people say about us!
 
-            include ../partials/cta/cta-touch.jade
+        section(class='lb-content lb-content_grey')
 
-        section(class='lb-content lb-content_purple')
-
-            div(class='lb-content-constraint__large')
-
-                img(src='/test/svg/quote.svg', alt='quote mark')
+            div(class='lb-content-constraint__large ')
 
                 p.
                     We would like to go on record as saying that Libertine Consultants have rendered us excellent and
-                    professional service during the course of our Debt Review. They were always respectful and helpful.
+                    professional service during the course of our debt review. They were always respectful and helpful.
+
+                p.
                     We are happy to say that through their dedication and our commitment we are now debt free! We only
                     need to contend with our daily living expenses and not debt as well. What a great relief! Thank you Libertine Consultants!
 
@@ -53,48 +51,77 @@ block main
 
             div(class='lb-content-constraint__large')
 
-                img(src='/test/svg/quote.svg', alt='quote mark')
+                p I would to thank you all for assisting me in my time of difficulties, I really appreciate what you have done for me, but someone in my family has decided to assist me further.
 
-                p.
-                    I would to thank you all for assisting me in my time of difficulties, I really appreciate what you
-                    have done for me, but someone in my family has decided to assist me further.
-                    I would no longer need assistance but surely would recommend people to you.
-
+                p I would no longer need assistance but surely would recommend people to you.
 
                 p
-                    small <strong>Mr & Mrs Wessels</strong>
+                    small <strong>Sharon Neethling</strong>
 
-        section(class='lb-content lb-content_purple')
+
+        section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content')
 
             div(class='lb-content-constraint__large')
 
-                img(src='/test/svg/quote.svg', alt='quote mark')
+                p.
+                    I would like to compliment Libertine Consultants for their excellent and outstanding service that they render to me on a regular basis.
+                    They have shown great empathy towards my situation and have at all times treated me with the utmost respect and dignity.
 
                 p.
-                    We would like to go on record as saying that Libertine Consultants have rendered us excellent and
-                    professional service during the course of our Debt Review. They were always respectful and helpful.
-                    We are happy to say that through their dedication and our commitment we are now debt free! We only
-                    need to contend with our daily living expenses and not debt as well. What a great relief! Thank you Libertine Consultants!
+                    They gladly offer advice when needed and I at all times feel free to pick up the phone to Julie with the self assurance that my call will always be received with warmth and compassion.
+                    They are extremely accommodating in every respect and I am truly grateful that they have crossed my path.
+
+                p.
+                    It is an absolute pleasure doing business with them and I have and will always refer people to them.
+                    In fact I was initially recommended to them by an esteemed and astute professional.
+                    Libertine Consultants is already known as a reputable consultancy and I have no doubt that they will grow from strength to strength because of their "service excellence". Congratulations Julie, and your team.
 
 
                 p
-                    small <strong>Mr & Mrs Wessels</strong>
+                    small <strong>Yolanda Mathys</strong>
 
 
-        section(class='lb-content text-right')
+        section(class='lb-content text-right lb-content_grey')
 
             div(class='lb-content-constraint__large')
 
-                img(src='/test/svg/quote.svg', alt='quote mark')
+                p.
+                    A few months ago I was strangled in financial difficulties, before approaching Libertine debt consultants.
+                    I had no choice as I was on the point of losing everything I worked for all the years.
+                    I can open heartily say that these people treated me very professionally and wanted to help me as a client.
+                    After explaining to me what sort of relief they can give, I have them the go ahead to continue. They also helped me to work out a budget to live according to.
 
                 p.
-                    I would to thank you all for assisting me in my time of difficulties, I really appreciate what you
-                    have done for me, but someone in my family has decided to assist me further.
-                    I would no longer need assistance but surely would recommend people to you.
+                    Times are really difficult and we must stop living in denial. They only person that can make a difference is you.
+                    I also learned a lot through my debt counselling and know exactly what and how to spend.
+                    I also encourage family and friends on a continuous basis to go for this counselling as it really pays off on the long run.
+                    I am also now in a position to refer them to Libertine as I had become an agent for Libertine Consultants.
 
 
                 p
-                    small <strong>Mr & Mrs Wessels</strong>
+                    small <strong>Denver Smith</strong>
+
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    Libertine Consultantsis a highly professional and effective company regarding bad debt and the administration of such.
+                    The personnel are very dedicated and treat each case with integrity and professionalism.
+                    Each creditor gets informed about the financial situation of the client and with Libertine's help acceptable agreements are reached without serious repercussions.
+
+                p.
+                    Libertine went out of their way to accommodated me, even after hours and over weekends and was always ready with good advice and input resulting in me having a peaceful night's sleep.
+                    I can highly recommend them without hesitation to anybody facing financial difficulties, as professionalism and efficiency seems to be their motto.
+
+
+                p
+                    small <strong>Roelien Van Staden</strong>
 
         section(class='lb-content lb-content_grey')
 

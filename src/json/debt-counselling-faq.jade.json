@@ -2,7 +2,8 @@
   "faqs": [
     {
       "title":"What exactly is debt counselling/debt review?",
-      "answer": "Debt counselling/debt review is a form of debt rehabilitation that allows a consumer to settle his debt obligations and get on an even keel with his creditors with the help of a debt counsellor and a payment agency. The debt counsellor steps in to re-structure the consumer’s debt by negotiating an extended contractual repayment that allows him to pay regular, affordable instalments while still taking care of himself and his family. Instead of making various payments each month, the consumer instead makes one payment to the registered payment agency that distributes the amount to his creditors on his behalf."
+      "answer": "Debt counselling/debt review is a form of debt rehabilitation that allows a consumer to settle his debt obligations and get on an even keel with his creditors with the help of a debt counsellor and a payment agency.",
+      "answer1": "The debt counsellor steps in to re-structure the consumer’s debt by negotiating an extended contractual repayment that allows him to pay regular, affordable instalments while still taking care of himself and his family. Instead of making various payments each month, the consumer instead makes one payment to the registered payment agency that distributes the amount to his creditors on his behalf."
     },
     {
       "title":"Do I qualify for debt counselling?",
@@ -10,7 +11,9 @@
     },
     {
       "title":"Which of my debts can be included in my debt review?",
-      "answer": "<strong>YES:</strong> All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.<br><br> <strong>NO:</strong> Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.<br> <br> Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
+      "answer": "YES: All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.",
+      "answer1": "NO: Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.",
+      "answer2": "Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
     },
     {
       "title":"Will I be blacklisted if I go under debt review?",
@@ -26,7 +29,12 @@
     },
     {
       "title":"If I have already received a summons for an account can it still go under debt review?",
-      "answer": "Yes. Once all your accounts are paid-up as per the debt review court order a clearance certificate is given to you or via a rescission order.<br><br>You can elect to end your association with Libertine Consultants, but we will remain the debt counsellor on record."
+      "answer": "If you have already received a summons for an outstanding account you will need the permission of the creditor in question to include it in your debt review."
+    },
+    {
+      "title":"Can I withdraw from debt review?",
+      "answer": "Yes. Once all your accounts are paid-up as per the debt review court order a clearance certificate is given to you or via a rescission order.",
+      "answer1": "You can elect to end your association with Libertine Consultants, but we will remain the debt counsellor on record."
     },
     {
       "title":"Can a creditor proceed with action against me once I am under debt review?",
@@ -55,7 +63,7 @@
     {
       "title":"How much will I pay to go under debt review?",
       "answer": "All debt review fees are charged in accordance with the guidelines set by the National Credit Regulator, including:",
-      "answer1": "A R50.00 application fee A fee equal to your first monthly instalment (subject to a maximum amount of R6000 and determined after deducting your monthly expenses from your monthly income) An after-care fee of 5% of your instalment for a period of 2 years, 3% thereafter",
+      "answer1": "A R50.00 application fee. A fee equal to your first monthly instalment (subject to a maximum amount of R6000 and determined after deducting your monthly expenses from your monthly income). An after-care fee of 5% of your instalment for a period of 2 years, 3% thereafter",
       "answer2": "There are usually also legal fees involved. These have to be disclosed to you upfront and will be deducted from your second monthly instalment."
     },
     {

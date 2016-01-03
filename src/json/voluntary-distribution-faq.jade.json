@@ -6,7 +6,9 @@
     },
     {
       "title":"Which of my debts can be included in my debt review?",
-      "answer": "<strong>YES:</strong> All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.<br><br> <strong>NO:</strong> Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.<br> <br> Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
+      "answer": "YES: All credit agreements as le by the National Credit Act can be included in debt review. This would include loans, credit cards, vehicle agreement (excluding rental agreement) and bonds.",
+      "answer1": "NO: Service accounts (e.g. telephone bills and municipal accounts) cannot be included in a debt review without express permission from the creditor.",
+      "answer2": "Consumers must make provision in their budget for all accounts that cannot be included in their debt review."
     },
     {
       "title":"Will I be blacklisted if I go under Legal restructuring/Voluntary distribution?",
@@ -29,7 +31,7 @@
       "answer": "Yes, however with our legal team will defend any summons received if you have kept to the payment agreement."
     },
     {
-      "title":"10. How will I know if my creditors are being paid?",
+      "title":"How will I know if my creditors are being paid?",
       "answer": "You will have the right to contact your administrator to require a statement that proves that your creditors are receiving payment."
     },
     {
