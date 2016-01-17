@@ -1,5 +1,18 @@
 .lb-head-logo {
 
+    a {
+        img {
+            @include transition(all, 0.5s);
+        }
+    }
+
+    a:hover {
+
+        img {
+            opacity: 0.7;
+        }
+    }
+
     img {
         @include rem('width', 185px);
         height: auto;

@@ -11,6 +11,11 @@ block variables
     - var english       = nav.about.en.href;
     - var afrikaans     = nav.about.af.href;
 
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
 block main
 
     include ../partials/about-us/about-us-header
@@ -65,6 +70,6 @@ block main
         include ../partials/about-us/about-us-icon-nav
 
 
-    section(class='lb-content')
+    section(class='lb-content lb-content_purple')
 
         include ../partials/cta/cta-red

@@ -16,10 +16,10 @@ block main
     section(class='lb-hero_internal')
 
         picture
-            source(srcset="#{path}/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
-            source(srcset="#{path}/img/hr_about-us.jpg", media="(min-width: 768px) and (max-width: 1499px)")
-            source(srcset="#{path}/img/hr_about-us_big.jpg", media="(min-width: 1500px)")
-            img(src="#{path}/img/hr_about-us-mobile.jpg", alt="About us at Libertine Consultants")
+            source(srcset="#{path}/img/hr_workshop_mobile.jpg", media="(max-width: 767px)")
+            source(srcset="#{path}/img/hr_workshop.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset="#{path}/img/hr_workshop_big.jpg", media="(min-width: 1500px)")
+            img(src="#{path}/img/hr_workshop_mobile.jpg", alt="Workshops we offer")
 
     main(role='main', class='lb-internal')
 
@@ -46,6 +46,6 @@ block main
                 p.
                     <a href="#{path + nav.contact.en.href}" class="lb-link">Contact us</a> to book a slot and to find out more about our workshop content and schedules.
 
-        section(class='lb-content')
+        section(class='lb-content lb-content_purple')
 
             include ../partials/cta/cta-touch

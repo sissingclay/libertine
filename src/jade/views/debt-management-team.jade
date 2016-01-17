@@ -11,6 +11,11 @@ block variables
     - var english       = nav.about.en.href;
     - var afrikaans     = nav.about.af.href;
 
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
 block main
 
     include ../partials/about-us/about-us-header
@@ -18,6 +23,8 @@ block main
     main(role='main', class='lb-internal')
 
         section(class='lb-content lb-content-constraint__large text-center')
+
+            img(src='#{path}/img/julie.jpg' alt='Julie Duminy')
 
             h1 Julie Duminy
 
@@ -60,6 +67,8 @@ block main
 
         div(class='lb-content-constraint__large')
 
+            img(src='#{path}/img/team.jpg' alt='Julie Duminy')
+
             h2 The Libertine Team
 
             p.
@@ -82,7 +91,7 @@ block main
                     been registered with the National Credit Regulator (registration number NCRDC592).
 
 
-    section(class='lb-content lb-content_grey')
+    section(class='lb-content lb-content_purple')
 
         include ../partials/cta/cta-red
 

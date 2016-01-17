@@ -9,7 +9,6 @@
     
     .lb-hero-text {
         @include rem(font-size, 1.875rem);
-        @include lato-family;
     }
 }
 
@@ -26,7 +25,6 @@
     @include rem(min-height, 6rem);
     overflow: hidden;
     position: relative;
-    background-color: $smoke;
 
     img {
         width: 100%;

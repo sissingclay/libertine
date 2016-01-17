@@ -4,7 +4,6 @@
     border: 1px solid $brown-color;
     @include borderRadius(5px);
     color: $brown-darker-color;
-    @include lato-family-bold;
     @include rem(padding, 0.8rem 1.875rem);
     @include rem(margin-bottom, $section);
     @include transition(all, 0.5s, ease);
@@ -102,7 +101,6 @@
     }
 
     p {
-        @include lato-family-bold;
         @include rem(margin-bottom, 0.5rem);
         @include rem(line-height, 1.2rem);
         @include rem(font-size, 1rem);
@@ -114,5 +112,36 @@
                 @include rem(margin-bottom, 0);
             }
         }
+    }
+}
+
+.lb-content_purple {
+
+    .lb-btn {
+        background-color: $purple-color;
+        border: 1px solid #ffffff;
+        color: #ffffff;
+
+        &:hover {
+            background-color: #ffffff;
+            border: 1px solid #ffffff;
+            color: $purple-color;
+        }
+
+        &.lb-btn_action {
+            background-color: $purple-color;
+            border: 1px solid #ffffff;
+            color: #ffffff;
+
+            &:hover {
+                background-color: #ffffff;
+                border: 1px solid #ffffff;
+                color: $purple-color;
+            }
+        }
+    }
+
+    a {
+        color: #ffffff;
     }
 }

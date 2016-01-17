@@ -1,7 +1,11 @@
-section(class="lb-content #{isGrey ? 'lb-content_grey':''}")
+section(class="lb-content lb-content_purple")
 
     div(class='lb-content-constraint text-center')
 
-        p.
+        p(class='no-margin').
             <strong>Can’t find your answer?</strong><br>
-            We’re here to help. <a href='#{path + data.get_touch.en.href}' class='lb-link'>Get in touch</a> and we’ll get back to you as soon as we can.
+
+        div(class='lb-cta lb-cta_center')
+            a(href=path + data.get_touch.en.href, class='lb-btn lb-btn--none-bottom') Get in Touch
+            p(class='lb-cta-push-down')
+                small We’re here to help. We’ll get back to you as soon as we can.

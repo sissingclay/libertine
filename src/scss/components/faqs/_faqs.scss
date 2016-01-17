@@ -24,7 +24,7 @@
         }
 
         &:hover {
-            background-color: rgba($grey-background, 1);
+            background-color: darken($grey-background, 5%);
         }
 
         &:last-child {
@@ -37,6 +37,7 @@
             color: #4C555A;
             @include rem(font-size, 20px);
             line-height: 1.5;
+            cursor: pointer;
         }
         
         .lb-faq__title--active {

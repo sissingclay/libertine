@@ -40,10 +40,14 @@
                 left: 0;
                 z-index: 5;
                 @include animation(faqs_title 2s);
+
+                .lb-faq__title {
+                    cursor: default;
+                }
             }
 
             .lb-faq__title--active {
-                background-color: $smoke;
+                background-color: darken($grey-background, 5%);
                 padding: $padding;
                 display: block;
                 margin: 10px 0 10px 10px;

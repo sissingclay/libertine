@@ -1,39 +1,28 @@
 section(class='lb-content text-center')
 
-    p
-        strong Discover more about us by clicking the sections below.
+    div(class='lb-content-constraint lbService--container')
 
-    div(class='lb-content-constraint')
-
-        div(class='lb-stats')
+        div(class='lbService')
 
             a(href=path + data.team.en.href)
 
-                img(src='#{path}/svg/iconmonstr-user-2-icon.svg', width='120')
+                h2(class='lbService_title') Libertine Team
 
-                p <strong>Julie Duminy</strong> - Adversity breeds tenacity, and this core truth is nowhere more evident...
+                p(class='lbService_description') Adversity breeds tenacity, and this core truth is nowhere more evident...
 
-        div(class='lb-stats')
+        div(class='lbService')
 
-            a(href=path + data.team.en.href + '#team')
+            a(href=path + data.kim.en.href)
 
-                img(src='#{path}/svg/iconmonstr-user-14-icon.svg', width='120')
+                h2(class='lbService_title') Kim Armfield & Associates
 
-                p <strong>The Libertine Team</strong> - Our debt counsellors are all hand-picked by Julie for their skills...
+                p(class='lbService_description') Kim Armfield & Associates provide swift, professional...
 
-        div(class='lb-stats')
+        div(class='lbService')
 
-            a(href=path + data.partner.en.href)
+            a(href=path + data.ca.en.href)
 
-                img(src='#{path}/svg/iconmonstr-handshake-icon.svg', width='120')
+                h2(class='lbService_title') CA Life Coaching
 
-                p <strong>Kim Armfield & Associates</strong> - Kim Armfield & Associates provide swift, professional...
-
-        div(class='lb-stats')
-
-            a(href=path + data.partner.en.href + '#coaching')
-
-                img(src='#{path}/svg/iconmonstr-puzzle-15-icon.svg', width='120')
-
-                p <strong>CA Life Coaching</strong> - CA Life Coaching* provides coaching, consultation and facilitated...
+                p(class='lbService_description') CA Life Coaching* provides coaching, consultation and facilitated...
 

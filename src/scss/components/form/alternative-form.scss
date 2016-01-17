@@ -15,7 +15,12 @@
     .lb-form-interaction {
         width: 100%;
         color: $grey-color;
+        font-weight: 400;
     }
+}
+
+.lb-form-interaction {
+    border: 1px solid $lighter-grey-color;
 }
 
 .lb-form-section__privacy {

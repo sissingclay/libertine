@@ -21,6 +21,81 @@ html {
 
 html.font-loaded {
     @include lato-family;
+
+    .lb-contactDetails {
+        @include lato-family-bold;
+    }
+
+    b,
+    strong {
+        @include lato-family-bold;
+    }
+
+    h1, h2, h3, h4, h5, h6, p {
+        @include lato-family-bold;
+    }
+
+    p {
+        @include lato-family;
+    }
+
+    optgroup {
+        @include lato-family-bold;
+    }
+
+    .lb-btn {
+        @include lato-family-bold;
+    }
+
+    .lb-cta {
+
+        p {
+            @include lato-family-bold;
+        }
+    }
+
+    .lb-footer {
+        @include lato-family;
+
+        ul {
+
+            li {
+                @include lato-family;
+            }
+        }
+    }
+
+    .lbTouch {
+        @include lato-family-bold;
+    }
+
+    .lb-hero {
+
+        .lb-hero-text {
+            @include lato-family;
+        }
+    }
+
+    .lb-language-container {
+
+        .lb-language-list {
+            @include lato-family-bold;
+        }
+    }
+
+    .lb-head-menu {
+
+        .lb-menu-link {
+            @include lato-family-bold;
+        }
+    }
+
+    .lb-testimonials {
+
+        .lb-testimonials-figcaption {
+            @include lato-family-bold;
+        }
+    }
 }
 
 body {
@@ -67,10 +142,10 @@ a {
     background-color: transparent;
     text-decoration: none;
     @include transition(color);
-    color: $purple-color;
+    color: $red-color;
 
     &:hover {
-        color: $purple-lighter-color;
+        color: lighten( $red-color, 10% );
     }
 }
 
@@ -80,32 +155,11 @@ a:hover {
     outline: 0;
 }
 
-a.lb-link {
-    padding: 2px 4px;
-    font-size: 90%;
-    border-bottom: 2px solid $purple-color;
-    border-radius: 2px;
-    box-shadow: 0 0 0 0 $purple-lighter-color inset;
-    @include transition(all, 0.5s, ease);
-
-    &:hover {
-        color: $white-color;
-        box-shadow: 0px -100px 0px 0px $purple-lighter-color inset;
-    }
-}
-
 .lb-fine-print h2, .lb-fine-print p {
     font-size: 90%;
     @include rem(margin-bottom, 1rem);
     @include rem(line-height, 1.5rem);
 }
-
-b,
-strong {
-    @include lato-family-bold;
-}
-
-
 
 h1 {
     @include rem(font-size, 2.5rem);
@@ -128,19 +182,10 @@ h2 {
     color: $purple-color;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    @include lato-family-bold;
-}
-
 a > h2, a > h3, h2 > a, h3 > a {
-    text-decoration: underline;
+    text-decoration: none;
+    color: $red-color;
 }
-
-p {
-    @include lato-family;
-}
-
-
 
 small {
     font-size: 80%;
@@ -284,11 +329,6 @@ textarea {
 }
 
 
-
-optgroup {
-    @include lato-family-bold;
-}
-
 .lb-relative {
     position: relative;
 }
@@ -314,6 +354,10 @@ p {
     color: $grey-dark-color;
     @include rem(font-size, 1.375rem);
     word-wrap: break-word;
+}
+
+p.no-margin {
+    @include rem(margin, 0 0 5px);
 }
 
 small {

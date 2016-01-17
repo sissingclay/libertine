@@ -2,7 +2,6 @@
     background-color: $footer-color;
     color: $white-color;
     @include rem(font-size, 1rem);
-    @include lato-family;
     text-transform: uppercase;
     @include rem(padding, $padding-containers);
 
@@ -12,7 +11,6 @@
 
         li {
             @include rem(font-size, 0.75rem);
-            @include lato-family;
             @include rem(line-height, 2.4rem);
 
             a {

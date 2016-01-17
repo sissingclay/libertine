@@ -10,7 +10,6 @@
         @include rem(font-size, .7rem);
         @include rem(padding-right, .5rem);
         text-transform: uppercase;
-        @include lato-family-bold;
 
         &.active {
 

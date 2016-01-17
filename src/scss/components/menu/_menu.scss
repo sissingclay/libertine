@@ -40,7 +40,6 @@
     
     .lb-menu-link {
         color: $white-color;
-        @include lato-family-bold;
         text-decoration: none;
         text-transform: uppercase;
         @include rem(font-size, 1.2rem);
@@ -61,6 +60,14 @@
                     background-color: $white-color;
                     color: $purple-color;
                 }
+            }
+
+            &.active {
+                background-color: $white-color;
+                color: $purple-color;
+                padding-left: 0;
+                @include rem(margin-left, 16px);
+                @include borderRadius(5px);
             }
         }
 
