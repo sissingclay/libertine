@@ -30,8 +30,7 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/02-contact.svg', width='120')
-            img(src='#{path}/svg/03-contact.svg', width='120')
+            include ../../svgs/icon-07-contact.svg
 
             h1 Take control of your future by making the right choices today
 
@@ -101,3 +100,7 @@ block main
 
 append js
     include ../partials/scripts/contact-script
+
+    script(type="text/javascript").
+
+        new Vivus('contact', {duration: 200});

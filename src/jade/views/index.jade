@@ -46,8 +46,7 @@ block main
 
                 div(class='text-center')
 
-                    img(src='#{path}/svg/13-trust.svg', width='120')
-                    include ../../svgs/13-trust1.svg
+                    include ../../svgs/icon-22-debtmgmt.svg
 
                     h2 Debt management
 
@@ -94,7 +93,7 @@ block main
 
                     div(class='text-center')
 
-                        img(src='#{path}/svg/04-debt_mng.svg', width='120')
+                        include ../../svgs/icon-03-workshops.svg
 
                         h2 Workshops
 
@@ -135,7 +134,7 @@ block main
 
                 div(class='lb-stats')
 
-                    img(src='#{path}/svg/NCR_logo.svg', width='120')
+                    include ../../svgs/NCR_logo.svg
 
                     p Registered with the <a href="http://www.ncr.org.za" class="lb-link" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
 
@@ -145,3 +144,8 @@ block main
 
 append js
     include ../partials/scripts/home-script.jade
+
+    script(type="text/javascript").
+
+        new Vivus('debtman', {duration: 200});
+        new Vivus('workshop', {duration: 200});

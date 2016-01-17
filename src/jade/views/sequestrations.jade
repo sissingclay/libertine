@@ -25,14 +25,12 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-19-sequestration.svg
 
             h1 Sequestrations
 
             p(class='lb-content_main-text').
                 Drastic times call for drastic measures
-
-            include ../partials/cta/cta-red
 
 
         section(class='lb-content lb-content_grey')
@@ -62,3 +60,7 @@ block main
 
             include ../partials/cta/cta-red
 
+append js
+    script(type="text/javascript").
+
+        new Vivus('sequestration', {duration: 200});

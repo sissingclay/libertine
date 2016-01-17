@@ -25,14 +25,12 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-17-administration.svg
 
             h1 Administration of estates
 
             p(class='lb-content_main-text').
                 Dependable advice & sustainable solutions
-
-            include ../partials/cta/cta-red
 
 
         section(class='lb-content lb-content_grey')
@@ -74,3 +72,8 @@ block main
 
             include ../partials/cta/cta-red
 
+append js
+
+    script(type="text/javascript").
+
+        new Vivus('admin', {duration: 200});

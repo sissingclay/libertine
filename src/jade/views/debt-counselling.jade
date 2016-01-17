@@ -25,14 +25,12 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-16-debtcounselling.svg
 
             h1 Debt counselling
 
             p(class='lb-content_main-text').
                 Empower yourself through proper <strong>debt counselling</strong>.
-
-            include ../partials/cta/cta-red
 
 
         section(class='lb-content lb-content_grey')
@@ -75,3 +73,7 @@ block main
 
             include ../partials/cta/cta-red
 
+append js
+    script(type="text/javascript").
+
+        new Vivus('debtcounselling', {duration: 200});

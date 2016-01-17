@@ -24,6 +24,8 @@ block main
 
         section(class='lb-content lb-content-constraint__large text-center')
 
+            include ../../svgs/icon-05-aboutus.svg
+
             h1 Kim Armfield & Associates
 
             p.
@@ -40,3 +42,7 @@ block main
 
         include ../partials/cta/cta-red
 
+append js
+    script(type="text/javascript").
+
+        new Vivus('aboutus', {duration: 200});

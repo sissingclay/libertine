@@ -24,7 +24,7 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-05-aboutus.svg
 
             h1 When you are feeling the pressure, you need the right team in your corner
 
@@ -73,3 +73,8 @@ block main
     section(class='lb-content lb-content_purple')
 
         include ../partials/cta/cta-red
+
+append js
+    script(type="text/javascript").
+
+        new Vivus('aboutus', {duration: 200});

@@ -30,6 +30,8 @@ block main
 
         section(class='lb-content lb-content_main')
 
+            include ../../svgs/icon-08-support.svg
+
             h1 Support
 
             p(class='lb-content_main-text').
@@ -62,3 +64,8 @@ block main
 
 
         include ../partials/faqs
+
+append js
+    script(type="text/javascript").
+
+        new Vivus('support', {duration: 200});

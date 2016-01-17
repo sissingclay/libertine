@@ -25,14 +25,12 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-18-creditclearance.svg
 
             h1 Credit clearance
 
             p(class='lb-content_main-text').
                 Detailed analysis, fresh approach.<br>
-
-            include ../partials/cta/cta-red
 
 
         section(class='lb-content lb-content_grey text-center')
@@ -95,3 +93,7 @@ block main
 
             include ../partials/cta/cta-red
 
+append js
+    script(type="text/javascript").
+
+        new Vivus('credit', {duration: 200});

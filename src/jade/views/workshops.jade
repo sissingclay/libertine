@@ -25,12 +25,12 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
+            include ../../svgs/icon-03-workshops.svg
 
             h1 Workshops
 
             p(class='lb-content_main-text').
-                Education is the key to proper personal finance. <br>
+                Education is the key to proper <strong>personal finance</strong>. <br>
                 Take advantage of our expertise!
 
 
@@ -49,3 +49,8 @@ block main
         section(class='lb-content lb-content_purple')
 
             include ../partials/cta/cta-touch
+
+append js
+    script(type="text/javascript").
+
+        new Vivus('workshop', {duration: 200});

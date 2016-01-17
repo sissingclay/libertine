@@ -364,6 +364,16 @@ small {
     color: $grey-dark-color;
 }
 
+svg {
+    width: 120px;
+    height: 120px;
+    fill: none !important;
+}
+
+.cls-1, .cls-2 {
+    fill: none !important;
+}
+
 .lb-unordered-list {
     @include rem(margin, 0 0 $section);
     padding: 0;

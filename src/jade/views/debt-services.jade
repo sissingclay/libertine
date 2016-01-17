@@ -30,9 +30,10 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
-            img(src='#{path}/svg/04-debt_mng.svg', width='120')
+            include ../../svgs/icon-06-debtservices.svg
+
             h1 Debt services
+
             p(class='lb-content_main-text').
                 <b>Is there a more efficient way to manage your debt?</b><br>
                 We think so.
@@ -122,3 +123,8 @@ block main
         section(class='lb-content lb-content_purple')
 
             include ../partials/cta/cta-red.jade
+
+append js
+    script(type="text/javascript").
+
+        new Vivus('debtservice', {duration: 200});

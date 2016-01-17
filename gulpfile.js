@@ -143,7 +143,7 @@
 
     gulp.task('svg', function () {
         return gulp.src([paths.svg])
-            .pipe(svgmin())
+            //.pipe(svgmin())
             .pipe(gulp.dest(paths.dist + 'svg/'));
     });
 

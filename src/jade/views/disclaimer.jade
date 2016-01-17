@@ -25,6 +25,8 @@ block main
 
         section(class='lb-content lb-content_main')
 
+            include ../../svgs/icon-14-disclaimer.svg
+
             h1 Disclaimer
 
             p(class='lb-content_main-text').
@@ -207,3 +209,8 @@ block main
         section(class='lb-content lb-content_purple')
 
             include ../partials/cta/cta-red.jade
+
+append js
+    script(type="text/javascript").
+
+        new Vivus('disclaimer', {duration: 200});

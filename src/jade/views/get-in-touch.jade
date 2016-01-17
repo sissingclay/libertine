@@ -30,8 +30,7 @@ block main
 
         section(class='lb-content lb-content_main')
 
-            img(src='#{path}/svg/05-debt_mng.svg', width='120')
-            img(src='#{path}/svg/13-trust.svg', width='120')
+            include ../../svgs/icon-11-getintouch.svg
 
             h1 Get in touch
 
@@ -79,3 +78,7 @@ block main
 
 append js
     include ../partials/scripts/forms-script
+
+    script(type="text/javascript").
+
+        new Vivus('getin', {duration: 200});
