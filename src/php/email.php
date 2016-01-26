@@ -6,95 +6,199 @@
  * Time: 16:20
  */
 
-require($_SERVER["DOCUMENT_ROOT"].'/sendgrid-php/sendgrid-php.php');
-
-$sendgrid_username  = 'libertine';
-$sendgrid_password  = 'julie007';
-$to                 = 'claysissing@gmail.com';
-$name               = 'Joe Doe';
-
-$_POST              = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-$form               = $_POST['email'];
-
-$sendgrid           = new SendGrid($sendgrid_username, $sendgrid_password, array("turn_off_ssl_verification" => true));
-$email              = new SendGrid\Email();
+$uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
+$api_key    = "k4JeokURtEcIlFCVxHnNGA";
+$data       = null;
 
 if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
 {
-    $email->addTo($to)->
-    setFrom($form)->
-    setSubject('Get in touch form - %fullName%')->
-    setText(
-        'Enquiry: %enquiry% \n
-        Contact Number: %number%\n
-        Full name: %fullName%\n
-        email: %email%'
-    )->
-    setHtml(
-        'Enquiry: %enquiry% \n
-        Contact Number: %number%\n
-        Full name: %fullName%\n
-        email: %email%'
-    )->
-    addSubstitution("%fullName%", array($_POST['fullName']))->
-    addSubstitution("%number%", array($_POST['number']))->
-    addSubstitution("%email%", array($_POST['email']))->
-    addSubstitution("%enquiry%", array($_POST['enquiry']));
+
+    $postString = '{
+        "key": '.$api_key.',
+        "template_name": "touch_internal",
+        "template_content": [
+            {
+                "name": "first",
+                "content": "example content"
+            }
+        ],
+        "message": {
+            "from_email": "'.$_POST['email'].'",
+            "from_name": "'.$_POST['fullName'].'",
+            "to": [
+                {
+                    "email": "info@libertineconsultants.co.za",
+                    "name": "Info",
+                    "type": "to"
+                }
+            ],
+            "headers": {
+                "Reply-To": "'.$_POST['email'].'"
+            },
+            "global_merge_vars": [
+                {
+                    "content": "'.$_POST['fullName'].'",
+                    "name": "full_name"
+                },
+                {
+                    "content": "'.$_POST['email'].'",
+                    "name": "email"
+                },
+                {
+                    "content": "'.$_POST['enquiry'].'",
+                    "name": "message"
+                },
+                {
+                    "content": "'.$_POST['number'].'",
+                    "name": "contact"
+                }
+            ]
+        }
+    }';
+
+    $result = sendData($uri, $postString);
+    $data   = json_decode($result, true);
 }
 
 
 if($_POST['formName'] == 'apply' && empty($_POST['isBot']))
 {
-    $email->addTo($to)->
-    setFrom($form)->
-    setSubject('Apply for debt relief form - %fullName%')->
-    setText(
-        'employed: %enquiry% \n
-        location: %enquiry% \n
-        position: %enquiry% \n
-        arrears: %enquiry% \n
-        garnishees: %enquiry% \n
-        blacklisted: %enquiry% \n
-        review: %enquiry% \n
-        debt: %enquiry% \n
-        creditors: %enquiry% \n
-        married: %enquiry% \n
-        Contact Number: %number%\n
-        Full name: %fullName%\n
-        email: %email%'
-    )->
-    setHtml(
-        'employed: %employed% \n
-        location: %location% \n
-        position: %position% \n
-        arrears: %arrears% \n
-        garnishees: %garnishees% \n
-        blacklisted: %blacklisted% \n
-        review: %review% \n
-        debt: %debt% \n
-        creditors: %creditors% \n
-        married: %married% \n
-        Contact Number: %number%\n
-        Full name: %fullName%\n
-        email: %email%'
-    )->
-    addSubstitution("%fullName%", array($_POST['fullName']))->
-    addSubstitution("%number%", array($_POST['number']))->
-    addSubstitution("%email%", array($_POST['email']))->
-    addSubstitution("%creditors%", array($_POST['creditors']))->
-    addSubstitution("%debt%", array($_POST['debt']))->
-    addSubstitution("%review%", array($_POST['review']))->
-    addSubstitution("%blacklisted%", array($_POST['blacklisted']))->
-    addSubstitution("%garnishees%", array($_POST['garnishees']))->
-    addSubstitution("%arrears%", array($_POST['arrears']))->
-    addSubstitution("%position%", array($_POST['position']))->
-    addSubstitution("%location%", array($_POST['location']))->
-    addSubstitution("%employed%", array($_POST['employed']))->
-    addSubstitution("%married%", array($_POST['married']));
+
+    $postString = '{
+        "key": '.$api_key.',
+        "template_name": "apply",
+        "template_content": [
+            {
+                "name": "first",
+                "content": "example content"
+            }
+        ],
+        "message": {
+            "from_email": "'.$_POST['email'].'",
+            "from_name": "'.$_POST['fullName'].'",
+            "to": [
+                {
+                    "email": "info@libertineconsultants.co.za",
+                    "name": "Info",
+                    "type": "to"
+                }
+            ],
+            "headers": {
+                "Reply-To": "'.$_POST['email'].'"
+            },
+            "global_merge_vars": [
+                {
+                    "content": "'.$_POST['fullName'].'",
+                    "name": "full_name"
+                },
+                {
+                    "content": "'.$_POST['number'].'",
+                    "name": "number"
+                },
+                {
+                    "content": "'.$_POST['email'].'",
+                    "name": "email"
+                },
+                {
+                    "content": "'.$_POST['creditors'].'",
+                    "name": "creditors"
+                },
+                {
+                    "content": "'.$_POST['debt'].'",
+                    "name": "debt"
+                },
+                {
+                    "content": "'.$_POST['review'].'",
+                    "name": "review"
+                },
+                {
+                    "content": "'.$_POST['blacklisted'].'",
+                    "name": "blacklisted"
+                },
+                {
+                    "content": "'.$_POST['garnishees'].'",
+                    "name": "garnishees"
+                },
+                {
+                    "content": "'.$_POST['arrears'].'",
+                    "name": "arrears"
+                },
+                {
+                    "content": "'.$_POST['position'].'",
+                    "name": "position"
+                },
+                {
+                    "content": "'.$_POST['location'].'",
+                    "name": "location"
+                },
+                {
+                    "content": "'.$_POST['employed'].'",
+                    "name": "employed"
+                },
+                {
+                    "content": "'.$_POST['married'].'",
+                    "name": "married"
+                }
+            ]
+        }
+    }';
+
+    $result = sendData($uri, $postString);
+    $data   = json_decode($result, true);
 }
 
-$response = $sendgrid->send($email);
+function sendData($uri, $postString) {
 
-if ($response) {
-    header("Location: http://www.libertineconsultants.co.za/thank-you.html");
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+
+    $result = curl_exec($ch);
+
+    return $result;
+}
+
+
+
+if ($data[0]["status"] == 'sent') {
+
+    $postString = '{
+        "key": '.$api_key.',
+        "template_name": "touch",
+        "template_content": [
+            {
+                "name": "first",
+                "content": "example content"
+            }
+        ],
+        "message": {
+            "from_email": "info@libertineconsultants.co.za",
+            "from_name": "Libertine Consultants",
+            "to": [
+                {
+                    "email": "'.$_POST['email'].'",
+                    "name": "'.$_POST['fullName'].'",
+                    "type": "to"
+                }
+            ],
+            "headers": {
+                "Reply-To": "info@libertineconsultants.co.za"
+            },
+            "global_merge_vars": [
+                {
+                    "content": "'.$_POST['fullName'].'",
+                    "name": "name"
+                }
+            ]
+        }
+    }';
+
+    sendData($uri, $postString);
+
+    //done. redirect to thank-you page.
+    header('Location: test/thank-you.html');
 }
