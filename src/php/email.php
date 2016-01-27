@@ -23,8 +23,8 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
             }
         ],
         "message": {
-            "from_email": "'.$_POST['email'].'",
-            "from_name": "'.$_POST['fullName'].'",
+            "from_email": "info@libertineconsultants.co.za",
+            "from_name": "Get In Touch",
             "to": [
                 {
                     "email": "info@libertineconsultants.co.za",
