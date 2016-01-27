@@ -180,7 +180,6 @@
             'sass',
             'img',
             'svg',
-            'usemin',
             'sitemap',
             'php',
             'dependenciesjs'
