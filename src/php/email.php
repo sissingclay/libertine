@@ -16,6 +16,7 @@ $botCheckData   = array(
 );
 
 $isBotCheck     = sendData($botCheck, $botCheckData);
+$isBotCheck     = json_decode(json_encode($isBotCheck), true);
 
 echo '<pre>';
 print_r($isBotCheck);
@@ -25,7 +26,7 @@ $uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
 $api_key    = "k4JeokURtEcIlFCVxHnNGA";
 $data       = null;
 
-if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
+if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
 
     $postString = '{
@@ -38,8 +39,8 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
             }
         ],
         "message": {
-            "from_email": "info@libertineconsultants.co.za",
-            "from_name": "Get In Touch",
+            "from_email": "website@libertineconsultants.co.za",
+            "from_name": "Get in touch",
             "to": [
                 {
                     "email": "info@libertineconsultants.co.za",
@@ -76,7 +77,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
 }
 
 
-if($_POST['formName'] == 'apply' && empty($_POST['isBot']))
+if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
 
     $postString = '{
@@ -89,8 +90,8 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']))
             }
         ],
         "message": {
-            "from_email": "'.$_POST['email'].'",
-            "from_name": "'.$_POST['fullName'].'",
+            "from_email": "website@libertineconsultants.co.za",
+            "from_name": "Apply for debt relief",
             "to": [
                 {
                     "email": "info@libertineconsultants.co.za",
@@ -184,7 +185,7 @@ echo '</pre>';
 if ($data[0]["status"] == 'sent') {
 
     $postString = '{
-        "key": '.$api_key.',
+        "key": "'.$api_key.'",
         "template_name": "touch",
         "template_content": [
             {
