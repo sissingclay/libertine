@@ -182,7 +182,14 @@
             'svg',
             'sitemap',
             'php',
-            'dependenciesjs',
+            'dependenciesjs'
+        );
+    });
+
+    gulp.task('build-prod-after', function () {
+
+        runSequence(
+            'php',
             'usemin'
         );
     });
