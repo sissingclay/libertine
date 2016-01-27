@@ -10,10 +10,10 @@
 $botCheck       = "https://www.google.com/recaptcha/api/siteverify";
 $botCheck_api   = "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2";
 
-$botCheckData   = '{
-    "secret": "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2",
-    "response": "'.$_POST['g-recaptcha-response'].'"
-}';
+$botCheckData   = array(
+    "secret"    => "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2",
+    "response"  => $_POST['g-recaptcha-response']
+);
 
 $isBotCheck     = sendData($botCheck, $botCheckData);
 
