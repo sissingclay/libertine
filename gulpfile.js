@@ -182,7 +182,8 @@
             'svg',
             'sitemap',
             'php',
-            'dependenciesjs'
+            'dependenciesjs',
+            'usemin'
         );
     });
 
