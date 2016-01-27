@@ -6,6 +6,21 @@
  * Time: 16:20
  */
 
+
+$botCheck       = "https://www.google.com/recaptcha/api/siteverify";
+$botCheck_api   = "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2";
+
+$botCheckData   = '{
+    "secret": "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2",
+    "response": "'.$_POST['g-recaptcha-response'].'"
+}';
+
+$isBotCheck     = sendData($botCheck, $botCheckData);
+
+echo '<pre>';
+print_r($isBotCheck);
+echo '</pre>';
+
 $uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
 $api_key    = "k4JeokURtEcIlFCVxHnNGA";
 $data       = null;
