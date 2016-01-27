@@ -14,7 +14,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']))
 {
 
     $postString = '{
-        "key": '.$api_key.',
+        "key": "'.$api_key.'",
         "template_name": "touch_internal",
         "template_content": [
             {
