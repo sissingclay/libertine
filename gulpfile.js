@@ -130,7 +130,7 @@
 
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
-        return gulp.src('~/src/github.com/sissingclay/libertine/build/test/**/*.html')
+        return gulp.src('~/clone/build/test/**/*.html')
             .pipe(usemin({
                 css: [minifyCss, rev],
                 html: [ function () {return minifyHtml({ empty: true });} ],
