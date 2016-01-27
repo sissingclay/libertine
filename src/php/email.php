@@ -162,7 +162,9 @@ function sendData($uri, $postString) {
     return $result;
 }
 
-
+echo '<pre>';
+print_r($data);
+echo '</pre>';
 
 if ($data[0]["status"] == 'sent') {
 
