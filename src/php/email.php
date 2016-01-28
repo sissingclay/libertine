@@ -25,6 +25,8 @@ $data       = null;
 if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
 
+    $template_name = "touch";
+
     $postString = '{
         "key": "'.$api_key.'",
         "template_name": "touch_internal",
@@ -75,6 +77,8 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
 
 if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
+
+    $template_name = "apply_c";
 
     $postString = '{
         "key": '.$api_key.',
@@ -178,7 +182,7 @@ if ($data[0]["status"] == 'sent') {
 
     $postString = '{
         "key": "'.$api_key.'",
-        "template_name": "touch",
+        "template_name": "'.$template_name.'",
         "template_content": [
             {
                 "name": "first",

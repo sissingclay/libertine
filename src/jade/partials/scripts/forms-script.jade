@@ -163,7 +163,7 @@ script(type="text/javascript").
         var is_valid = checkoutForm(form);
 
         if(is_valid) {
-            ajax().post('/test/php/email.php', serialize(form)).success(function(data) {
+            ajax().post('/php/email.php', serialize(form)).success(function(data) {
                 window.location =  "#{path}/thank-you.html";
             });
     }

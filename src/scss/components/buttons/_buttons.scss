@@ -50,6 +50,15 @@
         }
     }
 
+    &.lb-btn__inverse {
+        color: $white-color;
+        border-color: $white-color;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+
     &.lb-btn_white {
         color: $white-color;
         border-color: $white-color;

@@ -1,0 +1,22 @@
+@import './src/scss/components/base/base-mixin';
+
+body, html {
+    background-color: $red-color;
+}
+
+.lb-internal h1.title-404, .lb-internal .lb-content_main .lb-content_main-text {
+    color: $white-color;
+}
+
+img {
+    width: 50%;
+    height: auto;
+    @include rem(margin-bottom, 40px);
+}
+
+@include bp(medium) {
+    img {
+        width: auto;
+        height: auto;
+    }
+}
