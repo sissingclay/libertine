@@ -163,10 +163,16 @@ script(type="text/javascript").
         var is_valid = checkoutForm(form);
 
         if(is_valid) {
+
+            document.querySelector('.spinner').className += ' spinner__show';
+            document.querySelector('.submit-btn-js').disabled = true;
+
             ajax().post('/php/email.php', serialize(form)).success(function(data) {
                 window.location =  "#{path}/thank-you.html";
+            }).error(function(data) {
+                document.querySelector('.error-js').innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call or email us.';
             });
-    }
+        }
     });
 
     function hasClass(el, clss) {

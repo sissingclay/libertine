@@ -65,8 +65,16 @@ block main
                 div(class='lb-form-section')
                     div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
 
-                div(class='lb-form-section')
-                    button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit
+                div(class='lb-form-section', style='position: relative;')
+
+                    button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Submit
+
+                    div(class='spinner')
+                        div(class='double-bounce1')
+                        div(class='double-bounce2')
+
+                div(class='lb-form-section error-js', style='clear: both;')
+
 
         section(class='lb-content lb-content_purple')
 

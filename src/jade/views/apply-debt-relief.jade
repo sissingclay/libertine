@@ -184,9 +184,14 @@ block main
                     button(type='hidden', name='formName', value='apply')
                     button(type='hidden', name='isBot', value='')
 
-                div(class='lb-form-section')
+                div(class='lb-form-section', style='position: relative;')
                     div(class="lb-form-section__text lb-form-section__privacy") We respect your <a href="#{path}#{data.privacy.en.href}">privacy</a>.
-                    button(type='submit' name='submit' class='lb-btn lb-btn_action lb-btn_action-pull-right') Submit
+                    button(type='submit' name='submit' class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Submit
+                    div(class='spinner')
+                        div(class='double-bounce1')
+                        div(class='double-bounce2')
+
+                div(class='lb-form-section error-js', style='clear: both;')
 
         section(class='lb-content lb-content_purple')
 
