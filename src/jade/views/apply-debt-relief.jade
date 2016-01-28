@@ -177,6 +177,9 @@ block main
                         input(type='text', name='email', class='lb-form-input lb-form-interaction', id='email',
                         placeholder="email@example.co.za", data-form='email', required)
 
+                div(class='lb-form-section')
+                    div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+
                 div(class='lb-form-section lb-form-section--hidden')
                     button(type='hidden', name='formName', value='apply')
                     button(type='hidden', name='isBot', value='')
@@ -201,7 +204,7 @@ block main
 
 append js
     include ../partials/scripts/forms-script
-
+    script(src='https://www.google.com/recaptcha/api.js')
     script(type="text/javascript").
 
         new Vivus('apply', {duration: 200});

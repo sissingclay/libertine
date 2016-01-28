@@ -16,11 +16,7 @@ $botCheckData   = array(
 );
 
 $isBotCheck     = sendData($botCheck, $botCheckData);
-$isBotCheck     = json_decode(json_encode($isBotCheck), true);
-
-echo '<pre>';
-print_r($isBotCheck);
-echo '</pre>';
+$isBotChecked   = json_decode($isBotCheck, true);
 
 $uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
 $api_key    = "k4JeokURtEcIlFCVxHnNGA";
@@ -40,7 +36,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
         ],
         "message": {
             "from_email": "website@libertineconsultants.co.za",
-            "from_name": "Get in touch",
+            "from_name": "Website",
             "to": [
                 {
                     "email": "info@libertineconsultants.co.za",
@@ -91,7 +87,7 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
         ],
         "message": {
             "from_email": "website@libertineconsultants.co.za",
-            "from_name": "Apply for debt relief",
+            "from_name": "Website",
             "to": [
                 {
                     "email": "info@libertineconsultants.co.za",
@@ -178,10 +174,6 @@ function sendData($uri, $postString) {
     return $result;
 }
 
-echo '<pre>';
-print_r($data);
-echo '</pre>';
-
 if ($data[0]["status"] == 'sent') {
 
     $postString = '{
@@ -209,14 +201,11 @@ if ($data[0]["status"] == 'sent') {
             "global_merge_vars": [
                 {
                     "content": "'.$_POST['fullName'].'",
-                    "name": "name"
+                    "name": "fullName"
                 }
             ]
         }
     }';
 
     sendData($uri, $postString);
-
-    //done. redirect to thank-you page.
-    header('Location: test/thank-you.html');
 }
