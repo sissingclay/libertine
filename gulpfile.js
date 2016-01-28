@@ -44,12 +44,12 @@
             'sassViews': './src/scss/views/**/*.scss',
             'sass': './src/scss/**/*.scss',
             'build': './build/',
-            'html': './build/test/**/*.html',
+            'html': './build/**/*.html',
             'img': './src/img/*',
             'svg': './src/svgs/*',
             'php': './src/php/*',
             'dependenciesjs': './bower_components/fontfaceobserver/fontfaceobserver.js',
-            'dist': './build/test/'
+            'dist': './build/'
         };
 
     // watch files for changes and reload
@@ -130,7 +130,7 @@
 
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
-        return gulp.src('./build/test/**/*.html')
+        return gulp.src('./build/**/*.html')
             .pipe(usemin({
                 css: [minifyCss, rev],
                 html: [ function () {return minifyHtml({ empty: true });} ],
