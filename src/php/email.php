@@ -74,14 +74,13 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
     $data   = json_decode($result, true);
 }
 
-
 if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
 
     $template_name = "apply_c";
 
-    $postString = '{
-        "key": '.$api_key.',
+    $test = '{
+        "key": "'.$api_key.'",
         "template_name": "apply",
         "template_content": [
             {
@@ -105,15 +104,15 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
             "global_merge_vars": [
                 {
                     "content": "'.$_POST['fullName'].'",
-                    "name": "full_name"
+                    "name": "fullname"
                 },
                 {
                     "content": "'.$_POST['number'].'",
-                    "name": "number"
+                    "name": "numbers"
                 },
                 {
                     "content": "'.$_POST['email'].'",
-                    "name": "email"
+                    "name": "emails"
                 },
                 {
                     "content": "'.$_POST['creditors'].'",
@@ -121,15 +120,15 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
                 },
                 {
                     "content": "'.$_POST['debt'].'",
-                    "name": "debt"
+                    "name": "debts"
                 },
                 {
                     "content": "'.$_POST['review'].'",
-                    "name": "review"
+                    "name": "reviews"
                 },
                 {
                     "content": "'.$_POST['blacklisted'].'",
-                    "name": "blacklisted"
+                    "name": "blacklisteds"
                 },
                 {
                     "content": "'.$_POST['garnishees'].'",
@@ -141,25 +140,25 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
                 },
                 {
                     "content": "'.$_POST['position'].'",
-                    "name": "position"
+                    "name": "positions"
                 },
                 {
                     "content": "'.$_POST['location'].'",
-                    "name": "location"
+                    "name": "locations"
                 },
                 {
                     "content": "'.$_POST['employed'].'",
-                    "name": "employed"
+                    "name": "employeds"
                 },
                 {
                     "content": "'.$_POST['married'].'",
-                    "name": "married"
+                    "name": "marrieds"
                 }
             ]
         }
     }';
 
-    $result = sendData($uri, $postString);
+    $result = sendData($uri, $test);
     $data   = json_decode($result, true);
 }
 
