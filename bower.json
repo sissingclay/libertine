@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "bourbon": "~4.2.6",
-    "walkway.js": "~0.0.5"
+    "walkway.js": "~0.0.5",
+    "picturefill": "3.0.1"
   }
 }

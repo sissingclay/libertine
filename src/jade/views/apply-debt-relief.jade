@@ -114,10 +114,10 @@ block main
                         label(for='review_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') What is the total debt you owe?
+                    label(for='total_debt', class='lb-form-label') What is the total debt you owe?
 
                     div(class='lb-form-section--inline__container')
-                        select(class="lb-form-interaction", name='debt', data-form, required)
+                        select(class="lb-form-interaction", name='debt', id='total_debt', data-form, required)
                             option(value='') Select an option
                             option(value='250 000') R100 - R250 000
                             option(value='500 000') R250 001 - R500 000
@@ -125,10 +125,10 @@ block main
                             option(value='1 000 000') R1 000 000+
 
                 div(class='lb-form-section lb-form-section--inline')
-                    label(for='name', class='lb-form-label') How many creditors do you have?
+                    label(for='creditors', class='lb-form-label') How many creditors do you have?
 
                     div(class='lb-form-section--inline__container')
-                        select(class="lb-form-interaction", name='creditors', data-form, required)
+                        select(class="lb-form-interaction", name='creditors', id='creditors', data-form, required)
                             option(value='') Select an option
                             option(value='10') 1 - 10
                             option(value='20') 11 - 20
@@ -161,21 +161,21 @@ block main
 
                     div(class='lb-form-section--inline__container')
                         input(type='text', name='fullName', class='lb-form-input lb-form-interaction', id='fullName',
-                        placeholder="Joe Doe", data-form, required)
+                        placeholder="Joe Doe", data-form, autocomplete='name', required)
 
                 div(class='lb-form-section lb-form-section--inline')
                     label(for='number', class='lb-form-label') Contact number
 
                     div(class='lb-form-section--inline__container')
                         input(type='text', name='number', class='lb-form-input lb-form-interaction', id='number',
-                        placeholder="0722262925", data-form, required)
+                        placeholder="0722262925", data-form, autocomplete='tel', required)
 
                 div(class='lb-form-section lb-form-section--inline remove-border')
                     label(for='email', class='lb-form-label') Email address
 
                     div(class='lb-form-section--inline__container')
                         input(type='text', name='email', class='lb-form-input lb-form-interaction', id='email',
-                        placeholder="email@example.co.za", data-form='email', required)
+                        placeholder="email@example.co.za", data-form='email', autocomplete='email', required)
 
                 div(class='lb-form-section')
                     div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")

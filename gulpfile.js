@@ -48,7 +48,7 @@
             'img': './src/img/*',
             'svg': './src/svgs/*',
             'php': './src/php/*',
-            'dependenciesjs': './bower_components/fontfaceobserver/fontfaceobserver.js',
+            'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
             'dist': './build/'
         };
 
@@ -153,7 +153,7 @@
     });
 
     gulp.task('dependenciesjs', function () {
-        return gulp.src([paths.dependenciesjs])
+        return gulp.src(paths.dependenciesjs)
             .pipe(gulp.dest(paths.dist + 'js/'));
     });
 

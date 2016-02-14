@@ -1,16 +1,18 @@
-@import './src/scss/components/base/base-mixin';
-@import "./src/scss/components/grid/grid-medium";
-@import "./src/scss/components/helpers/helpers-medium";
-@import "./src/scss/components/language/language-medium";
-@import "./src/scss/components/normalise/normalise-medium";
-@import "./src/scss/components/hero/hero-medium";
-@import "./src/scss/components/menu/menu-medium";
-@import "./src/scss/components/footer/footer-medium";
-@import "./src/scss/components/containers/containers-medium";
-@import "./src/scss/components/buttons/buttons-medium";
-@import "./src/scss/components/header/header-medium";
-@import "./src/scss/components/get_touch/get-touch-medium";
-@import "./src/scss/components/touch/touch-medium";
-@import "./src/scss/components/stats/stats-medium";
-@import "./src/scss/components/animate/animate-medium";
-@import "./src/scss/components/faqs/faqs-medium";
+@media (min-width: 48.000em) {
+    @import './src/scss/components/base/base-mixin';
+    @import "./src/scss/components/grid/grid-medium";
+    @import "./src/scss/components/helpers/helpers-medium";
+    @import "./src/scss/components/language/language-medium";
+    @import "./src/scss/components/normalise/normalise-medium";
+    @import "./src/scss/components/hero/hero-medium";
+    @import "./src/scss/components/menu/menu-medium";
+    @import "./src/scss/components/footer/footer-medium";
+    @import "./src/scss/components/containers/containers-medium";
+    @import "./src/scss/components/buttons/buttons-medium";
+    @import "./src/scss/components/header/header-medium";
+    @import "./src/scss/components/get_touch/get-touch-medium";
+    @import "./src/scss/components/touch/touch-medium";
+    @import "./src/scss/components/stats/stats-medium";
+    @import "./src/scss/components/animate/animate-medium";
+    @import "./src/scss/components/faqs/faqs-medium";
+}

@@ -26,17 +26,18 @@ html(lang='en')
             meta(name='google-site-verification', content='ww11v4k5h5PRcIK0rSM42lewh1eDcDMgAn57KstPzNY')
             meta(name='viewport', content='width=device-width, initial-scale=1.0')
 
-        link(rel='shortcut icon', type='image/x-icon', href='/img/favicon-new.ico')
+        block socialMeta
+            meta(property="og:image", content="http://www.libertineconsultants.co.za/img/libertine-og.jpg")
+
+        link(rel='shortcut icon', type='image/x-icon', href='http://www.libertineconsultants.co.za/img/favicon-new.ico')
 
         block css
-            // build:css css/common/common.min.css
+            // build:inlinecss
             link(rel='stylesheet' href='css/common/common.css')
             // endbuild
-            // build:css css/common/common-medium.min.css
-            link(rel='stylesheet' href='css/common/common-medium.css' media="(min-width: 48.000em)")
-            // endbuild
-            // build:css css/common/common-large.min.css
-            link(rel='stylesheet' href='css/common/common-large.css' media="(min-width: 64.000em)")
+            // build:css css/common/common-medium-and-large.min.css
+            link(rel='stylesheet', href='css/common/common-medium.css', media="(min-width: 48.000em)")
+            link(rel='stylesheet', href='css/common/common-large.css', media="(min-width: 48.000em)")
             // endbuild
 
         script.

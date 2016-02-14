@@ -57,3 +57,20 @@ block main
 
                 figcaption(class='lb-testimonials-figcaption').
                     Mr & Mrs Wessels, Cape Town
+
+append js
+    script(type="text/javascript").
+        //Load in the ecommerce library
+        ga('require', 'ecommerce');
+
+        var affiliation = '';
+        if(window.location.hash.substr(1).split('#')[0]) {
+            affiliation = window.location.hash.substr(1).split('#')[0];
+        }
+        ga('ecommerce:addTransaction', {
+            'id': new Date().getTime(),    // Transaction ID. Required.
+            'affiliation': affiliation,   // Affiliation or store name.
+            'revenue': '100.00'
+        });
+
+        ga('ecommerce:send');

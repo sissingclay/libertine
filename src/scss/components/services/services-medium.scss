@@ -1,3 +1,10 @@
+.lbService--container {
+    @include align-items(center);
+    @include display(flex);
+    @include flex-direction(row);
+    @include justify-content(center);
+}
+
 .lbService {
     @include span(6 of 12);
 }

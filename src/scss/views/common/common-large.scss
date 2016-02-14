@@ -1,9 +1,11 @@
-@import './src/scss/components/base/base-mixin';
-@import "./src/scss/components/grid/grid-large";
-@import "./src/scss/components/normalise/normalise-large";
-@import "./src/scss/components/hero/hero-large";
-@import "./src/scss/components/containers/containers-large";
-@import "./src/scss/components/buttons/buttons-large";
-@import "./src/scss/components/header/header-large";
-@import "./src/scss/components/menu/menu-large";
-@import "./src/scss/components/stats/stats-large";
+@media (min-width: 64.000em) {
+    @import './src/scss/components/base/base-mixin';
+    @import "./src/scss/components/grid/grid-large";
+    @import "./src/scss/components/normalise/normalise-large";
+    @import "./src/scss/components/hero/hero-large";
+    @import "./src/scss/components/containers/containers-large";
+    @import "./src/scss/components/buttons/buttons-large";
+    @import "./src/scss/components/header/header-large";
+    @import "./src/scss/components/menu/menu-large";
+    @import "./src/scss/components/stats/stats-large";
+}

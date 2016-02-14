@@ -100,61 +100,61 @@ script(type="text/javascript").
 
     function checkedRadioBtn(sGroupName, error_class)
     {
-    var group           = document.getElementsByName(sGroupName),
-    isChecked       = 0;
+        var group           = document.getElementsByName(sGroupName),
+        isChecked       = 0;
 
-    [].forEach.call(group, function (val) {
+        [].forEach.call(group, function (val) {
 
-        if(val.checked) {
+            if(val.checked) {
 
-            isChecked   = 1;
+                isChecked   = 1;
+
+                [].forEach.call(group, function (ele) {
+            if(hasClass(ele.parentNode, error_class)) {
+                removeClass(ele.parentNode, error_class);
+        }
+        });
+
+        return true;
+        }
+        });
+
+        if(isChecked === 0) {
 
             [].forEach.call(group, function (ele) {
-        if(hasClass(ele.parentNode, error_class)) {
-            removeClass(ele.parentNode, error_class);
-    }
-    });
+                if(!hasClass(ele.parentNode, error_class)) {
+                    addClass(ele.parentNode, error_class);
+                }
+            });
 
-    return true;
-    }
-    });
-
-    if(isChecked === 0) {
-
-        [].forEach.call(group, function (ele) {
-        if(!hasClass(ele.parentNode, error_class)) {
-            addClass(ele.parentNode, error_class);
-    }
-    });
-
-    return false;
-    }
+            return false;
+        }
     }
 
     function isFormValid (form) {
 
         var is_for_invalid = true;
 
-    [].forEach.call(form, function (val, index) {
+        [].forEach.call(form, function (val, index) {
 
-    if(typeof val.getAttribute('data-form') === 'string') {
+        if(typeof val.getAttribute('data-form') === 'string') {
 
-    if(val.type !== 'radio') {
-    val.addEventListener('blur', function (ele) {
-    is_for_invalid = checkFormElements(val, form);
-    });
-    }
-
-    if(val.type === 'radio') {
-        val.addEventListener('change', function (ele) {
+        if(val.type !== 'radio') {
+        val.addEventListener('blur', function (ele) {
         is_for_invalid = checkFormElements(val, form);
         });
-    }
+        }
 
-    }
-    });
+        if(val.type === 'radio') {
+            val.addEventListener('change', function (ele) {
+            is_for_invalid = checkFormElements(val, form);
+            });
+        }
 
-    return is_for_invalid;
+        }
+        });
+
+        return is_for_invalid;
     }
 
     isFormValid(form);
@@ -168,7 +168,17 @@ script(type="text/javascript").
             document.querySelector('.submit-btn-js').disabled = true;
 
             ajax().post('/php/email.php', serialize(form)).success(function(data) {
-                window.location =  "#{path}/thank-you.html";
+
+                var affliant = '';
+
+                if (window.location.pathname === '/apply-debt-relief.html') {
+                    affliant = '#apply'
+                }
+
+                if (window.location.pathname === '/get-in-touch.html') {
+                    affliant = '#touch'
+                }
+                window.location =  "#{path}/thank-you.html" + affliant;
             }).error(function(data) {
                 document.querySelector('.error-js').innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call or email us.';
             });
