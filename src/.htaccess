@@ -326,6 +326,12 @@ AddDefaultCharset utf-8
 
     RedirectMatch 301 ^/debt-news/.*$ https://www.libertineconsultants.co.za
 
+    RewriteCond %{HTTP_HOST} !^www\.
+    RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+    RewriteCond %{HTTPS} !on
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
     # (2)
     Options +FollowSymlinks
 
