@@ -134,7 +134,8 @@ script(type="text/javascript").
 
         mapOptions = {
             center: { lat: -33.90076, lng: 18.63510},
-            zoom: 16
+            zoom: 16,
+            scrollwheel: false
         },
 
         map     = new google.maps.Map(document.getElementById('google-map'), mapOptions),
@@ -145,7 +146,6 @@ script(type="text/javascript").
             position: mapOptions.center,
             map: map,
             title: 'Libertine Consultants',
-            scrollwheel: false,
             mapTypeControlOptions: {
                 mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
             },
