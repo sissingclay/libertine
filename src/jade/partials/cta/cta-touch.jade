@@ -3,4 +3,7 @@ div(class='lb-cta lb-cta_center')
     a(href=path + data.get_touch.en.href, class='lb-btn lb-btn--none-bottom') Get in Touch
 
     p(class='lb-cta-push-down')
-        small Need to talk to us? <br> Call <a href='#{data.tel.href}')> #{data.tel.name}</a> for <strong>advice on debt in Cape Town</strong> and rest of South Africa
+        if (touch)
+            small!= touch
+        else
+            small Need to talk to us? <br> Call <a href='#{data.tel.href}')> #{data.tel.name}</a> for <strong>advice on debt in Cape Town</strong> and rest of South Africa

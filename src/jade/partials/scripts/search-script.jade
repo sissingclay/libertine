@@ -155,8 +155,15 @@ script(type="text/javascript").
 
         faqs[i].addEventListener('click', function (e) {
 
+            var title = this.querySelector('.lb-faq__title')
+                    .innerHTML.toLowerCase()
+                    .replace(/[^a-zA-Z0-9]/g, '-')
+                    .replace(/-\s*$/, '');
+
             if (!myModule.hassClass(this, 'lb-faq--active')) {
                 myModule.adddClass(this, 'lb-faq--active');
+                ga('set', 'page', title);
+                ga('send', 'pageview');
                 return;
             }
 
