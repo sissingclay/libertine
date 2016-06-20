@@ -63,6 +63,7 @@ block main
 
             include ../partials/cta/cta-touch
 
+
     section(class='lb-content text-center', id="team")
 
         div(class='lb-content-constraint__large')
@@ -82,7 +83,16 @@ block main
         include ../partials/about-us/about-us-icon-nav
 
 
-    section(class='lb-content lb-content--fine')
+    section(class='lb-content text-center')
+
+        div(class='lb-content-constraint__large')
+
+            h2 So you want to work with us?
+
+            <a href="#{path}#{data.careers.en.href}" class="lb-btn">Careers opportunities</a>
+
+
+    section(class='lb-content lb-content--fine lb-content_grey')
 
         div(class='lb-content-constraint lb-fine-print text-center')
 
