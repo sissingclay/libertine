@@ -1,0 +1,58 @@
+extends ../extends/default.jade
+
+block title
+    title Careers | Jobs at Libertine Consultants | Cape Town
+
+block description
+    meta(name='description', content='We`re hiring! Visit our page for available positions as debt counsellor, administrator and more!')
+
+block variables
+    - var activePage    = path + data.resources.en.href;
+    - var english       = path + data.resources.en.href;
+    - var afrikaans     = path + data.resources.af.href;
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-03-workshops.svg
+
+            h1 Resources
+
+            p(class='lb-content_main-text').
+                A list of resources for your benefit!
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    <a href="http://www.faisombud.co.za" rel="nofollow"><strong>Ombud for Financial Services Providers</strong></a><br>
+                    We believe our first responsibility is to the Constitution of the Republic of South Africa and to the statutory mandate which created our organization. We are completely independent and deal with all disputes fairly and impartially.
+
+                p.
+                    <a href="http://www.cba.co.za" rel="nofollow"><strong>Credit Bureau Association</strong></a><br>
+                    The Credit Bureau Association (CBA) is a voluntary body that promotes fair and equitable services.
+
+
+
+        section(class='lb-content text-center')
+
+            p.
+                <a href="http://www.ncr.org.za" rel="nofollow"><strong>National Credit Regulator</strong></a><br>
+                The National Credit Regulator (NCR) was established as the regulator under the National Credit Act 34 of 2005 (the Act) and is responsible for the regulation of the South African credit industry.
+
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Exchanged links
+
+                p.
+                    <a href="http://www.harleylegal.co.uk"><strong>Debt Collectors London</strong></a><br>
+                    Harley Legal is a top Debt Recovery company based in London UK
