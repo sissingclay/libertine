@@ -4,8 +4,8 @@
   "description": "Libertine Consultants website",
   "main": "index.js",
   "scripts": {
-    "prod": "./node_modules/.bin/gulp build-prod",
-    "postprod": "./node_modules/.bin/gulp build-prod-after"
+    "prod": " /home/rof/src/github.com/sissingclay/libertine/node_modules/.bin/gulp build-prod",
+    "postprod": "/home/rof/src/github.com/sissingclay/libertine/node_modules/.bin/gulp build-prod-after"
   },
   "repository": {
     "type": "git",
