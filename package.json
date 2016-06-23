@@ -4,7 +4,8 @@
   "description": "Libertine Consultants website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prod": "./node_modules/.bin/gulp build-prod",
+    "postprod": "./node_modules/.bin/gulp build-prod-after"
   },
   "repository": {
     "type": "git",
