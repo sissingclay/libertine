@@ -1,6 +1,6 @@
 {
   "name": "libertine",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Libertine Consultants website",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "bower": "^1.7.9",
     "browser-sync": "~2.6.4",
     "del": "~1.1.1",
-    "gulp": "~3.9.0",
+    "gulp": "<=3.8.11",
     "gulp-data": "^1.2.1",
     "gulp-if": "~1.2.5",
     "gulp-imagemin": "~2.2.1",
