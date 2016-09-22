@@ -21,13 +21,24 @@
 }
 
 .lb-hero_internal {
+    padding-bottom:27.476%;
+    background: $smoke;
+    height:0;
+    position:relative;
+
+    img {
+        width:100%;
+        height:100%;
+        display:block;
+        position:absolute;
+    }
+}
+
+.lb-hero_internal--noImage {
     @include rem(max-height, 20rem);
     @include rem(min-height, 6rem);
     overflow: hidden;
     position: relative;
-
-    img {
-        width: 100%;
-        height: auto;
-    }
+    padding-bottom: 0 !important;
+    background: $white-color;
 }

@@ -1,4 +1,4 @@
 .lbService {
     @include span(4 of 12);
-    @include rem(padding, 0 50px);
+    @include rem(padding, 15px 50px 0);
 }

@@ -1,5 +1,7 @@
 .lbService {
     text-align: center;
+    padding-top: 15px;
+    margin-top: -15px;
 
     &.lbService--last {
         @include rem(margin-bottom, 0);

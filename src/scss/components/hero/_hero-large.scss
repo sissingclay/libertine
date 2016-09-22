@@ -18,3 +18,13 @@
         @include rem(max-width, 400px);
     }
 }
+
+.lb-hero_internal {
+    padding-bottom:23.875%;
+}
+
+@media screen and (min-width: 93.750em) {
+    .lb-hero_internal {
+        padding-bottom:17.396%;
+    }
+}

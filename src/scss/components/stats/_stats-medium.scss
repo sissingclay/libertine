@@ -5,11 +5,11 @@
     @include transition-delay(0.5s);
     padding-top: $padding;
     margin-top: -$padding;
+    @include transform(translate(0px, -15px));
 
-    &:hover {
+    &:nth-child(odd) {
         background-color: $smoke;
         @include borderRadius(5px);
-        @include transform(translate(0px, -15px));
     }
 
     p {
