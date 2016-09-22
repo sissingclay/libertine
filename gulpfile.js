@@ -130,7 +130,7 @@
 
     //This should be use for prod build as it bundles css/js
     gulp.task('usemin', function () {
-        return gulp.src('~/clone/build/**/*.html')
+        return gulp.src('./build/**/*.html')
             .pipe(usemin({
                 css: [minifyCss, rev],
                 html: [ function () {return minifyHtml({ empty: true });} ],
@@ -181,9 +181,8 @@
             'img',
             'svg',
             'sitemap',
-            'php',
             'dependenciesjs',
-            'usemin'
+            'build-prod-after'
         );
     });
 
