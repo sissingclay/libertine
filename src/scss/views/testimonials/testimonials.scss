@@ -1,7 +1,7 @@
 @import './src/scss/components/base/base-mixin';
 @import "./src/scss/components/testimonials/testimonials";
 
-@include bp(large) {
+@media (min-width: $media-query-lg) {
     @import "./src/scss/components/testimonials/testimonials-large";
 }
 

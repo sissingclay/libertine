@@ -8,7 +8,7 @@
     var gulp            = require('gulp'),
         browserSync     = require('browser-sync'),
         reload          = browserSync.reload,
-        jade            = require('gulp-jade'),
+        pug            = require('gulp-pug'),
         typescript      = require('gulp-tsc'),
         usemin          = require('gulp-usemin'),
         uglify          = require('gulp-uglify'),
@@ -38,8 +38,8 @@
         options     = minimist(process.argv.slice(2), knownOptions),
 
         paths       = {
-            'jadeViews': './src/jade/views/**/*.jade',
-            'jade': './src/jade/**/*.jade',
+            'jadeViews': './src/jade/views/**/*.pug',
+            'jade': './src/jade/**/*.pug',
             'ts': './src/ts/**/*.ts',
             'sassViews': './src/scss/views/**/*.scss',
             'sass': './src/scss/**/*.scss',
@@ -60,7 +60,7 @@
             }
         });
 
-        gulp.watch(paths.jade, ['jade']);
+        gulp.watch(paths.jade, ['pug']);
         gulp.watch(paths.ts, ['typescript']);
         gulp.watch(paths.sass, ['sass']);
     });
@@ -73,8 +73,8 @@
         gulp.watch(paths.ts, ['typescript']);
     });
 
-    //Compiles jade template into html
-    gulp.task('jade', function () {
+    //Compiles pug template into html
+    gulp.task('pug', function () {
 
         var fileExist;
 
@@ -91,7 +91,7 @@
                     return fileExist;
                 }
             }))
-            .pipe(jade({
+            .pipe(pug({
                 pretty: true
             }))
             .pipe(gulp.dest(paths.dist))
@@ -168,14 +168,14 @@
     gulp.task('build-dev', function () {
 
         runSequence(
-            ['jade', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
+            ['pug', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
         );
     });
 
     gulp.task('build-prod', function () {
 
         runSequence(
-            'jade',
+            'pug',
             'typescript',
             'sass',
             'img',

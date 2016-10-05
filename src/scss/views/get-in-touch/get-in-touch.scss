@@ -2,7 +2,7 @@
 @import "./src/scss/components/form/form";
 @import "./src/scss/components/testimonials/testimonials";
 
-@include bp(large) {
+@media (min-width: $media-query-lg) {
     @import "./src/scss/components/testimonials/testimonials-large";
     @import "./src/scss/components/stats/stats-large";
 }

@@ -3,10 +3,10 @@
 @import "./src/scss/components/form/alternative-form";
 @import "./src/scss/components/testimonials/testimonials";
 
-@include bp(medium) {
+@media (min-width: $media-query-md) {
     @import "./src/scss/components/form/alternative-form-large";
 }
 
-@include bp(large) {
+@media (min-width: $media-query-lg) {
     @import "./src/scss/components/form/alternative-form-large";
 }

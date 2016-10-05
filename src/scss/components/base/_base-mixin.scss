@@ -44,6 +44,9 @@ $max-width-large-rem: 64rem;
 $max-width-medium: 720px;
 $max-width-medium-rem: 45rem;
 
+$media-query-md: 48.000em;
+$media-query-lg: 64.000em;
+
 $speed: 500ms;
 $effect: ease-in-out;
 
@@ -117,9 +120,9 @@ $prefixes: -webkit-, -moz-, -o-, -ms-, "";
 @mixin bp($point) {
 
     @if $point == large {
-        @media (min-width: 64.000em) { @content; }
+        @media (min-width: $media-query-lg) { @content; }
     }
     @else if $point == medium {
-        @media (min-width: 48.000em) { @content; }
+        @media (min-width: $media-query-md) { @content; }
     }
 }

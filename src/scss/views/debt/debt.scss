@@ -1,10 +1,10 @@
 @import './src/scss/components/base/base-mixin';
 @import "./src/scss/components/services/services";
 
-@include bp(medium) {
+@media (min-width: $media-query-md) {
     @import "./src/scss/components/services/services-medium";
 }
 
-@include bp(large) {
+@media (min-width: $media-query-lg) {
     @import "./src/scss/components/services/services-large";
 }
