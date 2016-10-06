@@ -1,0 +1,125 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Debt Services | Cape Town
+
+block description
+    meta(name='description', content='We offer a wide range of debt services with excellent advice. Debt solutions will vary depending on your financial situation')
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/debt/debt.css')
+    // endbuild
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Debt Services")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-06-debtservices.svg
+
+            h1 Debt services
+
+            p(class='lb-content_main-text').
+                <b>Is there a more efficient way to manage your debt?</b><br>
+                We think so.
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint lbServiceJS lbService--container')
+
+
+                div(class='lbService')
+
+                    a(href=path + data.review.en.href)
+
+                        h2(class='lbService_title') #{data.review.en.name}
+
+                        p(class="lbService_description") Allows you to manage all of your debts in one simple payment.
+
+                        div(class="lbService_bottom")
+
+
+                div(class='lbService')
+
+                    a(href=path + data.counselling.en.href)
+
+                        h2(class='lbService_title') #{data.counselling.en.name}
+
+                        p(class="lbService_description") Take care of yourself and your family while you settle your debts.
+
+
+                div(class='lbService')
+
+                    a(href=path + data.credit.en.href)
+
+                        h2(class='lbService_title') #{data.credit.en.name}
+
+                        p(class="lbService_description") We offer a range of credit clearance services.
+
+                        div(class="lbService_bottom lbService_bottom--last")
+
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint lbService--container')
+
+
+                div(class='lbService')
+
+                    a(href=path + data.admin.en.href)
+
+                        h2(class='lbService_title') #{data.admin.en.name}
+
+                        p(class="lbService_description") Offers better protection against creditors' claims.
+
+
+                div(class='lbService')
+
+                    a(href=path + data.sequestrations.en.href)
+
+                        h2(class='lbService_title') #{data.sequestrations.en.name}
+
+                        p(class="lbService_description") Your assets exceed your liabilities, it is often the best course.
+
+
+                div(class='lbService')
+
+                    a(href=path + data.voluntary.en.href)
+
+                        h2(class='lbService_title') #{data.voluntary.en.name}
+
+                        p(class="lbService_description") We make the payments to your creditors on your behalf.
+
+                        div(class="lbService_bottom lbService_bottom--last")
+
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                a(href=path + data.consolidation.en.href)
+
+                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.consolidation.en.name}
+
+                    p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
+
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red

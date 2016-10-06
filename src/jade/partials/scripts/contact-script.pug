@@ -1,0 +1,160 @@
+script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh1zFtcxfOO8AKitdraeyUVHcz3txhHYk")
+script(type="text/javascript").
+
+    var parentElement   = document.querySelectorAll('[data-height]'),
+        height          = 0;
+
+    [].forEach.call(parentElement[0].children, function(val) {
+
+        if (val.offsetHeight > height) {
+            height = val.offsetHeight;
+
+            for(var i=0; parentElement[0].children.length > i; i++) {
+                parentElement[0].children[i].style.height = height + 'px';
+            }
+        }
+    });
+
+    function initialize() {
+
+        var styles =
+            [
+                {
+                    "featureType": "administrative",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 20
+                        }
+                    ]
+                },
+                {
+                    "featureType": "road",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 40
+                        }
+                    ]
+                },
+                {
+                    "featureType": "water",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "on"
+                        },
+                        {
+                            "saturation": -10
+                        },
+                        {
+                            "lightness": 30
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.man_made",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "simplified"
+                        },
+                        {
+                            "saturation": -60
+                        },
+                        {
+                            "lightness": 10
+                        }
+                    ]
+                },
+                {
+                    "featureType": "landscape.natural",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "simplified"
+                        },
+                        {
+                            "saturation": -60
+                        },
+                        {
+                            "lightness": 60
+                        }
+                    ]
+                },
+                {
+                    "featureType": "poi",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 60
+                        }
+                    ]
+                },
+                {
+                    "featureType": "transit",
+                    "elementType": "all",
+                    "stylers": [
+                        {
+                            "visibility": "off"
+                        },
+                        {
+                            "saturation": -100
+                        },
+                        {
+                            "lightness": 60
+                        }
+                    ]
+                }
+            ],
+
+        // Create a new StyledMapType object, passing it the array of styles,
+        // as well as the name to be displayed on the map type control.
+        styledMap = new google.maps.StyledMapType(styles,
+            {name: "Styled Map"}
+        ),
+
+        mapOptions = {
+            center: { lat: -33.90076, lng: 18.63510},
+            zoom: 16,
+            scrollwheel: false
+        },
+
+        map     = new google.maps.Map(document.getElementById('google-map'), mapOptions),
+
+        image   = path + '/img/10-map_pointer.png';
+
+        marker  = new google.maps.Marker({
+            position: mapOptions.center,
+            map: map,
+            title: 'Libertine Consultants',
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            },
+            icon: image
+        });
+
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
+
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);

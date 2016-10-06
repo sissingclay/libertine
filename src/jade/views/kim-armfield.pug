@@ -1,0 +1,43 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Kim Armfield and Associates
+
+block description
+    meta(name='description', content='Kim Armfield & Associates representation when our clients’ debt counselling process requires it')
+
+block variables
+    - var activePage    = nav.about.en.href;
+    - var english       = nav.about.en.href;
+    - var afrikaans     = nav.about.af.href;
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content-constraint__large text-center')
+
+            include ../../svgs/icon-05-aboutus.svg
+
+            h1 Kim Armfield & Associates
+
+            p.
+                Kim Armfield & Associates provide swift, professional legal representation when our clients’ debt
+                counselling process requires it.
+
+
+    section(class='lb-content_grey')
+
+        include ../partials/about-us/about-us-icon-nav
+
+
+    section(class='lb-content lb-content_purple')
+
+        include ../partials/cta/cta-red

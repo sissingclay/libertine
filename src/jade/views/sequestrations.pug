@@ -1,0 +1,61 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Sequestrations
+
+block description
+    meta(name='description', content='Start afresh and prevent further legal action by filing for sequestration. We`ll be there with you every step of the way.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Sequestrations")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-19-sequestration.svg
+
+            h1 Sequestrations
+
+            p(class='lb-content_main-text').
+                Drastic times call for drastic measures
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Sometimes you get to a point where it is necessary to bring everything to a halt, admit that you need
+                    help and start again from scratch.
+
+                p.
+                    Sequestration might be a very drastic debt-relief measure, but when your <strong>assets exceed your liabilities</strong>,
+                    it is often the <strong>best course of action</strong>. This formal process involves a court application where it must be
+                    shown that the consumer has sufficient assets to allow for <strong>repayment of at least 20c/R of their
+                    outstanding debts</strong>.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    <a href="#{path + nav.contact.en.href}" class="lb-link">Contact us</a> to discuss the <strong>advantages and disadvantages of sequestration</strong> and find out if it is the right
+                    solution for you.
+
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red

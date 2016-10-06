@@ -1,0 +1,56 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | CA Life Coaching
+
+block description
+    meta(name='description', content='Experiences tailored to identify and areas of your personal life or business that require change')
+
+block variables
+    - var activePage    = nav.about.en.href;
+    - var english       = nav.about.en.href;
+    - var afrikaans     = nav.about.af.href;
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content text-center', id='coaching')
+
+            div(class='lb-content-constraint__large')
+
+                include ../../svgs/icon-05-aboutus.svg
+
+                h1 CA Life Coaching
+
+                p.
+                    CA Life Coaching* provides coaching, consultation and facilitated learning experiences tailored to
+                    identify and areas of your personal life or business that lack dynamic growth and develop a strategy to
+                    address unproductive habits and out-dated systems.
+
+
+        section(class='lb-content_grey')
+
+            include ../partials/about-us/about-us-icon-nav
+
+
+        section(class='lb-content lb-content--fine')
+
+            div(class='lb-content-constraint lb-fine-print text-center')
+
+                p.
+                    *CA Life Coaching initially traded as a sole proprietor from May 2010. Due to an increase in demand for
+                    its services, the business grew and was registered as a company (CA Life Coaching (Pty) Ltd) in December
+                    2014.
+
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red

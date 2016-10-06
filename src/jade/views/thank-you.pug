@@ -1,0 +1,76 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Thank you
+
+block description
+    meta(name='description', content='Thank you for getting in touch. We`ll contact you soon.')
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/get-in-touch/get-in-touch.css')
+    // endbuild
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_get-in-touch-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_get-in-touch.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_get-in-touch_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_get-in-touch-mobile.jpg", alt="Thank you for getting in touch.")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            img(src=path + '/svg/completed.svg', width='120')
+
+            h1 Thank you
+            p(class='lb-content_main-text').
+                When you are feeling the pressure, you need the <strong>right team</strong> in your corner!
+
+            p.
+                We'll be in touch soon.
+
+        section(class='lb-content lb-content_grey text-center')
+
+            p Follow us on your favourite social media to stay up to date with changes in legislation and its impact. <br>
+                small You are under no obligations to proceed with any services by getting in touch.
+
+            p
+                a(href=data.googlePlus.href, target='_blank', class='lb-social-icon')
+                    img(src=path + '/svg/googleplus.svg', width='40')
+                a(href=data.facebook.href, target='_blank', class='lb-social-icon')
+                    img(src=path + '/svg/facebook.svg', width='40')
+                a(href=data.twitter.href, target='_blank', class='lb-social-icon')
+                    img(src=path + '/svg/twitter.svg', width='40')
+
+        section(class='lb-content lb-content_purple')
+
+            div(class='lb-testimonials lb-testimonials__row')
+
+                blockquote
+                    p(class='lb-testimonials-text').
+                        We are happy to say that through their dedication and our commitment we are now debt free!
+
+                figcaption(class='lb-testimonials-figcaption').
+                    Mr & Mrs Wessels, Cape Town
+
+append js
+    script(type="text/javascript").
+        //Load in the ecommerce library
+        ga('require', 'ecommerce');
+
+        var affiliation = '';
+        if(window.location.hash.substr(1).split('#')[0]) {
+            affiliation = window.location.hash.substr(1).split('#')[0];
+        }
+        ga('ecommerce:addTransaction', {
+            'id': new Date().getTime(),    // Transaction ID. Required.
+            'affiliation': affiliation,   // Affiliation or store name.
+            'revenue': '100.00'
+        });
+
+        ga('ecommerce:send');

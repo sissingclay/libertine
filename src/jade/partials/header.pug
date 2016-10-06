@@ -1,0 +1,22 @@
+header(class='lb-head')
+
+    div(class='lb-head-container')
+
+        section(class='lb-head-logo')
+
+            a(href=path + data.home.en.href)
+                img(src=path + "/img/libertine-logo-fallback.png", srcset=path + "/svg/logo-libertine-consultants.svg", alt="Libertine Consultants")
+
+        section(class='lb-head-mobile-menu lb-hide-medium text-right')
+
+            a(href='', class='lb-mobile-menu') Menu
+
+        nav(class='lb-head-menu', aria-label='Main navigation')
+
+            block activeMenu
+
+                ul
+                    each val, index in nav
+                        +menu-item(val, index)
+
+    //include ../partials/language.jade

@@ -1,0 +1,66 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Support & Help
+
+block description
+    meta(name='description', content='Find questions and answers regarding Debt counselling, Administration and Voluntary distribution FAQ`s')
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/support/support.css')
+    // endbuild
+
+block variables
+    - var activePage    = nav.support.en.href;
+    - var english       = nav.support.en.href;
+    - var afrikaans     = nav.support.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_faqs.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_faqs-mobile.jpg", alt="Support & Help")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-08-support.svg
+
+            h1 Support
+
+            p(class='lb-content_main-text').
+                What can we help you today with?
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint lbServiceJS lbService--container')
+
+                div(class='lbService')
+
+                    a(href=path + data.faqCounselling.en.href)
+
+                        h2(class='lbService_title') #{data.faqCounselling.en.name}
+
+
+                div(class='lbService')
+
+                    a(href=path + data.faqAdmin.en.href)
+
+                        h2(class='lbService_title') #{data.faqAdmin.en.name}
+
+
+                div(class='lbService')
+
+                    a(href=path + data.faqVoluntary.en.href)
+
+                        h2(class='lbService_title') #{data.faqVoluntary.en.name}
+
+
+        include ../partials/faqs

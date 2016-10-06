@@ -1,0 +1,10 @@
+- var afActive = (isAfrikaans ? 'lb-language-list active' : 'lb-language-list');
+- var enActive = (!isAfrikaans ? 'lb-language-list active' : 'lb-language-list');
+
+section(class='lb-language')
+
+    ul(class='lb-language-container')
+        li(class=enActive)
+            a(href=path + english) English
+        li(class=afActive)
+            a(href=path + afrikaans) Afrikaans

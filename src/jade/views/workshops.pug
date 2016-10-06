@@ -1,0 +1,51 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Debt Counselling Workshops
+
+block description
+    meta(name='description', content='Educate your employees or community about proper budgeting and finance. Enquire about Libertine Consultants free workshops today.')
+
+block variables
+    - var activePage    = nav.workshops.en.href;
+    - var english       = nav.workshops.en.href;
+    - var afrikaans     = nav.workshops.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_workshop_mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_workshop.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_workshop_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_workshop_mobile.jpg", alt="Workshops we offer")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-03-workshops.svg
+
+            h1 Workshops
+
+            p(class='lb-content_main-text').
+                Education is the key to proper <strong>personal finance</strong>. <br>
+                Take advantage of our expertise!
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    At Libertine Consultants we believe that prevention is better than cure, which is why we
+                    <strong>offer workshops on budgeting and finance</strong> free of charge to <strong>businesses and community initiatives</strong> every
+                    Wednesday.
+
+                p.
+                    <a href="#{path + nav.contact.en.href}" class="lb-link">Contact us</a> to book a slot and to find out more about our workshop content and schedules.
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-touch

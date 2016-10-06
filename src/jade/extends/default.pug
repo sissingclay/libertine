@@ -1,0 +1,70 @@
+-var path = '';
+include ../partials/variables/variables
+include ../partials/variables/menu-variables
+
+-var assetsPath = '';
+
+block variables
+
+doctype html
+
+html(lang='en')
+
+    head
+
+        meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+
+        block meta
+
+            block title
+                title My Website
+            block description
+                meta(name='description', content='this is a test')
+
+            meta(name='author', content='Libertine Consultants')
+            meta(name='msvalidate.01', content='AB0F4FC0C298F546B6E11AB099848CAB')
+            meta(name='google-site-verification', content='ww11v4k5h5PRcIK0rSM42lewh1eDcDMgAn57KstPzNY')
+            meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+        block socialMeta
+            meta(property="og:image", content="https://www.libertineconsultants.co.za/img/libertine-og.jpg")
+
+        link(rel='shortcut icon', type='image/x-icon', href='https://www.libertineconsultants.co.za/img/favicon-new.ico')
+
+        block css
+            // build:inlinecss
+            link(rel='stylesheet' href='css/common/common.css')
+            // endbuild
+            // build:css /css/common/common-medium-and-large.min.css
+            link(rel='stylesheet', href='css/common/common-medium.css', media="(min-width:48.000em)")
+            link(rel='stylesheet', href='css/common/common-large.css', media="(min-width:48.000em)")
+            // endbuild
+
+        script.
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-12899209-1', 'auto');
+            ga('send', 'pageview');
+
+
+        <!--[if lte IE 8]>
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
+        <![endif]-->
+
+    body
+        div(class='lb-contactDetails')
+
+            div(class='lb-content-constraint lb-content')
+
+                a(href=data.tel.href) #{data.tel.name}
+                a(href=data.email.href) Email Us
+                a(href=path + data.get_touch.en.href) #{data.get_touch.en.name}
+
+        include ../partials/header
+
+        block main
+
+        include ../partials/footer

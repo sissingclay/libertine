@@ -1,0 +1,73 @@
+extends ../extends/default
+
+block title
+    title Careers | Jobs at Libertine Consultants | Cape Town
+
+block description
+    meta(name='description', content='We`re hiring! Visit our page for available positions as debt counsellor, administrator and more!')
+
+block variables
+    - var activePage    = path + data.careers.en.href;
+    - var english       = path + data.careers.en.href;
+    - var afrikaans     = path + data.careers.af.href;
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-05-aboutus.svg
+
+            h1 So you want to work with us?
+
+            p(class='lb-content_main-text').
+                Efficient, compassionate <strong>team</strong> that rely on each other
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 A little about us
+
+                p.
+                    We believe that in order to help our customers most effectively it comes down to our team.
+                    This is why we have hand-picked our team to include passionate professionals. Find out more <a href="#{path}#{data.team.en.href}">about us</a>.
+
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Our current openings
+
+                p.
+                    No current openings but always interested in great talent
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Our previous openings
+
+                p.
+                    <a href="#{path}#{data.administrator.en.href}"><strong>Administrator</strong></a><br>
+                    As an administrator you will assume the duty of clerical and administrative support in order to optimize workflow procedures in the office.
+
+                p.
+                    <a href="#{path}#{data.data_cap.en.href}"><strong>Data capturer</strong></a><br>
+                    The applicant must have advance levels of proficiency using a computer, Microsoft Word and Microsoft Excel.
+
+
+
+
+        section(class='lb-content text-center')
+
+            p Please send <a href="mailto:careers@libertineconsultants.co.za">careers@libertineconsultants.co.za</a> your cover letter and resume. <br> Your resume should be in <strong>PDF</strong> or <strong>MS Word format</strong>.

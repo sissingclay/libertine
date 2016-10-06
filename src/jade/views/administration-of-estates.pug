@@ -1,0 +1,73 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Administration | Estate Administration
+
+block description
+    meta(name='description', content='Libertine Consultants provide administration services that take care of your debt, leaving you free to live a stress-free life.')
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Estate Administration")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-17-administration.svg
+
+            h1 Administration of estates
+
+            p(class='lb-content_main-text').
+                Dependable advice & sustainable solutions
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Estate administration is an alternative to <a href="#{path + data.review.en.href}" class="lb-link">debt review</a> that still qualifies as a formal process, but offers
+                    better <strong>protection against creditors'</strong> claims.
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    The main difference between debt counselling and estate administration* is that the latter is limited
+                    with regard to the amount of debt that can go under administration. The <strong>total debt cannot exceed R50&nbsp;000</strong>,
+                    although certain exceptions apply when garnishees are put under administration. Estate
+                    administration is the most <strong>effective way to halt garnishees</strong> from your salary, as these are automatically
+                    suspended while you are under administration.
+
+                p.
+                    Administration orders to <strong>not have to be a long term solution</strong> and once your financial situation improves
+                    you can suspend the administration and <strong>manage your own finances once more</strong>.
+
+        section(class='lb-content lb-content--fine')
+
+            div(class='lb-content-constraint lb-fine-print text-center')
+
+                p.
+                    *Please note that secured creditors, e.g. home and car financiers are exempt from estate administration and you would still need to make provision for payments to these creditors in your monthly budget.
+
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red
