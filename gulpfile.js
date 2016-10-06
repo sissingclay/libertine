@@ -175,14 +175,7 @@
     gulp.task('build-prod', function () {
 
         runSequence(
-            'pug',
-            'typescript',
-            'sass',
-            'img',
-            'svg',
-            'sitemap',
-            'dependenciesjs',
-            'build-prod-after'
+          ['pug', 'typescript', 'sass', 'img', 'svg', 'php', 'dependenciesjs'], 'usemin'
         );
     });
 
