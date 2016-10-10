@@ -78,7 +78,7 @@
 
         var fileExist;
 
-        return gulp.src(paths.jadeViews)
+        return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
             .pipe(data(function(file) {
 
                 try {

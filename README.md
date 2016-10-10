@@ -36,3 +36,8 @@ Then to run prod build run
 ```
 gulp default --env prod
 ```
+
+Use the following to commit work into master when tag is needed. This is be the version number (%s)
+```
+npm version patch -f -m "Type your message here %s"
+```
