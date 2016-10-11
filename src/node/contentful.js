@@ -5,7 +5,8 @@ var contentful = require('contentful')
 var markdown = require('markdown').markdown
 var pug = require('pug')
 var util = require('util')
-var fs = require('fs');
+var fs = require('fs')
+var dateFormat = require('dateformat')
 var client = contentful.createClient({
   // This is the space ID. A space is like a project folder in Contentful terms
   space: 'h0f37v2wru17',
@@ -38,7 +39,7 @@ var blogEnties = (blogsArticles) => {
           pretty: true,
           blog: {
             title: article.fields.title,
-            date: article.fields.date,
+            date: dateFormat(article.fields.date, 'dd/mm/yyyy'),
             body: markdown.toHTML( article.fields.body ),
             bodySection1: markdown.toHTML( article.fields.bodySection1 ),
             bodySection2: markdown.toHTML( article.fields.bodySection2 ),

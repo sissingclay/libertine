@@ -87,7 +87,7 @@ html(lang='en')
 
                     p(class='lb-content_main-text').
                         !{blog.body}
-                        #{blog.date}
+                        date: <span class="lb-badge">#{blog.date}</span>
 
                 section(class='lb-content lb-content_grey')
 
@@ -122,6 +122,7 @@ html(lang='en')
                 script(src=assetsPath + 'js/fontfaceobserver.js')
                 script(src=assetsPath + 'js/common/common.js')
                 // endbuild
+
                 script(type="text/javascript").
 
                     WebFontConfig = {
@@ -157,3 +158,13 @@ html(lang='en')
                             console.log('Font is not available');
                         });
                     }
+
+                script(type = "text/javascript").
+                    var _mfq = _mfq || [];
+                    (function () {
+                        var mf = document.createElement("script");
+                        mf.type = "text/javascript";
+                        mf.async = true;
+                        mf.src = "//cdn.mouseflow.com/projects/40514ae9-8c19-446e-b142-e4df3bce311b.js";
+                        document.getElementsByTagName("head")[0].appendChild(mf);
+                    })();

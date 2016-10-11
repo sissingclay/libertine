@@ -51,6 +51,7 @@
     "pug": "^2.0.0-beta6"
   },
   "devDependencies": {
-    "contentful": "^3.6.4"
+    "contentful": "^3.6.4",
+    "dateformat": "^1.0.12"
   }
 }
