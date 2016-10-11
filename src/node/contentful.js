@@ -13,10 +13,14 @@ var client = contentful.createClient({
   accessToken: '82519f865d369a0ca48d3eb8edfa0d543680e34e23622a2f39068c15f94adad9'
 })
 
-var dir = './build/blog';
+var dir = './build/blog'
+
+if (!fs.existsSync('./build')){
+  fs.mkdirSync('./build')
+}
 
 if (!fs.existsSync(dir)){
-  fs.mkdirSync(dir);
+  fs.mkdirSync(dir)
 }
 
 client.getEntries()
