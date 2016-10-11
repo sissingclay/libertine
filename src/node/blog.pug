@@ -116,3 +116,44 @@ html(lang='en')
 
 
         include ../jade/partials/footer
+            block js
+                // build:js ../js/common/common.min.js
+                script(src=assetsPath + 'js/picturefill.min.js')
+                script(src=assetsPath + 'js/fontfaceobserver.js')
+                script(src=assetsPath + 'js/common/common.js')
+                // endbuild
+                script(type="text/javascript").
+
+                    WebFontConfig = {
+                        google: { families: [ 'Lato:300,400:latin' ] }
+                    };
+                    (function() {
+                        var wf = document.createElement('script');
+                        wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                        wf.type = 'text/javascript';
+                        wf.async = 'true';
+                        var s = document.getElementsByTagName('script')[0];
+                        s.parentNode.insertBefore(wf, s);
+                    })();
+
+                    if(sessionStorage.fontsloaded) {
+                        var html = document.documentElement;
+                        html.className += ' font-loaded'
+                    } else {
+
+                        var observer = new FontFaceObserver('Lato', {
+                            weight: 400,
+                            weight: 300,
+                        });
+
+                        observer.check().then(function () {
+
+                            var html = document.documentElement;
+                            html.className += ' font-loaded'
+                            sessionStorage.fontsloaded = true;
+
+                        }, function () {
+                            console.log('Font is not available');
+                        });
+                    }
