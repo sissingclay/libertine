@@ -16,11 +16,11 @@ var client = contentful.createClient({
 
 var dir = './build/blog'
 
-if (!fs.existsSync('./build')){
+if (!fs.existsSync('./build')) {
   fs.mkdirSync('./build')
 }
 
-if (!fs.existsSync(dir)){
+if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir)
 }
 
@@ -30,7 +30,20 @@ client.getEntries()
   })
 
 var blogEnties = (blogsArticles) => {
-
+  fs.writeFile(
+    './build/blog.html',
+    pug.renderFile(
+      './src/node/blogList.pug',
+      {
+        pretty: true,
+        lists: blogsArticles
+      }
+    ),
+    function (err) {
+      if (err) return console.log(err)
+      console.log('errrr')
+    }
+  )
   blogsArticles.forEach((article) => {
     fs.writeFile(
       dir + '/' + article.fields.slug + '.html',
@@ -40,19 +53,19 @@ var blogEnties = (blogsArticles) => {
           blog: {
             title: article.fields.title,
             date: dateFormat(article.fields.date, 'dd/mm/yyyy'),
-            body: markdown.toHTML( article.fields.body ),
-            bodySection1: markdown.toHTML( article.fields.bodySection1 ),
-            bodySection2: markdown.toHTML( article.fields.bodySection2 ),
-            bodySection3: markdown.toHTML( article.fields.bodySection3 ),
-            bodySection4: markdown.toHTML( article.fields.bodySection4 ),
+            body: markdown.toHTML(article.fields.body),
+            bodySection1: markdown.toHTML(article.fields.bodySection1),
+            bodySection2: markdown.toHTML(article.fields.bodySection2),
+            bodySection3: markdown.toHTML(article.fields.bodySection3),
+            bodySection4: markdown.toHTML(article.fields.bodySection4),
             metaTitle: article.fields.metaTitle,
-            metaDescription: article.fields.metaDescription,
+            metaDescription: article.fields.metaDescription
           }
         }
       ),
       function (err) {
-        if (err) return console.log(err);
-        console.log(article.fields.slug + '.html');
+        if (err) return console.log(err)
+        console.log(article.fields.slug + '.html')
       }
     )
   })

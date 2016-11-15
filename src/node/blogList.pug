@@ -19,9 +19,9 @@ html(lang='en')
         block meta
 
             block title
-                title #{blog.metaTitle}
+                title test
             block description
-                meta(name='description', content=blog.metaDescription)
+                meta(name='description', content= 'test')
 
             meta(name='author', content='Libertine Consultants')
             meta(name='msvalidate.01', content='AB0F4FC0C298F546B6E11AB099848CAB')
@@ -83,36 +83,21 @@ html(lang='en')
 
                     include ../svgs/icon-12-testimonials.svg
 
-                    h1 !{blog.title}
+                    h1 Blog
 
                     p(class='lb-content_main-text').
-                        !{blog.body}
-                        date: <span class="lb-badge">#{blog.date}</span>
+                        A few articles that will help you understand each topic a lot better!
 
-                section(class='lb-content lb-content_grey')
+                each val, index in lists.length ? lists : ['There are no values']
+                    - var blogActive = (index + 1 % 2 ? 'lb-content_grey' : '');
+                    section(class='lb-content ' + blogActive)
+                        div(class='lb-content-constraint__large text-center')
+                            h2 
+                                a(href="/blog/" + val.fields.slug + '.html') #{val.fields.title}
+                            p #{val.fields.body}
 
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection1}
+                section(class='lb-content lb-content_purple')
 
-                section(class='lb-content')
-
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection2}
-
-                section(class='lb-content lb-content_grey')
-
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection3}
-
-                section(class='lb-content')
-
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection4}
-
-                section(class='lb-content lb-content_grey')
-
-                    div(class='lb-content-constraint__large text-center')
-                        include ../jade/partials/cta/cta-touch
-
-
+                    include ../jade/partials/cta/cta-red
+                    
         include ../jade/partials/footer
