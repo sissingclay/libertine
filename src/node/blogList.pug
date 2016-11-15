@@ -2,7 +2,7 @@
 include ../jade/partials/variables/variables
 include ../jade/partials/variables/menu-variables
 
--var assetsPath = '../';
+-var assetsPath = '/';
 
 block variables
     - var activePage    = nav.blog.en.href;
@@ -35,11 +35,11 @@ html(lang='en')
 
         block css
             // build:inlinecss
-            link(rel='stylesheet' href='../css/common/common.css')
+            link(rel='stylesheet' href='css/common/common.css')
             // endbuild
-            // build:css ../css/common/common-medium-and-large.min.css
-            link(rel='stylesheet', href='../css/common/common-medium.css', media="(min-width:48.000em)")
-            link(rel='stylesheet', href='../css/common/common-large.css', media="(min-width:48.000em)")
+            // build:css css/common/common-medium-and-large.min.css
+            link(rel='stylesheet', href='css/common/common-medium.css', media="(min-width:48.000em)")
+            link(rel='stylesheet', href='css/common/common-large.css', media="(min-width:48.000em)")
             // endbuild
 
         script.
@@ -99,5 +99,5 @@ html(lang='en')
                 section(class='lb-content lb-content_purple')
 
                     include ../jade/partials/cta/cta-red
-                    
+
         include ../jade/partials/footer
