@@ -99,17 +99,20 @@ html(lang='en')
                     div(class='lb-content-constraint__large text-center').
                         !{blog.bodySection2}
 
-                section(class='lb-content lb-content_grey')
+                if blog.bodySection3
+                    section(class='lb-content lb-content_grey')
 
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection3}
+                        div(class='lb-content-constraint__large text-center').
+                            !{blog.bodySection3}
 
-                section(class='lb-content')
+                if blog.bodySection4
+                    section(class='lb-content')
 
-                    div(class='lb-content-constraint__large text-center').
-                        !{blog.bodySection4}
+                        div(class='lb-content-constraint__large text-center').
+                            !{blog.bodySection4}
 
-                section(class='lb-content lb-content_grey')
+                - var blogActive = (blog.bodySection4 ? 'lb-content_grey' : '');
+                section(class='lb-content ' + blogActive)
 
                     div(class='lb-content-constraint__large text-center')
                         include ../jade/partials/cta/cta-touch
