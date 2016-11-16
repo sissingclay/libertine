@@ -89,7 +89,7 @@ html(lang='en')
                         A few articles that will help you understand each topic a lot better!
 
                 each val, index in lists.length ? lists : ['There are no values']
-                    - var blogActive = (index + 1 % 2 ? 'lb-content_grey' : '');
+                    - var blogActive = ((index + 1) % 2 ? 'lb-content_grey' : '');
                     section(class='lb-content ' + blogActive)
                         div(class='lb-content-constraint__large text-center')
                             h2 

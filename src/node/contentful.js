@@ -56,8 +56,8 @@ var blogEnties = (blogsArticles) => {
             body: markdown.toHTML(article.fields.body),
             bodySection1: markdown.toHTML(article.fields.bodySection1),
             bodySection2: markdown.toHTML(article.fields.bodySection2),
-            bodySection3: markdown.toHTML(article.fields.bodySection3),
-            bodySection4: markdown.toHTML(article.fields.bodySection4),
+            bodySection3: (article.fields.bodySection3) ? markdown.toHTML(article.fields.bodySection3) : '',
+            bodySection4: (article.fields.bodySection4) ? markdown.toHTML(article.fields.bodySection4) : '',
             metaTitle: article.fields.metaTitle,
             metaDescription: article.fields.metaDescription
           }
