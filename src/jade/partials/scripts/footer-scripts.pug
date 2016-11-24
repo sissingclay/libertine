@@ -1,4 +1,8 @@
 block js
+    script(src="https://cdn.ravenjs.com/3.8.1/raven.min.js")
+    script.
+        Raven.config('https://9403d10f5d0440c392a9a694fc8e599d@sentry.io/117267').install()
+
     // build:js js/common/common.min.js
     script(src=assetsPath + 'js/picturefill.min.js')
     script(src=assetsPath + 'js/fontfaceobserver.js')
