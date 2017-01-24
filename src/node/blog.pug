@@ -117,6 +117,18 @@ html(lang='en')
                         div(class='lb-content-constraint__large text-center').
                             !{blog.bodySection4}
 
+                if blog.bodySection5
+                    section(class='lb-content lb-content_grey')
+
+                        div(class='lb-content-constraint__large text-center').
+                            !{blog.bodySection5}
+
+                if blog.bodySection5
+                    section(class='lb-content')
+
+                        div(class='lb-content-constraint__large text-center').
+                            !{blog.bodySection5}
+
                 - var blogActive = (blog.bodySection4 ? 'lb-content_grey' : '');
                 section(class='lb-content ' + blogActive)
 
