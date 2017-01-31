@@ -24,7 +24,10 @@ if (!fs.existsSync(dir)) {
   fs.mkdirSync(dir)
 }
 
-client.getEntries()
+client.getEntries({
+  limit: 200,
+  order: '-sys.createdAt'
+})
   .then(function (contentType) {
     blogEnties(contentType.items)
   })
