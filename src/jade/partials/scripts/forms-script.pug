@@ -178,7 +178,7 @@ script(type="text/javascript").
                 if (window.location.pathname === '/get-in-touch.html') {
                     affliant = '#touch'
                 }
-                window.location =  path + "/thank-you.html" + affliant;
+                window.location =  "/thank-you.html" + affliant;
             }).error(function(data) {
                 Raven.captureException(data)
                 document.querySelector('.error-js').innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call or email us.';
