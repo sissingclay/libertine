@@ -141,11 +141,11 @@ div {
 a {
     background-color: transparent;
     text-decoration: none;
-    @include transition(color);
+    @include transition(color, 250ms);
     color: $red-color;
 
     &:hover {
-        color: lighten( $red-color, 10% );
+        color: darken( $red-color, 20% );
     }
 }
 

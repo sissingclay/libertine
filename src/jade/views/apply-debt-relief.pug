@@ -183,6 +183,8 @@ block main
                 div(class='lb-form-section lb-form-section--hidden')
                     button(type='hidden', name='formName', value='apply')
                     button(type='hidden', name='isBot', value='')
+                
+                div(class='lb-form-section error-js', style='clear: both;')
 
                 div(class='lb-form-section', style='position: relative;')
                     div(class="lb-form-section__text lb-form-section__privacy") We respect your <a href="#{path}#{data.privacy.en.href}">privacy</a>.
@@ -190,8 +192,6 @@ block main
                     div(class='spinner')
                         div(class='double-bounce1')
                         div(class='double-bounce2')
-
-                div(class='lb-form-section error-js', style='clear: both;')
 
         section(class='lb-content lb-content_purple')
 

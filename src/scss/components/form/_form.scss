@@ -130,3 +130,22 @@
         @include transform(scale(1));
     }
 }
+
+.error-js {
+    background-color: $red-color;
+    @include rem(padding, 0.5rem);
+    color: $white-color;
+    border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+
+    a, a:hover {
+        color: $white-color;
+        font-weight: bold;
+    }
+}
+
+.error-js-visible {
+    opacity: 1;
+    visibility: visible;
+}

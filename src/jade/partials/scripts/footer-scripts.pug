@@ -24,7 +24,7 @@ block js
             s.parentNode.insertBefore(wf, s);
         })();
 
-        if(sessionStorage.fontsloaded) {
+        if(typeof(sessionStorage) !== 'undefined' && sessionStorage.fontsloaded) {
             var html = document.documentElement;
             html.className += ' font-loaded'
         } else {
@@ -36,7 +36,9 @@ block js
             observer.check().then(function () {
                 var html = document.documentElement;
                 html.className += ' font-loaded'
-                sessionStorage.fontsloaded = true;
+                if (typeof(sessionStorage) !== 'undefined' && 'sessionStorage' in window) {
+                    sessionStorage.fontsloaded = true;
+                }
             }, function () {
               console.log('Font is not available');
             });

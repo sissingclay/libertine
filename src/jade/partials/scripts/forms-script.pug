@@ -181,7 +181,9 @@ script(type="text/javascript").
                 window.location =  "/thank-you.html" + affliant;
             }).error(function(data) {
                 Raven.captureException(data)
-                document.querySelector('.error-js').innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call or email us.';
+                var errorElement = document.querySelector('.error-js')
+                errorElement.className = errorElement.className + ' error-js-visible'
+                errorElement.innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call(<a href="tel:+27219492211">+27 (21) 949 2211</a>) or <a href="mailto:info@libertineconsultants.co.za">email us</a>.';
             });
         }
     });
