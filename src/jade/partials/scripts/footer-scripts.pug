@@ -24,7 +24,7 @@ block js
             s.parentNode.insertBefore(wf, s);
         })();
 
-        if(typeof(sessionStorage) !== 'undefined' && sessionStorage.fontsloaded) {
+        if(typeof(window.sessionStorage) !== 'undefined' && 'sessionStorage' in window && window.sessionStorage.fontsloaded) {
             var html = document.documentElement;
             html.className += ' font-loaded'
         } else {
@@ -36,7 +36,7 @@ block js
             observer.check().then(function () {
                 var html = document.documentElement;
                 html.className += ' font-loaded'
-                if (typeof(sessionStorage) !== 'undefined' && 'sessionStorage' in window) {
+                if (typeof(window.sessionStorage) !== 'undefined' && 'sessionStorage' in window) {
                     sessionStorage.fontsloaded = true;
                 }
             }, function () {
