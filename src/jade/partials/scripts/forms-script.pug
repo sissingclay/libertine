@@ -163,7 +163,6 @@ script(type="text/javascript").
         var is_valid = checkoutForm(form);
 
         if(is_valid) {
-
             document.querySelector('.spinner').className += ' spinner__show';
             document.querySelector('.submit-btn-js').disabled = true;
 
@@ -186,6 +185,8 @@ script(type="text/javascript").
                 errorElement.className = errorElement.className + ' error-js-visible'
                 errorElement.innerHTML = 'Error submitting your data. Please refresh the page and try again. If the problem persists please call(<a href="tel:+27219492211">+27 (21) 949 2211</a>) or <a href="mailto:info@libertineconsultants.co.za">email us</a>.';
             });
+        } else {
+            document.querySelector('.lb-error').scrollIntoView()
         }
     });
 
