@@ -5,7 +5,7 @@
  * Date: 04/10/15
  * Time: 16:20
  */
-
+include 'curlwrap_v2.php';
 
 $botCheck       = "https://www.google.com/recaptcha/api/siteverify";
 $botCheck_api   = "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2";
@@ -72,6 +72,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
 
     $result = sendData($uri, $postString);
     $data   = json_decode($result, true);
+    sendAgileData($_POST, 'Get in touch');
 }
 
 if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
@@ -160,6 +161,7 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
 
     $result = sendData($uri, $test);
     $data   = json_decode($result, true);
+    sendAgileData($_POST, 'Apply for debt relief');
 }
 
 function sendData($uri, $postString) {
@@ -211,4 +213,51 @@ if ($data[0]["status"] == 'sent') {
     }';
 
     sendData($uri, $postString);
+}
+
+function sendAgileData ($data, $tag) {
+
+    $contact_email = $data['email'];
+    $contact_json = array(
+        "tags"=>array($tag),
+        "properties"=>array(
+            array(
+                "name"=>"first_name",
+                "value"=>$data['fullName'],
+                "type"=>"SYSTEM"
+            ),
+            array(
+                "name"=>"email",
+                "value"=>$contact_email,
+                "type"=>"SYSTEM"
+            ),  
+            array(
+                "name"=>"phone",
+                "value"=>$data['number'],
+                "type"=>"SYSTEM"
+            ),
+        )
+    );
+
+    $contact_json = json_encode($contact_json);
+    $result = curl_wrap("contacts", $contact_json, "POST", "application/json");
+    $result = json_decode($result, false, 512, JSON_BIGINT_AS_STRING);
+    $contact_id = $result->id;
+
+    if ($_POST['enquiry']) {
+        $descr = $_POST['enquiry'];
+    }
+
+    if (!$_POST['enquiry']) {
+        $descr = 'creditors: ' .$_POST['creditors']. ', debt: ' .$_POST['creditors']. ', review: ' .$_POST['review']. ', blacklisted: ' .$_POST['blacklisted']. ', garnishees: ' .$_POST['garnishees']. ', arrears: ' .$_POST['arrears']. ', position: ' .$_POST['position']. ', location: ' .$_POST['location']. ', employeds: ' .$_POST['employeds']. ', married: ' .$_POST['married'];
+    }
+
+    $note_json = array(
+        "subject"=>"Website enquiry",
+        "description"=>$descr,
+        "contact_ids"=>array($contact_id)
+    );
+
+    $note_json = json_encode($note_json);
+    curl_wrap("notes", $note_json, "POST", "application/json");
 }
