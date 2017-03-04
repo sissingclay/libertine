@@ -72,7 +72,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
 
     $result = sendData($uri, $postString);
     $data   = json_decode($result, true);
-    sendAgileData($_POST, 'Get in touch');
+    sendAgileData('Get in touch');
 }
 
 if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
@@ -161,7 +161,7 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
 
     $result = sendData($uri, $test);
     $data   = json_decode($result, true);
-    sendAgileData($_POST, 'Apply for debt relief');
+    sendAgileData('Apply for debt relief');
 }
 
 function sendData($uri, $postString) {
@@ -215,15 +215,15 @@ if ($data[0]["status"] == 'sent') {
     sendData($uri, $postString);
 }
 
-function sendAgileData ($data, $tag) {
+function sendAgileData ($tag) {
 
-    $contact_email = $data['email'];
+    $contact_email = $_POST['email'];
     $contact_json = array(
         "tags"=>array($tag),
         "properties"=>array(
             array(
                 "name"=>"first_name",
-                "value"=>$data['fullName'],
+                "value"=>$_POST['fullName'],
                 "type"=>"SYSTEM"
             ),
             array(
@@ -233,7 +233,7 @@ function sendAgileData ($data, $tag) {
             ),  
             array(
                 "name"=>"phone",
-                "value"=>$data['number'],
+                "value"=>$_POST['number'],
                 "type"=>"SYSTEM"
             ),
         )
@@ -248,8 +248,8 @@ function sendAgileData ($data, $tag) {
         $descr = $_POST['enquiry'];
     }
 
-    if (!$_POST['enquiry']) {
-        $descr = 'creditors: ' .$_POST['creditors']. ', debt: ' .$_POST['creditors']. ', review: ' .$_POST['review']. ', blacklisted: ' .$_POST['blacklisted']. ', garnishees: ' .$_POST['garnishees']. ', arrears: ' .$_POST['arrears']. ', position: ' .$_POST['position']. ', location: ' .$_POST['location']. ', employeds: ' .$_POST['employeds']. ', married: ' .$_POST['married'];
+    if ($_POST['creditors']) {
+        $descr = 'creditors: ' .$_POST['creditors']. ', debt: ' .$_POST['debt']. ', review: ' .$_POST['review']. ', blacklisted: ' .$_POST['blacklisted']. ', garnishees: ' .$_POST['garnishees']. ', arrears: ' .$_POST['arrears']. ', position: ' .$_POST['position']. ', location: ' .$_POST['location']. ', employeds: ' .$_POST['employeds']. ', married: ' .$_POST['married'];
     }
 
     $note_json = array(
