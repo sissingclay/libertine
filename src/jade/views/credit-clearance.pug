@@ -8,19 +8,19 @@ block description
     meta(name="keywords", content="credit,clearance,record,services,bureau,cape,town")
 
 block variables
-    - var activePage    = nav.debt.en.href;
-    - var english       = nav.debt.en.href;
-    - var afrikaans     = nav.debt.af.href;
+    - var activePage    = nav.credit.en.href;
+    - var english       = nav.credit.en.href;
+    - var afrikaans     = nav.credit.af.href;
 
 block main
 
     section(class='lb-hero_internal')
 
         picture
-            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
-            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
-            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
-            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Credit Clearance")
+            source(srcset=path + "/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_faqs.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_faqs-mobile.jpg", alt="Credit clearance")
 
     main(role='main', class='lb-internal')
 
@@ -28,28 +28,46 @@ block main
 
             include ../../svgs/icon-18-creditclearance.svg
 
-            h1 Credit Record Clearance
+            h1 Credit clearance
 
             p(class='lb-content_main-text').
-                Detailed analysis, fresh approach.<br>
+                Let's clean the slate &amp; set the record straight.<br>
 
 
         section(class='lb-content lb-content_grey text-center')
 
-            p <strong>We offer a range of credit clearance services, including:</strong>
+            div(class="lb-content-constraint__large")
+
+                p.
+                    When you've taken the necessary steps to take control of your finances, 
+                    your <strong>credit record</strong> should reflect this positive lifestyle change. 
+                    At Libertine Consultants, our <a href="#{path}#{data.analysis[lang].href}">credit analysis</a> services often uncover 
+                    incorrect or outdated information that has been affecting our clients’ 
+                    credit scores negatively. Once we have this information on hand, it 
+                    becomes simple to address these inconsistencies. To clean the slate and 
+                    set the record straight, we offer credit clearance services.
 
         section(class='lb-content')
 
             div(class='lb-content-constraint__large text-center')
 
-                h2 Credit Checks
+                h2 Credit clearance
 
                 p.
-                    A credit check is essentially a report from a registered credit bureau that shows which of your accounts
-                    are in arrears, which are paid up and if any of your accounts have judgments. When we do a <strong>credit
-                    clearance</strong> (see below), the first thing we'll do is request a credit check to determine what must be done
-                    to <strong>clear your record</strong>. Often it is as simple as making sure that your payments are made on time each
-                    month, but sometimes we need to do a formal application to set aside a judgment.
+                    Have you gone through the <a href="#{path}#{data.review[lang].href}"><strong>debt review</strong></a> process but found that your <strong>credit record</strong> is not yet cleared? 
+                    Or did a <a href="#{path}#{data.analysis[lang].href}">credit analysis</a> reveal that incorrect or outdated information negatively affects your <strong>credit score</strong>? 
+                    We can help!
+
+                p.
+                    We assist clients in removing debt review and administration notices, as well as negative listings 
+                    (such as judgments), from their <strong>credit profiles</strong>. To do so we require paid-up letters for all the 
+                    accounts that were included in the debt review-, administration- or judgment process. If you do 
+                    not have the necessary documentation at your disposal, we can help you to retrieve this information 
+                    from the relevant sources.
+
+                p.
+                    We can also assist you if your <em>credit report</em> reflects outdated or incorrect information by disputing it 
+                    with the relevant authorities and restoring your good name.
 
         section(class='lb-content lb-content_grey')
 
@@ -61,33 +79,85 @@ block main
 
             div(class='lb-content-constraint__large text-center')
 
-                h2 Credit Clearance
+                h2 Understanding the lingo
 
                 p.
-                    If any of your accounts court judgments or adverse listings, it needs to be cleared to rehabilitate your
-                    <strong>credit record</strong>. A judgment is a court order granted in your absence in the event that a summons has
-                    been served on you and you did not defend the action or neglected to make suitable arrangements. A
-                    judgment is a court order and, as such, it has to be set aside by the same court that granted it in order
-                    for it to be removed from the <em>credit bureau's records</em>.
+                    The <strong>credit clearance</strong> industry is full of complicated, overlapping and often confusing terminology. 
+                    Here is a quick overview of the terms that may be used on <strong>your credit record</strong>, and what it means:
 
         section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Blacklisted
+
+                p.
+                    In simple terms, to be blacklisted means that credit providers will not give you credit because you were 
+                    unable to repay previous debts and are now considered a high-risk debtor. 
+                    Even when you settle the outstanding debts that lead to your blacklisting, <em>your credit profile</em> 
+                    will remain tainted for between two to five years. 
+                    <strong>Credit clearance</strong> will be required to removed this from your credit profile sooner.
+
+        section(class='lb-content')
 
             div(class='lb-content-constraint__large text-center')
                 -var touch = 'Need to talk about <em>clearing your credit record?</em> <br>Credit clearance in <strong>Cape Town</strong> and rest of South Africa';
                 include ../partials/cta/cta-touch
 
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Accounts in arrears
+
+                p.
+                    'Accounts in arrears' means that some of your scheduled payments have not been made, but that no legal 
+                    action has been taken against you presently. You are still able to make arrangements with your credit 
+                    providers directly to catch up with your payments and settle your debt, subject to an admin fine. 
+                    <strong>Credit clearance</strong> will not be required.
+
         section(class='lb-content')
 
             div(class='lb-content-constraint__large text-center')
 
-                h2 Setting aside of Administrations
+                h2 Accounts in default
 
                 p.
-                    An administration order is similar to <a href="#{path}#{data.review.en.href}">debt review</a>, except that there is a limit to the <strong>debt</strong> that may be put
-                    under administration. It is often the best solution to remove garnishees from a person's salary and also
-                    doesn't necessarily have to be a <strong>permanent debt solution</strong>. Once the consumer is able to manage their
-                    own account (due to an increase in salary for instance) they are free to apply to the court that granted
-                    the order to have it set aside.
+                    'Accounts in default' means that your creditors have handed over your debt to attorneys. 
+                    In basic terms, your creditors have lost faith in your ability to pay your debt and feel that it 
+                    would cost them to much to recover it. This will reflect on your credit record for two years.
+                    <em>Credit clearance</em> will be required to removed this from your credit profile sooner.
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Judgements
+
+                p.
+                    A judgement against your name means that your creditors have taken legal action – debts of less than 
+                    R100 000 are handled by the magistrate's court, while larger debts are managed by the high court. 
+                    These are serious charges that will show up on <strong>your credit profile</strong> for up to five years if you do 
+                    not pay off your debt. <em>Credit clearance</em> will be required to removed this from your credit profile sooner.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+                -var touch = 'Need to talk about <em>clearing your credit record?</em> <br><em>Credit clearance</em> in <strong>Cape Town</strong> and rest of South Africa';
+                include ../partials/cta/cta-touch
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Administration order
+
+                p.
+                    An administration order is similar to debt review, except that there is a limit to the debt that may be 
+                    put under administration. This is the best option if you want to remove garnishees from your salary, 
+                    and it doesn’t have to be forever. If you get to a point where you can manage your own account, 
+                    due to an increase in salary for instance, you can apply to the court who granted the order to have 
+                    it removed from your record. <strong>Credit clearance</strong> will be required to removed this from your credit profile sooner.
 
         section(class='lb-content lb-content_purple')
 

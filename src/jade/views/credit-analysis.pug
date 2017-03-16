@@ -1,0 +1,102 @@
+extends ../extends/default
+
+block title
+    title Credit Analysis | Credit Report | Libertine Consultants
+
+block description
+    meta(name='description', content='Libertine Consultants offers credit analysis service that allow clients to access and understand their vital credit information with ease.')
+    meta(name="keywords", content="credit,analysis,record,services,bureau,cape,town")
+
+block variables
+    - var activePage    = nav.credit.en.href;
+    - var english       = nav.credit.en.href;
+    - var afrikaans     = nav.credit.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_faqs.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_faqs-mobile.jpg", alt="Credit analysis")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-18-creditclearance.svg
+
+            h1 Credit Analysis
+
+            p(class='lb-content_main-text').
+                Know your credit status &amp; thrive financially<br>
+
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class="lb-content-constraint__large")
+
+                p.
+                    Your <strong>credit record</strong> is a concise report of your credit history that shows potential creditors 
+                    how you have managed your finances and if you are a safe debtor in the eyes of companies and 
+                    individuals who have dealt with you before in a financial capacity.
+                    At Libertine Consultants, we can help you to make sense of this important document. 
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Credit Analysis
+
+                p.
+                    It is important to understand the information on your <strong>credit report</strong> that could potentially affect your 
+                    <strong>credit score</strong> negatively. For instance, there are certain parts that could be updated or removed to 
+                    improve your score if you have already addressed the outstanding debt it refers to.
+
+                p.
+                    A <strong>credit analysis</strong> will give you a detailed breakdown of each account, its status, how it affects your <strong>credit profile</strong> and 
+                    what can be done to improve it. This service is available at a <strong>nominal fee or R70,00</strong> and includes in-depth classification 
+                    of the negative information on your profile.
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+                -var touch = 'Request a credit analysis';
+                include ../partials/cta/cta-touch
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Credit Checks
+
+                p.
+                    A <em>credit check</em> is essentially a report from a registered credit bureau that shows which of your accounts are in arrears, 
+                    which are paid up and if any of your accounts have judgments against it. 
+                    You can contact any of the registered South African credit bureaus for an annual report free of charge. 
+                    Once you have this information, you can then get in touch with Libertine Consultants to <em>request a credit analysis</em>.
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Credit bureaus
+
+                p.
+                    A <strong>credit bureau</strong> is a historic record of how you <strong>manage your credit</strong> commitments. 
+                    This information may either be positive or negative depending on how you have managed your accounts. 
+                    The report given by the credit bureaus determine the final decision when a consumer applies for bond 
+                    or any credit agreement, which is why this information is a matter of public record.
+
+                p.
+                    Would you like more information on your personal credit report and what it means? 
+                    To proceed with a Libertine Consultants credit analysis please use the link below to fill out the form. 
+                    Once we have all the necessary information, a consultant will be in touch to walk you through the 
+                    process and answer any questions you may have. 
+
+        section(class='lb-content lb-content_purple')
+
+            -var touch = 'Get in touch and start <strong>your credit analysis</strong>';
+            include ../partials/cta/cta-touch

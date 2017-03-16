@@ -1,0 +1,69 @@
+extends ../extends/default
+
+block title
+    title Credit Services | Clearing Credit | Libertine Consultants | Cape Town
+
+block description
+    meta(name='description', content='We offer credit services with excellent advice. Clearing my credit starts with credit analysis.')
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/debt/debt.css')
+    // endbuild
+
+block variables
+    - var activePage    = nav.credit.en.href;
+    - var english       = nav.credit.en.href;
+    - var afrikaans     = nav.credit.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_faqs-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_faqs.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_faqs_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_faqs-mobile.jpg", alt="Credit service")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-22-debtmgmt.svg
+
+            h1 Credit services
+
+            p(class='lb-content_main-text').
+                <b>Let's clean the slate &amp; pave the way to a great credit record!</b><br>
+
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                a(href=path + data.analysis.en.href)
+
+                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.analysis.en.name}
+
+                    p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
+
+                    div(class="lbService_bottom")
+
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                a(href=path + data.credit.en.href)
+
+                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.credit.en.name}
+
+                    p(class="lbService_description") We offer a range of credit clearance services.
+
+                    div(class="lbService_bottom lbService_bottom--last")
+
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red
