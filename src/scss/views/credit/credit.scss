@@ -1,0 +1,11 @@
+@import './src/scss/components/base/base-mixin';
+@import "./src/scss/components/form/form";
+@import "./src/scss/components/form/alternative-form";
+
+@media (min-width: $media-query-md) {
+    @import "./src/scss/components/form/alternative-form-large";
+}
+
+@media (min-width: $media-query-lg) {
+    @import "./src/scss/components/form/alternative-form-large";
+}

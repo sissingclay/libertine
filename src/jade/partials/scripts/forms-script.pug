@@ -1,7 +1,7 @@
 script(type="text/javascript").
 
     var form_elements = document.querySelectorAll('[data-form]'),
-    form          = document.querySelector('.lb-apply');
+    form = document.querySelector('.lb-apply');
 
     function checkoutForm (form) {
 
@@ -85,7 +85,27 @@ script(type="text/javascript").
                                     removeClass(val, error_class);
                                 }
                             }
-                    }
+                        }
+
+                        if (to_checks === 'idNumber') {
+                              is_valid_idNumber = validateID(input_value);
+      
+                              if (!is_valid_idNumber) {
+      
+                                  form_valid = false;
+      
+                                  if (!has_error_class) {
+                                      addClass(val, error_class);
+                                  }
+                              }
+      
+                              if (is_valid_idNumber) {
+      
+                                  if (has_error_class) {
+                                      removeClass(val, error_class);
+                                  }
+                              }
+                        }
                     });
     }
     }
@@ -166,7 +186,7 @@ script(type="text/javascript").
             document.querySelector('.spinner').className += ' spinner__show';
             document.querySelector('.submit-btn-js').disabled = true;
 
-            ajax().post('/php/email.php', serialize(form)).success(function(data) {
+            ajax().post(form.getAttribute('action'), serialize(form)).success(function(data) {
 
                 var affliant = '';
 
@@ -177,7 +197,11 @@ script(type="text/javascript").
                 if (window.location.pathname === '/get-in-touch.html') {
                     affliant = '#touch'
                 }
-                window.location =  "/thank-you.html" + affliant;
+
+                if (window.location.pathname === '/credit-analysis.html') {
+                    affliant = '#credit_analysis'
+                }
+                window.location.href =  "/thank-you.html" + affliant;
             }).error(function(data) {
                 Raven.captureException(data)
                 document.querySelector('.submit-btn-js').disabled = false;
@@ -207,6 +231,15 @@ script(type="text/javascript").
     function checkEmail(email_address) {
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
         return re.test(email_address);
+    }
+
+    function validateID(idNumber) {
+        var ex = /^(((\d{2}((0[13578]|1[02])(0[1-9]|[12]\d|3[01])|(0[13456789]|1[012])(0[1-9]|[12]\d|30)|02(0[1-9]|1\d|2[0-8])))|([02468][048]|[13579][26])0229))(( |-)(\d{4})( |-)(\d{3})|(\d{7}))/
+        var theIDnumber = idNumber
+        if (ex.test(theIDnumber) == false) {
+            return false
+        }
+        return true
     }
 
     function ajax () {
