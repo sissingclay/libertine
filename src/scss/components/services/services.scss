@@ -3,6 +3,11 @@
     padding-top: 15px;
     margin-top: -15px;
 
+    svg {
+        width: 80px;
+        height: 80px;
+    }
+
     &.lbService--last {
         @include rem(margin-bottom, 0);
         @include rem(padding-bottom, 0);
@@ -11,17 +16,12 @@
 
     .lbService_title {
         @include transition(color);
-        margin-bottom: 0;
-    }
-
-    &:hover {
-
-        .lbService_title {
-            color: lighten($red-color, 10%);
-        }
+        color: $red-color;
+        @include rem(margin-bottom, 15px);
     }
 
     .lbService_description {
-        @include rem(line-height, 34px);
+        @include rem(line-height, 28px);
+        @include rem(margin-bottom, 15px);
     }
 }

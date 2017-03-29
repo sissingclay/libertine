@@ -7,4 +7,13 @@
 
 .lbService {
     @include span(6 of 12);
+
+    &.lbService--single {
+        float: none;
+        margin: 0 auto;
+    }
+
+    &.lbService--two {
+        @include span(6 of 12);
+    }
 }

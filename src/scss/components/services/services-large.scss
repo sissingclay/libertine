@@ -1,4 +1,9 @@
 .lbService {
     @include span(4 of 12);
     @include rem(padding, 15px 50px 0);
+
+    &.lbService--single {
+        @include span(6 of 12);
+        float: none;
+    }
 }

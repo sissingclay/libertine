@@ -42,26 +42,25 @@ block main
 
             div(class='lb-content-constraint__large')
 
-                a(href=path + data.analysis.en.href)
+                div(class='lbService lbService--two')
 
-                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.analysis.en.name}
+                    include ../../svgs/ico_credit_analysis.svg
+
+                    h2(class='lbService_title') #{data.analysis.en.name}
 
                     p(class="lbService_description") Your credit record is a concise report of your credit history that shows potential creditors how you have managed your finances.
 
-                    div(class="lbService_bottom")
+                    a(href=path + data.analysis.en.href, class="lb-btn lb-btn__medium") More in #{data.analysis.en.name}
 
+                div(class='lbService lbService--two')
 
-        section(class='lb-content text-center')
+                    include ../../svgs/ico_credit_clearance.svg
 
-            div(class='lb-content-constraint__large')
-
-                a(href=path + data.credit.en.href)
-
-                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.credit.en.name}
+                    h2(class='lbService_title') #{data.credit.en.name}
 
                     p(class="lbService_description") To clean the slate and set the record straight, we offer credit clearance services.
 
-                    div(class="lbService_bottom lbService_bottom--last")
+                    a(href=path + data.credit.en.href, class="lb-btn lb-btn__medium") More in #{data.credit.en.name}
 
 
         section(class='lb-content lb-content_purple')

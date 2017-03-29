@@ -28,6 +28,11 @@
         @include rem(font-size, 0.85rem);
     }
 
+    &.lb-btn__medium {
+        @include rem(padding, 0.6rem 1.4rem);
+        @include rem(font-size, 0.85rem);
+    }
+
     &.lb-btn_small, &.lb-btn_small-mobile {
         @include rem(padding, 0.5125rem);
         @include rem(margin-bottom, 0);

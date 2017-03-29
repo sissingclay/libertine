@@ -43,36 +43,37 @@ block main
 
             div(class='lb-content-constraint lbServiceJS lbService--container')
 
-
                 div(class='lbService')
 
-                    a(href=path + data.review.en.href)
+                    include ../../svgs/icon-15-debtreview.svg
 
-                        h2(class='lbService_title') #{data.review.en.name}
+                    h2(class='lbService_title') #{data.review.en.name}
 
-                        p(class="lbService_description") Allows you to manage all of your debts in one simple payment.
+                    p(class="lbService_description") Allows you to manage all of your debts in one simple payment.
 
-                        div(class="lbService_bottom")
-
-
-                div(class='lbService')
-
-                    a(href=path + data.counselling.en.href)
-
-                        h2(class='lbService_title') #{data.counselling.en.name}
-
-                        p(class="lbService_description") Take care of yourself and your family while you settle your debts.
+                    a(href=path + data.review.en.href, class="lb-btn lb-btn__medium") More in #{data.review.en.name}
 
 
                 div(class='lbService')
 
-                    a(href=path + data.management.en.href)
+                    include ../../svgs/icon-16-debtcounselling.svg
 
-                        h2(class='lbService_title') #{data.management.en.name}
+                    h2(class='lbService_title') #{data.counselling.en.name}
 
-                        p(class="lbService_description") The good news is that the creditors will stop calling!
+                    p(class="lbService_description") Take care of yourself and your family while you settle your debts.
 
-                        div(class="lbService_bottom lbService_bottom--last")
+                    a(href=path + data.counselling.en.href, class="lb-btn lb-btn__medium") More in #{data.counselling.en.name}
+
+
+                div(class='lbService')
+
+                    include ../../svgs/icon-22-debtmgmt.svg
+
+                    h2(class='lbService_title') #{data.management.en.name}
+
+                    p(class="lbService_description") The good news is that the creditors will stop calling!
+
+                    a(href=path + data.management.en.href, class="lb-btn lb-btn__medium") More in #{data.management.en.name}
 
 
         section(class='lb-content')
@@ -82,42 +83,50 @@ block main
 
                 div(class='lbService')
 
-                    a(href=path + data.admin.en.href)
+                    include ../../svgs/icon-17-administration.svg
 
-                        h2(class='lbService_title') #{data.admin.en.name}
+                    h2(class='lbService_title') #{data.admin.en.name}
 
-                        p(class="lbService_description") Offers better protection against creditors' claims.
+                    p(class="lbService_description") Offers better protection against creditors' claims.
 
-
-                div(class='lbService')
-
-                    a(href=path + data.sequestrations.en.href)
-
-                        h2(class='lbService_title') #{data.sequestrations.en.name}
-
-                        p(class="lbService_description") Your assets exceed your liabilities, it is often the best course.
+                    a(href=path + data.admin.en.href, class="lb-btn lb-btn__medium") More in #{data.admin.en.name}
 
 
                 div(class='lbService')
 
-                    a(href=path + data.voluntary.en.href)
+                    include ../../svgs/icon-19-sequestration.svg
 
-                        h2(class='lbService_title') #{data.voluntary.en.name}
+                    h2(class='lbService_title') #{data.sequestrations.en.name}
 
-                        p(class="lbService_description") We make the payments to your creditors on your behalf.
+                    p(class="lbService_description") Your assets exceed your liabilities, it is often the best course.
 
-                        div(class="lbService_bottom lbService_bottom--last")
+                    a(href=path + data.sequestrations.en.href, class="lb-btn lb-btn__medium") More in #{data.sequestrations.en.name}
+
+
+                div(class='lbService')
+
+                    include ../../svgs/icon-20-voluntarydistribution.svg
+
+                    h2(class='lbService_title') #{data.voluntary.en.name}
+
+                    p(class="lbService_description") We make the payments to your creditors on your behalf.
+
+                    a(href=path + data.voluntary.en.href, class="lb-btn lb-btn__medium") More in #{data.voluntary.en.name}
 
 
         section(class='lb-content lb-content_grey text-center')
 
             div(class='lb-content-constraint__large')
 
-                a(href=path + data.consolidation.en.href)
+                div(class='lbService lbService--single')
 
-                    h2(class='lbService_title', style='margin-bottom: 0;') #{data.consolidation.en.name}
+                    include ../../svgs/icon-21-debtconsolidation.svg
+
+                    h2(class='lbService_title') #{data.consolidation.en.name}
 
                     p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
+
+                    a(href=path + data.consolidation.en.href, class="lb-btn lb-btn__medium") More in #{data.consolidation.en.name}
 
 
         section(class='lb-content lb-content_purple')
