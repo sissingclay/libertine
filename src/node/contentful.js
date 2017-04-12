@@ -56,6 +56,7 @@ var blogEnties = (blogsArticles) => {
           blog: {
             title: article.fields.title,
             date: dateFormat(article.fields.date, 'dd/mm/yyyy'),
+            time: dateFormat(article.fields.date, 'yyyy/mm/dd'),
             body: markdown.toHTML(article.fields.body),
             bodySection1: markdown.toHTML(article.fields.bodySection1),
             bodySection2: markdown.toHTML(article.fields.bodySection2),
