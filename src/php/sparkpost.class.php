@@ -5,7 +5,7 @@
 
         public function createEmailSend($userInfo, $data = '{}', $template = 'touch', $recipients) {
             $email = ($recipients) ? $recipients['email'] : $userInfo['email'];
-            $name = ($recipients) ? $recipients['name'] : $userInfo['fullName'];
+            $name = ($recipients) ? $recipients['name'] : ($userInfo['fullName']) ? $userInfo['fullName'] : $userInfo['name'] .' '. $userInfo['surname'];
             $postData = '{
                 "options": {
                     "open_tracking": true,

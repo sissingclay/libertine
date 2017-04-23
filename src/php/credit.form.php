@@ -11,7 +11,8 @@
 
     $captchaResult = $google->checker();
     $captchaResultDecode = json_decode($captchaResult, true);
-    $emailResult = $sparkPost->createEmailSend($_POST, json_encode(["FULLNAME" => $_POST['name'] . ' ' . $_POST['surname']]));
+    $fullName = $_POST['name'] . ' ' . $_POST['surname'];
+    $emailResult = $sparkPost->createEmailSend($_POST, json_encode(["FULLNAME" => $fullName]), 'apply-c');
     $adminEmail = $sparkPost->createEmailSend(
         $_POST,
         json_encode([
