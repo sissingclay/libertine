@@ -23,7 +23,7 @@
         'touch-internal',
         [
             "email" => "info@libertineconsultants.co.za",
-            "name" => $_POST['fullName']
+            "name" => 'Get in touch'
         ]
     );
     $agile->sendAgileData($_POST, 'Get in touch');

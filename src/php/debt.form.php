@@ -32,7 +32,7 @@
         'apply',
         [
             "email" => "info@libertineconsultants.co.za",
-            "name" => $_POST['fullName']
+            "name" => 'Debt relief'
         ]
     );
     $agile->sendAgileData($_POST, 'Apply for debt relief');
