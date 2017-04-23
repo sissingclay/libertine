@@ -22,8 +22,8 @@
         ]),
         'touch-internal',
         [
-            "email" => "claysissing@gmail.com",
-            "name" => $_POST['fullName']
+            "email" => "info@libertineconsultants.co.za",
+            "name" => 'Get in touch'
         ]
     );
     $agile->sendAgileData($_POST, 'Get in touch');
