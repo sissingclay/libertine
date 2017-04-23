@@ -28,7 +28,7 @@
             "SURNAME" => $_POST['surname'],
             "EMAIL" => $_POST['email'], 
             "CONTACT" => $_POST['number'], 
-            "MESSAGE" => $_POST['enquiry']
+            "IDNUMBER" => $_POST['idNumber']
         ]),
         'credit_analysis_internal',
         [
