@@ -1,4 +1,4 @@
-form(class='lb-form')
+form(class='lb-form', novalidate, method='post', action='/php/touch.form.php',)
     
     a(href='' class='lb-form-close') X Close
 
@@ -7,17 +7,17 @@ form(class='lb-form')
 
     section(class='lb-form-section')
         label(for='name' class='lb-form-label') Full Name
-        input(type='text' name='name' placeholder='Clay Sissing' class='lb-form-input' id='name')
+        input(type='text' name='name' placeholder='Clay Sissing' class='lb-form-input' id='name', autocomplete='name')
         span(class='lb-form-error')
 
     section(class='lb-form-section')
         label(for='email' class='lb-form-label') Email Address
-        input(type='email' name='email' placeholder='claysissing@libertineconsultants.co.za' class='lb-form-input' id='email')
+        input(type='email' name='email' placeholder='claysissing@libertineconsultants.co.za' class='lb-form-input' id='email' autocomplete='email')
         span(class='lb-form-error')
 
     section(class='lb-form-section')
         label(for='number' class='lb-form-label') Contact Number
-        input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number')
+        input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number' autocomplete='tel')
         span(class='lb-form-error')
 
     section(class='lb-form-section')

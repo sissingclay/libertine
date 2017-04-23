@@ -1,0 +1,12 @@
+{
+    "name": "claysissing/libertine",
+    "authors": [
+        {
+            "name": "claysissing",
+            "email": "claysissing@gmail.com"
+        }
+    ],
+    "require": {
+        "google/apiclient": "^2.0"
+    }
+}
