@@ -1,0 +1,92 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'version',
+1 verbose cli   'minor',
+1 verbose cli   '-f',
+1 verbose cli   '-m',
+1 verbose cli   'moved templates to sparkpost from mandrill - %s' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 warn using --force I sure hope you know what you are doing.
+5 info git [ 'status', '--porcelain' ]
+6 info lifecycle libertine@1.9.0~preversion: libertine@1.9.0
+7 verbose lifecycle libertine@1.9.0~preversion: unsafe-perm in lifecycle true
+8 verbose lifecycle libertine@1.9.0~preversion: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/claysissing/Desktop/work/libertine/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+9 verbose lifecycle libertine@1.9.0~preversion: CWD: /Users/claysissing/Desktop/work/libertine
+10 silly lifecycle libertine@1.9.0~preversion: Args: [ '-c', '' ]
+11 silly lifecycle libertine@1.9.0~preversion: Returned: code: 0  signal: null
+12 verbose version.write data { name: 'libertine',
+12 verbose version.write   version: '1.9.0',
+12 verbose version.write   description: 'Libertine Consultants website',
+12 verbose version.write   main: 'index.js',
+12 verbose version.write   scripts:
+12 verbose version.write    { dev: 'npm install && bower install && node ./src/node/contentful.js && gulp',
+12 verbose version.write      prod: 'npm install && bower install && node ./src/node/contentful.js && gulp build-prod',
+12 verbose version.write      preversion: '',
+12 verbose version.write      version: 'git add -A .',
+12 verbose version.write      postversion: 'git push && git push --tags' },
+12 verbose version.write   repository:
+12 verbose version.write    { type: 'git',
+12 verbose version.write      url: 'https://github.com/sissingclay/libertine.git' },
+12 verbose version.write   author: 'Clay Sissing',
+12 verbose version.write   license: 'ISC',
+12 verbose version.write   bugs: { url: 'https://github.com/sissingclay/libertine/issues' },
+12 verbose version.write   homepage: 'https://github.com/sissingclay/libertine',
+12 verbose version.write   dependencies:
+12 verbose version.write    { bourbon: '^4.2.6',
+12 verbose version.write      bower: '^1.7.9',
+12 verbose version.write      'browser-sync': '~2.17.0',
+12 verbose version.write      del: '~2.2.2',
+12 verbose version.write      gulp: '~3.9.1',
+12 verbose version.write      'gulp-data': '^1.2.1',
+12 verbose version.write      'gulp-if': '~2.0.1',
+12 verbose version.write      'gulp-imagemin': '~3.0.3',
+12 verbose version.write      'gulp-minify-css': '~1.2.4',
+12 verbose version.write      'gulp-minify-html': '~1.0.2',
+12 verbose version.write      'gulp-pug': '^3.1.0',
+12 verbose version.write      'gulp-rev': '~7.1.2',
+12 verbose version.write      'gulp-sass': '~2.3.2',
+12 verbose version.write      'gulp-sitemap': '~4.2.0',
+12 verbose version.write      'gulp-sourcemaps': '~1.6.0',
+12 verbose version.write      'gulp-svgmin': '~1.2.0',
+12 verbose version.write      'gulp-tsc': '~1.2.4',
+12 verbose version.write      'gulp-uglify': '~2.0.0',
+12 verbose version.write      'gulp-usemin': '~0.3.11',
+12 verbose version.write      'imagemin-pngquant': '~5.0.0',
+12 verbose version.write      minimist: '~1.2.0',
+12 verbose version.write      'node-sass': '~3.7.0',
+12 verbose version.write      path: '^0.12.7',
+12 verbose version.write      'run-sequence': '~1.2.2',
+12 verbose version.write      'walkway.js': '0.0.5',
+12 verbose version.write      markdown: '^0.5.0',
+12 verbose version.write      marked: '^0.3.6',
+12 verbose version.write      pug: '^2.0.0-beta6' },
+12 verbose version.write   devDependencies: { contentful: '^3.6.4', dateformat: '^1.0.12' } } to package.json
+13 info lifecycle libertine@1.9.0~version: libertine@1.9.0
+14 verbose lifecycle libertine@1.9.0~version: unsafe-perm in lifecycle true
+15 verbose lifecycle libertine@1.9.0~version: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/claysissing/Desktop/work/libertine/node_modules/.bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+16 verbose lifecycle libertine@1.9.0~version: CWD: /Users/claysissing/Desktop/work/libertine
+17 silly lifecycle libertine@1.9.0~version: Args: [ '-c', 'git add -A .' ]
+18 silly lifecycle libertine@1.9.0~version: Returned: code: 0  signal: null
+19 info git [ 'add',
+19 info git   '/Users/claysissing/Desktop/work/libertine/package.json' ]
+20 info git [ 'commit',
+20 info git   '-m',
+20 info git   'moved templates to sparkpost from mandrill - 1.9.0' ]
+21 verbose stack Error: stdout maxBuffer exceeded
+21 verbose stack     at Socket.<anonymous> (child_process.js:259:14)
+21 verbose stack     at emitOne (events.js:96:13)
+21 verbose stack     at Socket.emit (events.js:188:7)
+21 verbose stack     at readableAddChunk (_stream_readable.js:176:18)
+21 verbose stack     at Socket.Readable.push (_stream_readable.js:134:10)
+21 verbose stack     at Pipe.onread (net.js:548:20)
+22 verbose cwd /Users/claysissing/Desktop/work/libertine
+23 error Darwin 15.6.0
+24 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "version" "minor" "-f" "-m" "moved templates to sparkpost from mandrill - %s"
+25 error node v6.9.4
+26 error npm  v3.10.10
+27 error stdout maxBuffer exceeded
+28 error If you need help, you may report this error at:
+28 error     <https://github.com/npm/npm/issues>
+29 verbose exit [ 1, true ]
