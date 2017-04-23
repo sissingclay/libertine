@@ -3,12 +3,13 @@
     class Agile {
         public function sendAgileData ($data, $tag) {
             $contact_email = $data['email'];
+            $fullName = ($data['fullName']) ? $data['fullName'] : $data['name'] . ' ' . $data['surname'];
             $contact_json = array(
                 "tags"=>array($tag),
                 "properties"=>array(
                     array(
                         "name" => "first_name",
-                        "value" => $data['fullName'],
+                        "value" => $fullName,
                         "type" => "SYSTEM"
                     ),
                     array(

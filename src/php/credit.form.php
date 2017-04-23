@@ -27,7 +27,7 @@
             "name" => 'Credit analysis'
         ]
     );
-    $agile->sendAgileData($_POST, 'Credit analysis form');
+    $agile->sendAgileData($_POST, 'Credit analysis');
 
     if ($captchaResultDecode->success === true) {
         $data = json_decode($emailResult, true);
