@@ -2,198 +2,196 @@
  * Created by Clay on 19/04/15.
  */
 (function (require) {
+  'use strict';
+  var gulp            = require('gulp'),
+      browserSync     = require('browser-sync'),
+      reload          = browserSync.reload,
+      pug            = require('gulp-pug'),
+      typescript      = require('gulp-tsc'),
+      usemin          = require('gulp-usemin'),
+      uglify          = require('gulp-uglify'),
+      minifyHtml      = require('gulp-minify-html'),
+      minifyCss       = require('gulp-minify-css'),
+      rev             = require('gulp-rev'),
+      sass            = require('gulp-sass'),
+      imagemin        = require('gulp-imagemin'),
+      pngquant        = require('imagemin-pngquant'),
+      sourcemaps      = require('gulp-sourcemaps'),
+      runSequence     = require('run-sequence'),
+      minimist        = require('minimist'),
+      del             = require('del'),
+      svgmin          = require('gulp-svgmin'),
+      sitemap         = require('gulp-sitemap'),
+      data            = require('gulp-data'),
+      path            = require('path'),
+      gulpif          = require('gulp-if'),
 
-    'use strict';
+      knownOptions    = {
+          string: 'env',
+          default: {
+              env: process.env.NODE_ENV || 'prod'
+          }
+      },
 
-    var gulp            = require('gulp'),
-        browserSync     = require('browser-sync'),
-        reload          = browserSync.reload,
-        pug            = require('gulp-pug'),
-        typescript      = require('gulp-tsc'),
-        usemin          = require('gulp-usemin'),
-        uglify          = require('gulp-uglify'),
-        minifyHtml      = require('gulp-minify-html'),
-        minifyCss       = require('gulp-minify-css'),
-        rev             = require('gulp-rev'),
-        sass            = require('gulp-sass'),
-        imagemin        = require('gulp-imagemin'),
-        pngquant        = require('imagemin-pngquant'),
-        sourcemaps      = require('gulp-sourcemaps'),
-        runSequence     = require('run-sequence'),
-        minimist        = require('minimist'),
-        del             = require('del'),
-        svgmin          = require('gulp-svgmin'),
-        sitemap         = require('gulp-sitemap'),
-        data            = require('gulp-data'),
-        path            = require('path'),
-        gulpif          = require('gulp-if'),
+      options     = minimist(process.argv.slice(2), knownOptions),
 
-        knownOptions    = {
-            string: 'env',
-            default: {
-                env: process.env.NODE_ENV || 'prod'
-            }
-        },
+      paths       = {
+          'jadeViews': './src/jade/views/**/*.pug',
+          'jade': './src/jade/**/*.pug',
+          'ts': './src/ts/**/*.ts',
+          'sassViews': './src/scss/views/**/*.scss',
+          'sass': './src/scss/**/*.scss',
+          'build': './build/',
+          'html': './build/**/*.html',
+          'img': './src/img/*',
+          'svg': './src/svgs/*',
+          'php': './src/php/*',
+          'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
+          'dist': './build/'
+      };
 
-        options     = minimist(process.argv.slice(2), knownOptions),
+  // watch files for changes and reload
+  gulp.task('serve', function () {
+      browserSync({
+          server: {
+              baseDir: paths.build
+          }
+      });
 
-        paths       = {
-            'jadeViews': './src/jade/views/**/*.pug',
-            'jade': './src/jade/**/*.pug',
-            'ts': './src/ts/**/*.ts',
-            'sassViews': './src/scss/views/**/*.scss',
-            'sass': './src/scss/**/*.scss',
-            'build': './build/',
-            'html': './build/**/*.html',
-            'img': './src/img/*',
-            'svg': './src/svgs/*',
-            'php': './src/php/*',
-            'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
-            'dist': './build/'
-        };
+      gulp.watch(paths.jade, ['pug']);
+      gulp.watch(paths.ts, ['typescript']);
+      gulp.watch(paths.sass, ['sass']);
+  });
 
-    // watch files for changes and reload
-    gulp.task('serve', function () {
-        browserSync({
-            server: {
-                baseDir: paths.build
-            }
-        });
+  gulp.task('watchSass', function () {
+      gulp.watch(paths.sass, ['sass']);
+  });
 
-        gulp.watch(paths.jade, ['pug']);
-        gulp.watch(paths.ts, ['typescript']);
-        gulp.watch(paths.sass, ['sass']);
-    });
+  gulp.task('watchTypescript', function () {
+      gulp.watch(paths.ts, ['typescript']);
+  });
 
-    gulp.task('watchSass', function () {
-        gulp.watch(paths.sass, ['sass']);
-    });
+  //Compiles pug template into html
+  gulp.task('pug', function () {
 
-    gulp.task('watchTypescript', function () {
-        gulp.watch(paths.ts, ['typescript']);
-    });
+      var fileExist;
 
-    //Compiles pug template into html
-    gulp.task('pug', function () {
+      return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
+          .pipe(data(function(file) {
 
-        var fileExist;
+              try {
+                  fileExist = require('./src/json/' + path.basename(file.path) + '.json');
+              } catch (error) {
+                  fileExist = null;
+              }
 
-        return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
-            .pipe(data(function(file) {
+              if (fileExist) {
+                  return fileExist;
+              }
+          }))
+          .pipe(pug({
+              pretty: true
+          }))
+          .pipe(gulp.dest(paths.dist))
+          .pipe(reload({ stream: true }));
+  });
 
-                try {
-                    fileExist = require('./src/json/' + path.basename(file.path) + '.json');
-                } catch (error) {
-                    fileExist = null;
-                }
+  //Compiles typescript into js
+  gulp.task('typescript', function () {
+      return gulp.src(paths.ts)
+          .pipe(typescript())
+          .pipe(gulp.dest(paths.dist + 'js/'))
+          .pipe(reload({ stream: true }));
+  });
 
-                if (fileExist) {
-                    return fileExist;
-                }
-            }))
-            .pipe(pug({
-                pretty: true
-            }))
-            .pipe(gulp.dest(paths.dist))
-            .pipe(reload({ stream: true }));
-    });
+  gulp.task('sass', function () {
+      gulp.src(paths.sassViews)
+          .pipe(sass())
+          .pipe(gulp.dest(paths.dist + 'css/'))
+          .pipe(reload({ stream: true }));
+  });
 
-    //Compiles typescript into js
-    gulp.task('typescript', function () {
-        return gulp.src(paths.ts)
-            .pipe(typescript())
-            .pipe(gulp.dest(paths.dist + 'js/'))
-            .pipe(reload({ stream: true }));
-    });
+  gulp.task('img', function () {
+      return gulp.src(paths.img)
+          .pipe(imagemin({
+              progressive: true,
+              svgoPlugins: [{removeViewBox: false}],
+              use: [pngquant()]
+          }))
+          .pipe(gulp.dest(paths.dist + 'img/'));
+  });
 
-    gulp.task('sass', function () {
-        gulp.src(paths.sassViews)
-            .pipe(sass())
-            .pipe(gulp.dest(paths.dist + 'css/'))
-            .pipe(reload({ stream: true }));
-    });
+  gulp.task('moveImg', function () {
+      return gulp.src(paths.img)
+          .pipe(gulp.dest(paths.dist + 'img/'));
+  });
 
-    gulp.task('img', function () {
-        return gulp.src(paths.img)
-            .pipe(imagemin({
-                progressive: true,
-                svgoPlugins: [{removeViewBox: false}],
-                use: [pngquant()]
-            }))
-            .pipe(gulp.dest(paths.dist + 'img/'));
-    });
+  //This should be use for prod build as it bundles css/js
+  gulp.task('usemin', function () {
+      return gulp.src('./build/**/*.html')
+          .pipe(usemin({
+              css: [minifyCss, rev],
+              html: [ function () {return minifyHtml({ empty: true });} ],
+              js: [uglify, rev],
+              inlinejs: [ uglify ],
+              inlinecss: [ minifyCss ]
+          }))
+          .pipe(gulp.dest(paths.dist));
+  });
 
-    gulp.task('moveImg', function () {
-        return gulp.src(paths.img)
-            .pipe(gulp.dest(paths.dist + 'img/'));
-    });
+  gulp.task('svg', function () {
+      return gulp.src([paths.svg])
+          //.pipe(svgmin())
+          .pipe(gulp.dest(paths.dist + 'svg/'));
+  });
 
-    //This should be use for prod build as it bundles css/js
-    gulp.task('usemin', function () {
-        return gulp.src('./build/**/*.html')
-            .pipe(usemin({
-                css: [minifyCss, rev],
-                html: [ function () {return minifyHtml({ empty: true });} ],
-                js: [uglify, rev],
-                inlinejs: [ uglify ],
-                inlinecss: [ minifyCss ]
-            }))
-            .pipe(gulp.dest(paths.dist));
-    });
+  gulp.task('php', function () {
+      return gulp.src([paths.php])
+          .pipe(gulp.dest(paths.dist + 'php/'));
+  });
 
-    gulp.task('svg', function () {
-        return gulp.src([paths.svg])
-            //.pipe(svgmin())
-            .pipe(gulp.dest(paths.dist + 'svg/'));
-    });
+  gulp.task('dependenciesjs', function () {
+      return gulp.src(paths.dependenciesjs)
+          .pipe(gulp.dest(paths.dist + 'js/'));
+  });
 
-    gulp.task('php', function () {
-        return gulp.src([paths.php])
-            .pipe(gulp.dest(paths.dist + 'php/'));
-    });
+  gulp.task('sitemap', function () {
+      gulp.src(paths.dist + '**/*.html')
+          .pipe(sitemap({
+              siteUrl: 'http://www.libertineconsultants.co.za'
+          }))
+          .pipe(gulp.dest(paths.dist));
+  });
 
-    gulp.task('dependenciesjs', function () {
-        return gulp.src(paths.dependenciesjs)
-            .pipe(gulp.dest(paths.dist + 'js/'));
-    });
+  gulp.task('build-dev', function () {
 
-    gulp.task('sitemap', function () {
-        gulp.src(paths.dist + '**/*.html')
-            .pipe(sitemap({
-                siteUrl: 'http://www.libertineconsultants.co.za'
-            }))
-            .pipe(gulp.dest(paths.dist));
-    });
+      runSequence(
+          ['pug', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
+      );
+  });
 
-    gulp.task('build-dev', function () {
+  gulp.task('build-prod', function () {
 
-        runSequence(
-            ['pug', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
-        );
-    });
+      runSequence(
+        ['pug', 'typescript', 'sass', 'img', 'svg', 'php', 'dependenciesjs'], 'usemin'
+      );
+  });
 
-    gulp.task('build-prod', function () {
+  gulp.task('build-prod-after', function () {
 
-        runSequence(
-          ['pug', 'typescript', 'sass', 'img', 'svg', 'php', 'dependenciesjs'], 'usemin'
-        );
-    });
+      runSequence(
+          'php',
+          'usemin'
+      );
+  });
 
-    gulp.task('build-prod-after', function () {
+  gulp.task('build', function () {
 
-        runSequence(
-            'php',
-            'usemin'
-        );
-    });
+      runSequence(
+          'build-dev'
+      );
+  });
 
-    gulp.task('build', function () {
-
-        runSequence(
-            'build-dev'
-        );
-    });
-
-    gulp.task('default', ['build']);
+  gulp.task('default', ['build']);
 
 }(require));
