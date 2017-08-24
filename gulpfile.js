@@ -44,6 +44,7 @@
           'build': './build/',
           'html': './build/**/*.html',
           'img': './src/img/*',
+          'pdf': './src/pdf/*',
           'svg': './src/svgs/*',
           'php': './src/php/*',
           'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
@@ -126,6 +127,11 @@
           .pipe(gulp.dest(paths.dist + 'img/'));
   });
 
+  gulp.task('movePdf', function () {
+    return gulp.src(paths.pdf)
+        .pipe(gulp.dest(paths.dist + 'pdf/'));
+  });
+
   //This should be use for prod build as it bundles css/js
   gulp.task('usemin', function () {
       return gulp.src('./build/**/*.html')
@@ -166,14 +172,14 @@
   gulp.task('build-dev', function () {
 
       runSequence(
-          ['pug', 'typescript', 'sass', 'img', 'serve', 'svg', 'php', 'dependenciesjs']
+          ['pug', 'typescript', 'sass', 'img', 'movePdf', 'serve', 'svg', 'php', 'dependenciesjs']
       );
   });
 
   gulp.task('build-prod', function () {
 
       runSequence(
-        ['pug', 'typescript', 'sass', 'img', 'svg', 'php', 'dependenciesjs'], 'usemin'
+        ['pug', 'typescript', 'sass', 'img', 'movePdf', 'svg', 'php', 'dependenciesjs'], 'usemin'
       );
   });
 

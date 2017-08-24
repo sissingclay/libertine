@@ -1,0 +1,114 @@
+extends ../extends/default
+
+block title
+    title Sales Rep Job | Sales Rep Job | Cape Town
+
+block description
+    meta(name='description', content='We`re hiring! We are currently looking for a Sales Rep.')
+
+block variables
+    - var activePage    = path + data.careers.en.href;
+    - var english       = path + data.careers.en.href;
+    - var afrikaans     = path + data.careers.af.href;
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/about/about.css')
+    // endbuild
+
+block main
+
+    include ../partials/about-us/about-us-header
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-05-aboutus.svg
+
+            h1 Sales rep
+
+            p(class='lb-content_main-text').
+                Closing date for applications: <b>7 September 2017</b><br>
+                <small>Status: <span class="lb-badge">open</span></small>
+
+        section(class='lb-content text-center lb-content_grey')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    To plan and carry out all sales activities on assigned clients. Responsible for ensuring client satisfaction and managing quality of service delivery.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Job requirements
+
+                p.
+                    knowledge of relevant computer applications<br>
+                    knowledge of principles and practices of sales<br>
+                    knowledge of customer service principles<br>
+                    knowledge of basic business principles<br>
+                    experience in sales<br>
+                    experience in call-centre<br>
+                    experience in making presentations<br>
+                    proven ability to achieve sales targets
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Core duties
+
+                p.
+                    generate and qualify leads<br>
+                    source and develop client referrals<br>
+                    prepare sales action plans and strategies<br>
+                    schedule sales activity<br>
+                    develop and maintain a customer database<br>
+                    develop and maintain sales and promotional materials<br>
+                    plan and conduct direct marketing activities<br>
+                    make sales calls to new and existing clients<br>
+                    develop and make presentations of company products and services to current and potential clients<br>
+                    negotiate with clients<br>
+                    develop sales proposals<br>
+                    maintain sales activity records and prepare sales reports<br>
+                    respond to sales inquiries and concerns by phone, electronically or in person<br>
+                    ensure customer service satisfaction and good client relationships<br>
+                    follow up on sales activity<br>
+                    monitor and report on sales activities and provide this to management<br>
+                    carry out market research and surveys<br>
+                    participate in sales events<br>
+                    monitor competitors, market conditions and service development
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Key Abilities
+
+                p.
+                    planning and strategizing<br>
+                    persuasiveness<br>
+                    adaptability<br>
+                    verbal and written communication<br>
+                    negotiation skills<br>
+                    resilience and tenacity<br>
+                    stress tolerance<br>
+                    goal driven
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p NB: Applicants will be expected to complete a computer literacy test including but not limited to Word, Excel, Internet and Email.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p Please send <a href="mailto:careers@libertineconsultants.co.za">careers@libertineconsultants.co.za</a> your cover letter and resume. <br> Your resume should be in pdf or MS Word format.
+
+                <a href="#{path}#{data.careers.en.href}" class="lb-btn">Back to Careers</a>
