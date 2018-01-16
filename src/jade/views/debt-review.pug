@@ -1,10 +1,11 @@
 extends ../extends/default
 
 block title
-    title Libertine Consultants | Debt Review | Debt Review Companies | Cape Town
+    title Debt Review | Debt Review Companies | Libertine Consultants
 
 block description
-    meta(name='description', content='At Libertine Consultants our debt review process is tailored to ensure your success.')
+    meta(name='description', content='At Libertine Consultants our debt review process is tailored to ensure your success regarding debt.')
+    meta(name="keywords", content="debt,review,process,company,cape,town")
 
 block variables
     - var activePage    = nav.debt.en.href;
@@ -37,11 +38,11 @@ block main
 
             div(class='lb-content-constraint__large text-center')
 
-                h2 What you should expect from the debt review process
+                h2 What you should expect from the <em>debt review</em> process
 
                 p.
-                    Debt review is a dynamic process that requires absolute <strong>trust and honesty</strong> between the debt counsellor
-                    and the individual seeking debt review. It is imperative that you divulge the information the counsellor
+                    <strong>Debt review</strong> is a dynamic process that requires absolute trust and honesty between the <strong>debt counsellor</strong>
+                    and the individual seeking <strong>debt review</strong>. It is imperative that you divulge the information the counsellor
                     requires truthfully so they may correctly interpret your unique circumstances and <strong>provide the best
                     solution</strong>.
 
@@ -59,7 +60,7 @@ block main
                     *Please note that this amount is subject to change pending the negotiations with your creditors.
 
         section(class='lb-content lb-content_grey')
-
+            -var touch = 'Need to talk to us? <br> Advice on <em>debt review process</em> in <em>Cape Town</em>, South Africa';   
             include ../partials/cta/cta-touch
 
         section(class='lb-content text-center')
@@ -67,7 +68,7 @@ block main
             div(class='lb-content-constraint__large')
 
                 p.
-                    The ideal result of a debt review is a court order that restructures your total debt obligations, resulting
+                    The ideal result of a <em>debt review</em> is a court order that restructures your total debt obligations, resulting
                     in extended contractual terms and a <strong>single lowered monthly instalment</strong> paid via a registered payment
                     distribution agency. The agency then pays your creditors on your behalf according to the specifics of the
                     court order until such time that your <strong>debt is paid in full</strong> or you are caught up with the arrears and
@@ -80,5 +81,5 @@ block main
 
 
         section(class='lb-content lb-content_purple')
-
+            -var apply = 'Get in touch and start <strong>debt review process</strong> in <strong>Cape Town</strong> to rest of South Africa';
             include ../partials/cta/cta-red
