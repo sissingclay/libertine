@@ -1,0 +1,126 @@
+extends ../extends/landing
+
+block title
+    title Debt Consultants | About Us | Libertine Consultants
+
+block description
+    meta(name='description', content='Find out more about the skilled, pro-active debt counselling team at Libertine Consultants. We’re here to help you get your house in order.')
+
+block variables
+    - var activePage    = nav.about.en.href;
+    - var english       = nav.about.en.href;
+    - var afrikaans     = nav.about.af.href;
+
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/credit/credit.css')
+    // endbuild
+
+block main
+
+    main(role='main', class='lb-internal')
+
+        div(class='lb-content_purple')
+
+            section(class='lb-content lb-content_main')
+
+                h1 Check What's Being Reported
+
+                p(class='lb-content_main-text').
+                    Check that all reported information is correct including whether or not you have made payments, your personal details and whether the agreements you have are correctly reflected. 
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 How to get your South African credit score & report
+
+                p.
+                    When you partner with Libertine Consultants, we will guide you through the three-step system to sourcing and understanding your credit record.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                ol
+                    li <b>For R120.00 we provide the following:</b>
+                    li 1. Drawing your credit report from Experian (a South African credit bureau)
+                    li 2. check that the information held about you is correct
+                    li 3. Identitfy which account(s) are not closed properly
+                    li 4. Check if agreements you have are correctly reflected
+                    li 5. Providing personalised advice on improving your credit score
+
+        section(class='lb-content lb-content_purple')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Start understanding your credit score and report today.
+
+                p.
+                    All you need to do is fill out the form below and make the <b> online payment of R120.00</b>.
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large')
+
+                form(class='lb-form lb-apply', novalidate, method='post', action='/php/credit.form.php', id='credit_analysis')
+
+                    div(class='lb-form-section')
+                        label(for='name', class='lb-form-label') Name
+                        input(type='text', name='name', placeholder='Joe', class='lb-form-input', id='name', autocomplete='given-name', data-form, required)
+
+                    div(class='lb-form-section')
+                        label(for='surname', class='lb-form-label') Surname
+                        input(type='text', name='surname', placeholder='Doe', class='lb-form-input', id='surname', autocomplete='family-name', data-form, required)
+
+                    div(class='lb-form-section')
+                        label(for='idNumber', class='lb-form-label') ID Number
+                        input(type='text', name='idNumber', placeholder='8501016184086', class='lb-form-input', id='idNumber', autocomplete='id',  data-form="idNumber", required)
+
+
+                    div(class='lb-form-section')
+                        label(for='email' class='lb-form-label') Email Address
+                        input(type='text', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", autocomplete='email', required)
+
+                    div(class='lb-form-section')
+                        label(for='number' class='lb-form-label') Contact Number
+                        input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form, autocomplete='tel', required)
+
+                    div(class='lb-form-section')
+                        label(for='terms' class='lb-form-label') 
+                            input(type='checkbox' name='terms' id='terms', data-form, required) 
+                            span &nbsp; I accept the <a href="http://google.co.uk">terms and conditions</a>
+
+                    div(class='lb-form-section lb-form-section--hidden')
+                        button(type='hidden', name='formName', value='credit analysis')
+                        button(type='hidden', name='isBot', value='')
+
+                    div(class='lb-form-section')
+                        div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+                    
+                    div(class='lb-form-section error-js', style='clear: both;')
+
+                    div(class='lb-form-section', style='position: relative;')
+
+                        button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Pay Now - R120.00
+
+                        div(class='spinner')
+                            div(class='double-bounce1')
+                            div(class='double-bounce2')
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                include ../partials/cta/cta-touch
+
+append js
+    include ../partials/scripts/forms-script
+    script(src='https://www.google.com/recaptcha/api.js')
+    script.
+        document.querySelector('.js-to-form').addEventListener('click', function(e) {
+            e.preventDefault()
+            document.querySelector('.js-form').scrollIntoView()
+        })

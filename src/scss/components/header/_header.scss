@@ -2,6 +2,10 @@
     background-color: $header;
     padding-top: $padding;
     padding-bottom: $padding;
+
+    &--landing {
+        text-align: center;
+    }
 }
 
 .lb-head-container {
