@@ -4,6 +4,10 @@
     background-color: $header-rgb;
     padding-bottom: $padding;
     z-index: 2;
+
+    &--landing {
+        position: relative;
+    }
 }
 
 .lb-head-logo {

@@ -35,7 +35,7 @@ html.font-loaded {
         @include lato-family-bold;
     }
 
-    p, .lb-content ul {
+    p, .lb-content ul, .lb-content ol {
         @include lato-family;
     }
 
@@ -356,7 +356,7 @@ p {
     word-wrap: break-word;
 }
 
-.lb-content ul {
+.lb-content ul, .lb-content ol {
     list-style-type: none;
     @include rem(margin, 0 0 $section);
 }
@@ -364,6 +364,14 @@ p {
 .lb-content ul li {
     @include rem(margin, 0 0 $section);
     @include rem(line-height, 2.2rem);
+    color: $grey-dark-color;
+    @include rem(font-size, 1.375rem);
+    word-wrap: break-word;
+}
+
+.lb-content ol li {
+    @include rem(line-height, 1.5rem);
+    @include rem(padding-bottom, 1rem);
     color: $grey-dark-color;
     @include rem(font-size, 1.375rem);
     word-wrap: break-word;
