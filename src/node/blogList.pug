@@ -94,8 +94,11 @@ html(lang='en')
 						div(class='lb-content-constraint__large text-center')
 							h2(itemprop='name')
 								a(href="/blog/" + val.fields.slug + '.html', itemprop='url') #{val.fields.title}
-							p(itemprop='description') !{val.fields.body} <br>
-								time(datetime=val.fields.date, itemprop="datePublished")
+
+							div(itemprop='description') !{val.fields.body}
+
+							p
+								time(datetime=val.fields.date, itemprop="datePublished") #{val.fields.date} - 
 								span(itemprop='author') Libertine Consultants
 
 				section(class='lb-content lb-content_purple')
