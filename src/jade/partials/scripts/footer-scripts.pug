@@ -10,6 +10,17 @@ block js
     // endbuild
 
     script(type="text/javascript").
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js', {
+                    scope: '.' // <--- THIS BIT IS REQUIRED
+                })
+                .then(function() {
+                    console.log('Loaded');
+                });
+        }
+
+    script(type="text/javascript").
 
         WebFontConfig = {
             google: { families: [ 'Lato:300,400:latin' ] }
@@ -43,13 +54,3 @@ block js
               console.log('Font is not available');
             });
         }
-
-    script(type = "text/javascript").
-        var _mfq = _mfq || [];
-        (function () {
-            var mf = document.createElement("script");
-            mf.type = "text/javascript";
-            mf.async = true;
-            mf.src = "//cdn.mouseflow.com/projects/40514ae9-8c19-446e-b142-e4df3bce311b.js";
-            document.getElementsByTagName("head")[0].appendChild(mf);
-        })();
