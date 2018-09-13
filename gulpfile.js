@@ -2,202 +2,216 @@
  * Created by Clay on 19/04/15.
  */
 (function (require) {
-  'use strict';
-  var gulp            = require('gulp'),
-      browserSync     = require('browser-sync'),
-      reload          = browserSync.reload,
-      pug            = require('gulp-pug'),
-      typescript      = require('gulp-tsc'),
-      usemin          = require('gulp-usemin'),
-      uglify          = require('gulp-uglify'),
-      minifyHtml      = require('gulp-minify-html'),
-      minifyCss       = require('gulp-minify-css'),
-      rev             = require('gulp-rev'),
-      sass            = require('gulp-sass'),
-      imagemin        = require('gulp-imagemin'),
-      pngquant        = require('imagemin-pngquant'),
-      sourcemaps      = require('gulp-sourcemaps'),
-      runSequence     = require('run-sequence'),
-      minimist        = require('minimist'),
-      del             = require('del'),
-      svgmin          = require('gulp-svgmin'),
-      sitemap         = require('gulp-sitemap'),
-      data            = require('gulp-data'),
-      path            = require('path'),
-      gulpif          = require('gulp-if'),
+    'use strict';
+    var gulp            = require('gulp'),
+        browserSync     = require('browser-sync'),
+        reload          = browserSync.reload,
+        pug            = require('gulp-pug'),
+        typescript      = require('gulp-typescript'),
+        usemin          = require('gulp-usemin'),
+        uglify          = require('gulp-uglify'),
+        minifyHtml      = require('gulp-minify-html'),
+        minifyCss       = require('gulp-minify-css'),
+        rev             = require('gulp-rev'),
+        sass            = require('gulp-sass'),
+        imagemin        = require('gulp-imagemin'),
+        pngquant        = require('imagemin-pngquant'),
+        sourcemaps      = require('gulp-sourcemaps'),
+        runSequence     = require('run-sequence'),
+        minimist        = require('minimist'),
+        del             = require('del'),
+        svgmin          = require('gulp-svgmin'),
+        sitemap         = require('gulp-sitemap'),
+        data            = require('gulp-data'),
+        path            = require('path'),
+        gulpif          = require('gulp-if'),
+        tsProject       = typescript.createProject('./src/tsconfig.json'),
+        webserver       = require('gulp-webserver'),
 
-      knownOptions    = {
-          string: 'env',
-          default: {
-              env: process.env.NODE_ENV || 'prod'
-          }
-      },
+        knownOptions    = {
+            string: 'env',
+            default: {
+                env: process.env.NODE_ENV || 'prod'
+            }
+        },
 
-      options     = minimist(process.argv.slice(2), knownOptions),
+        options     = minimist(process.argv.slice(2), knownOptions),
 
-      paths       = {
-          'jadeViews': './src/jade/views/**/*.pug',
-          'jade': './src/jade/**/*.pug',
-          'ts': './src/ts/**/*.ts',
-          'sassViews': './src/scss/views/**/*.scss',
-          'sass': './src/scss/**/*.scss',
-          'build': './build/',
-          'html': './build/**/*.html',
-          'img': './src/img/*',
-          'pdf': './src/pdf/*',
-          'svg': './src/svgs/*',
-          'php': './src/php/*',
-          'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
-          'dist': './build/'
-      };
+        paths       = {
+            'jadeViews': './src/jade/views/**/*.pug',
+            'jade': './src/jade/**/*.pug',
+            'ts': './src/ts/**/*.ts',
+            'sw': './src/sw/**/*.ts',
+            'sassViews': './src/scss/views/**/*.scss',
+            'sass': './src/scss/**/*.scss',
+            'build': './build/',
+            'html': './build/**/*.html',
+            'img': './src/img/**/*',
+            'pdf': './src/pdf/*',
+            'svg': './src/svgs/*',
+            'php': './src/php/*',
+            'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
+            'dist': './build/',
+            'toRoot': ['./src/manifest.json', './src/sw/sw.js']
+        };
 
-  // watch files for changes and reload
-  gulp.task('serve', function () {
-      browserSync({
-          server: {
-              baseDir: paths.build
-          }
-      });
+    // watch files for changes and reload
+    gulp.task('reload', function () {
+        // gulp.src(paths.build)
+        //     .pipe(webserver({
+        //         livereload: true,
+        //         open: true
+        //     }));
 
-      gulp.watch(paths.jade, ['pug']);
-      gulp.watch(paths.ts, ['typescript']);
-      gulp.watch(paths.sass, ['sass']);
-  });
+        gulp.watch(paths.jade, ['pug']);
+        gulp.watch(paths.ts, ['typescript']);
+        gulp.watch(paths.toRoot, ['toRoot']);
+        gulp.watch(paths.sass, ['sass']);
+    });
 
-  gulp.task('watchSass', function () {
-      gulp.watch(paths.sass, ['sass']);
-  });
+    gulp.task('watchSass', function () {
+        gulp.watch(paths.sass, ['sass']);
+    });
 
-  gulp.task('watchTypescript', function () {
-      gulp.watch(paths.ts, ['typescript']);
-  });
+    gulp.task('watchTypescript', function () {
+        gulp.watch(paths.ts, ['typescript']);
+    });
 
-  //Compiles pug template into html
-  gulp.task('pug', function () {
+    gulp.task('toRoot', function () {
+        gulp.watch(paths.toRoot, ['toRoot']);
+    });
 
-      var fileExist;
+    //Compiles pug template into html
+    gulp.task('pug', function () {
 
-      return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
-          .pipe(data(function(file) {
+        var fileExist;
 
-              try {
-                  fileExist = require('./src/json/' + path.basename(file.path) + '.json');
-              } catch (error) {
-                  fileExist = null;
-              }
+        return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
+            .pipe(data(function(file) {
 
-              if (fileExist) {
-                  return fileExist;
-              }
-          }))
-          .pipe(pug({
-              pretty: true
-          }))
-          .pipe(gulp.dest(paths.dist))
-          .pipe(reload({ stream: true }));
-  });
+                try {
+                    fileExist = require('./src/json/' + path.basename(file.path) + '.json');
+                } catch (error) {
+                    fileExist = null;
+                }
 
-  //Compiles typescript into js
-  gulp.task('typescript', function () {
-      return gulp.src(paths.ts)
-          .pipe(typescript())
-          .pipe(gulp.dest(paths.dist + 'js/'))
-          .pipe(reload({ stream: true }));
-  });
+                if (fileExist) {
+                    return fileExist;
+                }
+            }))
+            .pipe(pug({
+                pretty: true
+            }))
+            .pipe(gulp.dest(paths.dist))
+            .pipe(reload({ stream: true }));
+    });
 
-  gulp.task('sass', function () {
-      gulp.src(paths.sassViews)
-          .pipe(sass())
-          .pipe(gulp.dest(paths.dist + 'css/'))
-          .pipe(reload({ stream: true }));
-  });
+    //Compiles typescript into js
+    gulp.task('typescript', function () {
+        return gulp.src(paths.ts)
+            .pipe(tsProject())
+            .pipe(gulp.dest(paths.dist + 'js/'))
+            .pipe(reload({ stream: true }));
+    });
 
-  gulp.task('img', function () {
-      return gulp.src(paths.img)
-          .pipe(imagemin({
-              progressive: true,
-              svgoPlugins: [{removeViewBox: false}],
-              use: [pngquant()]
-          }))
-          .pipe(gulp.dest(paths.dist + 'img/'));
-  });
+    gulp.task('sass', function () {
+        gulp.src(paths.sassViews)
+            .pipe(sass())
+            .pipe(gulp.dest(paths.dist + 'css/'))
+            .pipe(reload({ stream: true }));
+    });
 
-  gulp.task('moveImg', function () {
-      return gulp.src(paths.img)
-          .pipe(gulp.dest(paths.dist + 'img/'));
-  });
+    gulp.task('img', function () {
+        return gulp.src(paths.img)
+            .pipe(imagemin({
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngquant()]
+            }))
+            .pipe(gulp.dest(paths.dist + 'img/'));
+    });
 
-  gulp.task('movePdf', function () {
-    return gulp.src(paths.pdf)
-        .pipe(gulp.dest(paths.dist + 'pdf/'));
-  });
+    gulp.task('moveImg', function () {
+        return gulp.src(paths.img)
+            .pipe(gulp.dest(paths.dist + 'img/'));
+    });
 
-  //This should be use for prod build as it bundles css/js
-  gulp.task('usemin', function () {
-      return gulp.src('./build/**/*.html')
-          .pipe(usemin({
-              css: [minifyCss, rev],
-              html: [ function () {return minifyHtml({ empty: true });} ],
-              js: [uglify, rev],
-              inlinejs: [ uglify ],
-              inlinecss: [ minifyCss ]
-          }))
-          .pipe(gulp.dest(paths.dist));
-  });
+    gulp.task('movePdf', function () {
+        return gulp.src(paths.pdf)
+            .pipe(gulp.dest(paths.dist + 'pdf/'));
+    });
 
-  gulp.task('svg', function () {
-      return gulp.src([paths.svg])
-          //.pipe(svgmin())
-          .pipe(gulp.dest(paths.dist + 'svg/'));
-  });
+    gulp.task('toRoot', function () {
+        return gulp.src(paths.toRoot)
+            .pipe(gulp.dest(paths.dist));
+    });
 
-  gulp.task('php', function () {
-      return gulp.src([paths.php])
-          .pipe(gulp.dest(paths.dist + 'php/'));
-  });
+    //This should be use for prod build as it bundles css/js
+    gulp.task('usemin', function () {
+        return gulp.src('./build/**/*.html')
+            .pipe(usemin({
+                css: [minifyCss, rev],
+                html: [ function () {return minifyHtml({ empty: true });} ],
+                js: [uglify, rev],
+                inlinejs: [ uglify ],
+                inlinecss: [ minifyCss ]
+            }))
+            .pipe(gulp.dest(paths.dist));
+    });
 
-  gulp.task('dependenciesjs', function () {
-      return gulp.src(paths.dependenciesjs)
-          .pipe(gulp.dest(paths.dist + 'js/'));
-  });
+    gulp.task('svg', function () {
+        return gulp.src([paths.svg])
+            //.pipe(svgmin())
+            .pipe(gulp.dest(paths.dist + 'svg/'));
+    });
 
-  gulp.task('sitemap', function () {
-      gulp.src(paths.dist + '**/*.html')
-          .pipe(sitemap({
-              siteUrl: 'http://www.libertineconsultants.co.za'
-          }))
-          .pipe(gulp.dest(paths.dist));
-  });
+    gulp.task('php', function () {
+        return gulp.src([paths.php])
+            .pipe(gulp.dest(paths.dist + 'php/'));
+    });
 
-  gulp.task('build-dev', function () {
+    gulp.task('dependenciesjs', function () {
+        return gulp.src(paths.dependenciesjs)
+            .pipe(gulp.dest(paths.dist + 'js/'));
+    });
 
-      runSequence(
-          ['pug', 'typescript', 'sass', 'img', 'movePdf', 'serve', 'svg', 'php', 'dependenciesjs']
-      );
-  });
+    gulp.task('sitemap', function () {
+        gulp.src(paths.dist + '**/*.html')
+            .pipe(sitemap({
+                siteUrl: 'http://www.libertineconsultants.co.za'
+            }))
+            .pipe(gulp.dest(paths.dist));
+    });
 
-  gulp.task('build-prod', function () {
+    gulp.task('build-dev', function () {
 
-      runSequence(
-        ['pug', 'typescript', 'sass', 'img', 'movePdf', 'svg', 'php', 'dependenciesjs'], 'usemin'
-      );
-  });
+        runSequence(
+            ['pug', 'typescript', 'sass', 'img', 'movePdf', 'reload', 'svg', 'php', 'dependenciesjs', 'toRoot']
+        );
+    });
 
-  gulp.task('build-prod-after', function () {
+    gulp.task('build-prod', function () {
 
-      runSequence(
-          'php',
-          'usemin'
-      );
-  });
+        runSequence(
+            ['pug', 'typescript', 'sass', 'img', 'movePdf', 'svg', 'php', 'dependenciesjs', 'toRoot'], 'usemin'
+        );
+    });
 
-  gulp.task('build', function () {
+    gulp.task('build-prod-after', function () {
 
-      runSequence(
-          'build-dev'
-      );
-  });
+        runSequence(
+            'php',
+            'usemin'
+        );
+    });
 
-  gulp.task('default', ['build']);
+    gulp.task('build', function () {
+
+        runSequence(
+            'build-dev'
+        );
+    });
+
+    gulp.task('default', ['build']);
 
 }(require));

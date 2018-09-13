@@ -10,6 +10,17 @@ block js
     // endbuild
 
     script(type="text/javascript").
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js', {
+                    scope: '.' // <--- THIS BIT IS REQUIRED
+                })
+                .then(function() {
+                    console.log('Loaded');
+                });
+        }
+
+    script(type="text/javascript").
 
         WebFontConfig = {
             google: { families: [ 'Lato:300,400:latin' ] }
