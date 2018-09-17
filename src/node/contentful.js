@@ -42,6 +42,8 @@ var blogEnties = (blogArticles) => {
         article.fields.bodySection2 = (article.fields.bodySection3) ? markdown.toHTML(article.fields.bodySection2) : '';
         article.fields.bodySection3 = (article.fields.bodySection3) ? markdown.toHTML(article.fields.bodySection3): '';
         article.fields.bodySection4 = (article.fields.bodySection4) ? markdown.toHTML(article.fields.bodySection4) : '';
+        article.fields.bodySection5 = (article.fields.bodySection5) ? markdown.toHTML(article.fields.bodySection5) : '';
+        article.fields.bodySection6 = (article.fields.bodySection6) ? markdown.toHTML(article.fields.bodySection6) : '';
 
         updatedBlogArticles.push(article);
 
@@ -59,6 +61,8 @@ var blogEnties = (blogArticles) => {
                     bodySection2: article.fields.bodySection2,
                     bodySection3: article.fields.bodySection3,
                     bodySection4: article.fields.bodySection4,
+                    bodySection5: article.fields.bodySection5,
+                    bodySection6: article.fields.bodySection6,
                     metaTitle: article.fields.metaTitle,
                     metaDescription: article.fields.metaDescription
                 }
