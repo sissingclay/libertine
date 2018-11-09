@@ -26,18 +26,20 @@ block main
 
             div(class='lb-hero_container')
 
-                h1(class='lb-hero-title animate-title') Debt counselling done properly
+                h1(class='lb-hero-title animate-title') Financial services done properly
 
-                p(class='lb-hero-text animate-description') Support before, during and after <a href="#{data.counselling[lang].href}">debt counselling</a> ensures that individuals have the best opportunity for success.
+                p(class='lb-hero-text animate-description') Support before, during and after ensures that individuals have the best opportunity for success.
 
-                div(class='lb-cta lb-cta_center lb-cta_large-left animate-description')
+            div(class='lb-cta lb-cta_center lb-cta_large-left animate-description')
 
-                    a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') #{nav.debt.en.name}
+                a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') #{nav.debt.en.name}
 
-                    a(href=path + data.apply.en.href class='lb-btn lb-btn_action lb-btn--none-bottom') Get Help you Need
+                a(href=path + nav.credit.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') #{nav.credit.en.name}
 
-                    p(class='lb-cta-text')
-                        small Need to talk to us? Call <a href='#{data.tel.href}')> #{data.tel.name}</a> for advice <br> on <strong>debt, covering Cape Town</strong> and rest of South Africa
+                a(href=path + data.apply.en.href class='lb-btn lb-btn_action lb-btn--none-bottom') Get Help you Need
+
+                p(class='lb-cta-text')
+                    small Need to talk to us? Call <a href='#{data.tel.href}')> #{data.tel.name}</a> for advice <br> on <strong>debt, covering Cape Town</strong> and rest of South Africa
 
     main(role='main')
 
@@ -161,7 +163,7 @@ block main
 
                     include ../../svgs/NCR_logo.svg
 
-                    p Registered with the <a href="http://www.ncr.org.za" class="lb-link" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC592
+                    p Registered with the <a href="http://www.ncr.org.za" class="lb-link" target="_blank"><strong>National Credit Regulator</strong></a> - number NCRDC3111 and NCRDC592
 
         section(class='lb-content')
 
