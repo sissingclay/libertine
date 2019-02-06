@@ -37,7 +37,7 @@ if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck
             }
         ],
         "message": {
-            "from_email": "website@libertineconsultants.co.za",
+            "from_email": "clay@libertineconsultants.co.za",
             "from_name": "Website",
             "to": [
                 {
@@ -90,7 +90,7 @@ if($_POST['formName'] == 'apply' && empty($_POST['isBot']) && $isBotCheck[0]['su
             }
         ],
         "message": {
-            "from_email": "website@libertineconsultants.co.za",
+            "from_email": "clay@libertineconsultants.co.za",
             "from_name": "Website",
             "to": [
                 {
