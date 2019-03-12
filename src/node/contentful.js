@@ -38,8 +38,8 @@ var blogEnties = (blogArticles) => {
     blogArticles.forEach((article) => {
         article.fields.date = (article.fields.date) ? dateFormat(article.fields.date, 'dd/mm/yyyy') : '';
         article.fields.body = markdown.toHTML(article.fields.body);
-        article.fields.bodySection1 = markdown.toHTML(article.fields.bodySection1);
-        article.fields.bodySection2 = (article.fields.bodySection3) ? markdown.toHTML(article.fields.bodySection2) : '';
+        article.fields.bodySection1 = (article.fields.bodySection1) ? markdown.toHTML(article.fields.bodySection1) : '';
+        article.fields.bodySection2 = (article.fields.bodySection2) ? markdown.toHTML(article.fields.bodySection2) : '';
         article.fields.bodySection3 = (article.fields.bodySection3) ? markdown.toHTML(article.fields.bodySection3): '';
         article.fields.bodySection4 = (article.fields.bodySection4) ? markdown.toHTML(article.fields.bodySection4) : '';
         article.fields.bodySection5 = (article.fields.bodySection5) ? markdown.toHTML(article.fields.bodySection5) : '';
