@@ -1,203 +1,159 @@
-/**
- * Created by Clay on 19/04/15.
- */
-(function (require) {
-  'use strict';
-  var gulp            = require('gulp'),
-      browserSync     = require('browser-sync'),
-      reload          = browserSync.reload,
-      pug            = require('gulp-pug'),
-      typescript      = require('gulp-tsc'),
-      usemin          = require('gulp-usemin'),
-      uglify          = require('gulp-uglify'),
-      minifyHtml      = require('gulp-minify-html'),
-      minifyCss       = require('gulp-minify-css'),
-      rev             = require('gulp-rev'),
-      sass            = require('gulp-sass'),
-      imagemin        = require('gulp-imagemin'),
-      pngquant        = require('imagemin-pngquant'),
-      sourcemaps      = require('gulp-sourcemaps'),
-      runSequence     = require('run-sequence'),
-      minimist        = require('minimist'),
-      del             = require('del'),
-      svgmin          = require('gulp-svgmin'),
-      sitemap         = require('gulp-sitemap'),
-      data            = require('gulp-data'),
-      path            = require('path'),
-      gulpif          = require('gulp-if'),
+const { src, dest, watch, series } = require('gulp');
+const browserSync = require('browser-sync');
+const data = require('gulp-data');
+const pug = require('gulp-pug');
+const sass = require('gulp-sass');
+const pngquant = require('imagemin-pngquant');
+const imagemin = require('gulp-imagemin');
+const minifyCss = require('gulp-minify-css');
+const usemin = require('gulp-usemin');
+const rev = require('gulp-rev');
+const minifyHtml = require('gulp-minify-html');
+const uglify = require('gulp-uglify');
+const sitemap = require('gulp-sitemap');
+const ts = require('gulp-typescript');
+const fs = require('fs');
+var path = require('path');
 
-      knownOptions    = {
-          string: 'env',
-          default: {
-              env: process.env.NODE_ENV || 'prod'
-          }
-      },
+const paths = {
+    'jadeViews': './src/jade/views/**/*.pug',
+    'jade': './src/jade/**/*.pug',
+    'ts': './src/ts/**/*.ts',
+    'sassViews': './src/scss/views/**/*.scss',
+    'sass': './src/scss/**/*.scss',
+    'build': './build/',
+    'html': './build/**/*.html',
+    'img': './src/img/*',
+    'pdf': './src/pdf/*',
+    'svg': './src/svgs/*',
+    'php': './src/php/*',
+    'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
+    'dist': './build/'
+};
 
-      options     = minimist(process.argv.slice(2), knownOptions),
+function pugBuild() {
 
-      paths       = {
-          'jadeViews': './src/jade/views/**/*.pug',
-          'jade': './src/jade/**/*.pug',
-          'ts': './src/ts/**/*.ts',
-          'sassViews': './src/scss/views/**/*.scss',
-          'sass': './src/scss/**/*.scss',
-          'build': './build/',
-          'html': './build/**/*.html',
-          'img': './src/img/*',
-          'pdf': './src/pdf/*',
-          'svg': './src/svgs/*',
-          'php': './src/php/*',
-          'dependenciesjs': ['./bower_components/fontfaceobserver/fontfaceobserver.js', './bower_components/picturefill/dist/picturefill.min.js'],
-          'dist': './build/'
-      };
+    var fileExist;
 
-  // watch files for changes and reload
-  gulp.task('serve', function () {
-      browserSync({
-          server: {
-              baseDir: paths.build
-          }
-      });
+    return src([paths.jadeViews, '!./src/jade/view/blog.pug'])
+        .pipe(data(function(file) {
 
-      gulp.watch(paths.jade, ['pug']);
-      gulp.watch(paths.ts, ['typescript']);
-      gulp.watch(paths.sass, ['sass']);
-  });
+            try {
+                fileExist = JSON.parse(fs.readFileSync('./src/json/' + path.basename(file.path) + '.json'));
+            } catch (error) {
+                fileExist = null;
+            }
 
-  gulp.task('watchSass', function () {
-      gulp.watch(paths.sass, ['sass']);
-  });
+            if (fileExist) {
+                return fileExist;
+            }
+        }))
+        // .pipe(console.log('test', fileExist))
+        .pipe(pug({
+            pretty: true,
+            data: fileExist
+        }))
+        .pipe(dest(paths.dist))
+        .pipe(browserSync.reload({ stream: true }));
+}
 
-  gulp.task('watchTypescript', function () {
-      gulp.watch(paths.ts, ['typescript']);
-  });
+//Compiles typescript into js
+function typescriptFC() {
+    return src(paths.ts)
+        .pipe(ts())
+        .pipe(dest(`${paths.dist}js/`))
+        .pipe(browserSync.reload({ stream: true }));
+}
 
-  //Compiles pug template into html
-  gulp.task('pug', function () {
+function scssFC() {
+    return src(paths.sassViews)
+        .pipe(sass())
+        .pipe(dest(paths.dist + 'css/'))
+        .pipe( browserSync.reload({ stream: true }));
+}
 
-      var fileExist;
+function imgFC() {
+    return src(paths.img)
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
+        }))
+        .pipe(dest(paths.dist + 'img/'));
+}
 
-      return gulp.src([paths.jadeViews, '!./src/jade/view/blog.pug'])
-          .pipe(data(function(file) {
+function moveImg() {
+    return src(paths.img)
+        .pipe(dest(paths.dist + 'img/'));
+};
 
-              try {
-                  fileExist = require('./src/json/' + path.basename(file.path) + '.json');
-              } catch (error) {
-                  fileExist = null;
-              }
+function movePdf() {
+    return src(paths.pdf)
+        .pipe(dest(paths.dist + 'pdf/'));
 
-              if (fileExist) {
-                  return fileExist;
-              }
-          }))
-          .pipe(pug({
-              pretty: true
-          }))
-          .pipe(gulp.dest(paths.dist))
-          .pipe(reload({ stream: true }));
-  });
+};
 
-  //Compiles typescript into js
-  gulp.task('typescript', function () {
-      return gulp.src(paths.ts)
-          .pipe(typescript())
-          .pipe(gulp.dest(paths.dist + 'js/'))
-          .pipe(reload({ stream: true }));
-  });
+function useminFC() {
+    return src('./build/**/*.html')
+        .pipe(usemin({
+            css: [minifyCss, rev],
+            html: [ function () {return minifyHtml({ empty: true });} ],
+            js: [uglify, rev],
+            inlinejs: [ uglify ],
+            inlinecss: [ minifyCss ]
+        }))
+        .pipe(dest(paths.dist));
+}
 
-  gulp.task('sass', function () {
-      gulp.src(paths.sassViews)
-          .pipe(sass())
-          .pipe(gulp.dest(paths.dist + 'css/'))
-          .pipe(reload({ stream: true }));
-  });
+function svgFC() {
+    return src([paths.svg])
+        .pipe(dest(paths.dist + 'svg/'));
+};
 
-  gulp.task('img', function () {
-      return gulp.src(paths.img)
-          .pipe(imagemin({
-              progressive: true,
-              svgoPlugins: [{removeViewBox: false}],
-              use: [pngquant()]
-          }))
-          .pipe(gulp.dest(paths.dist + 'img/'));
-  });
+function phpFC() {
+    return src([paths.php])
+        .pipe(dest(paths.dist + 'php/'));
+}
 
-  gulp.task('moveImg', function () {
-      return gulp.src(paths.img)
-          .pipe(gulp.dest(paths.dist + 'img/'));
-  });
+function dependenciesjsFC() {
+    return src(paths.dependenciesjs)
+        .pipe(dest(paths.dist + 'js/'));
 
-  gulp.task('movePdf', function () {
-    return gulp.src(paths.pdf)
-        .pipe(gulp.dest(paths.dist + 'pdf/'));
-  });
+}
 
-  //This should be use for prod build as it bundles css/js
-  gulp.task('usemin', function () {
-      return gulp.src('./build/**/*.html')
-          .pipe(usemin({
-              css: [minifyCss, rev],
-              html: [ function () {return minifyHtml({ empty: true });} ],
-              js: [uglify, rev],
-              inlinejs: [ uglify ],
-              inlinecss: [ minifyCss ]
-          }))
-          .pipe(gulp.dest(paths.dist));
-  });
+function sitemapFC() {
+    return src(paths.dist + '**/*.html')
+        .pipe(sitemap({
+            siteUrl: 'http://www.libertineconsultants.co.za'
+        }))
+        .pipe(dest(paths.dist));
+}
 
-  gulp.task('svg', function () {
-      return gulp.src([paths.svg])
-          //.pipe(svgmin())
-          .pipe(gulp.dest(paths.dist + 'svg/'));
-  });
+// watch files for changes and reload
+function serve() {
+    browserSync({
+        server: {
+            baseDir: paths.build
+        }
+    });
 
-  gulp.task('php', function () {
-      return gulp.src([paths.php])
-          .pipe(gulp.dest(paths.dist + 'php/'));
-  });
+    watch([paths.jade]).on('change', series('pugBuild'));
+    watch([paths.ts]).on('change', series('typescriptFC'));
+    watch([paths.sass]).on('change', series('scssFC'));
+};
 
-  gulp.task('dependenciesjs', function () {
-      return gulp.src(paths.dependenciesjs)
-          .pipe(gulp.dest(paths.dist + 'js/'));
-  });
+exports.serve = serve;
+exports.pugBuild = pugBuild;
+exports.typescriptFC = typescriptFC;
+exports.scssFC = scssFC;
+exports.moveImg = moveImg;
+exports.imgFC = imgFC;
+exports.movePdf = movePdf;
+exports.useminFC = useminFC;
+exports.svgFC = svgFC;
+exports.phpFC = phpFC;
+exports.dependenciesjsFC = dependenciesjsFC;
+exports.sitemapFC = sitemapFC;
 
-  gulp.task('sitemap', function () {
-      gulp.src(paths.dist + '**/*.html')
-          .pipe(sitemap({
-              siteUrl: 'http://www.libertineconsultants.co.za'
-          }))
-          .pipe(gulp.dest(paths.dist));
-  });
-
-  gulp.task('build-dev', function () {
-
-      runSequence(
-          ['pug', 'typescript', 'sass', 'img', 'movePdf', 'serve', 'svg', 'php', 'dependenciesjs']
-      );
-  });
-
-  gulp.task('build-prod', function () {
-
-      runSequence(
-        ['pug', 'typescript', 'sass', 'img', 'movePdf', 'svg', 'php', 'dependenciesjs'], 'usemin'
-      );
-  });
-
-  gulp.task('build-prod-after', function () {
-
-      runSequence(
-          'php',
-          'usemin'
-      );
-  });
-
-  gulp.task('build', function () {
-
-      runSequence(
-          'build-dev'
-      );
-  });
-
-  gulp.task('default', ['build']);
-
-}(require));
+exports.buildDev = series(pugBuild, typescriptFC, scssFC, imgFC, movePdf, svgFC, phpFC, dependenciesjsFC, serve);
+exports.default = series(pugBuild, typescriptFC, scssFC, imgFC, movePdf, svgFC, phpFC, dependenciesjsFC, useminFC);
