@@ -74,7 +74,18 @@ function scssFC() {
 
 function imgFC() {
     return src(paths.img)
-        .pipe(imagemin({
+        .pipe(imagemin(
+            [
+                imagemin.gifsicle({interlaced: true}),
+                imagemin.jpegtran({progressive: true}),
+                imagemin.optipng({optimizationLevel: 5}),
+                imagemin.svgo({
+                    plugins: [
+                        {removeViewBox: false},
+                        {cleanupIDs: false}
+                    ]
+                })
+            ],{
             progressive: true,
             svgoPlugins: [{removeViewBox: false}],
             use: [pngquant()]
