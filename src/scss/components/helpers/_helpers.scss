@@ -20,3 +20,11 @@ p {
 .img-full {
     width: 100%;
 }
+
+.pr-1 {
+    @include rem(padding-right, 10px);
+}
+
+.lb-hide {
+    display: none;
+}

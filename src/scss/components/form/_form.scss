@@ -19,7 +19,7 @@
     }
 }
 
-.lb-form-input, .lb-form-textarea, .lb-form-interaction {
+.lb-form-input, .lb-form-textarea, .lb-form-interaction, .lb-form-select {
     @include transition(all, 0.5s, ease);
 
     &:focus {
@@ -40,7 +40,11 @@
     }
 }
 
-.lb-form-section--inline__container {
+.lb-form-select {
+    height: 45px;
+}
+
+.lb-form-section--inline__container, .lb-form-select {
 
     &.lb-error {
 

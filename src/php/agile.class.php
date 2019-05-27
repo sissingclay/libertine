@@ -22,6 +22,11 @@
                         "value" => $data['number'],
                         "type" => "SYSTEM"
                     ),
+                    array(
+                        "name" => "modified_phone_number",
+                        "value" => "+27" + ($data['number'][0] === '0') ? $str = substr($data['number'], 1) : $data['number'],
+                        "type" => "CUSTOM"
+                    ),
                 )
             );
 

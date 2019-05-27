@@ -139,7 +139,25 @@ block main
 
                 div(class='lb-form-section')
                     label(for='number' class='lb-form-label') Contact number
-                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form, autocomplete='tel', required)
+                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form="email", autocomplete='tel', required)
+
+                div(class='lb-form-section lb-form-section')
+                    label(for='employed', class='lb-form-label') Your preferred contact method?
+
+                    input(type='radio', name='contactMethod', checked="checked" value='phone', class='lb-form-radio js-phoneCo', id='phoneCo', data-form, required)
+                    label(for='phoneCo', class='lb-form-label lb-form-label--inline pr-1') Phone
+
+                    input(type='radio', name='contactMethod', value='email', class='lb-form-radio js-emailCo', id='emailCo', data-form, required)
+                    label(for='emailCo', class='lb-form-label lb-form-label--inline') Email
+
+                div(class='lb-form-section js-callMe')
+                    label(for='callat' class='lb-form-label') Call me
+                    select(class="lb-form-select", name='callAt', id='callat', data-form)
+                        option(value='ASAP') ASAP
+                        option(value='Morning') Morning
+                        option(value='Mid-day') Mid-day
+                        option(value='Afternoon') Afternoon
+                        option(value='Evening') Evening
 
                 div(class='lb-form-section lb-form-section--hidden')
                     button(type='hidden', name='formName', value='credit analysis')
@@ -162,6 +180,12 @@ append js
     include ../partials/scripts/forms-script
     script(src='https://www.google.com/recaptcha/api.js')
     script.
+        document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+             document.querySelector('.js-callMe').classList.remove('lb-hide')
+        })
+        document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+             document.querySelector('.js-callMe').classList.add('lb-hide')
+        })
         document.querySelector('.js-to-form').addEventListener('click', function(e) {
             e.preventDefault()
             document.querySelector('.js-form').scrollIntoView()
