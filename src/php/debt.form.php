@@ -11,43 +11,50 @@
 
     $captchaResult = $google->checker();
     $captchaResultDecode = json_decode($captchaResult, true);
-    $emailResult = $sparkPost->createEmailSend(
-        $_POST, 
-        json_encode(["FULLNAME" => $_POST['fullName']]), 
-        'apply-c',
-        [
-            "email" => $_POST['email'],
-            "name" => $_POST['fullName']
-        ]
-    );
-    $adminEmail = $sparkPost->createEmailSend(
-        $_POST,
-        json_encode([
-            "FULLNAME" => $_POST['fullName'],
-            "NUMBERS" => $_POST['number'],
-            "EMAILS" => $_POST['email'],
-            "CREDITORS" => $_POST['creditors'],
-            "DEBTS" => $_POST['debt'],
-            "REVIEWS" => $_POST['review'],
-            "BLACKLISTEDS" => $_POST['blacklisted'],
-            "GARNISHEES" => $_POST['garnishees'],
-            "ARREARS" => $_POST['arrears'],
-            "POSITIONS" => $_POST['position'],
-            "LOCATIONS" => $_POST['location'],
-            "EMPLOYEDS" => $_POST['employed'],
-            "MARRIEDS" => $_POST['married']
-        ]),
-        'apply',
-        [
-            "email" => "info@libertineconsultants.co.za",
-            "name" => 'Debt relief'
-        ]
-    );
-    $agile->sendAgileData($_POST, 'Apply for debt relief');
 
-    if ($captchaResultDecode->success === true) {
-        $data = json_decode($emailResult, true);
-        echo json_encode($data);
+    if ($captchaResultDecode['success']) {
+
+        $emailResult = $sparkPost->createEmailSend(
+            $_POST, 
+            json_encode(["FULLNAME" => $_POST['fullName']]), 
+            'apply-c',
+            [
+                "email" => $_POST['email'],
+                "name" => $_POST['fullName']
+            ]
+        );
+        
+        $adminEmail = $sparkPost->createEmailSend(
+            $_POST,
+            json_encode([
+                "FULLNAME" => $_POST['fullName'],
+                "NUMBERS" => $_POST['number'],
+                "EMAILS" => $_POST['email'],
+                "CREDITORS" => $_POST['creditors'],
+                "DEBTS" => $_POST['debt'],
+                "REVIEWS" => $_POST['review'],
+                "BLACKLISTEDS" => $_POST['blacklisted'],
+                "GARNISHEES" => $_POST['garnishees'],
+                "ARREARS" => $_POST['arrears'],
+                "POSITIONS" => $_POST['position'],
+                "LOCATIONS" => $_POST['location'],
+                "EMPLOYEDS" => $_POST['employed'],
+                "MARRIEDS" => $_POST['married']
+            ]),
+            'apply',
+            [
+                "email" => "info@libertineconsultants.co.za",
+                "name" => 'Debt relief'
+            ]
+        );
+
+        $contact = $agile->sendAgileData($_POST, 'Apply for debt relief');
+
+        if ($contact) {
+            echo json_encode($contact);
+        } else {
+            http_response_code(500);
+        }
     } else {
         http_response_code(500);
     }
