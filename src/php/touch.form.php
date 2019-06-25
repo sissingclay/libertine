@@ -11,30 +11,37 @@
 
     $captchaResult = $google->checker();
     $captchaResultDecode = json_decode($captchaResult, true);
-    $emailResult = $sparkPost->createEmailSend(
-        $_POST, 
-        json_encode(["FULLNAME" => $_POST['fullName']])
-    );
-    $adminEmail = $sparkPost->createEmailSend(
-        $_POST,
-        json_encode([
-            "FULLNAME" => $_POST['fullName'], 
-            "EMAIL" => $_POST['email'], 
-            "CONTACT" => $_POST['number'], 
-            "MESSAGE" => $_POST['enquiry']
-        ]),
-        'touch-internal',
-        [
-            "email" => "info@libertineconsultants.co.za",
-            "name" => 'Get in touch'
-        ]
-    );
-    $agile->sendAgileData($_POST, 'Get in touch');
 
-    if ($captchaResultDecode->success === true) {
-        $data = json_decode($emailResult, true);
-        echo json_encode($data);
-    } else {
+    if ($captchaResultDecode['success']) {
+
+        // $emailResult = $sparkPost->createEmailSend(
+        //     $_POST, 
+        //     json_encode(["FULLNAME" => $_POST['fullName']])
+        // );
+        
+        // $adminEmail = $sparkPost->createEmailSend(
+        //     $_POST,
+        //     json_encode([
+        //         "FULLNAME" => $_POST['fullName'], 
+        //         "EMAIL" => $_POST['email'], 
+        //         "CONTACT" => $_POST['number'], 
+        //         "MESSAGE" => $_POST['enquiry']
+        //     ]),
+        //     'touch-internal',
+        //     [
+        //         "email" => "clay@libertineconsultants.co.za",
+        //         "name" => 'Get in touch'
+        //     ]
+        // );
+
+        $contact = $agile->sendAgileData($_POST, 'Get in touch');
+    
+        if ($contact) {
+            echo json_encode($contact);
+        } else {
+            http_response_code(500);
+        }
+    } else {    
         http_response_code(500);
     }
 ?>

@@ -8,13 +8,13 @@
     $google = new GoogleValidator($_POST['g-recaptcha-response']);
     $sparkPost = new SparkPost();
     $agile = new Agile();
-    $agileCredit = new AgileCreditAnalysis();
 
     $captchaResult = $google->checker();
     $captchaResultDecode = json_decode($captchaResult, true);
     $fullName = $_POST['name'] . ' ' . $_POST['surname'];
 
-    if ($captchaResultDecode->success === true) {
+    if ($captchaResultDecode['success']) {
+
         $emailResult = $sparkPost->createEmailSend(
             $_POST, 
             json_encode(["FULLNAME" => $fullName]), 
@@ -43,11 +43,29 @@
             ]
         );
 
-        $contact_id = $agile->sendAgileData($_POST, 'Credit analysis');
-        $agileCredit->sendData($contact_id, $_POST);
+        $contact = $agile->sendAgileData($_POST, 'Credit analysis', array(
+            array(
+                "name" => "id_number",
+                "value" => $_POST['idNumber'],
+                "type" => "SYSTEM"
+            ),
+            array(
+                "name" => "preferred_contact_method",
+                "value" => $_POST['contactMethod'],
+                "type" => "CUSTOM"
+            ),
+            array(
+                "name" => "when_to_call",
+                "value" => $_POST['callAt'],
+                "type" => "CUSTOM"
+            )
+        ));
 
-        $data = json_decode($emailResult, true);
-        echo json_encode($data);
+        if ($contact) {
+            echo json_encode($contact);
+        } else {
+            http_response_code(500);
+        }
     } else {
         http_response_code(500);
     }
