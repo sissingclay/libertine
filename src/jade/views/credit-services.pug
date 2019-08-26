@@ -42,7 +42,7 @@ block main
 
             div(class='lb-content-constraint__large')
 
-                div(class='lbService lbService--two')
+                div(class='lbService')
 
                     include ../../svgs/ico_credit_analysis.svg
 
@@ -52,7 +52,7 @@ block main
 
                     a(href=path + data.analysis.en.href, class="lb-btn lb-btn__medium") More in #{data.analysis.en.name}
 
-                div(class='lbService lbService--two')
+                div(class='lbService')
 
                     include ../../svgs/ico_credit_clearance.svg
 
@@ -61,6 +61,16 @@ block main
                     p(class="lbService_description") To clean the slate and set the record straight, we offer credit clearance services.
 
                     a(href=path + data.credit.en.href, class="lb-btn lb-btn__medium") More in #{data.credit.en.name}
+
+                div(class='lbService')
+
+                    include ../../svgs/ico_credit_clearance.svg
+
+                    h2(class='lbService_title') #{data.reviewRemoval.en.name}
+
+                    p(class="lbService_description") To clean the slate and set the record straight, we offer credit clearance services.
+
+                    a(href=path + data.reviewRemoval.en.href, class="lb-btn lb-btn__medium") More in #{data.reviewRemoval.en.name}
 
 
         section(class='lb-content lb-content_purple')

@@ -1,0 +1,125 @@
+extends ../extends/default
+
+block title
+    title Prescribed Debt | Prescription Debt | Libertine Consultants
+
+block description
+    meta(name='description', content='Debt that a debtor is no longer obliged to pay off.')
+    meta(name="keywords", content="debt,prescribed,prescription,company,cape,town")
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Debt Review")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-15-debtreview.svg
+
+            h1 Prescribed Debt
+
+            p(class='lb-content_main-text').
+                In South Africa, the term ‘<strong>prescription debt</strong>’ refers to old or expired debt, i.e. debt that a debtor is no longer obliged to pay off because it had not been acknowledged over a specified period. 
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    If a credit provider does not demand payment from you, start legal action against you or 
+                    communicate with you in any way within the specified period, a <strong>debt becomes prescribed</strong>. 
+                    That means it has essentially been cancelled and the credit provider loses his right to claim payment on the debt. 
+                
+                p.
+                    The purpose of <em>prescription</em> is to ensure that credit providers and debt collectors collect money owed to them 
+                    within a specified period and do not delay recovery of funds to such an extent that it accumulates massive amounts of interest and costs.
+
+                p. 
+                    Unscrupulous debt collectors take over this type of debt specifically because it is so difficult for 
+                    creditors to recover. For the collector, there is a higher return on investment when collecting 
+                    <em>prescribed debt</em> because the interest, recovery costs, legal fees, etc. are all added to the outstanding debt amount.
+
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 What does the law say?
+
+                p.
+                    <a href="https://www.gov.za/documents/national-credit-amendment-act" target="_blank">The National Credit Amendment Act</a>, 
+                    published 13 March 2015, prohibits the <strong>sale and collection of prescribed debt</strong>.
+
+                p. 
+                    In addition, the <a href="https://sagc.org.za/pdf/legislation/Prescription%20Act%2068%20of%201969.pdf" target="_blank">Prescription Act 68 of 1969</a>, which was enacted in South Africa in 1968, enforces the 
+                    regulation of prescription and states that debt can be considered as prescribed if the following requirements occur:
+
+                ul
+
+                    li.
+                        A credit provider has not claimed payment, sent a letter of demand or issued a summons.
+
+                    li UA consumer has not made any payments or acknowledged the debt directly or indirectly for the time periods specified below:
+
+
+        section(class='lb-content lb-content_grey')
+            -var touch = 'Need to talk to us? <br> Advice on <em>prescribed debt</em> in <em>Cape Town</em>, South Africa';   
+            include ../partials/cta/cta-touch
+
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    Personal loans, PAY-DAY loans, Telkom accounts, credit cards, retail accounts, and vehicle loans - 3 years
+
+                p.
+                    Mortgage loans, TV Licenses, judgement debts by court orders and money 
+                    owed to the South African Revenue Service (SARS) -  30 years
+
+
+        section(class='lb-content lb-content_grey')
+            -var apply = 'Get in touch and start <strong>prescribed debt</strong> in <strong>Cape Town</strong> and the rest of South Africa';
+            include ../partials/cta/cta-red
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large  text-center')
+
+                h2 What are my rights in terms of <em>prescribed debt</em>? 
+
+                p.
+                    If a debt has been dormant for the specified period, a debt collector cannot ask you for payment. 
+                    It is against the law if they do.
+
+                p. 
+                    If you suspect that someone is harassing you and demanding payment from you on a <strong>prescribed debt</strong>, 
+                    raise prescription as a defense and refuse to make payment until the debt collector provides 
+                    evidence that the <strong>debt is not prescribed</strong>.
+
+                h3 When does <em>prescribed debt</em> not apply?
+
+                p. 
+                    The credit provider can provide reasonable evidence that they tried to contact you during the prescription period.<br />
+                    You acknowledge the debt, or make a payment on the debt.<br />
+                    The creditor takes legal action against you.<br />
+                    You are residing outside South Africa.<br />
+                    You are married to, or business partners with, the credit provider.
+
+        section(class='lb-content lb-content_purple')
+            -var apply = 'Get in touch and start <strong>prescribed debt</strong> in <strong>Cape Town</strong> and the rest of South Africa';
+            include ../partials/cta/cta-red

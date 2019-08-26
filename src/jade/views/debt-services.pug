@@ -114,11 +114,11 @@ block main
                     a(href=path + data.voluntary.en.href, class="lb-btn lb-btn__medium") More in #{data.voluntary.en.name}
 
 
-        section(class='lb-content lb-content_grey text-center')
+        section(class='lb-content lb-content_grey')
 
-            div(class='lb-content-constraint__large')
+            div(class='lb-content-constraint lbService--container')
 
-                div(class='lbService lbService--single')
+                div(class='lbService')
 
                     include ../../svgs/icon-21-debtconsolidation.svg
 
@@ -127,6 +127,26 @@ block main
                     p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
 
                     a(href=path + data.consolidation.en.href, class="lb-btn lb-btn__medium") More in #{data.consolidation.en.name}
+
+                div(class='lbService')
+
+                    include ../../svgs/icon-15-debtreview.svg
+
+                    h2(class='lbService_title') #{data.reviewRemoval.en.name}
+
+                    p(class="lbService_description") Our debt counsellors work with you to tailor a debt management plan.
+
+                    a(href=path + data.reviewRemoval.en.href, class="lb-btn lb-btn__medium") More in #{data.reviewRemoval.en.name}
+
+                div(class='lbService')
+
+                    include ../../svgs/icon-17-administration.svg
+
+                    h2(class='lbService_title') #{data.prescribedDebt.en.name}
+
+                    p(class="lbService_description") Debt that a debtor is no longer obliged to pay off
+
+                    a(href=path + data.prescribedDebt.en.href, class="lb-btn lb-btn__medium") More in #{data.prescribedDebt.en.name}
 
 
         section(class='lb-content lb-content_purple')

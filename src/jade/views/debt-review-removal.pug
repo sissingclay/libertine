@@ -1,0 +1,151 @@
+extends ../extends/default
+
+block title
+    title Debt Review Removal | Debt Review Withdrawal Companies | Libertine Consultants
+
+block description
+    meta(name='description', content='We help with debt review cancellations, removal and withdrawal.')
+    meta(name="keywords", content="debt,review,process,company,cape,town")
+
+block variables
+    - var activePage    = nav.debt.en.href;
+    - var english       = nav.debt.en.href;
+    - var afrikaans     = nav.debt.af.href;
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_debt-services-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_debt-services.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_debt-services_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_debt-services-mobile.jpg", alt="Debt Review")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-15-debtreview.svg
+
+            h1 Debt review removal
+
+            p(class='lb-content_main-text').
+                Up until now, consumers could only <strong>exit debt review</strong> once a clearance certificate had been issued stating that all their debts were paid in full.
+
+
+        section(class='lb-content lb-content_grey')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Amendments to the act now allow consumers to withdraw from the debt review process if:
+                
+                ul
+                    li.
+                        A consumer has paid up all the debts that were listed in the court order or repayment agreement.
+                    li.
+                       A consumer's short-term credit agreements listed in the court order or repayment agreement
+                       (including vehicle financing) has been paid in full AND the only remaining debt is a mortgage 
+                       loan that is not in arrears in terms of the court order or repayment agreement.
+
+                p.
+                    <span style="font-weight: bold">VERY IMPORTANT:</span> A debt counsellor does not have the legal power to terminate the debt review process. 
+                    Consumers can withdraw from debt review only PRIOR to obtaining a debt review court order. 
+                    If a court order has already been obtained, a rescission has to be filed, of which the full cost of 
+                    application has to be paid by the consumer.
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 Can I withdraw from debt review once a court order has been obtained?
+
+                p.
+                    The most basic answer to this question, according to the 2015 withdrawal guidelines, 
+                    as set out by the National Credit Regulator, is as follows:
+
+                ul
+
+                    li.
+                        Once a debt review court order has been obtained a consumer cannot <strong>terminate or withdraw from the debt review</strong> process. 
+                        They can, however, approach the court to rescind the order or apply for an order which declares that the consumer is no 
+                        longer over-indebted.
+
+                    li Upon receipt of the order, a debt counsellor will notify the credit providers of the withdrawal by means of Form 17.W and update DHS with status G.
+
+
+
+        section(class='lb-content lb-content_grey')
+            -var touch = 'Need to talk to us? <br> Advice on <em>debt review withdrawal</em> in <em>Cape Town</em>, South Africa';   
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large text-center')
+
+                p.
+                    Technically, you can also rescind a debt review order that was made by order of the court. 
+                    If you choose to do so, you will have to renegotiate payment terms with your creditors and 
+                    make payments in respect of outstanding amounts personally. In cases like these, you have 
+                    to be aware that your creditors may not be willing to renegotiate payment terms, since they 
+                    don’t have the guarantee as underwritten by the debt counselling firm.
+
+                p.
+                    As for whether a debt counsellor can terminate the debt review process, the answer is a clear no. 
+                    According to the official withdrawal guidelines as set out by the National Credit Regulator, <em>"A debt counsellor 
+                    does not have statutory powers to <strong>terminate or withdraw the debt review</strong> process. 
+                    This means that a debt counsellor can no longer issue Form 17.4 and update DHS with status G (Voluntary withdrawal by consumer) 
+                    or H (<strong>Withdrawal by a debt counsellor</strong>)."</em> As such, the choice to <strong>withdraw from the debt review</strong> process will 
+                    always have to be spearheaded by the client themselves.
+
+                p.
+                    It has to be noted that <strong>withdrawal from debt counselling</strong> is not recommended if you haven’t settled the bulk of our debts 
+                    (aside from a sizeable one like a home loan), or your financial situation has changed due to an increase in salary or 
+                    a steadier income. We know that it can be hard to tighten the belt and that you would do almost anything from some 
+                    financial relief, but you’ve done all the hard work up until now – keep at it and reap the rewards of a clean credit record. 
+
+
+        section(class='lb-content lb-content_grey')
+            -var apply = 'Get in touch and start <strong>debt review withdrawal</strong> in <strong>Cape Town</strong> and the rest of South Africa';
+            include ../partials/cta/cta-red
+
+        section(class='lb-content')
+
+            div(class='lb-content-constraint__large text-center')
+
+                h2 We are often asked when consumers are allowed to <strong>exit debt review</strong>. Here is our concise answer to this complicated question?
+
+                p.
+                    Under the National Credit Act, you have the right as a South African citizen to have your 
+                    <em>debt review process cancelled</em> even if your accounts have not been settled in full. 
+                    This will however require a court application to prove that you are no longer over-indebted. 
+                    <em>Debt review exit</em> can follow one of three scenarios:
+
+                h3 All accounts have been settled in full
+
+                p. 
+                    This is the simplest scenario. Once all your accounts that were subject to the debt review order have been settled, 
+                    your debt counselling comes to an end and you will be issued with a <em>clearance certificate</em>.
+
+
+                h3 All accounts have not been settled in full
+
+                p. 
+                    You have to right to rescind a debt review order that was made an order of the court. 
+                    If you choose to do so, you will have to renegotiate payment terms with your creditors 
+                    and make payments in respect of outstanding amounts personally. Creditors may refuse to 
+                    make these arrangements until the review order has been rescinded, so you may not know what you're letting yourself in for.
+
+                p. 
+                    A good credit counsellor will assist you in assessing and evaluating whether you'll be 
+                    capable to make these direct payments if you exit the review process. If all of your 
+                    accounts that were included in the debt review agreement have been settled, apart from a 
+                    home loan or other large credit agreement that is not in arrears at the time of exit 
+                    (pertaining to the review agreement in place at the time), you are <strong>allowed to exit debt review</strong> 
+                    with a clearance certificate.
+
+
+        section(class='lb-content lb-content_purple')
+            -var apply = 'Get in touch and start <strong>debt review withdrawal</strong> in <strong>Cape Town</strong> and the rest of South Africa';
+            include ../partials/cta/cta-red
