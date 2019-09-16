@@ -120,6 +120,126 @@ block main
                     You are residing outside South Africa.<br />
                     You are married to, or business partners with, the credit provider.
 
-        section(class='lb-content lb-content_purple')
-            -var apply = 'Get in touch and start <strong>prescribed debt</strong> in <strong>Cape Town</strong> and the rest of South Africa';
-            include ../partials/cta/cta-red
+        section(class='lb-content lb-content_grey')
+
+            form(class='lb-form lb-apply', novalidate, method='post', action='/php/prescribe.debt.php', id='credit_clearance')
+
+                include ../partials/contact-details
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='location' class='lb-form-label') Where are you currently situated?
+
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='location', id='location', data-form)
+                            option(value='Western Cape') Western Cape
+                            option(value='Eastern Cape') Eastern Cape
+                            option(value='Northern Cape') Northern Cape
+                            option(value='North West') North West
+                            option(value='Limpopo') Limpopo
+                            option(value='Free State') Free State
+                            option(value='Gauteng') Gauteng
+                            option(value='KwaZulu-Natal') KwaZulu-Natal
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='blacklisted', class='lb-form-label') Are you blacklisted?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='yes', class='lb-form-radio', id='blacklisted', data-form, required)
+                        label(for='blacklisted', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='no', class='lb-form-radio', id='blacklisted_no', data-form, required)
+                        label(for='blacklisted_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='legal', class='lb-form-label') Has a credit provider taken legal action against you?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='legal', value='yes', class='lb-form-radio', id='legal', data-form, required)
+                        label(for='legal', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='legal', value='no', class='lb-form-radio', id='legal_no', data-form, required)
+                        label(for='legal_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='accounts', class='lb-form-label') Are all your accounts paid up?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='accounts', value='yes', class='lb-form-radio', id='accounts', data-form, required)
+                        label(for='accounts', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='accounts', value='no', class='lb-form-radio', id='accounts_no', data-form, required)
+                        label(for='accounts_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='review' class='lb-form-label') Have you previously been under debt review?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='yes', class='lb-form-radio', id='review', data-form, required)
+                        label(for='review', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='no', class='lb-form-radio', id='review_no', data-form, required)
+                        label(for='review_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='creditors' class='lb-form-label') How many outstanding accounts do you have?
+
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='creditors', id='creditors', data-form)
+                            option(value='5') 1 - 5
+                            option(value='10') 5 - 10
+                            option(value='24') 11 - 24
+                            option(value='25+') 25+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='debt' class='lb-form-label') What is the total outstanding debt you owe?
+
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='debt', id='debt', data-form)
+                            option(value='19999') R5000.00 - R19999.00
+                            option(value='49999') R20000.00 - R49999.00
+                            option(value='99999') R50000.00 - R99999.00
+                            option(value='249999') R100000.00 - R249999.00
+                            option(value='250000') R250000+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='callat' class='lb-form-label') Are you currently employed?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='employed', value='yes', class='lb-form-radio', id='employed', data-form, required)
+                        label(for='employed', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='employed', value='no', class='lb-form-radio', id='employed_no', data-form, required)
+                        label(for='employed_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--hidden')
+                    button(type='hidden', name='formName', value='prescribed-debt')
+                    button(type='hidden', name='isBot', value='')
+
+                div(class='lb-form-section')
+                    div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+                
+                div(class='lb-form-section error-js', style='clear: both;')
+
+                div(class='lb-form-section', style='position: relative;')
+
+                    button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Submit
+
+                    div(class='spinner')
+                        div(class='double-bounce1')
+                        div(class='double-bounce2')
+
+append js
+        script(src=assetsPath + 'js/forms-script/common.js')
+        script(src='https://www.google.com/recaptcha/api.js')
+        script.
+            document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.remove('lb-hide')
+            })
+            document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.add('lb-hide')
+            })

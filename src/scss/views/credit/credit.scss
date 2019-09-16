@@ -1,14 +1,10 @@
 @import './src/scss/components/base/base-mixin';
-@import "./src/scss/components/form/form";
-@import "./src/scss/components/form/alternative-form";
 @import "./src/scss/components/services/services";
 
 @media (min-width: $media-query-md) {
     @import "./src/scss/components/services/services-medium";
-    @import "./src/scss/components/form/alternative-form-large";
 }
 
 @media (min-width: $media-query-lg) {
     @import "./src/scss/components/services/services-large";
-    @import "./src/scss/components/form/alternative-form-large";
 }

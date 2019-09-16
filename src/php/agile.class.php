@@ -39,6 +39,34 @@
             curl_wrap("contacts/edit-properties", $contact_json, "PUT", "application/json");
         }
 
+        private function addNotes() {
+
+            $descr = '';
+
+            if ($this->contact_data['get-in-touch']) {
+                $descr = $this->contact_data['enquiry'];
+            }
+
+            if ($this->contact_data['apply']) {
+                $descr = 'creditors: ' .$this->contact_data['creditors']. ', debt: ' .$this->contact_data['debt']. ', review: ' .$this->contact_data['review']. ', blacklisted: ' .$this->contact_data['blacklisted']. ', garnishees: ' .$this->contact_data['garnishees']. ', arrears: ' .$this->contact_data['arrears']. ', position: ' .$this->contact_data['position']. ', location: ' .$this->contact_data['location']. ', employeds: ' .$this->contact_data['employeds']. ', married: ' .$this->contact_data['married'];
+            }
+
+            if ($this->contact_data['credit-clearance']) {
+                $descr = 'blacklisted: ' .$this->contact_data['blacklisted']. ', credit provider taken legal action: ' .$this->contact_data['legal']. ', accounts paid up: ' .$this->contact_data['accounts']. ', under debt review: ' .$this->contact_data['review']. ', outstanding accounts: ' .$this->contact_data['creditors']. ', total outstanding debt: ' .$this->contact_data['debt']. ', employed: ' .$this->contact_data['employed'];
+            }
+
+            $note_json = array(
+                "subject" => $this->getTag(),
+                "description" => $descr,
+                "contact_ids" => array($this->getContactID())
+            );
+
+            $note_json = json_encode($note_json);
+            curl_wrap("notes", $note_json, "POST", "application/json");
+
+            return $this->getContactID();
+        }
+
         private function setTag($tag) {
             $this->tagName = $tag;
         }
@@ -53,26 +81,6 @@
         
         private function getContactID() {
             return $this->contacts_id;
-        }
-
-
-        private function addNotes() {
-            if ($this->contact_data['enquiry']) {
-                $descr = $this->contact_data['enquiry'];
-            }
-
-            if ($this->contact_data['creditors']) {
-                $descr = 'creditors: ' .$this->contact_data['creditors']. ', debt: ' .$this->contact_data['debt']. ', review: ' .$this->contact_data['review']. ', blacklisted: ' .$this->contact_data['blacklisted']. ', garnishees: ' .$this->contact_data['garnishees']. ', arrears: ' .$this->contact_data['arrears']. ', position: ' .$this->contact_data['position']. ', location: ' .$this->contact_data['location']. ', employeds: ' .$this->contact_data['employeds']. ', married: ' .$this->contact_data['married'];
-            }
-
-            $note_json = array(
-                "subject" => $this->getTag(),
-                "description" => $descr,
-                "contact_ids" => array($this->getContactID())
-            );
-
-            $note_json = json_encode($note_json);
-            curl_wrap("notes", $note_json, "POST", "application/json");
         }
 
         private function createContact() {

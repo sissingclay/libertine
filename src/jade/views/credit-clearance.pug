@@ -7,6 +7,11 @@ block description
     meta(name='description', content='Libertine Consultants provides quick, efficient credit clearance services at affordable rates. Start clearing your credit records today.')
     meta(name="keywords", content="credit,clearance,record,services,bureau,cape,town")
 
+append css
+    // build:inlinecss
+    link(rel='stylesheet' href='css/credit/credit.css')
+    // endbuild
+
 block variables
     - var activePage    = nav.credit.en.href;
     - var english       = nav.credit.en.href;
@@ -165,120 +170,135 @@ block main
             include ../partials/cta/cta-touch
 
 
-//-         section(class='lb-content')
+        section(class='lb-content')
 
-//-             div(class='lb-content-constraint__large text-center')
+            div(class='lb-content-constraint__large text-center')
 
-//-                 h2(class="js-form") Credit clearance application form
+                h2(class="js-form") Credit clearance application form
 
-//-                 p.
-//-                     Start your credit clearance application by completing the form below. After you submit this form we'll be in touch.
+                p.
+                    Start your credit clearance application by completing the form below. After you submit this form we'll be in touch.
 
-//-         section(class='lb-content lb-content_grey')
+        section(class='lb-content lb-content_grey')
 
-//-             form(class='lb-form lb-apply', novalidate, method='post', action='/php/credit.clearance.form.php', id='credit_clearance')
+            form(class='lb-form lb-apply', novalidate, method='post', action='/php/credit.clearance.form.php', id='credit_clearance')
 
-//-                 div(class='lb-form-section')
-//-                     label(for='name', class='lb-form-label') Name
-//-                     input(type='text', name='name', placeholder='Joe', class='lb-form-input', id='name', autocomplete='given-name', data-form, required)
+                include ../partials/contact-details
 
-//-                 div(class='lb-form-section')
-//-                     label(for='surname', class='lb-form-label') Surname
-//-                     input(type='text', name='surname', placeholder='Doe', class='lb-form-input', id='surname', autocomplete='family-name', data-form, required)
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='location' class='lb-form-label') Where are you currently situated?
 
-//-                 div(class='lb-form-section')
-//-                     label(for='idNumber', class='lb-form-label') ID Number
-//-                     input(type='text', name='idNumber', placeholder='8501016184086', class='lb-form-input', id='idNumber', autocomplete='id',  data-form="idNumber", required)
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='location', id='location', data-form)
+                            option(value='Western Cape') Western Cape
+                            option(value='Eastern Cape') Eastern Cape
+                            option(value='Northern Cape') Northern Cape
+                            option(value='North West') North West
+                            option(value='Limpopo') Limpopo
+                            option(value='Free State') Free State
+                            option(value='Gauteng') Gauteng
+                            option(value='KwaZulu-Natal') KwaZulu-Natal
 
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='blacklisted', class='lb-form-label') Are you blacklisted?
 
-//-                 div(class='lb-form-section')
-//-                     label(for='email' class='lb-form-label') Email address
-//-                     input(type='text', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", autocomplete='email', required)
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='yes', class='lb-form-radio', id='blacklisted', data-form, required)
+                        label(for='blacklisted', class='lb-form-label lb-form-label--inline') Yes
 
-//-                 div(class='lb-form-section')
-//-                     label(for='number' class='lb-form-label') Contact number
-//-                     input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form="email", autocomplete='tel', required)
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='blacklisted', value='no', class='lb-form-radio', id='blacklisted_no', data-form, required)
+                        label(for='blacklisted_no', class='lb-form-label lb-form-label--inline') No
 
-//-                 div(class='lb-form-section lb-form-section')
-//-                     label(for='employed', class='lb-form-label') Your preferred contact method?
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='legal', class='lb-form-label') Has a credit provider taken legal action against you?
 
-//-                     input(type='radio', name='contactMethod', checked="checked" value='phone', class='lb-form-radio js-phoneCo', id='phoneCo', data-form, required)
-//-                     label(for='phoneCo', class='lb-form-label lb-form-label--inline pr-1') Phone
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='legal', value='yes', class='lb-form-radio', id='legal', data-form, required)
+                        label(for='legal', class='lb-form-label lb-form-label--inline') Yes
 
-//-                     input(type='radio', name='contactMethod', value='email', class='lb-form-radio js-emailCo', id='emailCo', data-form, required)
-//-                     label(for='emailCo', class='lb-form-label lb-form-label--inline') Email
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='legal', value='no', class='lb-form-radio', id='legal_no', data-form, required)
+                        label(for='legal_no', class='lb-form-label lb-form-label--inline') No
 
-//-                 div(class='lb-form-section js-callMe')
-//-                     label(for='callat' class='lb-form-label') Call me
-//-                     select(class="lb-form-select", name='callAt', id='callat', data-form)
-//-                         option(value='Western Cape') Western Cape
-//-                         option(value='Eastern Cape') Eastern Cape
-//-                         option(value='Northern Cape') Northern Cape
-//-                         option(value='North West') North West
-//-                         option(value='Evening') Evening
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='accounts', class='lb-form-label') Are all your accounts paid up?
 
-//-                 div(class='lb-form-section lb-form-section--inline')
-//-                     label(for='employed', class='lb-form-label') Are you employed?
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='accounts', value='yes', class='lb-form-radio', id='accounts', data-form, required)
+                        label(for='accounts', class='lb-form-label lb-form-label--inline') Yes
 
-//-                     div(class='lb-form-section--inline__container')
-//-                         input(type='radio', name='employed', value='yes', class='lb-form-radio', id='employed', data-form, required)
-//-                         label(for='employed', class='lb-form-label lb-form-label--inline') Yes
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='accounts', value='no', class='lb-form-radio', id='accounts_no', data-form, required)
+                        label(for='accounts_no', class='lb-form-label lb-form-label--inline') No
 
-//-                     div(class='lb-form-section--inline__container')
-//-                         input(type='radio', name='employed', value='no', class='lb-form-radio', id='employed_no', data-form, required)
-//-                         label(for='employed_no', class='lb-form-label lb-form-label--inline') No
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='review' class='lb-form-label') Have you previously been under debt review?
 
-//-                 div(class='lb-form-section lb-form-section--inline')
-//-                     label(for='legalAction', class='lb-form-label') Has a credit provider taken legal action against you?
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='yes', class='lb-form-radio', id='review', data-form, required)
+                        label(for='review', class='lb-form-label lb-form-label--inline') Yes
 
-//-                     div(class='lb-form-section--inline__container')
-//-                         input(type='radio', name='legalAction', value='yes', class='lb-form-radio', id='legalAction', data-form, required)
-//-                         label(for='legalAction', class='lb-form-label lb-form-label--inline') Yes
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='review', value='no', class='lb-form-radio', id='review_no', data-form, required)
+                        label(for='review_no', class='lb-form-label lb-form-label--inline') No
 
-//-                     div(class='lb-form-section--inline__container')
-//-                         input(type='radio', name='legalAction', value='no', class='lb-form-radio', id='legalAction_no', data-form, required)
-//-                         label(for='legalAction_no', class='lb-form-label lb-form-label--inline') No
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='creditors' class='lb-form-label') How many outstanding accounts do you have?
 
-//-                 div(class='lb-form-section js-callMe')
-//-                     label(for='callat' class='lb-form-label') Are you currently situated?
-//-                     select(class="lb-form-select", name='callAt', id='callat', data-form)
-//-                         option(value='ASAP') ASAP
-//-                         option(value='Morning') Morning
-//-                         option(value='Mid-day') Mid-day
-//-                         option(value='Mpumalanga') Mpumalanga
-//-                         option(value='Limpopo') Limpopo
-//-                         option(value='Free State') Free State
-//-                         option(value='Gauteng') Gauteng
-//-                         option(value='KwaZulu-Natal') KwaZulu-Natal
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='creditors', id='creditors', data-form)
+                            option(value='5') 1 - 5
+                            option(value='10') 5 - 10
+                            option(value='24') 11 - 24
+                            option(value='25+') 25+
 
-//-                 div(class='lb-form-section lb-form-section--hidden')
-//-                     button(type='hidden', name='formName', value='credit analysis')
-//-                     button(type='hidden', name='isBot', value='')
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='debt' class='lb-form-label') What is the total outstanding debt you owe?
 
-//-                 div(class='lb-form-section')
-//-                     div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+                    div(class='lb-form-section--inline__container')
+                        select(class="lb-form-interaction", name='debt', id='debt', data-form)
+                            option(value='19999') R5000.00 - R19999.00
+                            option(value='49999') R20000.00 - R49999.00
+                            option(value='99999') R50000.00 - R99999.00
+                            option(value='249999') R100000.00 - R249999.00
+                            option(value='250000') R250000+
+
+                div(class='lb-form-section lb-form-section--inline')
+                    label(for='employed' class='lb-form-label') Are you currently employed?
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='employed', value='yes', class='lb-form-radio', id='employed', data-form, required)
+                        label(for='employed', class='lb-form-label lb-form-label--inline') Yes
+
+                    div(class='lb-form-section--inline__container')
+                        input(type='radio', name='employed', value='no', class='lb-form-radio', id='employed_no', data-form, required)
+                        label(for='employed_no', class='lb-form-label lb-form-label--inline') No
+
+                div(class='lb-form-section lb-form-section--hidden')
+                    button(type='hidden', name='formName', value='credit-clearance')
+                    button(type='hidden', name='isBot', value='')
+
+                div(class='lb-form-section')
+                    div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
                 
-//-                 div(class='lb-form-section error-js', style='clear: both;')
+                div(class='lb-form-section error-js', style='clear: both;')
 
-//-                 div(class='lb-form-section', style='position: relative;')
+                div(class='lb-form-section', style='position: relative;')
 
-//-                     button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Submit
+                    button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Submit
 
-//-                     div(class='spinner')
-//-                         div(class='double-bounce1')
-//-                         div(class='double-bounce2')
+                    div(class='spinner')
+                        div(class='double-bounce1')
+                        div(class='double-bounce2')
 
-//- append js
-//-     include ../partials/scripts/forms-script
-//-     script(src='https://www.google.com/recaptcha/api.js')
-//-     script.
-//-         document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
-//-              document.querySelector('.js-callMe').classList.remove('lb-hide')
-//-         })
-//-         document.querySelector('.js-emailCo').addEventListener('click', function(e) {
-//-              document.querySelector('.js-callMe').classList.add('lb-hide')
-//-         })
-//-         document.querySelector('.js-to-form').addEventListener('click', function(e) {
-//-             e.preventDefault()
-//-             document.querySelector('.js-form').scrollIntoView()
-//-         })
+append js
+        script(src=assetsPath + 'js/forms-script/common.js')
+        script(src='https://www.google.com/recaptcha/api.js')
+        script.
+            document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.remove('lb-hide')
+            })
+            document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.add('lb-hide')
+            })

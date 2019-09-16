@@ -21,35 +21,50 @@
             'apply-c',
             [
                 "email" => $_POST['email'],
-                "name" => $_POST['fullName']
+                "name" => $_POST['fullname']
             ]
         );
         
         $adminEmail = $sparkPost->createEmailSend(
             $_POST,
             json_encode([
-                "FULLNAME" => $_POST['fullName'],
-                "NUMBERS" => $_POST['number'],
-                "EMAILS" => $_POST['email'],
+                "FULLNAME" => $_POST['fullname'],
+                "SURNAME" => $_POST['surname'],
+                "EMAIL" => $_POST['email'], 
+                "CONTACT" => $_POST['number'], 
                 "CREDITORS" => $_POST['creditors'],
                 "DEBTS" => $_POST['debt'],
                 "REVIEWS" => $_POST['review'],
                 "BLACKLISTEDS" => $_POST['blacklisted'],
-                "GARNISHEES" => $_POST['garnishees'],
                 "ARREARS" => $_POST['arrears'],
                 "POSITIONS" => $_POST['position'],
                 "LOCATIONS" => $_POST['location'],
-                "EMPLOYEDS" => $_POST['employed'],
-                "MARRIEDS" => $_POST['married']
+                "EMPLOYEDS" => $_POST['employed']
             ]),
-            'apply',
+            'credit_analysis_internal',
             [
-                "email" => "info@libertineconsultants.co.za",
-                "name" => 'Debt relief'
+                "email" => "clay@libertineconsultants.co.za",
+                "name" => 'Credit analysis'
             ]
         );
 
-        $contact = $agile->sendAgileData($_POST, 'Apply for debt relief');
+        $contact = $agile->sendAgileData($_POST, 'Credit clearance', array(
+            array(
+                "name" => "id_number",
+                "value" => $_POST['idNumber'],
+                "type" => "SYSTEM"
+            ),
+            array(
+                "name" => "preferred_contact_method",
+                "value" => $_POST['contactMethod'],
+                "type" => "CUSTOM"
+            ),
+            array(
+                "name" => "when_to_call",
+                "value" => $_POST['callAt'],
+                "type" => "CUSTOM"
+            )
+        ));
 
         if ($contact) {
             echo json_encode($contact);

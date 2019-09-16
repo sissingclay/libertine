@@ -21,33 +21,34 @@
             'apply-c',
             [
                 "email" => $_POST['email'],
-                "name" => $fullName
+                "name" => $_POST['fullname']
             ]
         );
-        
-        // $adminEmail = $sparkPost->createEmailSend(
-        //     $_POST,
-        //     json_encode([
-        //         "FULLNAME" => $_POST['fullName'], 
-        //         "EMAIL" => $_POST['email'], 
-        //         "CONTACT" => $_POST['number'], 
-        //         "MESSAGE" => $_POST['enquiry']
-        //     ]),
-        //     'touch-internal',
-        //     [
-        //         "email" => "clay@libertineconsultants.co.za",
-        //         "name" => 'Get in touch'
-        //     ]
-        // );
 
-        $contact = $agile->sendAgileData($_POST, 'Get in touch');
-    
+        $contact = $agile->sendAgileData($_POST, 'Credit clearance', array(
+            array(
+                "name" => "location",
+                "value" => $_POST['location'],
+                "type" => "SYSTEM"
+            ),
+            array(
+                "name" => "preferred_contact_method",
+                "value" => $_POST['contactMethod'],
+                "type" => "CUSTOM"
+            ),
+            array(
+                "name" => "when_to_call",
+                "value" => $_POST['callAt'],
+                "type" => "CUSTOM"
+            )
+        ));
+
         if ($contact) {
             echo json_encode($contact);
         } else {
             http_response_code(500);
         }
-    } else {    
+    } else {
         http_response_code(500);
     }
 ?>

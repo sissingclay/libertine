@@ -22,7 +22,7 @@ $uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';
 $api_key    = "k4JeokURtEcIlFCVxHnNGA";
 $data       = null;
 
-if($_POST['formName'] == 'get in touch' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
+if($_POST['formName'] == 'get-in-touch' && empty($_POST['isBot']) && $isBotCheck[0]['success'])
 {
 
     $template_name = "touch";
