@@ -42,24 +42,14 @@ block main
 
             form(class='lb-form lb-apply', novalidate, method='post', action='/php/touch.form.php')
 
-                div(class='lb-form-section')
-                    label(for='fullName', class='lb-form-label') Full name
-                    input(type='text', name='fullName', placeholder='Joe Doe', class='lb-form-input', id='fullName', autocomplete='name', data-form, required)
-
-                div(class='lb-form-section')
-                    label(for='email' class='lb-form-label') Email address
-                    input(type='text', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", autocomplete='email', required)
-
-                div(class='lb-form-section')
-                    label(for='number' class='lb-form-label') Contact number
-                    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form, autocomplete='tel', required)
+                include ../partials/contact-details
 
                 div(class='lb-form-section')
                     label(for='enquiry' class='lb-form-label') Getting in touch regarding
                     textarea(name='enquiry', placeholder='I need you to help me with my current debtors.', class='lb-form-textarea', id='enquiry', data-form, required)
 
                 div(class='lb-form-section lb-form-section--hidden')
-                    button(type='hidden', name='formName', value='get in touch')
+                    button(type='hidden', name='formName', value='get-in-touch')
                     button(type='hidden', name='isBot', value='')
 
                 div(class='lb-form-section')
@@ -87,5 +77,12 @@ block main
                     Mr & Mrs Wessels, Cape Town
 
 append js
-    include ../partials/scripts/forms-script
-    script(src='https://www.google.com/recaptcha/api.js')
+        script(src=assetsPath + 'js/forms-script/common.js')
+        script(src='https://www.google.com/recaptcha/api.js')
+        script.
+            document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.remove('lb-hide')
+            })
+            document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.add('lb-hide')
+            })

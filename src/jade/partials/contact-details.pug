@@ -1,0 +1,43 @@
+div(class='lb-form-section')
+    label(for='name', class='lb-form-label') Name
+    input(type='text', name='name', placeholder='Joe', class='lb-form-input', id='name', autocomplete='given-name', data-form, required)
+
+div(class='lb-form-section')
+    label(for='surname', class='lb-form-label') Surname
+    input(type='text', name='surname', placeholder='Doe', class='lb-form-input', id='surname', autocomplete='family-name', data-form, required)
+
+if idNumber
+    div(class='lb-form-section')
+        label(for='idNumber', class='lb-form-label') ID Number
+        input(type='text', name='idNumber', placeholder='8501016184086', class='lb-form-input', id='idNumber', autocomplete='id',  data-form="idNumber", required)
+
+
+div(class='lb-form-section')
+    label(for='email' class='lb-form-label') Email address
+    input(type='text', name='email', placeholder='joedoe@example.co.za' class='lb-form-input' id='email', data-form="email", autocomplete='email', required)
+
+div(class='lb-form-section')
+    label(for='number' class='lb-form-label') Contact number
+    input(type='text' name='number' placeholder='0792838000' class='lb-form-input' id='number', data-form="tel", autocomplete='tel', required)
+
+div(class='lb-form-section lb-form-section--inline')
+    label(for='employed', class='lb-form-label') Your preferred contact method?
+
+    input(type='radio', name='contactMethod', checked="checked" value='phone', class='lb-form-radio js-phoneCo', id='phoneCo', data-form, required)
+    label(for='phoneCo', class='lb-form-label lb-form-label--inline pr-1') Phone
+
+    input(type='radio', name='contactMethod', value='email', class='lb-form-radio js-emailCo', id='emailCo', data-form, required)
+    label(for='emailCo', class='lb-form-label lb-form-label--inline') Email
+
+div(class='lb-form-section lb-form-section--inline js-callMe')
+    label(for='callat' class='lb-form-label') Call me
+
+    div(class='lb-form-section--inline__container')
+        select(class="lb-form-interaction", name='callAt', id='callat', data-form)
+            option(value='ASAP') ASAP
+            option(value='Morning') Morning
+            option(value='Mid-day') Mid-day
+            option(value='Afternoon') Afternoon
+            option(value='Evening') Evening
+
+

@@ -1,0 +1,211 @@
+extends ../extends/default
+
+block title
+    title Libertine Consultants | Privacy and Disclaimer
+
+block description
+    meta(name='description', content='Libertine Consultants is an online information service provided by Libertine Consultants')
+
+block variables
+    - var activePage    = path + data.disclaimer[lang].href
+    - var english       = path + data.disclaimer.en.href
+    - var afrikaans     = path + data.disclaimer.af.href
+
+block main
+
+    section(class='lb-hero_internal')
+
+        picture
+            source(srcset=path + "/img/hr_about-us-mobile.jpg", media="(max-width: 767px)")
+            source(srcset=path + "/img/hr_about-us.jpg", media="(min-width: 768px) and (max-width: 1499px)")
+            source(srcset=path + "/img/hr_about-us_big.jpg", media="(min-width: 1500px)")
+            img(src=path + "/img/hr_about-us-mobile.jpg", alt="Disclaimer")
+
+    main(role='main', class='lb-internal')
+
+        section(class='lb-content lb-content_main')
+
+            include ../../svgs/icon-14-disclaimer.svg
+
+            h1 Privacy Policy
+
+            p(class='lb-content_main-text').
+                We understand that privacy online is important to users of our site, especially when conducting business.
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                p.
+                    This statement governs our privacy policies with respect to those users of the Site 
+                    ("Visitors") who visit without transacting business and Visitors who register to 
+                    transact business on the Site and make use of the various services offered by 
+                    Libertine Consultants (collectively, "Services") ("Authorized Customers").
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Personally Identifiable Information
+
+                p.
+                    Refers to any information that identifies or can be used to identify, 
+                    contact, or locate the person to whom such information pertains, 
+                    including, but not limited to, name, address, phone number, fax number, 
+                    email address, financial profiles, and credit card information. 
+                    Personally Identifiable Information does not include information that 
+                    is collected anonymously (that is, without identification of the 
+                    individual user) or demographic information not connected to an 
+                    identified individual.
+
+
+                p.
+                    You agree to grant to Libertine Consultants a non-exclusive, royalty-free, worldwide, perpetual license,
+                    with the right to sub-license, to reproduce, distribute, transmit, create derivative works of,
+                    publicly display and publicly perform any materials and other information (including, without limitation,
+                    ideas contained therein for new or improved products and services) you submit to any public areas of the
+                    Site (such as bulletin boards, forums and newsgroups) or by e-mail to Libertine Consultants by all
+                    means and in any media now known or hereafter developed. You also grant to Libertine Consultants the right to use
+                    your name in connection with the submitted materials and other information as well as in connection with all
+                    advertising, marketing and promotional material related thereto. You agree that you shall have no recourse
+                    against Libertine Consultants for any alleged or actual infringement or misappropriation of any proprietary
+                    right in your communications to Libertine Consultants.
+
+        section(class='lb-content lb-content_grey')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Trademarks
+
+                p.
+                    Publications, products, content or services referenced herein or on the Site are the exclusive trademarks or
+                    service marks of Libertine Consultants. Other product and company names mentioned in the Site may be the trademarks of their respective owners.
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Use of the site
+
+                p.
+                    You understand that, except for information, products or services clearly identified as being supplied by
+                    Libertine Consultants, Libertine Consultants does not operate, control or endorse any information,
+                    products or services on the Internet in any way. Except for Libertine Consultants - identified information,
+                    products or services, all information, products and services offered through the Site or on the Internet
+                    generally are offered by third parties, that are not affiliated with Libertine Consultants a.
+
+                p.
+                    You also understand that Libertine Consultants cannot and does not guarantee or warrant that files available
+                    for downloading through the Site will be free of infection or viruses, worms, Trojan horses or other
+                    code that manifest contaminating or destructive properties. You are responsible for implementing sufficient
+                    procedures and checkpoints to satisfy your particular requirements for accuracy of data input and output, and
+                    for maintaining a means external to the Site for the reconstruction of any lost data.
+
+                    You assume total responsibility and risk for your use of the site and the internet.
+
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Limitation of liability
+
+                p.
+                    In no event will libertine consultants be liable for (i) any incidental, consequential, or indirect damages
+                    (including, but not limited to, damages for loss of profits, business interruption, loss of programs or
+                    information, and the like) arising out of the use of or inability to use the service, or any information,
+                    or transactions provided on the service, or downloaded from the service, or any delay of such information or service.
+                    Even if libertine consultants or its authorized representatives have been advised of the possibility of such damages, or (ii)
+                    any claim attributable to errors, omissions, or other inaccuracies in the service and/or materials or information downloaded
+                    through the service. Because some states do not allow the exclusion or limitation of liability for consequential
+                    or incidental damages, the above limitation may not apply to you. in such states, libertine consultants liability
+                    is limited to the greatest extent permitted by law.
+
+                p.
+                    Libertine Consultants makes no representations whatsoever about any other web site which you may access
+                    through this one or which may link to this Site. When you access a non-Libertine Consultants web site,
+                    please understand that it is independent from Libertine Consultants, and that Libertine Consultants has no
+                    control over the content on that web site. In addition, a link to a Libertine Consultants web site does not
+                    mean that Libertine Consultants endorses or accepts any responsibility for the content, or the use, of such web site.
+
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Indemnification
+
+                p.
+                    You agree to indemnify, defend and hold harmless Libertine Consultants, its officers, directors, employees,
+                    agents, licensors, suppliers and any third party information providers to the Service from and against all losses,
+                    expenses, damages and costs, including reasonable attorneys' fees, resulting from any violation of this
+                    Agreement (including negligent or wrongful conduct) by you or any other person accessing the Service.
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Third party rights
+
+                p.
+                    The provisions of paragraphs (Use of the Service), and (Indemnification) are for the benefit of Libertine
+                    Consultants and its officers, directors, employees, agents, licensors, suppliers, and any third party
+                    information providers to the Service. Each of these individuals or entities shall have the right to assert
+                    and enforce those provisions directly against you on its own behalf.
+
+                p.
+                    Visitors and Authorised Customers may opt out of receiving unsolicited information from or being
+                    contacted by us and/or our vendors and affiliated agencies by responding to emails as instructed,
+                    or by contacting us at <a href="#{data.email.href}">#{data.email.name}</a>
+
+        section(class='lb-content')
+
+            include ../partials/cta/cta-touch
+
+        section(class='lb-content lb-content_grey text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Terms of termination
+
+                p.
+                    This Agreement may be terminated by either party without notice at any time for any reason. The provisions
+                    of paragraphs (Copyright, Licenses and Idea Submissions), (Use of the Service), (Indemnification), (Third Party Rights)
+                    and (Miscellaneous) shall survive any termination of this Agreement.
+
+
+        section(class='lb-content text-center')
+
+            div(class='lb-content-constraint__large')
+
+                h2 Miscellaneous
+
+                p.
+                    This Agreement shall all be governed and construed in accordance with the laws of The Republic of South Africa
+                    applicable to agreements made and to be performed in The Republic of South Africa. You agree that any
+                    legal action or proceeding between Libertine Consultants and you for any purpose concerning this Agreement
+                    or the parties' obligations hereunder shall be brought exclusively in a federal or state court of competent
+                    jurisdiction sitting in The Republic of South Africa .
+
+                p.
+                    Any cause of action or claim you may have with respect
+                    to the Service must be commenced within one (1) year after the claim or cause of action arises or such claim or
+                    cause of action is barred. Libertine Consultants's failure to insist upon or enforce strict performance of
+                    any provision of this Agreement shall not be construed as a waiver of any provision or right. Neither the
+                    course of conduct between the parties nor trade practice shall act to modify any provision of this Agreement.
+                    Libertine Consultants may assign its rights and duties under this Agreement to any party at any time without notice to you.
+
+                p.
+                    Any rights not expressly granted herein are reserved.
+
+        section(class='lb-content lb-content_purple')
+
+            include ../partials/cta/cta-red

@@ -156,26 +156,7 @@ block main
                         input(type='radio', name='married', value='no', class='lb-form-radio', id='married_no', data-form, required)
                         label(for='married_no', class='lb-form-label lb-form-label--inline') No
 
-                div(class='lb-form-section lb-form-section--inline')
-                    label(for='fullName', class='lb-form-label') Full name
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='text', name='fullName', class='lb-form-input lb-form-interaction', id='fullName',
-                        placeholder="Joe Doe", data-form, autocomplete='name', required)
-
-                div(class='lb-form-section lb-form-section--inline')
-                    label(for='number', class='lb-form-label') Contact number
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='text', name='number', class='lb-form-input lb-form-interaction', id='number',
-                        placeholder="0722262925", data-form, autocomplete='tel', required)
-
-                div(class='lb-form-section lb-form-section--inline remove-border')
-                    label(for='email', class='lb-form-label') Email address
-
-                    div(class='lb-form-section--inline__container')
-                        input(type='text', name='email', class='lb-form-input lb-form-interaction', id='email',
-                        placeholder="email@example.co.za", data-form='email', autocomplete='email', required)
+                include ../partials/contact-details
 
                 div(class='lb-form-section')
                     div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
@@ -206,7 +187,13 @@ block main
                     figcaption(class='lb-testimonials-figcaption').
                         Let us help you start today!
 
-
 append js
-    include ../partials/scripts/forms-script
-    script(src='https://www.google.com/recaptcha/api.js')
+        script(src=assetsPath + 'js/forms-script/common.js')
+        script(src='https://www.google.com/recaptcha/api.js')
+        script.
+            document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.remove('lb-hide')
+            })
+            document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+                document.querySelector('.js-callMe').classList.add('lb-hide')
+            })
