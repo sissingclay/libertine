@@ -1,0 +1,17 @@
+script(type="text/javascript").
+    document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
+        document.querySelector('.js-callMe').classList.remove('lb-hide')
+    })
+    document.querySelector('.js-emailCo').addEventListener('click', function(e) {
+        document.querySelector('.js-callMe').classList.add('lb-hide')
+    })
+
+    function clicked() {
+        document.querySelector('input[name="clickedCaptcha"]').setAttribute('value', 'ticked')
+        document.querySelector('.g-recaptcha > div').classList.remove('lb-error-standalone')
+    }
+    document.querySelector('.submit-btn-js').addEventListener('click', function(e) {
+        if (document.querySelector('input[name="clickedCaptcha"]').getAttribute('value') === '') {
+            document.querySelector('.g-recaptcha > div').classList.add('lb-error-standalone')
+        }
+    })

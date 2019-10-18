@@ -217,11 +217,15 @@ block main
                         label(for='employed_no', class='lb-form-label lb-form-label--inline') No
 
                 div(class='lb-form-section lb-form-section--hidden')
-                    button(type='hidden', name='formName', value='prescribed-debt')
-                    button(type='hidden', name='isBot', value='')
+                    input(type='hidden', name='formName', value='prescribed-debt')
+                    input(type='hidden', name='isBot', value='')
+                    input(type='text', name='clickedCaptcha', value='', data-form, required)
+
+                div
+                    span Please tick this box to complete the form
 
                 div(class='lb-form-section')
-                    div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+                    div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz", data-callback="clicked")
                 
                 div(class='lb-form-section error-js', style='clear: both;')
 
@@ -234,12 +238,6 @@ block main
                         div(class='double-bounce2')
 
 append js
-        script(src=assetsPath + 'js/forms-script/common.js')
-        script(src='https://www.google.com/recaptcha/api.js')
-        script.
-            document.querySelector('.js-phoneCo').addEventListener('click', function(e) {
-                document.querySelector('.js-callMe').classList.remove('lb-hide')
-            })
-            document.querySelector('.js-emailCo').addEventListener('click', function(e) {
-                document.querySelector('.js-callMe').classList.add('lb-hide')
-            })
+    script(src=assetsPath + 'js/forms-script/common.js')
+    script(src='https://www.google.com/recaptcha/api.js')
+    include ../partials/scripts/captcha-script
