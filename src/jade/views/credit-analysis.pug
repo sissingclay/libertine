@@ -128,7 +128,9 @@ block main
                     input(type='hidden', name='isBot', value='')
                     input(type='text', name='clickedCaptcha', value='', data-form, required)
 
+
                 div
+                    a(data-custom-open="modal-1") OPen modal
                     span Please tick this box to complete the form
 
                 div(class='lb-form-section')
@@ -144,6 +146,21 @@ block main
                         div(class='double-bounce1')
                         div(class='double-bounce2')
 
+        div(id="modal-1" aria-hidden="true")
+
+            div(tabindex="-1" data-micromodal-close)
+
+                div(role="dialog" aria-modal="true" aria-labelledby="modal-1-title")
+
+                    header
+                        h2(id="modal-1-title").
+                            Modal Title
+
+                        button(aria-label="Close modal" data-micromodal-close)
+
+                    div(id="modal-1-content").
+                        Modal Content
+
 append js
     script(src=assetsPath + 'js/forms-script/common.js')
     script(src='https://www.google.com/recaptcha/api.js')
@@ -153,3 +170,16 @@ append js
             document.querySelector('.js-form').scrollIntoView()
         })
     include ../partials/scripts/captcha-script
+    script(src='https://unpkg.com/micromodal/dist/micromodal.min.js')
+    script.
+        MicroModal.init({
+            onShow: modal => console.info(`${modal.id} is shown`), // [1]
+            onClose: modal => console.info(`${modal.id} is hidden`), // [2]
+            openTrigger: 'data-custom-open', // [3]
+            closeTrigger: 'data-custom-close', // [4]
+            disableScroll: true, // [5]
+            disableFocus: false, // [6]
+            awaitOpenAnimation: false, // [7]
+            awaitCloseAnimation: false, // [8]
+            debugMode: true // [9]
+        });

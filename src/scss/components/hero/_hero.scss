@@ -1,5 +1,7 @@
 .lb-hero {
     background-color: $smoke;
+    
+   
 
     .lb-hero_container {
         @include rem(max-width, 600px);
@@ -14,6 +16,10 @@
 
 .lb-hero-constraint {
     @include max-width($max-width, $max-width-rem);
+
+    &.-landing {
+        @include rem(padding, 40px 0);
+    }
 }
 
 .lb-hero:after {

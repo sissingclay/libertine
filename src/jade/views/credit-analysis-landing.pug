@@ -18,19 +18,26 @@ append css
 
 block main
 
-    main(role='main', class='lb-internal')
+    section(class='lb-hero')
 
-        div(class='lb-content_purple')
+        div(class='lb-hero-constraint -landing')
 
-            section(class='lb-content lb-content_main')
+            div(class='lb-hero_container -landing')
 
-                h1 Credit Analysis
+                h1(class='lb-hero-title animate-title') Credit Analysis
 
-                p(class='lb-content_main-text').
-                    Your <b>credit record</b> is a very important part of your identity as a South African citizen, yet many of us have no idea what ours look like. At Libertine Consultants, we realise that finding your <b>credit record</b> and then making sense of it can be a challenge.
+                p(class='lb-hero-text animate-description') Support before, during and after ensures that individuals have the best opportunity for success.
 
-                p(class='lb-content_main-text').
-                    Fortunately, we deal with this type of thing every day, so we can help you to do it quickly and simply.
+            div(class='lb-cta lb-cta_center lb-cta_large-left animate-description')
+
+                a(href=path + nav.debt.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') #{nav.debt.en.name}
+
+                a(href=path + nav.credit.en.href class='lb-btn lb-btn_push-right lb-btn--none-bottom') #{nav.credit.en.name}
+
+                a(href=path + data.apply.en.href class='lb-btn lb-btn_action lb-btn--none-bottom') Get Help you Need
+
+                p(class='lb-cta-text')
+                    small Need to talk to us? Call <a href='#{data.tel.href}')> #{data.tel.name}</a> for advice <br> on <strong>debt, covering Cape Town</strong> and rest of South Africa
 
 
         section(class='lb-content lb-content_grey')
@@ -40,7 +47,7 @@ block main
                 h2 How to get your South African credit score & credit report
 
                 p.
-                    When you partner with Libertine Consultants, we will guide you through the <b>three-step process</b> with sourcing and understanding your <b>credit record</b> at a cost of <b>R400.00</b>.
+                    When you partner with Libertine Consultants, we will guide you through the <b>three-step process</b> with sourcing and understanding your <b>credit record</b> at a cost of <b>R50.00</b>.
 
         section(class='lb-content')
 
@@ -48,16 +55,13 @@ block main
 
                 h2 Three-step process includes
 
-                ol
+                ol(class="landing-list")
                     
                     li(class="landing-list__item")  
-                        span(class="landing-list__number") 1
                         span(class="landing-list__text") <b>Drawing your credit report</b> from Experian, XDS and Transunion.
                     li(class="landing-list__item -right") 
                         span(class="landing-list__text") <b>Analysing</b> your credit report.
-                        span(class="landing-list__number -right") 2
-                    li(class="landing-list__item") 
-                        span(class="landing-list__number") 3 
+                    li(class="landing-list__item")
                         span(class="landing-list__text") <b>Providing personalised advice</b> on improving your credit score.
 
         section(class='lb-content lb-content_purple')
@@ -67,7 +71,7 @@ block main
                 h2 Start understanding your credit score and report today.
 
                 p.
-                    All you need to do is fill out the form below and make the <b> online payment of R400.00</b>.
+                    All you need to do is fill out the form below and make the <b> online payment of R50.00</b>.
 
 
         section(class='lb-content lb-content_grey')
@@ -106,14 +110,23 @@ block main
                         button(type='hidden', name='formName', value='credit analysis')
                         button(type='hidden', name='isBot', value='')
 
+                    div
+                        span Please tick this box to complete the form
+
                     div(class='lb-form-section')
-                        div(class="g-recaptcha" data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz")
+                        div(class="g-recaptcha", data-sitekey="6LckhBYTAAAAAM_zKRSQ1M9hhgBXavvnHjKbUvTz", data-callback="clicked")
                     
                     div(class='lb-form-section error-js', style='clear: both;')
 
+                    input(type="hidden" name="merchant_id" value="10000100")
+                    input(type="hidden" name="merchant_key" value="46f0cd694581a")
+                    input(type="hidden" name="return_url" value="https://www.yoursite.com/return")
+                    input(type="hidden" name="cancel_url" value="https://www.yoursite.com/cancel")
+                    input(type="hidden" name="notify_url" value="https://www.yoursite.com/notify")
+
                     div(class='lb-form-section', style='position: relative;')
 
-                        button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Pay Now - R400.00
+                        button(type='submit', name='submit', class='lb-btn lb-btn_action lb-btn_action-pull-right submit-btn-js') Pay Now - R50.00
 
                         div(class='spinner')
                             div(class='double-bounce1')
@@ -133,3 +146,4 @@ append js
             e.preventDefault()
             document.querySelector('.js-form').scrollIntoView()
         })
+    include ../partials/scripts/captcha-script

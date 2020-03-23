@@ -2,6 +2,10 @@
 
     .lb-hero_container {
         @include rem(margin, 7rem auto 1.5rem);
+
+        &.-landing {
+            @include rem(margin, 0rem auto 1.5rem);
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 @media screen and (min-width: 64.000em) and (max-width: 86.250em) {
     .lb-hero {
 
-        .lb-hero_container {
+        &_container {
             @include rem(max-width, 450px);
         }
     }
@@ -9,12 +9,20 @@
 
 .lb-hero {
 
-    .lb-hero_container {
+    &-constraint {
+        @include max-width($max-width, $max-width-rem);
+    
+        &.-landing {
+            @include rem(padding, 40px 0);
+        }
+    }
+
+    &_container {
         @include rem(margin, 7rem 0 1.5rem);
         text-align: left;
     }
 
-    .lb-hero-title {
+    &-title {
         @include rem(max-width, 400px);
     }
 }
