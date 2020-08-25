@@ -1,6 +1,6 @@
 {
   "name": "libertine",
-  "version": "2.2.28",
+  "version": "2.2.29",
   "description": "Libertine Consultants website",
   "main": "index.js",
   "scripts": {
