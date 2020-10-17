@@ -43,7 +43,7 @@
     "gulp-usemin": "~0.3.29",
     "imagemin-pngquant": "~7.0.0",
     "markdown": "^0.5.0",
-    "marked": "^0.6.2",
+    "marked": "^0.7.0",
     "minimist": "~1.2.0",
     "node-sass": "~4.12.0",
     "path": "^0.12.7",
