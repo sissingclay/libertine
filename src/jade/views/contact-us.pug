@@ -35,22 +35,14 @@ block main
             h1 Take control of your future by making the right choices today
 
             p.
-                We are based in <strong>beautiful, iconic Cape Town</strong> and would love to sit down with you in person to <strong>discuss
-                the unique aspects</strong> of your case over a cup of tea or coffee.
+                We are based in <strong>beautiful, South Africa</strong> and <strong>fully remote 
+                for your safety</strong>. We arrange video calls to ensure the we connect with you on a 
+                personal level and ensure your safety.
 
 
         section(class='lb-content lb-content_grey', itemscope, itemtype="http://schema.org/LocalBusiness")
 
             div(class='lb-content-constraint__large', data-height)
-
-                div(class='lb-contact')
-
-                    p(itemprop="address", itemscope, itemtype="http://schema.org/PostalAddress") <strong>Our office</strong><br>
-                        span(itemprop="streetAddress") 7 Voortrekker Rd <br>
-                        span(itemprop="streetAddress") Boston <br>
-                        span(itemprop="addressLocality") Cape Town <br>
-                        span(temprop="addressRegion") Western Cape, South Africa <br>
-                        span(itemprop="postalCode") 7530
 
                 div(class='lb-contact')
 
@@ -92,11 +84,6 @@ block main
                     div(class='lb-cta')
                         a(href=path + data.get_touch.en.href, class='lb-btn') Get in Touch
 
-        section(id='google-map', class='lb-map-canvas')
-
-        section(class='lb-content lb-content_purple')
-
-            include ../partials/cta/cta-red
 
 append js
     include ../partials/scripts/contact-script

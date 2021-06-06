@@ -9,6 +9,15 @@
         padding-top: 0;
     }
 
+    p {
+        @include rem(font-size, 12px);
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        color: $light-grey-color;
+        line-height: 1.2;
+    }
+
     a {
         color: $light-grey-color;
         vertical-align: sub;
@@ -17,5 +26,18 @@
         &:hover {
             color: $smoke;
         }
+    }
+}
+
+.lb-contact-notice {
+    padding: 0.85rem;
+
+    p {
+        @include rem(font-size, 12px);
+        text-align: center;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        color: $grey-darkest-color;
+        line-height: 1.2;
     }
 }

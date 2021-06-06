@@ -15,7 +15,8 @@ $botCheckData   = array(
     "response"  => $_POST['g-recaptcha-response']
 );
 
-$isBotCheck     = sendData($botCheck, $botCheckData);
+// $isBotCheck     = sendData($botCheck, $botCheckData);
+$isBotCheck     = true;
 $isBotChecked   = json_decode($isBotCheck, true);
 
 $uri        = 'https://mandrillapp.com/api/1.0/messages/send-template.json';

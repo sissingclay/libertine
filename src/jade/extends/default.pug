@@ -49,16 +49,16 @@ html(lang='en')
             ga('create', 'UA-12899209-1', 'auto');
             ga('send', 'pageview');
 
-
-        <!--[if lte IE 8]>
-        script(src='https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js')
-        <![endif]-->
-
     body
+
+        div(class='lb-contact-notice')
+            p.
+                We are fully remote for <strong>your safety</strong>. We arrange video calls to ensure the we connect with you on a 
+                personal level and ensure your safety.
+
         div(class='lb-contactDetails')
 
             div(class='lb-content-constraint lb-content')
-
                 a(href=data.tel.href) #{data.tel.name}
                 a(href=data.email.href) Email Us
                 a(href=path + data.get_touch.en.href) #{data.get_touch.en.name}
