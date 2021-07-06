@@ -1,17 +1,13 @@
 <?php
     require_once('sparkpost.class.php');
-    require_once('google.validator.php');
     require_once('copper.class.php');
 
     header('Content-Type: application/json;charset=utf-8');
 
-    $google = new GoogleValidator($_POST['g-recaptcha-response']);
     $sparkPost = new SparkPost();
     $copper = new Copper();
 
-    $captchaResult = $google->checker();
-    // $captchaResultDecode = json_decode($captchaResult, true);
-    $captchaResultDecode = { 'success': true };
+    $captchaResultDecode['success'] = true;
     $fullName = $_POST['name'] . ' ' . $_POST['surname'];
 
     if ($captchaResultDecode['success']) {

@@ -7,15 +7,6 @@
  */
 include 'curlwrap_v2.php';
 
-$botCheck       = "https://www.google.com/recaptcha/api/siteverify";
-$botCheck_api   = "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2";
-
-$botCheckData   = array(
-    "secret"    => "6LckhBYTAAAAAH-I_F0JlhnPhZzcGOFcTEta75Q2",
-    "response"  => $_POST['g-recaptcha-response']
-);
-
-// $isBotCheck     = sendData($botCheck, $botCheckData);
 $isBotCheck     = true;
 $isBotChecked   = json_decode($isBotCheck, true);
 
