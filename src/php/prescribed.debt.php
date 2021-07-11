@@ -1,16 +1,13 @@
 <?php
     require_once('sparkpost.class.php');
-    require_once('copper.class.php');
 
     header('Content-Type: application/json;charset=utf-8');
 
     $sparkPost = new SparkPost();
-    $copper = new Copper();
 
-    $captchaResultDecode['success'] = true;
     $fullName = $_POST['name'] . ' ' . $_POST['surname'];
 
-    if ($captchaResultDecode['success']) {
+    if ($_POST['clickedCaptcha'] === 'ticked') {
 
         $emailResult = $sparkPost->createEmailSend(
             $_POST, 
@@ -25,30 +22,21 @@
         $adminEmail = $sparkPost->createEmailSend(
             $_POST,
             json_encode([
-                "FULLNAME" => $_POST['fullname'],
-                "SURNAME" => $_POST['surname'],
+                "FULLNAME" => $fullName, 
                 "EMAIL" => $_POST['email'], 
                 "CONTACT" => $_POST['number'], 
-                "CREDITORS" => $_POST['creditors'],
-                "DEBTS" => $_POST['debt'],
-                "REVIEWS" => $_POST['review'],
-                "BLACKLISTEDS" => $_POST['blacklisted'],
-                "ARREARS" => $_POST['arrears'],
-                "POSITIONS" => $_POST['position'],
-                "LOCATIONS" => $_POST['location'],
-                "EMPLOYEDS" => $_POST['employed']
+                "MESSAGE" => $_POST['enquiry'],
+                "ALL" => $ALL
             ]),
-            'credit_analysis_internal',
+            'credit-analysis-internal',
             [
-                "email" => "info@libertineconsultants.co.za",
-                "name" => 'Credit analysis'
+                "email" => "sharon@libertineconsultants.co.za",
+                "name" => 'Sharon-Rose Duminy'
             ]
         );
 
-        $lead = $copper->sendCopperData($_POST, 'Credit clearance');
-
-        if ($lead->id) {
-            echo json_encode($lead);
+        if ($adminEmail) {
+            echo json_encode($adminEmail);
         } else {
             http_response_code(500);
         }

@@ -1,16 +1,21 @@
 <?php
     require_once('sparkpost.class.php');
-    require_once('copper.class.php');
 
     header('Content-Type: application/json;charset=utf-8');
 
     $sparkPost = new SparkPost();
-    $copper = new Copper();
 
-    $captchaResultDecode['success'] = true;
     $fullName = $_POST['name'] . ' ' . $_POST['surname'];
 
-    if ($captchaResultDecode['success']) {
+    $ALL;
+
+    foreach($_POST as $key => $val) {
+        if ($key !== 'submit' || $key !== 'g-recaptcha-response' || $key !== 'isBot' || $key !== 'clickedCaptcha') {
+            $ALL = $ALL . 'Field name: '.$key. ', Value: '.$val .'  \n';
+        }
+    }
+
+    if ($_POST['clickedCaptcha'] === 'ticked') {
 
         $emailResult = $sparkPost->createEmailSend(
             $_POST, 
@@ -22,10 +27,24 @@
             ]
         );
 
-        $lead = $copper->sendCopperData($_POST, 'Credit clearance');
+        $adminEmail = $sparkPost->createEmailSend(
+            $_POST,
+            json_encode([
+                "FULLNAME" => $fullName, 
+                "EMAIL" => $_POST['email'], 
+                "CONTACT" => $_POST['number'], 
+                "MESSAGE" => $_POST['enquiry'],
+                "ALL" => $ALL
+            ]),
+            'test',
+            [
+                "email" => "sharon@libertineconsultants.co.za",
+                "name" => 'Sharon-Rose Duminy'
+            ]
+        );
 
-        if ($lead->id) {
-            echo json_encode($lead);
+        if ($adminEmail) {
+            echo json_encode($adminEmail);
         } else {
             http_response_code(500);
         }

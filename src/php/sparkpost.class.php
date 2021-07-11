@@ -1,7 +1,13 @@
 <?php 
+    require_once('api.keys.php');
+
     class SparkPost {
-        private $uri        = 'https://api.sparkpost.com/api/v1/transmissions';
-        private $api_key    = "1c3d76921fd18b3cad27977adeda917de90af704";
+        private $glob;
+
+        public function __construct() {
+            global $GLOBALS;
+            $this->glob =& $GLOBALS;
+        }
 
         public function createEmailSend($userInfo, $data = '{}', $template = 'touch', $recipients) {
             $email = ($recipients) ? $recipients['email'] : $userInfo['email'];
@@ -32,12 +38,12 @@
         public function sendData($postString) {
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $this->uri);
+            curl_setopt($ch, CURLOPT_URL, $this->glob['sparkpost_uri']);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
             curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Authorization: '. $this->api_key
+                'Authorization: '. $this->glob['sparkpost_key']
             ));
             curl_setopt($ch, CURLOPT_POST, true);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
