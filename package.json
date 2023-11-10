@@ -52,7 +52,7 @@
     "walkway.js": "0.0.9"
   },
   "devDependencies": {
-    "contentful": "^7.5.0",
+    "contentful": "^10.6.7",
     "dateformat": "^3.0.3",
     "typescript": "^3.4.5"
   }
